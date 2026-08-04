@@ -304,11 +304,11 @@ footer a:hover{color:var(--gold)}
  <div class="meta">
    <span>작성 <b>김만민 건축사 · ㈜대성건축사사무소</b></span>
    <span>발행 <b>2026.08.04</b></span>
-   <span>출처 <b>LawMCP(국가법령정보센터) 조사 — 2026.7월말~8월 시행·공포 사항</b></span>
-   <span>총 <b>5건</b></span>
+   <span>출처 <b>collect.py 의안 수집 + LawMCP 확정분 대조 (통일 수집 기준 적용 — 8/3까지 잠정)</b></span>
+   <span>총 <b>9건</b></span>
  </div>
  <div class="stats">
-   <div class="stat"><i>시행법령</i><b>4</b></div><div class="stat"><i>추가검토</i><b>1</b></div>
+   <div class="stat"><i>시행법령</i><b>4</b></div><div class="stat"><i>의원발의</i><b>4</b></div><div class="stat"><i>추가검토</i><b>1</b></div>
  </div>
 </div></section>
 
@@ -317,8 +317,8 @@ footer a:hover{color:var(--gold)}
    <input id="q" type="search" placeholder="법령명 · 조문 · 키워드 검색   (단축키 /)" autocomplete="off">
    <span class="x" onclick="clearQ()">✕</span>
  </div>
- <div class="chips"><span class="lb">구분</span><span class="chip on" data-g="cat" onclick="setChip('cat','ALL',this)">전체<span class="n">5</span></span><span class="chip" data-g="cat" onclick="setChip('cat','시행법령',this)">시행법령<span class="n">4</span></span><span class="chip" data-g="cat" onclick="setChip('cat','추가검토',this)">추가검토<span class="n">1</span></span></div>
- <div class="chips" style="margin-top:6px"><span class="lb">분야</span><span class="chip on" data-g="field" onclick="setChip('field','ALL',this)">전체</span><span class="chip" data-g="field" onclick="setChip('field','건축',this)">건축</span><span class="chip" data-g="field" onclick="setChip('field','전기',this)">전기</span><span class="chip" data-g="field" onclick="setChip('field','소방',this)">소방</span><span class="chip" data-g="field" onclick="setChip('field','구조',this)">구조</span></div>
+ <div class="chips"><span class="lb">구분</span><span class="chip on" data-g="cat" onclick="setChip('cat','ALL',this)">전체<span class="n">9</span></span><span class="chip" data-g="cat" onclick="setChip('cat','시행법령',this)">시행법령<span class="n">4</span></span><span class="chip" data-g="cat" onclick="setChip('cat','의원발의',this)">의원발의<span class="n">4</span></span><span class="chip" data-g="cat" onclick="setChip('cat','추가검토',this)">추가검토<span class="n">1</span></span></div>
+ <div class="chips" style="margin-top:6px"><span class="lb">분야</span><span class="chip on" data-g="field" onclick="setChip('field','ALL',this)">전체</span><span class="chip" data-g="field" onclick="setChip('field','건축',this)">건축</span><span class="chip" data-g="field" onclick="setChip('field','전기',this)">전기</span><span class="chip" data-g="field" onclick="setChip('field','소방',this)">소방</span><span class="chip" data-g="field" onclick="setChip('field','구조',this)">구조</span><span class="chip" data-g="field" onclick="setChip('field','안전진단',this)">안전진단</span></div>
  <div class="chips" style="margin-top:9px">
    <button class="btn" id="bAll" onclick="toggleAll()">전체 펼치기</button>
    <button class="btn" onclick="window.print()">🖨 인쇄 · PDF 저장</button>
@@ -422,7 +422,99 @@ footer a:hover{color:var(--gold)}
  <p class="sum">법률 제21413호(2026.2.27. 공포)가 공포 후 6개월이 경과한 2026.8.28. 시행 예정.</p>
  <div class="reason"><b>제안이유 및 주요내용</b>2026.2.27. 공포된 주차장법 일부개정법률(제21413호)이 공포 후 6개월 경과일인 8.28. 시행 예정. 세부 개정이유·주요내용은 법제처 시행예정본으로 확인 예정.</div><details><summary>세부 개정내용 3건</summary><div class="det"><ul><li>법률 제21413호(2026.2.27. 공포 / 2026.8.28. 시행) — LawMCP 시행예정 정보 확인</li><li>세부 개정 조문은 시행 전 법제처 시행예정본으로 확인 권장</li><li>주차장법 시행규칙도 2026.7.27. 공포·시행 일부개정 있음 — 원문 확인</li></ul></div></details><div class="cmplink">신·구조문 대비 — 시행예정(2026.8.28.) 법률 — 신·구조문 대비표는 법제처 시행예정본 링크에서 확인<a href="https://www.law.go.kr/법령/%EC%A3%BC%EC%B0%A8%EC%9E%A5%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%EC%B0%A8%EC%9E%A5%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a></div><div class="impact"><b>실무 영향</b>8.28. 이후 허가 신청분부터 개정 규정 적용 — 주차계획 검토 시 시행일 전후 적용 기준 확인 필요.</div>
 </article>
-<article class="card" id="i05" style="--cc:#8b98b3"
+<article class="card" id="i05" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="구조|건축" data-s="건설사업관리 과업기간·통합발주 법률 상향 및 과태료 신설 건설기술 진흥법 건설사업관리 기간을 국토교통부령 기준에 따라 정하도록 하고, 시행령·시행규칙의 통합발주 규정을 법률로 상향하면서 위반 시 과태료를 부과. 의원발의 구조 건축  통과 시 cm 과업기간을 공사기간보다 짧게 잡는 관행에 제동 — 감리·cm 용역 대가 산정에 직접 영향. 2026-08-03"
+ data-title="건설사업관리 과업기간·통합발주 법률 상향 및 과태료 신설" data-law="건설기술 진흥법" data-sum="건설사업관리 기간을 국토교통부령 기준에 따라 정하도록 하고, 시행령·시행규칙의 통합발주 규정을 법률로 상향하면서 위반 시 과태료를 부과."
+ data-date="2026-08-03" data-dlabel="발의"
+ data-detail="[]"
+ data-reason="현행법은 발주청이 건설사업관리 용역을 발주하도록 규정하고, 시행령·시행규칙에서 공종이 유사하고 각 공사현장이 직선거리 20km 이내인 건설공사에 한정해 통합발주하도록 정하고 있음. 그런데 발주청이 과업기간을 공사기간보다 짧게 정하거나 통합발주 규정을 위반해도 처벌 규정이 없어 건설사업관리를 효과적으로 수행하기 어렵다는 지적이 있음. 이에 관련 규정을 법률로 상향하고 위반 시 과태료를 부과하려는 것임(안 제39조제2항·제4항 등)."
+ data-impact="통과 시 CM 과업기간을 공사기간보다 짧게 잡는 관행에 제동 — 감리·CM 용역 대가 산정에 직접 영향.">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">구조</span><span class="field">건축</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i05')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">건설사업관리 과업기간·통합발주 법률 상향 및 과태료 신설</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.08.03</b></span>
+  <span>·</span>
+  <span>근거 건설기술 진흥법</span>
+  <a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2M6K0L7J2K9S1S5R3P1Q0O0P5X2X5" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%88%A0%20%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">건설사업관리 기간을 국토교통부령 기준에 따라 정하도록 하고, 시행령·시행규칙의 통합발주 규정을 법률로 상향하면서 위반 시 과태료를 부과.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행법은 발주청이 건설사업관리 용역을 발주하도록 규정하고, 시행령·시행규칙에서 공종이 유사하고 각 공사현장이 직선거리 20km 이내인 건설공사에 한정해 통합발주하도록 정하고 있음. 그런데 발주청이 과업기간을 공사기간보다 짧게 정하거나 통합발주 규정을 위반해도 처벌 규정이 없어 건설사업관리를 효과적으로 수행하기 어렵다는 지적이 있음. 이에 관련 규정을 법률로 상향하고 위반 시 과태료를 부과하려는 것임(안 제39조제2항·제4항 등).</div><div class="cmplink">신·구조문 대비 — 발의 단계 — 조문별 세부내용·신·구조문 대비는 의안정보시스템 원문(의안원문 파일) 참조.<a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2M6K0L7J2K9S1S5R3P1Q0O0P5X2X5" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%88%A0%20%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div><div class="impact"><b>실무 영향</b>통과 시 CM 과업기간을 공사기간보다 짧게 잡는 관행에 제동 — 감리·CM 용역 대가 산정에 직접 영향.</div>
+</article>
+<article class="card" id="i06" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="소방" data-s="리튬전지 특수가연물 지정 · 저장위치 신고 의무화 화재의 예방 및 안전관리에 관한 법률 리튬전지를 특수가연물로 지정하고, 특수가연물의 저장 위치·현재수량 신고 의무를 대통령령으로 정하도록 함. 의원발의 소방  통과 시 물류창고·데이터센터 등 리튬전지 보관 시설의 저장·취급 기준과 이격거리 검토가 설계 단계에서 필요. 2026-08-03"
+ data-title="리튬전지 특수가연물 지정 · 저장위치 신고 의무화" data-law="화재의 예방 및 안전관리에 관한 법률" data-sum="리튬전지를 특수가연물로 지정하고, 특수가연물의 저장 위치·현재수량 신고 의무를 대통령령으로 정하도록 함."
+ data-date="2026-08-03" data-dlabel="발의"
+ data-detail="[]"
+ data-reason="현행법은 고무류·플라스틱류·석탄·목탄 등 확산 속도가 높은 물품을 특수가연물로 지정해 저장·취급 기준을 정하고 있으나, 인천 쿠팡 32물류센터 화재에서 문제로 꼽힌 리튬전지는 품목에 포함되지 않음. 리튬전지는 가열·충격으로 발화할 수 있고 자체 화학반응으로 고온을 발생시키는 특성이 있어 특수가연물 지정 필요성이 제기됨. 또한 저장 위치를 소방관서에 신고하도록 해 효과적 화재 진압이 가능하도록 해야 한다는 지적이 있음(안 제17조제5항)."
+ data-impact="통과 시 물류창고·데이터센터 등 리튬전지 보관 시설의 저장·취급 기준과 이격거리 검토가 설계 단계에서 필요.">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">소방</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i06')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">리튬전지 특수가연물 지정 · 저장위치 신고 의무화</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.08.03</b></span>
+  <span>·</span>
+  <span>근거 화재의 예방 및 안전관리에 관한 법률</span>
+  <a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2J6H0P7Q3O0P1N4O3M0U2V8T2U2S1" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%ED%99%94%EC%9E%AC%EC%9D%98%20%EC%98%88%EB%B0%A9%20%EB%B0%8F%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">리튬전지를 특수가연물로 지정하고, 특수가연물의 저장 위치·현재수량 신고 의무를 대통령령으로 정하도록 함.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행법은 고무류·플라스틱류·석탄·목탄 등 확산 속도가 높은 물품을 특수가연물로 지정해 저장·취급 기준을 정하고 있으나, 인천 쿠팡 32물류센터 화재에서 문제로 꼽힌 리튬전지는 품목에 포함되지 않음. 리튬전지는 가열·충격으로 발화할 수 있고 자체 화학반응으로 고온을 발생시키는 특성이 있어 특수가연물 지정 필요성이 제기됨. 또한 저장 위치를 소방관서에 신고하도록 해 효과적 화재 진압이 가능하도록 해야 한다는 지적이 있음(안 제17조제5항).</div><div class="cmplink">신·구조문 대비 — 발의 단계 — 조문별 세부내용·신·구조문 대비는 의안정보시스템 원문(의안원문 파일) 참조.<a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2J6H0P7Q3O0P1N4O3M0U2V8T2U2S1" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%ED%99%94%EC%9E%AC%EC%9D%98%20%EC%98%88%EB%B0%A9%20%EB%B0%8F%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">의안정보시스템 ↗</a></div><div class="impact"><b>실무 영향</b>통과 시 물류창고·데이터센터 등 리튬전지 보관 시설의 저장·취급 기준과 이격거리 검토가 설계 단계에서 필요.</div>
+</article>
+<article class="card" id="i07" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="건축|소방|안전진단" data-s="공장·창고 화재위험등급 평가 및 보수·보강 조치 의무 건축물관리법 공장·창고·물류시설 건축물의 화재위험도를 종합 평가해 등급을 설정하고, 관리자가 등급에 따라 보수·보강 조치를 하도록 함. 의원발의 건축 소방 안전진단  통과 시 공장·창고 화재위험등급 평가가 신설 업무로 발생 — 안전진단·건축물관리점검 수요 확대 요인. 2026-08-03"
+ data-title="공장·창고 화재위험등급 평가 및 보수·보강 조치 의무" data-law="건축물관리법" data-sum="공장·창고·물류시설 건축물의 화재위험도를 종합 평가해 등급을 설정하고, 관리자가 등급에 따라 보수·보강 조치를 하도록 함."
+ data-date="2026-08-03" data-dlabel="발의"
+ data-detail="[]"
+ data-reason="현행법은 정기점검 제도를 두고 화재안전성능 등 중대 결함에 조치하도록 하나, 용도·규모·건축자재·구조·피난방화시설을 종합 조사해 화재위험도를 등급화하는 체계는 미비함. 특히 공장·창고 등 산업시설은 가연성 자재와 복잡한 내부 구조, 피난동선 훼손이 결합돼 대형 인명피해로 이어질 수 있음에도 기존 제도는 다중이용시설·피난약자 이용시설 중심으로 운영돼 한계가 있음(안 제29조의3 신설)."
+ data-impact="통과 시 공장·창고 화재위험등급 평가가 신설 업무로 발생 — 안전진단·건축물관리점검 수요 확대 요인.">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">건축</span><span class="field">소방</span><span class="field">안전진단</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i07')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">공장·창고 화재위험등급 평가 및 보수·보강 조치 의무</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.08.03</b></span>
+  <span>·</span>
+  <span>근거 건축물관리법</span>
+  <a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2G6G0C7D0B8Z1A1Y1Z2H1H8F2E4F4" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">공장·창고·물류시설 건축물의 화재위험도를 종합 평가해 등급을 설정하고, 관리자가 등급에 따라 보수·보강 조치를 하도록 함.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행법은 정기점검 제도를 두고 화재안전성능 등 중대 결함에 조치하도록 하나, 용도·규모·건축자재·구조·피난방화시설을 종합 조사해 화재위험도를 등급화하는 체계는 미비함. 특히 공장·창고 등 산업시설은 가연성 자재와 복잡한 내부 구조, 피난동선 훼손이 결합돼 대형 인명피해로 이어질 수 있음에도 기존 제도는 다중이용시설·피난약자 이용시설 중심으로 운영돼 한계가 있음(안 제29조의3 신설).</div><div class="cmplink">신·구조문 대비 — 발의 단계 — 조문별 세부내용·신·구조문 대비는 의안정보시스템 원문(의안원문 파일) 참조.<a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2G6G0C7D0B8Z1A1Y1Z2H1H8F2E4F4" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div><div class="impact"><b>실무 영향</b>통과 시 공장·창고 화재위험등급 평가가 신설 업무로 발생 — 안전진단·건축물관리점검 수요 확대 요인.</div>
+</article>
+<article class="card" id="i08" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="소방" data-s="인화성·폭발위험 물질 취급시설 지역을 화재예방강화지구에 추가 화재의 예방 및 안전관리에 관한 법률 인화성·발화성·폭발위험 물질을 대통령령 수량 이상 제조·저장·취급하는 시설이 있는 지역을 화재예방강화지구로 지정해 화재안전조사 대상에 포함. 의원발의 소방   2026-08-03"
+ data-title="인화성·폭발위험 물질 취급시설 지역을 화재예방강화지구에 추가" data-law="화재의 예방 및 안전관리에 관한 법률" data-sum="인화성·발화성·폭발위험 물질을 대통령령 수량 이상 제조·저장·취급하는 시설이 있는 지역을 화재예방강화지구로 지정해 화재안전조사 대상에 포함."
+ data-date="2026-08-03" data-dlabel="발의"
+ data-detail="[]"
+ data-reason="현행법은 목조건물 밀집 지역 등을 화재예방강화지구로 지정해 화재안전조사를 하고, 공항시설 등을 특별관리시설물로 지정해 소방안전 특별관리를 하도록 함. 그런데 인화성·발화성·폭발위험 물질을 제조·저장·취급하는 시설은 화재·폭발로 피해가 클 수 있음에도 안전진단 규정이 없어 개선이 필요하다는 의견이 있음(안 제18조제1항제5호의2 신설)."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">소방</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i08')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">인화성·폭발위험 물질 취급시설 지역을 화재예방강화지구에 추가</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.08.03</b></span>
+  <span>·</span>
+  <span>근거 화재의 예방 및 안전관리에 관한 법률</span>
+  <a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6B0Z7A0Q8O1P1N1N3M0U7U4T1U9" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%ED%99%94%EC%9E%AC%EC%9D%98%20%EC%98%88%EB%B0%A9%20%EB%B0%8F%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">인화성·발화성·폭발위험 물질을 대통령령 수량 이상 제조·저장·취급하는 시설이 있는 지역을 화재예방강화지구로 지정해 화재안전조사 대상에 포함.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행법은 목조건물 밀집 지역 등을 화재예방강화지구로 지정해 화재안전조사를 하고, 공항시설 등을 특별관리시설물로 지정해 소방안전 특별관리를 하도록 함. 그런데 인화성·발화성·폭발위험 물질을 제조·저장·취급하는 시설은 화재·폭발로 피해가 클 수 있음에도 안전진단 규정이 없어 개선이 필요하다는 의견이 있음(안 제18조제1항제5호의2 신설).</div><div class="cmplink">신·구조문 대비 — 발의 단계 — 조문별 세부내용·신·구조문 대비는 의안정보시스템 원문(의안원문 파일) 참조.<a href="https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6B0Z7A0Q8O1P1N1N3M0U7U4T1U9" target="_blank" rel="noopener">의안정보시스템 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%ED%99%94%EC%9E%AC%EC%9D%98%20%EC%98%88%EB%B0%A9%20%EB%B0%8F%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">의안정보시스템 ↗</a></div>
+</article>
+<article class="card" id="i09" style="--cc:#8b98b3"
  data-cat="추가검토" data-field="건축|소방" data-s="8월 입법예고 마감 캘린더 건축법 시행령 8월 중 의견 제출이 마감되는 입법예고 6건 — 마감 전 의견 제출 여부 검토. 추가검토 건축 소방 8.4. 마감 — 건축서비스산업 진흥법 시행령(국가보안시설 설계공모 제외) 8.10. 마감 — 국계법 시행령(일반공업지역 오피스텔) · 주택법 시행령(도시형생활주택 6개층) · 주택건설기준 규정(주차기준 완화 50~70%) 8.24. 마감 — 건축법 시행령(반도체공장 층간 방화구획 완화) · 건축물의 피난·방화구조 기준 규칙(복합 방화셔터 도입) 각 예고안의 상세 신구대조는 2026-07호 수록 복합 방화셔터·방화구획 완화안은 설계 실무에 직접 영향 — 의견 제출 마감(8.24.) 전 검토 권장. 2026-08-01"
  data-title="8월 입법예고 마감 캘린더" data-law="건축법 시행령" data-sum="8월 중 의견 제출이 마감되는 입법예고 6건 — 마감 전 의견 제출 여부 검토."
  data-date="2026-08-01" data-dlabel="참고"
@@ -432,7 +524,7 @@ footer a:hover{color:var(--gold)}
  <div class="ctop">
   <span class="tag">추가검토</span><span class="field">건축</span><span class="field">소방</span>
   <span class="sp"></span>
-  <span class="anchor" onclick="copyAnchor('i05')" title="이 항목 링크 복사">🔗 링크</span>
+  <span class="anchor" onclick="copyAnchor('i09')" title="이 항목 링크 복사">🔗 링크</span>
  </div>
  <h3 class="ct">8월 입법예고 마감 캘린더</h3>
  <div class="lawrow">
