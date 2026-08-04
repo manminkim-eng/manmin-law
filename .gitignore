@@ -1,0 +1,4 @@
+config.local.json
+data/_inbox/
+Thumbs.db
+__pycache__/
