@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+window.__bip=null;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault(); window.__bip=e;
+  window.dispatchEvent(new Event('bip-ready'));
+});
+window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
+</script>
+<title>2026년 7월 법규 검토 요약 — MANMIN LEGAL REVIEW</title>
+<meta name="description" content="일조사선 3단계 완화 국회 통과 · 복합 방화셔터 도입 예고 · 특정건축물 양성화 한시법 제정">
+<meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
+<meta name="theme-color" content="#0c1120">
+<link rel="canonical" href="https://manminkim-eng.github.io/manmin-law/2026-07.html">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="만민 건축법규 검토요약">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="만민법규">
+<meta name="msapplication-TileColor" content="#0c1120">
+<meta name="msapplication-TileImage" content="assets/icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://manminkim-eng.github.io/manmin-law/assets/logo-full.png">
+<meta property="og:image:alt" content="ARCHITECT KIM MANMIN — 만민 법규 검토 요약">
+<meta property="og:site_name" content="MANMIN LEGAL REVIEW — 만민 법규 검토 요약">
+<meta property="og:title" content="2026년 7월 법규 검토 요약 — MANMIN LEGAL REVIEW">
+<meta property="og:description" content="일조사선 3단계 완화 국회 통과 · 복합 방화셔터 도입 예고 · 특정건축물 양성화 한시법 제정">
+<meta property="og:url" content="https://manminkim-eng.github.io/manmin-law/2026-07.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#0c1120; --panel:#131b2c; --panel2:#182134; --line:#26314a;
+ --gold:#d4a843; --txt:#e8edf7; --muted:#8b98b3; --danger:#e0645c;
+}
+html[data-theme="light"]{
+ --bg:#f4f6fa; --panel:#ffffff; --panel2:#f0f3f8; --line:#dbe1ec;
+ --gold:#a67c1f; --txt:#151b28; --muted:#5c6883;
+}
+body{background:var(--bg);color:var(--txt);
+ font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,BlinkMacSystemFont,sans-serif;
+ line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(212,168,67,.07),transparent);
+ position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background-color:var(--bg)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.markchip{flex:none;height:46px;width:auto;border-radius:10px;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;padding:4px 8px;
+ background:#f0ead9;border:1.5px solid rgba(212,168,67,.55);
+ box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.brandmark{height:100%;width:auto;max-width:none;object-fit:contain;display:block}
+html[data-theme="light"] .markchip{border-color:rgba(43,58,103,.35);box-shadow:none}
+.btn.install{display:none;background:var(--gold);color:#0c1120;border-color:var(--gold);
+ font-weight:800;align-items:center;gap:6px;padding:6px 12px 6px 8px}
+.btn.install:hover{filter:brightness(1.08);color:#0c1120}
+.btn.install.on{display:inline-flex}
+.btn.install img{height:19px;width:19px;object-fit:contain;display:block;
+ filter:brightness(0) saturate(100%)}
+.btn.install span{line-height:1}
+.iosgd{position:fixed;left:12px;right:12px;bottom:12px;z-index:150;background:var(--panel);
+ border:1px solid var(--gold);border-radius:13px;padding:15px 17px;display:none;
+ box-shadow:0 10px 36px rgba(0,0,0,.45)}
+.iosgd.on{display:block}
+.iosgd b{color:var(--gold);font-size:13px;display:block;margin-bottom:7px}
+.iosgd p{font-size:13px;color:var(--txt);line-height:1.7}
+.iosgd .x2{position:absolute;top:11px;right:13px;color:var(--muted);cursor:pointer;font-size:15px}
+.ver{font-size:10px;font-weight:800;letter-spacing:.09em;color:#0c1120;
+ background:var(--gold);padding:3px 8px;border-radius:5px;white-space:nowrap;align-self:center}
+.brand b{font-size:19px;letter-spacing:.11em;color:var(--gold);font-weight:800}
+.brand span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+.hdbtns{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--txt);
+ padding:7px 12px;border-radius:8px;font-size:12.5px;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.gold{background:var(--gold);color:#0c1120;border-color:var(--gold);font-weight:700}
+.btn.gold:hover{filter:brightness(1.1);color:#0c1120}
+select.btn{appearance:none;padding-right:26px;
+ background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+ background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+/* HERO */
+.hero{padding:34px 0 22px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-bottom:9px}
+h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.lead{color:var(--muted);margin-top:11px;font-size:14.5px;max-width:860px}
+.meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:15px;font-size:12px;color:var(--muted)}
+.meta b{color:var(--txt);font-weight:600}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:9px;margin:20px 0 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.stat i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.stat b{display:block;font-size:20px;font-weight:800;margin-top:3px}
+
+/* TOOLBAR */
+.toolbar{position:sticky;top:59px;z-index:40;background:var(--bg);
+ padding:15px 0 11px;border-bottom:1px solid var(--line)}
+.searchbox{position:relative;margin-bottom:11px}
+.searchbox input{width:100%;padding:11px 40px 11px 14px;border-radius:10px;
+ border:1px solid var(--line);background:var(--panel);color:var(--txt);font-size:14px;outline:none;font-family:inherit}
+.searchbox input:focus{border-color:var(--gold)}
+.searchbox .x{position:absolute;right:11px;top:50%;transform:translateY(-50%);
+ color:var(--muted);cursor:pointer;font-size:16px;display:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chips .lb{font-size:11px;color:var(--muted);margin-right:3px;letter-spacing:.05em}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--muted);
+ padding:5px 11px;border-radius:99px;font-size:12px;cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{color:var(--txt)}
+.chip.on{background:var(--gold);color:#0c1120;border-color:var(--gold);font-weight:700}
+.chip .n{opacity:.65;font-size:10.5px;margin-left:3px}
+.hint{font-size:11.5px;color:var(--muted);margin-top:9px}
+
+/* CARD */
+.list{padding:22px 0 40px;display:flex;flex-direction:column;gap:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+ padding:17px 19px;border-left:4px solid var(--cc,var(--gold));transition:.18s;scroll-margin-top:150px}
+.card:hover{border-color:var(--line);box-shadow:0 5px 22px rgba(0,0,0,.22)}
+.card.hi{box-shadow:0 0 0 2px var(--gold)}
+.ctop{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
+.tag{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.03em;
+ background:var(--cc);color:#0c1120}
+.field{font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:5px}
+.dday{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;
+ background:rgba(224,100,92,.14);color:var(--danger);border:1px solid rgba(224,100,92,.35)}
+.dday.soft{background:rgba(139,152,179,.12);color:var(--muted);border-color:var(--line)}
+.dday.ok{background:rgba(111,192,138,.13);color:#6fc08a;border-color:rgba(111,192,138,.33)}
+.ctop .sp{flex:1}
+.anchor{font-size:11px;color:var(--muted);cursor:pointer;opacity:.6}
+.anchor:hover{opacity:1;color:var(--gold)}
+h3.ct{font-size:16.5px;font-weight:750;letter-spacing:-.01em;line-height:1.45}
+.lawrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:7px 0 9px;font-size:12.5px;color:var(--muted)}
+.lawrow a{color:var(--gold);border-bottom:1px dotted rgba(212,168,67,.5);padding-bottom:1px}
+.lawrow a:hover{border-bottom-style:solid}
+.sum{font-size:14px;color:var(--txt);opacity:.93}
+details{margin-top:11px}
+summary{cursor:pointer;font-size:12.5px;color:var(--gold);list-style:none;
+ display:inline-flex;align-items:center;gap:5px;user-select:none;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";transition:.15s;display:inline-block}
+details[open] summary::before{transform:rotate(90deg)}
+.det{margin-top:10px;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.det ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.det li{font-size:13px;padding-left:14px;position:relative;color:var(--txt);opacity:.9}
+.det li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;
+ border-radius:99px;background:var(--cc);opacity:.75}
+.impact{margin-top:11px;padding:10px 13px;border-radius:8px;font-size:12.8px;
+ background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.25)}
+.impact b{color:var(--gold);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:4px}
+.reason{margin-top:10px;padding:11px 14px;border-radius:8px;font-size:13.2px;
+ background:var(--panel2);border:1px solid var(--line);line-height:1.7}
+.reason b{color:var(--cc);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:5px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;margin-top:8px}
+.cmp th{background:var(--panel);border:1px solid var(--line);padding:6px 9px;
+ font-size:10.8px;letter-spacing:.07em;color:var(--muted);font-weight:700;text-align:left}
+.cmp th.new{color:var(--gold)}
+.cmp td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;line-height:1.6;width:44%}
+.cmp td.art{width:12%;font-weight:700;font-size:11.5px;color:var(--cc);
+ background:var(--panel);white-space:nowrap}
+.cmp td.new{background:rgba(212,168,67,.05)}
+.cmplink{margin-top:8px;font-size:12px;color:var(--muted)}
+.cmplink a{color:var(--gold);border-bottom:1px dotted rgba(212,168,67,.5);margin-left:8px}
+.empty{text-align:center;padding:56px 20px;color:var(--muted);font-size:14px}
+
+/* ARCHIVE */
+.sec{padding:34px 0;border-top:1px solid var(--line)}
+.sech{font-size:11.5px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:15px}
+.arch{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:11px}
+.acard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+ display:block;transition:.18s}
+.acard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.acard i{font-style:normal;font-size:10.5px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.acard b{display:block;font-size:17px;margin:5px 0 7px;font-weight:750}
+.acard p{font-size:12.3px;color:var(--muted);line-height:1.55}
+.acard .cnt{margin-top:9px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+
+/* MODAL */
+.mask{position:fixed;inset:0;background:rgba(4,7,14,.78);z-index:100;display:none;
+ align-items:center;justify-content:center;padding:20px}
+.mask.on{display:flex}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+ max-width:760px;width:100%;max-height:86vh;display:flex;flex-direction:column}
+.mh{padding:15px 19px;border-bottom:1px solid var(--line);display:flex;
+ align-items:center;justify-content:space-between;gap:10px}
+.mh b{font-size:14.5px}
+.mtabs{display:flex;gap:6px;padding:11px 19px 0}
+.mbody{padding:13px 19px 19px;overflow:auto;flex:1}
+.mbody textarea{width:100%;min-height:340px;background:var(--bg);color:var(--txt);
+ border:1px solid var(--line);border-radius:9px;padding:13px;font-size:12.5px;
+ line-height:1.75;font-family:'D2Coding','Consolas',monospace;resize:vertical;outline:none}
+.mfoot{padding:12px 19px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+
+/* TOAST */
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+ background:var(--gold);color:#0c1120;padding:11px 20px;border-radius:9px;font-size:13px;
+ font-weight:700;z-index:200;opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:12px;color:var(--muted)}
+footer .fl{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:11px}
+footer a:hover{color:var(--gold)}
+.disc{font-size:11.3px;line-height:1.7;opacity:.8}
+
+/* TOP */
+#top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:99px;
+ background:var(--panel);border:1px solid var(--line);color:var(--gold);cursor:pointer;
+ display:none;align-items:center;justify-content:center;font-size:16px;z-index:60}
+#top.on{display:flex}
+
+*{-webkit-tap-highlight-color:transparent}
+@media(max-width:640px){
+ .toolbar{top:0;position:relative}
+ header{position:relative}
+ .card{padding:15px 14px}
+ .hd{gap:9px;padding:11px 0}
+ .brand span:not(.ver):not(.markchip){display:none}
+ .markchip{height:38px;width:auto;border-radius:8px;padding:3px 6px}
+ .brandmark{height:100%;width:auto}
+ .brand b{font-size:15.5px}
+ .ver{font-size:9px;padding:2px 6px}
+ .btn.install{padding:7px 9px}
+ .btn.install span{display:none}
+ .btn.install img{height:21px;width:21px}
+ .searchbox input{font-size:16px;padding:12px 40px 12px 14px}
+ .btn{padding:9px 13px;font-size:13px}
+ .chip{padding:7px 12px;font-size:12.5px}
+ h3.ct{font-size:15.5px}
+ .sum{font-size:13.5px}
+ .lawrow{font-size:12px;gap:7px}
+ .det{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:11px 12px}
+ .cmp{min-width:540px}
+ .stats{grid-template-columns:repeat(auto-fit,minmax(92px,1fr))}
+ .arch{grid-template-columns:1fr}
+ .meta{gap:10px;font-size:11.5px}
+ .mbody textarea{min-height:240px;font-size:12px}
+ .modal{max-height:92vh}
+ #top{right:14px;bottom:16px}
+}
+@media(max-width:400px){
+ .hdbtns .btn:not(select){padding:8px 10px;font-size:12px}
+ h1{font-size:20px}
+}
+
+/* PRINT — A4 */
+@media print{
+ @page{size:A4;margin:14mm 12mm}
+ html,body{background:#fff!important;color:#000!important;font-size:10pt}
+ :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
+ header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}
+ details{display:block!important}
+ details>summary{display:none!important}
+ .det{background:#f7f7f7!important;border:1px solid #ccc!important;page-break-inside:avoid}
+ .card{page-break-inside:avoid;border:1px solid #ccc!important;border-left:3px solid #888!important;
+  box-shadow:none!important;margin-bottom:6mm;padding:4mm 5mm}
+ .hero{border-bottom:1.5px solid #000;padding:0 0 5mm}
+ h1{font-size:16pt}
+ .tag{background:#eee!important;color:#000!important;border:1px solid #999}
+ .impact{background:#fbf7ec!important;border:1px solid #d8c68e!important}
+ a{color:#000!important;border:none!important}
+ a[href^="http"]::after{content:" (" attr(href) ")";font-size:7pt;color:#666;word-break:break-all}
+ .wrap{max-width:none;padding:0}
+ .list{gap:0}
+}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="iosgd" id="iosgd">
+ <span class="x2" onclick="closeGuide()">✕</span>
+ <b id="gdTitle">홈 화면에 추가하기</b>
+ <p id="gdBody"></p>
+</div>
+<button id="top" onclick="scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+<header><div class="wrap hd">
+<a class="brand" href="index.html">
+  <span class="markchip"><img class="brandmark" src="assets/logo-full.png" alt="ARCHITECT KIM MANMIN — 건축사 김만민" width="1200" height="867"></span>
+  <b>MANMIN LEGAL REVIEW</b><span class="ver">MANMIN VER-1.0</span><span>만민 법규 검토 요약 · 김만민 건축사 · ㈜대성건축사사무소</span>
+</a>
+<div class="hdbtns">
+  <select class="btn" onchange="if(this.value)location.href=this.value"><option value="">■ 월별 아카이브 이동</option><option value="index.html">전체 목록 (INDEX)</option><option value="2026-08.html">2026년 8월 (2026-08)</option><option value="2026-07.html" selected>2026년 7월 (2026-07)</option><option value="2026-06.html">2026년 6월 (2026-06)</option><option value="2026-05.html">2026년 5월 (2026-05)</option></select>
+  <button class="btn install" id="btnInstall" onclick="installApp()" title="앱으로 설치 — 주소창 없는 독립 창으로 열립니다"><img src="assets/mark-trans.png" alt=""><span>웹에 추가</span></button>
+  <button class="btn" onclick="toggleTheme()" title="밝게/어둡게">◐</button>
+  <a class="btn" href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">MANMIN 계산도구 ↗</a>
+</div>
+</div></header>
+
+<script>window.__META__={"label": "2026년 7월", "headline": "일조사선 3단계 완화 국회 통과 · 복합 방화셔터 도입 예고 · 특정건축물 양성화 한시법 제정", "issue": "2026-07", "home": "https://manminkim-eng.github.io/KIMMANMIN/"};</script>
+<section class="hero"><div class="wrap">
+ <div class="eyebrow">MONTHLY LEGAL REVIEW · 2026-07 · MANMIN VER-1.0</div>
+ <h1>2026년 7월 법규 검토 요약</h1>
+ <p class="lead">일조사선 3단계 완화 국회 통과 · 복합 방화셔터 도입 예고 · 특정건축물 양성화 한시법 제정</p>
+ <div class="meta">
+   <span>작성 <b>김만민 건축사 · ㈜대성건축사사무소</b></span>
+   <span>발행 <b>2026.08.04</b></span>
+   <span>출처 <b>법규교육 PPT(26년07월).pdf</b></span>
+   <span>총 <b>18건</b></span>
+ </div>
+ <div class="stats">
+   <div class="stat"><i>시행법령</i><b>3</b></div><div class="stat"><i>국회통과</i><b>1</b></div><div class="stat"><i>입법예고</i><b>6</b></div><div class="stat"><i>행정예고</i><b>2</b></div><div class="stat"><i>의원발의</i><b>4</b></div><div class="stat"><i>추가검토</i><b>2</b></div>
+ </div>
+</div></section>
+
+<div class="toolbar"><div class="wrap">
+ <div class="searchbox">
+   <input id="q" type="search" placeholder="법령명 · 조문 · 키워드 검색   (단축키 /)" autocomplete="off">
+   <span class="x" onclick="clearQ()">✕</span>
+ </div>
+ <div class="chips"><span class="lb">구분</span><span class="chip on" data-g="cat" onclick="setChip('cat','ALL',this)">전체<span class="n">18</span></span><span class="chip" data-g="cat" onclick="setChip('cat','시행법령',this)">시행법령<span class="n">3</span></span><span class="chip" data-g="cat" onclick="setChip('cat','국회통과',this)">국회통과<span class="n">1</span></span><span class="chip" data-g="cat" onclick="setChip('cat','입법예고',this)">입법예고<span class="n">6</span></span><span class="chip" data-g="cat" onclick="setChip('cat','행정예고',this)">행정예고<span class="n">2</span></span><span class="chip" data-g="cat" onclick="setChip('cat','의원발의',this)">의원발의<span class="n">4</span></span><span class="chip" data-g="cat" onclick="setChip('cat','추가검토',this)">추가검토<span class="n">2</span></span></div>
+ <div class="chips" style="margin-top:6px"><span class="lb">분야</span><span class="chip on" data-g="field" onclick="setChip('field','ALL',this)">전체</span><span class="chip" data-g="field" onclick="setChip('field','건축',this)">건축</span><span class="chip" data-g="field" onclick="setChip('field','기계설비',this)">기계설비</span><span class="chip" data-g="field" onclick="setChip('field','소방',this)">소방</span><span class="chip" data-g="field" onclick="setChip('field','도시계획',this)">도시계획</span><span class="chip" data-g="field" onclick="setChip('field','안전진단',this)">안전진단</span><span class="chip" data-g="field" onclick="setChip('field','구조',this)">구조</span></div>
+ <div class="chips" style="margin-top:9px">
+   <button class="btn" id="bAll" onclick="toggleAll()">전체 펼치기</button>
+   <button class="btn" onclick="window.print()">🖨 인쇄 · PDF 저장</button>
+   <button class="btn" onclick="share('2026년 7월 법규 검토 요약')">🔗 공유</button>
+   <button class="btn gold" onclick="openText('blog')">📝 블로그·유튜브 원고</button>
+   <span style="flex:1"></span>
+   <span class="hint" style="margin:0">표시 <b id="cnt" style="color:var(--gold)">0</b>건</span>
+ </div>
+</div></div>
+
+<main class="wrap">
+ <div class="list"><article class="card" id="i01" style="--cc:#d4a843"
+ data-cat="시행법령" data-field="건축|기계설비" data-s="공동주택 소음규제 완화 · 위해시설 이격기준 합리화 · 작은도서관 예외 주택건설기준 등에 관한 규정 도시지역 주택단지 면적상한(30만㎡) 폐지, 위해시설 경계기준 명확화 및 이격거리 완화, 작은도서관 설치 예외 신설. 시행법령 건축 기계설비 제9조① — 도시지역은 주택단지 면적과 관계없이 6층 이상 부분 소음방지대책 수립 예외 적용(종전 30만㎡ 미만 한정 삭제) 제9조의2① — 이격거리 기준을 시설의 외곽경계선(담·벽 외측면, 없으면 부지경계선)으로 명확화 제9조의2②2호 신설 — 소음배출시설 설치 건축물·공작물로부터 공장 외곽경계선까지 50m 이상이면 외곽경계선에서 25m 이상 이격으로 완화 제55조의2④2호 신설 — 주택단지 경계 수평거리 300m 이내 공공도서관이 있거나 단지 내 설치계획이 있으면 작은도서관 설치 면제 도시지역 공동주택 배치계획 자유도 증가. 공장 인접 부지의 사업성 검토 시 이격 25m 적용 가능 여부 확인. 2026-06-30"
+ data-title="공동주택 소음규제 완화 · 위해시설 이격기준 합리화 · 작은도서관 예외" data-law="주택건설기준 등에 관한 규정" data-sum="도시지역 주택단지 면적상한(30만㎡) 폐지, 위해시설 경계기준 명확화 및 이격거리 완화, 작은도서관 설치 예외 신설."
+ data-date="2026-06-30" data-dlabel="시행"
+ data-detail="[&quot;제9조① — 도시지역은 주택단지 면적과 관계없이 6층 이상 부분 소음방지대책 수립 예외 적용(종전 30만㎡ 미만 한정 삭제)&quot;, &quot;제9조의2① — 이격거리 기준을 시설의 외곽경계선(담·벽 외측면, 없으면 부지경계선)으로 명확화&quot;, &quot;제9조의2②2호 신설 — 소음배출시설 설치 건축물·공작물로부터 공장 외곽경계선까지 50m 이상이면 외곽경계선에서 25m 이상 이격으로 완화&quot;, &quot;제55조의2④2호 신설 — 주택단지 경계 수평거리 300m 이내 공공도서관이 있거나 단지 내 설치계획이 있으면 작은도서관 설치 면제&quot;]"
+ data-reason="공동주택 건설 시 소음 규제 완화 기준 중 도시지역 내 주택단지의 면적상한을 폐지하고, 위해시설 등으로부터 공동주택 등을 배치하는 기준을 합리화하며, 작은도서관 설치 예외 기준을 마련하는 등 현행 제도의 운영상 나타난 일부 미비점을 개선·보완하려는 것임."
+ data-impact="도시지역 공동주택 배치계획 자유도 증가. 공장 인접 부지의 사업성 검토 시 이격 25m 적용 가능 여부 확인.">
+ <div class="ctop">
+  <span class="tag">시행법령</span><span class="field">건축</span><span class="field">기계설비</span><span class="dday ok" data-ef="2026-06-30"></span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i01')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">공동주택 소음규제 완화 · 위해시설 이격기준 합리화 · 작은도서관 예외</h3>
+ <div class="lawrow">
+  <span>시행 <b style="color:var(--txt)">2026.06.30</b></span>
+  <span>·</span>
+  <span>근거 주택건설기준 등에 관한 규정</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">도시지역 주택단지 면적상한(30만㎡) 폐지, 위해시설 경계기준 명확화 및 이격거리 완화, 작은도서관 설치 예외 신설.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>공동주택 건설 시 소음 규제 완화 기준 중 도시지역 내 주택단지의 면적상한을 폐지하고, 위해시설 등으로부터 공동주택 등을 배치하는 기준을 합리화하며, 작은도서관 설치 예외 기준을 마련하는 등 현행 제도의 운영상 나타난 일부 미비점을 개선·보완하려는 것임.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>제9조① — 도시지역은 주택단지 면적과 관계없이 6층 이상 부분 소음방지대책 수립 예외 적용(종전 30만㎡ 미만 한정 삭제)</li><li>제9조의2① — 이격거리 기준을 시설의 외곽경계선(담·벽 외측면, 없으면 부지경계선)으로 명확화</li><li>제9조의2②2호 신설 — 소음배출시설 설치 건축물·공작물로부터 공장 외곽경계선까지 50m 이상이면 외곽경계선에서 25m 이상 이격으로 완화</li><li>제55조의2④2호 신설 — 주택단지 경계 수평거리 300m 이내 공공도서관이 있거나 단지 내 설치계획이 있으면 작은도서관 설치 면제</li></ul></div></details><details><summary>신·구조문 대비 4건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제9조①</td><td>도시지역(주택단지 면적 30만㎡ 미만으로 한정) 6층 이상 부분 소음방지대책 예외</td><td class="new">도시지역은 주택단지 면적과 관계없이 예외 적용(면적상한 폐지)</td></tr><tr><td class="art">제9조의2①</td><td>각 호 시설로부터 수평거리 50m 이상 이격</td><td class="new">시설의 외곽경계선(담·벽 외측면, 없으면 부지경계선)으로부터 50m 이상으로 기준 명확화</td></tr><tr><td class="art">제9조의2②2호</td><td>〈신설〉</td><td class="new">소음배출시설 설치 건축물로부터 공장 외곽경계선까지 50m 이상이면 외곽경계선에서 25m 이상 이격 허용</td></tr><tr><td class="art">제55조의2④2호</td><td>〈신설〉</td><td class="new">단지 경계 300m 이내 공공도서관 존재 또는 단지 내 설치계획 시 작은도서관 설치 면제</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법령 검색 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>도시지역 공동주택 배치계획 자유도 증가. 공장 인접 부지의 사업성 검토 시 이격 25m 적용 가능 여부 확인.</div>
+</article>
+<article class="card" id="i02" style="--cc:#d4a843"
+ data-cat="시행법령" data-field="건축" data-s="특정건축물 정리에 관한 특별조치법 제정 특정건축물 정리에 관한 특별조치법 소규모 주거용 위반건축물에 한시적 사용승인 기회를 부여하는 양성화 특별법. 시행일부터 18개월 한시법. 시행법령 건축 적용대상 — 2023.12.31. 당시 사실상 완공된 주거용 특정건축물 중 세대당 전용면적 85㎡ 이하 다세대주택 등 소규모 주거용(제3조①) 정의 — 허가·신고 없이 건축·대수선, 사용승인 미취득, 무신고 용도변경 건축물(제2조제1호) 절차 — 설계도서·현장조사서 첨부 신고 → 건축위원회 심의 → 사용승인(제4조·제6조) 특정건축물 지원센터 설치·운영 근거(제5조①) 부설주차장 설치기준 미달 시 추가 설치의무 면제 특례(제7조) 존속기간 — 시행일부터 18개월 한시법(부칙 제2조) 건축사사무소 신고대행·설계도서 작성 수요가 발생하는 한시 업무. 시행 전 대상 물건 사전 파악 권장. 2026-12-17"
+ data-title="특정건축물 정리에 관한 특별조치법 제정" data-law="특정건축물 정리에 관한 특별조치법" data-sum="소규모 주거용 위반건축물에 한시적 사용승인 기회를 부여하는 양성화 특별법. 시행일부터 18개월 한시법."
+ data-date="2026-12-17" data-dlabel="시행"
+ data-detail="[&quot;적용대상 — 2023.12.31. 당시 사실상 완공된 주거용 특정건축물 중 세대당 전용면적 85㎡ 이하 다세대주택 등 소규모 주거용(제3조①)&quot;, &quot;정의 — 허가·신고 없이 건축·대수선, 사용승인 미취득, 무신고 용도변경 건축물(제2조제1호)&quot;, &quot;절차 — 설계도서·현장조사서 첨부 신고 → 건축위원회 심의 → 사용승인(제4조·제6조)&quot;, &quot;특정건축물 지원센터 설치·운영 근거(제5조①)&quot;, &quot;부설주차장 설치기준 미달 시 추가 설치의무 면제 특례(제7조)&quot;, &quot;존속기간 — 시행일부터 18개월 한시법(부칙 제2조)&quot;]"
+ data-reason="일정 기준을 충족하는 소규모 주거용 위반건축물에 한시적으로 사용승인 기회를 부여함으로써 임차인·매수인의 주거 불안정을 해소하고 재산권 보호를 도모하며, 장기간 존치된 위반건축물을 합리적으로 정비하여 주거 안정과 민생경제 회복에 기여하려는 것임."
+ data-impact="건축사사무소 신고대행·설계도서 작성 수요가 발생하는 한시 업무. 시행 전 대상 물건 사전 파악 권장.">
+ <div class="ctop">
+  <span class="tag">시행법령</span><span class="field">건축</span><span class="dday ok" data-ef="2026-12-17"></span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i02')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">특정건축물 정리에 관한 특별조치법 제정</h3>
+ <div class="lawrow">
+  <span>시행 <b style="color:var(--txt)">2026.12.17</b></span>
+  <span>·</span>
+  <span>근거 특정건축물 정리에 관한 특별조치법</span>
+  <a href="https://www.law.go.kr/법령/%ED%8A%B9%EC%A0%95%EA%B1%B4%EC%B6%95%EB%AC%BC%EC%A0%95%EB%A6%AC%EC%97%90%EA%B4%80%ED%95%9C%ED%8A%B9%EB%B3%84%EC%A1%B0%EC%B9%98%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%ED%8A%B9%EC%A0%95%EA%B1%B4%EC%B6%95%EB%AC%BC%20%EC%A0%95%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EC%A1%B0%EC%B9%98%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">소규모 주거용 위반건축물에 한시적 사용승인 기회를 부여하는 양성화 특별법. 시행일부터 18개월 한시법.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>일정 기준을 충족하는 소규모 주거용 위반건축물에 한시적으로 사용승인 기회를 부여함으로써 임차인·매수인의 주거 불안정을 해소하고 재산권 보호를 도모하며, 장기간 존치된 위반건축물을 합리적으로 정비하여 주거 안정과 민생경제 회복에 기여하려는 것임.</div><details><summary>세부 개정내용 6건</summary><div class="det"><ul><li>적용대상 — 2023.12.31. 당시 사실상 완공된 주거용 특정건축물 중 세대당 전용면적 85㎡ 이하 다세대주택 등 소규모 주거용(제3조①)</li><li>정의 — 허가·신고 없이 건축·대수선, 사용승인 미취득, 무신고 용도변경 건축물(제2조제1호)</li><li>절차 — 설계도서·현장조사서 첨부 신고 → 건축위원회 심의 → 사용승인(제4조·제6조)</li><li>특정건축물 지원센터 설치·운영 근거(제5조①)</li><li>부설주차장 설치기준 미달 시 추가 설치의무 면제 특례(제7조)</li><li>존속기간 — 시행일부터 18개월 한시법(부칙 제2조)</li></ul></div></details><div class="cmplink">신·구조문 대비 — 제정법으로 신·구조문 대비표 없음 — 조문 전문은 원문 링크 참조<a href="https://www.law.go.kr/법령/%ED%8A%B9%EC%A0%95%EA%B1%B4%EC%B6%95%EB%AC%BC%EC%A0%95%EB%A6%AC%EC%97%90%EA%B4%80%ED%95%9C%ED%8A%B9%EB%B3%84%EC%A1%B0%EC%B9%98%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%ED%8A%B9%EC%A0%95%EA%B1%B4%EC%B6%95%EB%AC%BC%20%EC%A0%95%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EC%A1%B0%EC%B9%98%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a></div><div class="impact"><b>실무 영향</b>건축사사무소 신고대행·설계도서 작성 수요가 발생하는 한시 업무. 시행 전 대상 물건 사전 파악 권장.</div>
+</article>
+<article class="card" id="i03" style="--cc:#d4a843"
+ data-cat="시행법령" data-field="건축" data-s="설계공모 정보 공개 채널 변경 (세움터 → 건축hub) 건축서비스산업 진흥법 시행령 공공기관 설계공모 시행공고·심사결과 공개 채널을 건축법상 세움터에서 건축서비스산업 정보체계(건축hub)로 변경. 시행법령 건축 제17조⑦ — 공모 시행공고 및 심사결과를 정보체계(건축hub)에 공개, 심사결과는 종료일부터 7일 이내 건축hub : https://www.hub.go.kr 설계공모 정보 모니터링 채널을 건축hub로 일원화 필요. 2027-01-01"
+ data-title="설계공모 정보 공개 채널 변경 (세움터 → 건축HUB)" data-law="건축서비스산업 진흥법 시행령" data-sum="공공기관 설계공모 시행공고·심사결과 공개 채널을 건축법상 세움터에서 건축서비스산업 정보체계(건축HUB)로 변경."
+ data-date="2027-01-01" data-dlabel="시행"
+ data-detail="[&quot;제17조⑦ — 공모 시행공고 및 심사결과를 정보체계(건축HUB)에 공개, 심사결과는 종료일부터 7일 이내&quot;, &quot;건축HUB : https://www.hub.go.kr&quot;]"
+ data-reason="공모 관련 시스템이 세움터와 건축HUB로 이원화되어 통합된 공모 정보 관리에 한계가 있고 수요자 불편이 가중됨. 국민권익위 권고(심사위원 심사총량 관리) 이행을 위해 2024년 건축HUB에 원스톱 공모 운영 서비스를 도입한 만큼, 공개 채널을 건축HUB로 일원화하여 공모 정보의 통합 관리·제공과 운영 투명성을 제고하려는 것임."
+ data-impact="설계공모 정보 모니터링 채널을 건축HUB로 일원화 필요.">
+ <div class="ctop">
+  <span class="tag">시행법령</span><span class="field">건축</span><span class="dday ok" data-ef="2027-01-01"></span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i03')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">설계공모 정보 공개 채널 변경 (세움터 → 건축HUB)</h3>
+ <div class="lawrow">
+  <span>시행 <b style="color:var(--txt)">2027.01.01</b></span>
+  <span>·</span>
+  <span>근거 건축서비스산업 진흥법 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%20%EC%A7%84%ED%9D%A5%EB%B2%95%20%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">공공기관 설계공모 시행공고·심사결과 공개 채널을 건축법상 세움터에서 건축서비스산업 정보체계(건축HUB)로 변경.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>공모 관련 시스템이 세움터와 건축HUB로 이원화되어 통합된 공모 정보 관리에 한계가 있고 수요자 불편이 가중됨. 국민권익위 권고(심사위원 심사총량 관리) 이행을 위해 2024년 건축HUB에 원스톱 공모 운영 서비스를 도입한 만큼, 공개 채널을 건축HUB로 일원화하여 공모 정보의 통합 관리·제공과 운영 투명성을 제고하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제17조⑦ — 공모 시행공고 및 심사결과를 정보체계(건축HUB)에 공개, 심사결과는 종료일부터 7일 이내</li><li>건축HUB : https://www.hub.go.kr</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제17조⑦</td><td>「건축법」 제32조① 전자정보처리 시스템(세움터)에 공개</td><td class="new">건축서비스산업 정보체계(건축HUB, hub.go.kr)에 공개(심사결과는 종료일부터 7일 이내)</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%20%EC%A7%84%ED%9D%A5%EB%B2%95%20%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법령 검색 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>설계공모 정보 모니터링 채널을 건축HUB로 일원화 필요.</div>
+</article>
+<article class="card" id="i04" style="--cc:#e0645c"
+ data-cat="국회통과" data-field="건축|소방" data-s="일조권 완화 관련 건축법 일부개정법률안(대안) 건축법 일조사선 규정을 법률로 상향하면서 3단계로 완화하고, 지하주차장 마감재 불연 의무화·위반건축물 관리 강화를 함께 규정. 국회통과 건축 소방 제61조① 일조사선 3단계 — 10m 이하 1.5m 이상 / 10m 초과 17m 이하 5m 이상 / 17m 초과 해당 부분 높이의 1/2 이상 제52조⑤ 신설 — 지하층 주차장 내부 마감재료·단열재 불연재료 의무화 제52조⑥ 신설 — 지하층 배관(배관설비 포함) 마감재료·단열재 국토부령 기준 적합 제52조의5① — 품질인정 대상에 내화채움구조 추가, ③ 설치·공사감리 사항 대통령령 위임 제22조의2 신설 — 단독주택 등 사용승인 건축물 사후관리(유지·관리 여부 조사) 의무화 제79조⑤ — 위반건축물 실태조사 연 1회 이상 정기 실시 의무화, ⑦ 시정명령 이행자의 구상권 근거 신설 제80조② — 영리·상습 위반 이행강제금 가중비율 100분의 50 이상 100분의 100 이하, ⑤ 반복부과 의무화 및 차년도 가중 제87조의3 — 건축안전특별회계 설치 의무화, 이행강제금의 100분의 50 이상 범위 재원 편입 제108조·제110조 — 위반건축물의 설계자도 처벌 대상에 포함 일조사선 완화로 제2·3종 일반주거지역 소규모정비사업 용적률 확보가 개선됨. 반면 지하주차장 마감재·단열재 불연 의무는 설계·적산 단가에 직접 영향. 2026-07-23"
+ data-title="일조권 완화 관련 건축법 일부개정법률안(대안)" data-law="건축법" data-sum="일조사선 규정을 법률로 상향하면서 3단계로 완화하고, 지하주차장 마감재 불연 의무화·위반건축물 관리 강화를 함께 규정."
+ data-date="2026-07-23" data-dlabel="본회의 통과"
+ data-detail="[&quot;제61조① 일조사선 3단계 — 10m 이하 1.5m 이상 / 10m 초과 17m 이하 5m 이상 / 17m 초과 해당 부분 높이의 1/2 이상&quot;, &quot;제52조⑤ 신설 — 지하층 주차장 내부 마감재료·단열재 불연재료 의무화&quot;, &quot;제52조⑥ 신설 — 지하층 배관(배관설비 포함) 마감재료·단열재 국토부령 기준 적합&quot;, &quot;제52조의5① — 품질인정 대상에 내화채움구조 추가, ③ 설치·공사감리 사항 대통령령 위임&quot;, &quot;제22조의2 신설 — 단독주택 등 사용승인 건축물 사후관리(유지·관리 여부 조사) 의무화&quot;, &quot;제79조⑤ — 위반건축물 실태조사 연 1회 이상 정기 실시 의무화, ⑦ 시정명령 이행자의 구상권 근거 신설&quot;, &quot;제80조② — 영리·상습 위반 이행강제금 가중비율 100분의 50 이상 100분의 100 이하, ⑤ 반복부과 의무화 및 차년도 가중&quot;, &quot;제87조의3 — 건축안전특별회계 설치 의무화, 이행강제금의 100분의 50 이상 범위 재원 편입&quot;, &quot;제108조·제110조 — 위반건축물의 설계자도 처벌 대상에 포함&quot;]"
+ data-reason="위반건축물이 5차례 양성화(49만건)에도 지속 증가하고, 서울시 주거용 위반건축물의 58%가 일조사선 위반 무단증축으로 추정되어 법과 현실의 괴리가 지적됨. 또한 인천 청라 지하주차장 전기차 화재(2024.8), 부산 반얀트리 화재(2025.4), 광명 필로티 아파트 화재(2025.7) 등 지하주차장·필로티 화재 피해가 대형화됨. 이에 일조사선을 법률로 상향하며 합리적으로 완화하고, 지하층 마감재 불연화·내화채움구조 품질인정·위반건축물 관리 강화를 함께 규정함."
+ data-impact="일조사선 완화로 제2·3종 일반주거지역 소규모정비사업 용적률 확보가 개선됨. 반면 지하주차장 마감재·단열재 불연 의무는 설계·적산 단가에 직접 영향.">
+ <div class="ctop">
+  <span class="tag">국회통과</span><span class="field">건축</span><span class="field">소방</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i04')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">일조권 완화 관련 건축법 일부개정법률안(대안)</h3>
+ <div class="lawrow">
+  <span>본회의 통과 <b style="color:var(--txt)">2026.07.23</b></span>
+  <span>·</span>
+  <span>근거 건축법</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">일조사선 규정을 법률로 상향하면서 3단계로 완화하고, 지하주차장 마감재 불연 의무화·위반건축물 관리 강화를 함께 규정.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>위반건축물이 5차례 양성화(49만건)에도 지속 증가하고, 서울시 주거용 위반건축물의 58%가 일조사선 위반 무단증축으로 추정되어 법과 현실의 괴리가 지적됨. 또한 인천 청라 지하주차장 전기차 화재(2024.8), 부산 반얀트리 화재(2025.4), 광명 필로티 아파트 화재(2025.7) 등 지하주차장·필로티 화재 피해가 대형화됨. 이에 일조사선을 법률로 상향하며 합리적으로 완화하고, 지하층 마감재 불연화·내화채움구조 품질인정·위반건축물 관리 강화를 함께 규정함.</div><details><summary>세부 개정내용 9건</summary><div class="det"><ul><li>제61조① 일조사선 3단계 — 10m 이하 1.5m 이상 / 10m 초과 17m 이하 5m 이상 / 17m 초과 해당 부분 높이의 1/2 이상</li><li>제52조⑤ 신설 — 지하층 주차장 내부 마감재료·단열재 불연재료 의무화</li><li>제52조⑥ 신설 — 지하층 배관(배관설비 포함) 마감재료·단열재 국토부령 기준 적합</li><li>제52조의5① — 품질인정 대상에 내화채움구조 추가, ③ 설치·공사감리 사항 대통령령 위임</li><li>제22조의2 신설 — 단독주택 등 사용승인 건축물 사후관리(유지·관리 여부 조사) 의무화</li><li>제79조⑤ — 위반건축물 실태조사 연 1회 이상 정기 실시 의무화, ⑦ 시정명령 이행자의 구상권 근거 신설</li><li>제80조② — 영리·상습 위반 이행강제금 가중비율 100분의 50 이상 100분의 100 이하, ⑤ 반복부과 의무화 및 차년도 가중</li><li>제87조의3 — 건축안전특별회계 설치 의무화, 이행강제금의 100분의 50 이상 범위 재원 편입</li><li>제108조·제110조 — 위반건축물의 설계자도 처벌 대상에 포함</li></ul></div></details><details><summary>신·구조문 대비 8건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제61조①</td><td>정북방향 인접 대지경계선으로부터의 거리에 따라 대통령령으로 정하는 높이 이하</td><td class="new">법률 직접 규정 : ①10m 이하 1.5m 이상 ②10m 초과 17m 이하 5m 이상 ③17m 초과 해당 부분 높이의 1/2 이상 이격(조례로 거리 지정)</td></tr><tr><td class="art">제52조⑤⑥</td><td>〈신설〉</td><td class="new">지하층 주차장 내부 마감재료·단열재 불연재료 의무 / 지하층 배관 마감재료(단열재 포함) 국토부령 기준 적합</td></tr><tr><td class="art">제52조의5①</td><td>방화문, 복합자재 등 …과 내화구조</td><td class="new">방화문, 복합자재, 내화채움구조 등으로 품질인정 대상 확대(③ 설치·공사감리 사항 대통령령 위임 신설)</td></tr><tr><td class="art">제79조⑤</td><td>실태 파악을 위한 조사를 할 수 있다</td><td class="new">조사를 연 1회 이상 정기적으로 실시하여야 한다(필요시 수시조사)</td></tr><tr><td class="art">제80조②</td><td>100분의 100의 범위에서 조례로 가중하여야 한다</td><td class="new">100분의 50 이상 100분의 100 이하의 범위에서 가중하여야 한다(하한 신설)</td></tr><tr><td class="art">제80조⑤</td><td>1년 2회 이내 반복 부과·징수할 수 있다</td><td class="new">부과·징수하여야 한다 + 최초 부과 다음 연도부터 대통령령에 따라 가중</td></tr><tr><td class="art">제87조의3①·②</td><td>건축안전특별회계를 설치할 수 있다 / 이행강제금 중 조례로 정하는 비율</td><td class="new">설치하여야 한다 / 이행강제금의 100분의 50 이상의 범위에서 조례로 정하는 비율 편입</td></tr><tr><td class="art">제108조·제110조</td><td>위반하여 건축·대수선·용도변경한 건축주 및 공사시공자</td><td class="new">이를 설계 또는 시공한 자까지 처벌 대상 확대</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>일조사선 완화로 제2·3종 일반주거지역 소규모정비사업 용적률 확보가 개선됨. 반면 지하주차장 마감재·단열재 불연 의무는 설계·적산 단가에 직접 영향.</div>
+</article>
+<article class="card" id="i05" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축" data-s="국가보안시설 설계공모 우선적용 대상 제외 건축서비스산업 진흥법 시행령 국가보안시설은 설계공모방식 우선 적용대상에서 제외하되, 감독기관장·국가정보원장과 협의 시 공모방식 적용 가능. 입법예고 건축 제17조①1호 — 「보안업무규정」에 따른 국가보안시설을 제외 대상에 추가, 협의 시 우선 적용 가능 제19조의4①2호 — '설계용역 과업지시서' → '과업이행요청서'로 용어 변경  2026-06-23"
+ data-title="국가보안시설 설계공모 우선적용 대상 제외" data-law="건축서비스산업 진흥법 시행령" data-sum="국가보안시설은 설계공모방식 우선 적용대상에서 제외하되, 감독기관장·국가정보원장과 협의 시 공모방식 적용 가능."
+ data-date="2026-06-23" data-dlabel="예고기간"
+ data-detail="[&quot;제17조①1호 — 「보안업무규정」에 따른 국가보안시설을 제외 대상에 추가, 협의 시 우선 적용 가능&quot;, &quot;제19조의4①2호 — '설계용역 과업지시서' → '과업이행요청서'로 용어 변경&quot;]"
+ data-reason="국가보안시설은 국가 안보에 미치는 영향을 고려하여 설계공모방식 우선 적용대상에서 제외하되, 공공기관이 「보안업무규정」에 따른 감독기관의 장 및 국가정보원장과 협의한 경우에는 설계공모방식을 적용할 수 있도록 하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="dday soft" data-dl="2026-08-04" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i05')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">국가보안시설 설계공모 우선적용 대상 제외</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.06.23</b></span>
+  <span>·</span>
+  <span>근거 건축서비스산업 진흥법 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">국가보안시설은 설계공모방식 우선 적용대상에서 제외하되, 감독기관장·국가정보원장과 협의 시 공모방식 적용 가능.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>국가보안시설은 국가 안보에 미치는 영향을 고려하여 설계공모방식 우선 적용대상에서 제외하되, 공공기관이 「보안업무규정」에 따른 감독기관의 장 및 국가정보원장과 협의한 경우에는 설계공모방식을 적용할 수 있도록 하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제17조①1호 — 「보안업무규정」에 따른 국가보안시설을 제외 대상에 추가, 협의 시 우선 적용 가능</li><li>제19조의4①2호 — '설계용역 과업지시서' → '과업이행요청서'로 용어 변경</li></ul></div></details><details><summary>신·구조문 대비 2건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제17조①1호</td><td>설계비 추정가격 1억원 이상 건축물(일부 용도 제외)</td><td class="new">「보안업무규정」에 따른 국가보안시설 제외 추가 — 감독기관장·국정원장 협의 시 우선 적용 가능</td></tr><tr><td class="art">제19조의4①2호</td><td>설계용역 과업지시서의 적정성</td><td class="new">설계용역 과업이행요청서의 적정성(용어 변경)</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i06" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축|도시계획" data-s="일반공업지역 내 오피스텔 한시적 입지 허용 국토의 계획 및 이용에 관한 법률 시행령 일반공업지역 공실 지식산업센터 등을 오피스텔로 용도전환할 수 있도록 한시 허용. 수산자원보호구역 지정권한 이양에 따른 위임규정 정비 병행. 입법예고 건축 도시계획 별표 13 제1호 마목 신설 — 지식산업센터 또는 별표13 제1호 가·나목 건축물을 오피스텔로 용도변경하는 경우에 한해 업무시설 중 오피스텔 허용 제133조① — 1㎢ 미만 구역 지정·변경 도시군관리계획 결정 위임규정 삭제 일반공업지역 공실 지식산업센터 보유 발주처의 용도전환 컨설팅 수요 예상. 2026-06-29"
+ data-title="일반공업지역 내 오피스텔 한시적 입지 허용" data-law="국토의 계획 및 이용에 관한 법률 시행령" data-sum="일반공업지역 공실 지식산업센터 등을 오피스텔로 용도전환할 수 있도록 한시 허용. 수산자원보호구역 지정권한 이양에 따른 위임규정 정비 병행."
+ data-date="2026-06-29" data-dlabel="예고기간"
+ data-detail="[&quot;별표 13 제1호 마목 신설 — 지식산업센터 또는 별표13 제1호 가·나목 건축물을 오피스텔로 용도변경하는 경우에 한해 업무시설 중 오피스텔 허용&quot;, &quot;제133조① — 1㎢ 미만 구역 지정·변경 도시군관리계획 결정 위임규정 삭제&quot;]"
+ data-reason="일반공업지역 내 업무시설(사무실·오피스텔)은 지식산업센터 지원시설에 한정하여 입지가 허용되나, 오피스텔 등 비아파트 공급 확대를 위해 공실 지식산업센터 등의 용도전환을 지원할 필요가 있어 여건에 따라 오피스텔의 한시적 입지를 허용하고, 수산자원보호구역 지정권한 이양에 따른 위임규정을 정비하려는 것임."
+ data-impact="일반공업지역 공실 지식산업센터 보유 발주처의 용도전환 컨설팅 수요 예상.">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="field">도시계획</span><span class="dday soft" data-dl="2026-08-10" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i06')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">일반공업지역 내 오피스텔 한시적 입지 허용</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.06.29</b></span>
+  <span>·</span>
+  <span>근거 국토의 계획 및 이용에 관한 법률 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EA%B5%AD%ED%86%A0%EC%9D%98%EA%B3%84%ED%9A%8D%EB%B0%8F%EC%9D%B4%EC%9A%A9%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">일반공업지역 공실 지식산업센터 등을 오피스텔로 용도전환할 수 있도록 한시 허용. 수산자원보호구역 지정권한 이양에 따른 위임규정 정비 병행.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>일반공업지역 내 업무시설(사무실·오피스텔)은 지식산업센터 지원시설에 한정하여 입지가 허용되나, 오피스텔 등 비아파트 공급 확대를 위해 공실 지식산업센터 등의 용도전환을 지원할 필요가 있어 여건에 따라 오피스텔의 한시적 입지를 허용하고, 수산자원보호구역 지정권한 이양에 따른 위임규정을 정비하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>별표 13 제1호 마목 신설 — 지식산업센터 또는 별표13 제1호 가·나목 건축물을 오피스텔로 용도변경하는 경우에 한해 업무시설 중 오피스텔 허용</li><li>제133조① — 1㎢ 미만 구역 지정·변경 도시군관리계획 결정 위임규정 삭제</li></ul></div></details><details><summary>신·구조문 대비 2건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">별표13 제1호 마목</td><td>〈신설〉</td><td class="new">지식산업센터 또는 별표13 제1호 가·나목 건축물을 오피스텔로 용도변경하는 경우에 한해 업무시설 중 오피스텔 허용</td></tr><tr><td class="art">제133조①3호</td><td>1㎢ 미만 구역 지정·변경 도시·군관리계획 결정 위임</td><td class="new">〈삭제〉(법률 개정으로 시·도지사 권한 이양 반영)</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B5%AD%ED%86%A0%EC%9D%98%EA%B3%84%ED%9A%8D%EB%B0%8F%EC%9D%B4%EC%9A%A9%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>일반공업지역 공실 지식산업센터 보유 발주처의 용도전환 컨설팅 수요 예상.</div>
+</article>
+<article class="card" id="i07" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축" data-s="도시형생활주택 단지형 연립·다세대 층수 5 → 6개층 완화 주택법 시행령 건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 6개층까지 허용(제1종전용·제1종일반주거지역은 5개층 유지). 입법예고 건축 제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층 단, 제1종전용주거지역·제1종일반주거지역에 건축하는 경우 5개층 유지  2026-06-29"
+ data-title="도시형생활주택 단지형 연립·다세대 층수 5 → 6개층 완화" data-law="주택법 시행령" data-sum="건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 6개층까지 허용(제1종전용·제1종일반주거지역은 5개층 유지)."
+ data-date="2026-06-29" data-dlabel="예고기간"
+ data-detail="[&quot;제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층&quot;, &quot;단, 제1종전용주거지역·제1종일반주거지역에 건축하는 경우 5개층 유지&quot;]"
+ data-reason="도시형생활주택 공급 확대를 유도하기 위해 규제개선 등 다양한 인센티브를 제공할 필요가 있으므로, 건축위원회 심의를 받은 경우 주택으로 쓰는 층수를 5개층까지 건축 가능하던 단지형 연립주택·단지형 다세대주택을 6개층까지 건축할 수 있도록 완화하여 도심 내 신속한 공급을 유도하고 민간 비아파트 공급 부진을 해소하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="dday soft" data-dl="2026-08-10" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i07')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">도시형생활주택 단지형 연립·다세대 층수 5 → 6개층 완화</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.06.29</b></span>
+  <span>·</span>
+  <span>근거 주택법 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 6개층까지 허용(제1종전용·제1종일반주거지역은 5개층 유지).</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>도시형생활주택 공급 확대를 유도하기 위해 규제개선 등 다양한 인센티브를 제공할 필요가 있으므로, 건축위원회 심의를 받은 경우 주택으로 쓰는 층수를 5개층까지 건축 가능하던 단지형 연립주택·단지형 다세대주택을 6개층까지 건축할 수 있도록 완화하여 도심 내 신속한 공급을 유도하고 민간 비아파트 공급 부진을 해소하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층</li><li>단, 제1종전용주거지역·제1종일반주거지역에 건축하는 경우 5개층 유지</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제10조①2호·3호</td><td>건축위원회 심의 시 주택으로 쓰는 층수 5개층까지</td><td class="new">6개층까지(제1종전용·제1종일반주거지역은 5개층 유지)</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i08" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축" data-s="도시형생활주택 주차기준 완화 확대 · 주민공동시설 면제 주택건설기준 등에 관한 규정 조례로 완화 가능한 주차대수 확보 의무를 50~70%까지 확대하고, 인근 공공시설이 있으면 주민공동시설 설치 면제. 입법예고 건축 제27조①2호 나목 — 완화 범위를 설치기준의 1/5(60㎡ 이하 1/2) → 설치기준의 1/2(60㎡ 이하 10분의 7)까지 확대 제55조의2⑧ 신설 — 도시형생활주택으로부터 300m 이내에 동일·유사 공공시설이 있고 사업계획승인권자가 인정하면 주민공동시설 설치 면제  2026-06-29"
+ data-title="도시형생활주택 주차기준 완화 확대 · 주민공동시설 면제" data-law="주택건설기준 등에 관한 규정" data-sum="조례로 완화 가능한 주차대수 확보 의무를 50~70%까지 확대하고, 인근 공공시설이 있으면 주민공동시설 설치 면제."
+ data-date="2026-06-29" data-dlabel="예고기간"
+ data-detail="[&quot;제27조①2호 나목 — 완화 범위를 설치기준의 1/5(60㎡ 이하 1/2) → 설치기준의 1/2(60㎡ 이하 10분의 7)까지 확대&quot;, &quot;제55조의2⑧ 신설 — 도시형생활주택으로부터 300m 이내에 동일·유사 공공시설이 있고 사업계획승인권자가 인정하면 주민공동시설 설치 면제&quot;]"
+ data-reason="도시형생활주택 건설 시 확보해야 하는 주차 기준을 지역 여건을 감안하여 완화할 수 있도록 하고, 일정 요건 충족 시 주민공동시설 설치를 면제할 수 있도록 하여 도심 내 신속한 공급이 가능한 도시형생활주택의 확대를 유도하고 민간 비아파트 공급 부진을 보완·해소하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="dday soft" data-dl="2026-08-10" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i08')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">도시형생활주택 주차기준 완화 확대 · 주민공동시설 면제</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.06.29</b></span>
+  <span>·</span>
+  <span>근거 주택건설기준 등에 관한 규정</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">조례로 완화 가능한 주차대수 확보 의무를 50~70%까지 확대하고, 인근 공공시설이 있으면 주민공동시설 설치 면제.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>도시형생활주택 건설 시 확보해야 하는 주차 기준을 지역 여건을 감안하여 완화할 수 있도록 하고, 일정 요건 충족 시 주민공동시설 설치를 면제할 수 있도록 하여 도심 내 신속한 공급이 가능한 도시형생활주택의 확대를 유도하고 민간 비아파트 공급 부진을 보완·해소하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제27조①2호 나목 — 완화 범위를 설치기준의 1/5(60㎡ 이하 1/2) → 설치기준의 1/2(60㎡ 이하 10분의 7)까지 확대</li><li>제55조의2⑧ 신설 — 도시형생활주택으로부터 300m 이내에 동일·유사 공공시설이 있고 사업계획승인권자가 인정하면 주민공동시설 설치 면제</li></ul></div></details><details><summary>신·구조문 대비 2건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제27조①2호 나목</td><td>설치기준의 1/5(전용 60㎡ 이하 1/2) 범위에서 강화 또는 완화</td><td class="new">설치기준의 1/2(전용 60㎡ 이하 10분의 7) 범위에서 완화(강화는 현행 유지)</td></tr><tr><td class="art">제55조의2⑧</td><td>〈신설〉</td><td class="new">300m 이내 동일·유사 공공시설 존재 + 사업계획승인권자 인정 시 주민공동시설 설치 면제</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i09" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축|소방" data-s="반도체공장 설비배관 전용부분 층간 방화구획 완화 건축법 시행령 성능위주설계 대상 반도체공장의 설비배관 전용 구획부분에 대해 층간 방화구획 적용을 완화. 입법예고 건축 소방 제46조②9호 신설 — 성능위주설계 대상 반도체공장에서 설비배관 설치를 위해 구획된 전용부분 요건 가 — 성능위주설계 평가단 검토·평가를 거쳐 스프링클러설비등 자동식 소화설비 설치 요건 나 — 해당 건축물의 다른 부분과 방화구획으로 구획 제63조의2 — 품질인정 대상 건축자재등 인용조문 정비  2026-07-15"
+ data-title="반도체공장 설비배관 전용부분 층간 방화구획 완화" data-law="건축법 시행령" data-sum="성능위주설계 대상 반도체공장의 설비배관 전용 구획부분에 대해 층간 방화구획 적용을 완화."
+ data-date="2026-07-15" data-dlabel="예고기간"
+ data-detail="[&quot;제46조②9호 신설 — 성능위주설계 대상 반도체공장에서 설비배관 설치를 위해 구획된 전용부분&quot;, &quot;요건 가 — 성능위주설계 평가단 검토·평가를 거쳐 스프링클러설비등 자동식 소화설비 설치&quot;, &quot;요건 나 — 해당 건축물의 다른 부분과 방화구획으로 구획&quot;, &quot;제63조의2 — 품질인정 대상 건축자재등 인용조문 정비&quot;]"
+ data-reason="현행법령은 수직 설비배관이 각 층을 관통할 경우 층간 방화구획을 의무 적용하나, 반도체공장은 수직 배관이 크고 그 수가 많아 일률 적용이 어려움. 성능위주설계 대상 반도체공장에서 설비배관 전용 구획부분에 대해 자동식 소화설비 설치와 방화구획 구획을 요건으로 층간 방화구획 적용을 완화하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="field">소방</span><span class="dday soft" data-dl="2026-08-24" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i09')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">반도체공장 설비배관 전용부분 층간 방화구획 완화</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.07.15</b></span>
+  <span>·</span>
+  <span>근거 건축법 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">성능위주설계 대상 반도체공장의 설비배관 전용 구획부분에 대해 층간 방화구획 적용을 완화.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행법령은 수직 설비배관이 각 층을 관통할 경우 층간 방화구획을 의무 적용하나, 반도체공장은 수직 배관이 크고 그 수가 많아 일률 적용이 어려움. 성능위주설계 대상 반도체공장에서 설비배관 전용 구획부분에 대해 자동식 소화설비 설치와 방화구획 구획을 요건으로 층간 방화구획 적용을 완화하려는 것임.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>제46조②9호 신설 — 성능위주설계 대상 반도체공장에서 설비배관 설치를 위해 구획된 전용부분</li><li>요건 가 — 성능위주설계 평가단 검토·평가를 거쳐 스프링클러설비등 자동식 소화설비 설치</li><li>요건 나 — 해당 건축물의 다른 부분과 방화구획으로 구획</li><li>제63조의2 — 품질인정 대상 건축자재등 인용조문 정비</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제46조②9호</td><td>〈신설〉</td><td class="new">성능위주설계 대상 반도체공장의 설비배관 전용부분 — ㉮성능위주설계 평가단 검토·평가를 거친 스프링클러설비등 자동식 소화설비 설치 ㉯다른 부분과 방화구획 구획 시 층간 방화구획 완화</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i10" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축|소방" data-s="복합 방화셔터 도입 · 건축자재 품질관리서 정비 건축물의 피난·방화구조 등의 기준에 관한 규칙 피난을 위한 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 3m 이내 별도 방화문 설치 의무를 면제. 입법예고 건축 소방 제14조②4호 가목 단서 신설 — 복합 방화셔터 설치 시 60분+/60분 방화문 3m 이내 별도 설치 예외 신제품 건축자재는 기존 인정기준과 달리 정할 수 있도록 품질인정 기준 마련 품질관리서 항목 정비 — 생년월일 등 불필요 정보 삭제, 품질관리서 번호·시공량 추가 제30조 피난용승강기 승강로 — 배연설비 또는 제연설비 택일 구조로 명확화 제24조⑤ — 「실내공기질 관리법」 및 기후에너지환경부장관 고시로 인용 현행화 건축물 구조상 방화문 설치가 곤란했던 현장의 대안 확보. 복합 방화셔터 제품 인정 여부 확인 필요. 2026-07-15"
+ data-title="복합 방화셔터 도입 · 건축자재 품질관리서 정비" data-law="건축물의 피난·방화구조 등의 기준에 관한 규칙" data-sum="피난을 위한 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 3m 이내 별도 방화문 설치 의무를 면제."
+ data-date="2026-07-15" data-dlabel="예고기간"
+ data-detail="[&quot;제14조②4호 가목 단서 신설 — 복합 방화셔터 설치 시 60분+/60분 방화문 3m 이내 별도 설치 예외&quot;, &quot;신제품 건축자재는 기존 인정기준과 달리 정할 수 있도록 품질인정 기준 마련&quot;, &quot;품질관리서 항목 정비 — 생년월일 등 불필요 정보 삭제, 품질관리서 번호·시공량 추가&quot;, &quot;제30조 피난용승강기 승강로 — 배연설비 또는 제연설비 택일 구조로 명확화&quot;, &quot;제24조⑤ — 「실내공기질 관리법」 및 기후에너지환경부장관 고시로 인용 현행화&quot;]"
+ data-reason="화재 시 재실자 안전을 담보하기 어려운 자동방화셔터의 설치가 금지됨에 따라 셔터 3m 이내 별도 방화문 설치가 의무화되었으나 건축물 구조상 방화문 설치가 불가한 경우가 발생함. 피난용 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 별도 방화문을 면제하고, 신제품 품질인정 기준 마련·품질관리서 항목 정비 등 미비점을 개선하려는 것임."
+ data-impact="건축물 구조상 방화문 설치가 곤란했던 현장의 대안 확보. 복합 방화셔터 제품 인정 여부 확인 필요.">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="field">소방</span><span class="dday soft" data-dl="2026-08-24" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i10')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">복합 방화셔터 도입 · 건축자재 품질관리서 정비</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.07.15</b></span>
+  <span>·</span>
+  <span>근거 건축물의 피난·방화구조 등의 기준에 관한 규칙</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%AC%BC%EC%9D%98%ED%94%BC%EB%82%9C%E3%86%8D%EB%B0%A9%ED%99%94%EA%B5%AC%EC%A1%B0%EB%93%B1%EC%9D%98%EA%B8%B0%EC%A4%80%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%B9%99" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">피난을 위한 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 3m 이내 별도 방화문 설치 의무를 면제.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>화재 시 재실자 안전을 담보하기 어려운 자동방화셔터의 설치가 금지됨에 따라 셔터 3m 이내 별도 방화문 설치가 의무화되었으나 건축물 구조상 방화문 설치가 불가한 경우가 발생함. 피난용 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 별도 방화문을 면제하고, 신제품 품질인정 기준 마련·품질관리서 항목 정비 등 미비점을 개선하려는 것임.</div><details><summary>세부 개정내용 5건</summary><div class="det"><ul><li>제14조②4호 가목 단서 신설 — 복합 방화셔터 설치 시 60분+/60분 방화문 3m 이내 별도 설치 예외</li><li>신제품 건축자재는 기존 인정기준과 달리 정할 수 있도록 품질인정 기준 마련</li><li>품질관리서 항목 정비 — 생년월일 등 불필요 정보 삭제, 품질관리서 번호·시공량 추가</li><li>제30조 피난용승강기 승강로 — 배연설비 또는 제연설비 택일 구조로 명확화</li><li>제24조⑤ — 「실내공기질 관리법」 및 기후에너지환경부장관 고시로 인용 현행화</li></ul></div></details><details><summary>신·구조문 대비 3건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제14조②4호 가목</td><td>피난이 가능한 60분+/60분 방화문으로부터 3m 이내에 별도로 설치할 것</td><td class="new">단서 신설 — 피난을 위한 방화문을 갖춘 자동방화셔터(복합 방화셔터) 설치 시 별도 방화문 면제</td></tr><tr><td class="art">제30조2호</td><td>승강로 상부에 배연설비 또는 제연설비를 설치할 것</td><td class="new">배연설비·제연설비 중 어느 하나 설치로 택일 구조 명확화(나목 삭제)</td></tr><tr><td class="art">제24조⑤</td><td>「다중이용시설 등의 실내공기질관리법」·환경부장관 고시</td><td class="new">「실내공기질 관리법」 제11조① 및 기후에너지환경부장관 고시로 현행화</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%AC%BC%EC%9D%98%ED%94%BC%EB%82%9C%E3%86%8D%EB%B0%A9%ED%99%94%EA%B5%AC%EC%A1%B0%EB%93%B1%EC%9D%98%EA%B8%B0%EC%A4%80%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%B9%99" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>건축물 구조상 방화문 설치가 곤란했던 현장의 대안 확보. 복합 방화셔터 제품 인정 여부 확인 필요.</div>
+</article>
+<article class="card" id="i11" style="--cc:#6fc08a"
+ data-cat="행정예고" data-field="건축" data-s="국가보안시설 설계공모 지침 일부 적용 배제 건축 설계공모 운영지침 국가보안시설 설계공모 시 감독기관·국가정보원·국토교통부 협의를 거쳐 지침 일부를 적용하지 않을 수 있도록 함. 행정예고 건축 제3조③ 신설 — 「보안업무규정」 제32조 국가보안시설에 대한 적용 배제 근거  2026-06-23"
+ data-title="국가보안시설 설계공모 지침 일부 적용 배제" data-law="건축 설계공모 운영지침" data-sum="국가보안시설 설계공모 시 감독기관·국가정보원·국토교통부 협의를 거쳐 지침 일부를 적용하지 않을 수 있도록 함."
+ data-date="2026-06-23" data-dlabel="예고기간"
+ data-detail="[&quot;제3조③ 신설 — 「보안업무규정」 제32조 국가보안시설에 대한 적용 배제 근거&quot;]"
+ data-reason="발주기관이 국가보안시설 건축물의 설계를 공모방식으로 발주하는 경우, 보안 유지를 위하여 공모 운영기관이 감독기관·국가정보원·국토교통부와 협의를 거친 경우에는 「건축 설계공모 운영지침」 기준의 일부를 적용하지 아니할 수 있도록 개선하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">행정예고</span><span class="field">건축</span><span class="dday soft" data-dl="2026-07-14" data-kind="행정예고">행정예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i11')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">국가보안시설 설계공모 지침 일부 적용 배제</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.06.23</b></span>
+  <span>·</span>
+  <span>근거 건축 설계공모 운영지침</span>
+  <a href="https://www.law.go.kr/행정규칙/%EA%B1%B4%EC%B6%95%EC%84%A4%EA%B3%84%EA%B3%B5%EB%AA%A8%EC%9A%B4%EC%98%81%EC%A7%80%EC%B9%A8" target="_blank" rel="noopener">법제처 행정규칙 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">국가보안시설 설계공모 시 감독기관·국가정보원·국토교통부 협의를 거쳐 지침 일부를 적용하지 않을 수 있도록 함.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>발주기관이 국가보안시설 건축물의 설계를 공모방식으로 발주하는 경우, 보안 유지를 위하여 공모 운영기관이 감독기관·국가정보원·국토교통부와 협의를 거친 경우에는 「건축 설계공모 운영지침」 기준의 일부를 적용하지 아니할 수 있도록 개선하려는 것임.</div><details><summary>세부 개정내용 1건</summary><div class="det"><ul><li>제3조③ 신설 — 「보안업무규정」 제32조 국가보안시설에 대한 적용 배제 근거</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제3조③</td><td>〈신설〉</td><td class="new">「보안업무규정」 제32조 국가보안시설 설계공모 발주 시 감독기관·국정원·국토부 협의로 지침 일부 적용 배제 가능</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/행정규칙/%EA%B1%B4%EC%B6%95%EC%84%A4%EA%B3%84%EA%B3%B5%EB%AA%A8%EC%9A%B4%EC%98%81%EC%A7%80%EC%B9%A8" target="_blank" rel="noopener">법제처 행정규칙 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i12" style="--cc:#6fc08a"
+ data-cat="행정예고" data-field="건축|도시계획" data-s="신속 인허가 지원센터 운영 규정 제정 부동산개발사업 관리 등에 관한 법률 국토교통부 신속 인·허가 지원센터의 지원 대상사업, 신청방법, 지원절차 규정. 근거법은 2026.11.13. 시행. 행정예고 건축 도시계획 지원대상 — 부동산개발사업 중 관계 법령에 따른 인·허가 신청이 완료된 사업(안 제3조) 신청 — 지원신청서·협의내용 첨부하여 전문기관 신청, 기초조사 7일 이내(안 제4조~제5조) 절차 — 조사보고서 30일 이내 제출, 검토 후 7일 이내 최종 지원안 결정·통보(안 제6조~제8조) 근거법 개정 : 법률 제21632호, 2026.5.12. 공포 / 2026.11.13. 시행 지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 중재 창구로 활용 가능. 2026-07-03"
+ data-title="신속 인허가 지원센터 운영 규정 제정" data-law="부동산개발사업 관리 등에 관한 법률" data-sum="국토교통부 신속 인·허가 지원센터의 지원 대상사업, 신청방법, 지원절차 규정. 근거법은 2026.11.13. 시행."
+ data-date="2026-07-03" data-dlabel="예고기간"
+ data-detail="[&quot;지원대상 — 부동산개발사업 중 관계 법령에 따른 인·허가 신청이 완료된 사업(안 제3조)&quot;, &quot;신청 — 지원신청서·협의내용 첨부하여 전문기관 신청, 기초조사 7일 이내(안 제4조~제5조)&quot;, &quot;절차 — 조사보고서 30일 이내 제출, 검토 후 7일 이내 최종 지원안 결정·통보(안 제6조~제8조)&quot;, &quot;근거법 개정 : 법률 제21632호, 2026.5.12. 공포 / 2026.11.13. 시행&quot;]"
+ data-reason="부동산개발사업의 신속한 인가·허가 등을 지원하기 위하여 국토교통부에 신속 인·허가 지원센터를 설치할 수 있도록 「부동산개발사업 관리 등에 관한 법률」이 개정(법률 제21632호, 2026.5.12. 공포, 2026.11.13. 시행)됨에 따라, 인·허가 지원의 대상사업과 신청방법·지원절차 등 구체적 사항을 정하려는 것임."
+ data-impact="지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 중재 창구로 활용 가능.">
+ <div class="ctop">
+  <span class="tag">행정예고</span><span class="field">건축</span><span class="field">도시계획</span><span class="dday soft" data-dl="2026-07-23" data-kind="행정예고">행정예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i12')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">신속 인허가 지원센터 운영 규정 제정</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.07.03</b></span>
+  <span>·</span>
+  <span>근거 부동산개발사업 관리 등에 관한 법률</span>
+  <a href="https://www.law.go.kr/법령/%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">국토교통부 신속 인·허가 지원센터의 지원 대상사업, 신청방법, 지원절차 규정. 근거법은 2026.11.13. 시행.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>부동산개발사업의 신속한 인가·허가 등을 지원하기 위하여 국토교통부에 신속 인·허가 지원센터를 설치할 수 있도록 「부동산개발사업 관리 등에 관한 법률」이 개정(법률 제21632호, 2026.5.12. 공포, 2026.11.13. 시행)됨에 따라, 인·허가 지원의 대상사업과 신청방법·지원절차 등 구체적 사항을 정하려는 것임.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>지원대상 — 부동산개발사업 중 관계 법령에 따른 인·허가 신청이 완료된 사업(안 제3조)</li><li>신청 — 지원신청서·협의내용 첨부하여 전문기관 신청, 기초조사 7일 이내(안 제4조~제5조)</li><li>절차 — 조사보고서 30일 이내 제출, 검토 후 7일 이내 최종 지원안 결정·통보(안 제6조~제8조)</li><li>근거법 개정 : 법률 제21632호, 2026.5.12. 공포 / 2026.11.13. 시행</li></ul></div></details><div class="cmplink">신·구조문 대비 — 제정 규정으로 신·구조문 대비표 없음 — 안 제3조~제8조 전문은 원문 링크 참조<a href="https://www.law.go.kr/법령/%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div><div class="impact"><b>실무 영향</b>지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 중재 창구로 활용 가능.</div>
+</article>
+<article class="card" id="i13" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="건축|안전진단" data-s="노후 건축물 정기점검 의무화 건축물관리법 다중이용 건축물 위주였던 정기점검 대상에 구조안전·화재안전 기준에 해당하는 노후 건축물을 추가. 의원발의 건축 안전진단 제13조① — 정기점검 대상에 '건축물이 노후화되어 구조안전 또는 화재안전 등이 대통령령 기준에 해당하는 경우' 추가 제13조③ — 기존 사용승인일부터 5년 이내 최초, 이후 3년 주기는 제1항제1호(다중이용)에 한정 제13조④ — 노후 건축물 정기점검 주기는 대통령령 위임 배경 : 대전 대덕산업단지 자동차부품 공장 화재 통과 시 노후 공장 정기점검 물량 증가 — 안전진단 업무 확대 요인. 2026-06-16"
+ data-title="노후 건축물 정기점검 의무화" data-law="건축물관리법" data-sum="다중이용 건축물 위주였던 정기점검 대상에 구조안전·화재안전 기준에 해당하는 노후 건축물을 추가."
+ data-date="2026-06-16" data-dlabel="발의"
+ data-detail="[&quot;제13조① — 정기점검 대상에 '건축물이 노후화되어 구조안전 또는 화재안전 등이 대통령령 기준에 해당하는 경우' 추가&quot;, &quot;제13조③ — 기존 사용승인일부터 5년 이내 최초, 이후 3년 주기는 제1항제1호(다중이용)에 한정&quot;, &quot;제13조④ — 노후 건축물 정기점검 주기는 대통령령 위임&quot;, &quot;배경 : 대전 대덕산업단지 자동차부품 공장 화재&quot;]"
+ data-reason="현행 정기점검 대상은 다중이용 건축물 위주로 규정되어, 구조적 안전성이 낮거나 화재 위험이 높은 노후 공장 등이 제외되어 있음. 대전 대덕산업단지 자동차부품 공장 화재에서 불법 개조·화재 취약 구조가 피해를 키운 원인으로 지목된 바, 노후 건축물도 정기점검을 의무화하여 위험도 높은 건축물을 선제적으로 관리하려는 것임."
+ data-impact="통과 시 노후 공장 정기점검 물량 증가 — 안전진단 업무 확대 요인.">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">건축</span><span class="field">안전진단</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i13')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">노후 건축물 정기점검 의무화</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.06.16</b></span>
+  <span>·</span>
+  <span>근거 건축물관리법</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">다중이용 건축물 위주였던 정기점검 대상에 구조안전·화재안전 기준에 해당하는 노후 건축물을 추가.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>현행 정기점검 대상은 다중이용 건축물 위주로 규정되어, 구조적 안전성이 낮거나 화재 위험이 높은 노후 공장 등이 제외되어 있음. 대전 대덕산업단지 자동차부품 공장 화재에서 불법 개조·화재 취약 구조가 피해를 키운 원인으로 지목된 바, 노후 건축물도 정기점검을 의무화하여 위험도 높은 건축물을 선제적으로 관리하려는 것임.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>제13조① — 정기점검 대상에 '건축물이 노후화되어 구조안전 또는 화재안전 등이 대통령령 기준에 해당하는 경우' 추가</li><li>제13조③ — 기존 사용승인일부터 5년 이내 최초, 이후 3년 주기는 제1항제1호(다중이용)에 한정</li><li>제13조④ — 노후 건축물 정기점검 주기는 대통령령 위임</li><li>배경 : 대전 대덕산업단지 자동차부품 공장 화재</li></ul></div></details><details><summary>신·구조문 대비 2건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제13조①</td><td>다중이용 건축물 등 대통령령으로 정하는 건축물의 관리자는 정기점검 실시</td><td class="new">제1호 다중이용 건축물 등 + 제2호 노후화로 구조안전·화재안전 등이 대통령령 기준에 해당하게 된 경우 추가</td></tr><tr><td class="art">제13조③·④</td><td>사용승인일부터 5년 이내 최초, 3년마다 실시</td><td class="new">3년 주기는 제1항제1호에 한정, 노후 건축물(제2호) 점검 주기는 대통령령 위임</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%AC%BC%EA%B4%80%EB%A6%AC%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>통과 시 노후 공장 정기점검 물량 증가 — 안전진단 업무 확대 요인.</div>
+</article>
+<article class="card" id="i14" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="건축" data-s="노후 지붕 누수·결로 방지 증축의 건축신고 전환 건축법 지붕 노후화로 인한 누수·결로 방지 목적의 지붕 증축을 건축허가가 아닌 건축신고 대상으로 명확화. 의원발의 건축 제14조①1호의2 신설 — 지붕 노후화 누수·결로 방지를 위한 지붕 증축 등 대통령령 요건을 갖춘 증축 배경 : 평슬라브 지붕 증축의 무단증축 적발·이행강제금 부과 민원  2026-06-22"
+ data-title="노후 지붕 누수·결로 방지 증축의 건축신고 전환" data-law="건축법" data-sum="지붕 노후화로 인한 누수·결로 방지 목적의 지붕 증축을 건축허가가 아닌 건축신고 대상으로 명확화."
+ data-date="2026-06-22" data-dlabel="발의"
+ data-detail="[&quot;제14조①1호의2 신설 — 지붕 노후화 누수·결로 방지를 위한 지붕 증축 등 대통령령 요건을 갖춘 증축&quot;, &quot;배경 : 평슬라브 지붕 증축의 무단증축 적발·이행강제금 부과 민원&quot;]"
+ data-reason="지붕 노후화로 인한 누수·결로 방지 증축은 노후 주택 유지관리에 실질적으로 필요함에도 현행 규정상 별도 구분이 없어, 평슬라브 지붕 증축이 무단증축으로 적발되어 이행강제금이 부과되는 민원이 지속됨. 이에 대통령령 요건을 갖춘 지붕 증축은 건축허가가 아닌 건축신고 대상으로 명확히 규정하여 노후 주택 소유자의 행정적·경제적 부담을 완화하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">건축</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i14')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">노후 지붕 누수·결로 방지 증축의 건축신고 전환</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.06.22</b></span>
+  <span>·</span>
+  <span>근거 건축법</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">지붕 노후화로 인한 누수·결로 방지 목적의 지붕 증축을 건축허가가 아닌 건축신고 대상으로 명확화.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>지붕 노후화로 인한 누수·결로 방지 증축은 노후 주택 유지관리에 실질적으로 필요함에도 현행 규정상 별도 구분이 없어, 평슬라브 지붕 증축이 무단증축으로 적발되어 이행강제금이 부과되는 민원이 지속됨. 이에 대통령령 요건을 갖춘 지붕 증축은 건축허가가 아닌 건축신고 대상으로 명확히 규정하여 노후 주택 소유자의 행정적·경제적 부담을 완화하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제14조①1호의2 신설 — 지붕 노후화 누수·결로 방지를 위한 지붕 증축 등 대통령령 요건을 갖춘 증축</li><li>배경 : 평슬라브 지붕 증축의 무단증축 적발·이행강제금 부과 민원</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제14조①1호의2</td><td>〈신설〉</td><td class="new">지붕 노후화로 인한 누수·결로 방지를 위한 지붕의 증축 등 대통령령으로 정하는 요건을 갖춘 증축은 건축신고로 갈음</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div></div></details>
+</article>
+<article class="card" id="i15" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="건축|구조" data-s="모듈러 건축 특별법 제정안 모듈러 건축 활성화 및 지역 중소기업 상생에 관한 특별법 모듈러 건축의 설계·시공·감리·품셈 기준과 인증체계, 지역업체 참여 의무를 규정하는 특별법 제정안. 의원발의 건축 구조 기본계획 5년 단위 수립·시행 및 연도별 시행계획(안 제5조) 모듈러 건축 심의위원회 구성·운영(안 제7조) 공공 발주 시 공동계약 가능, 일정 규모 이상 공동수급체 지역업체 비율 의무(안 제15조·제16조) 모듈러 생산 인증제도 — 공장 등급 인증·점검·취소(안 제22조~제24조) 모듈러 건축인증제도 — 기술 적용수준·사전제작률 평가 등급 부여(안 제26조·제27조) 벌칙 — 부정 인증 2년 이하 징역 또는 2천만원 이하 벌금 등(안 제39조·제41조)  2026-06-25"
+ data-title="모듈러 건축 특별법 제정안" data-law="모듈러 건축 활성화 및 지역 중소기업 상생에 관한 특별법" data-sum="모듈러 건축의 설계·시공·감리·품셈 기준과 인증체계, 지역업체 참여 의무를 규정하는 특별법 제정안."
+ data-date="2026-06-25" data-dlabel="발의"
+ data-detail="[&quot;기본계획 5년 단위 수립·시행 및 연도별 시행계획(안 제5조)&quot;, &quot;모듈러 건축 심의위원회 구성·운영(안 제7조)&quot;, &quot;공공 발주 시 공동계약 가능, 일정 규모 이상 공동수급체 지역업체 비율 의무(안 제15조·제16조)&quot;, &quot;모듈러 생산 인증제도 — 공장 등급 인증·점검·취소(안 제22조~제24조)&quot;, &quot;모듈러 건축인증제도 — 기술 적용수준·사전제작률 평가 등급 부여(안 제26조·제27조)&quot;, &quot;벌칙 — 부정 인증 2년 이하 징역 또는 2천만원 이하 벌금 등(안 제39조·제41조)&quot;]"
+ data-reason="주택 공급 확대가 필요한 상황에서 현장 인력 부족·고령화, 안전사고 예방 요구에 직면했으나 현행 법제는 현장 공사 중심 기준을 일률 적용하여 모듈러 건축 활성화가 저해됨. 모듈러 건축의 정의·발주방식·설계·감리·공사기준 등 법령 체계를 정비하고, 생산인증·건축인증 체계와 지역업체 참여 의무 등 지원 특례를 마련하려는 것임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">건축</span><span class="field">구조</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i15')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">모듈러 건축 특별법 제정안</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.06.25</b></span>
+  <span>·</span>
+  <span>근거 모듈러 건축 활성화 및 지역 중소기업 상생에 관한 특별법</span>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EB%AA%A8%EB%93%88%EB%9F%AC%20%EA%B1%B4%EC%B6%95" target="_blank" rel="noopener">제정안 원문(의안정보) ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EB%AA%A8%EB%93%88%EB%9F%AC%20%EA%B1%B4%EC%B6%95%20%ED%99%9C%EC%84%B1%ED%99%94%20%EB%B0%8F%20%EC%A7%80%EC%97%AD%20%EC%A4%91%EC%86%8C%EA%B8%B0%EC%97%85%20%EC%83%81%EC%83%9D%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">모듈러 건축의 설계·시공·감리·품셈 기준과 인증체계, 지역업체 참여 의무를 규정하는 특별법 제정안.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>주택 공급 확대가 필요한 상황에서 현장 인력 부족·고령화, 안전사고 예방 요구에 직면했으나 현행 법제는 현장 공사 중심 기준을 일률 적용하여 모듈러 건축 활성화가 저해됨. 모듈러 건축의 정의·발주방식·설계·감리·공사기준 등 법령 체계를 정비하고, 생산인증·건축인증 체계와 지역업체 참여 의무 등 지원 특례를 마련하려는 것임.</div><details><summary>세부 개정내용 6건</summary><div class="det"><ul><li>기본계획 5년 단위 수립·시행 및 연도별 시행계획(안 제5조)</li><li>모듈러 건축 심의위원회 구성·운영(안 제7조)</li><li>공공 발주 시 공동계약 가능, 일정 규모 이상 공동수급체 지역업체 비율 의무(안 제15조·제16조)</li><li>모듈러 생산 인증제도 — 공장 등급 인증·점검·취소(안 제22조~제24조)</li><li>모듈러 건축인증제도 — 기술 적용수준·사전제작률 평가 등급 부여(안 제26조·제27조)</li><li>벌칙 — 부정 인증 2년 이하 징역 또는 2천만원 이하 벌금 등(안 제39조·제41조)</li></ul></div></details><div class="cmplink">신·구조문 대비 — 제정법률안으로 신·구조문 대비표 없음 — 안 제1조~제41조 주요내용은 세부 개정내용 참조<a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EB%AA%A8%EB%93%88%EB%9F%AC%20%EA%B1%B4%EC%B6%95" target="_blank" rel="noopener">제정안 원문(의안정보) ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EB%AA%A8%EB%93%88%EB%9F%AC%20%EA%B1%B4%EC%B6%95%20%ED%99%9C%EC%84%B1%ED%99%94%20%EB%B0%8F%20%EC%A7%80%EC%97%AD%20%EC%A4%91%EC%86%8C%EA%B8%B0%EC%97%85%20%EC%83%81%EC%83%9D%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div>
+</article>
+<article class="card" id="i16" style="--cc:#f0a05a"
+ data-cat="의원발의" data-field="건축" data-s="감리비용 허가권자 예치제 도입 건축법 착공신고 시 감리비용을 허가권자에게 예치하고 사용승인 신청 시 허가권자가 지급하도록 하여 감리 독립성 확보. 의원발의 건축 제25조⑪ 개정 — 감리계약서 제출 → 감리비용 자체를 허가권자에게 예치, 사용승인 신청 시 허가권자가 지급 후 사용승인 주택법의 사업계획승인권자 예치제도를 건축법에 도입 통과 시 감리대가 미수금 리스크 감소. 건축사사무소 자금흐름·계약서식 변경 필요. 2026-07-16"
+ data-title="감리비용 허가권자 예치제 도입" data-law="건축법" data-sum="착공신고 시 감리비용을 허가권자에게 예치하고 사용승인 신청 시 허가권자가 지급하도록 하여 감리 독립성 확보."
+ data-date="2026-07-16" data-dlabel="발의"
+ data-detail="[&quot;제25조⑪ 개정 — 감리계약서 제출 → 감리비용 자체를 허가권자에게 예치, 사용승인 신청 시 허가권자가 지급 후 사용승인&quot;, &quot;주택법의 사업계획승인권자 예치제도를 건축법에 도입&quot;]"
+ data-reason="주택법은 감리자가 사업주체로부터 감리비를 직접 받으면 상하종속관계가 형성되어 공정한 감리가 어렵다는 점을 반영해 감리비 예치제도를 운영 중이나, 건축법에는 해당 제도가 없어 감리자가 건축주의 요구에 압박을 받는다는 지적이 있음. 착공신고 시 감리비용을 허가권자에게 예치하고 사용승인 신청 시 허가권자가 지급하도록 하여 감리 독립성을 확보하려는 것임."
+ data-impact="통과 시 감리대가 미수금 리스크 감소. 건축사사무소 자금흐름·계약서식 변경 필요.">
+ <div class="ctop">
+  <span class="tag">의원발의</span><span class="field">건축</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i16')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">감리비용 허가권자 예치제 도입</h3>
+ <div class="lawrow">
+  <span>발의 <b style="color:var(--txt)">2026.07.16</b></span>
+  <span>·</span>
+  <span>근거 건축법</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a>
+ </div>
+ <p class="sum">착공신고 시 감리비용을 허가권자에게 예치하고 사용승인 신청 시 허가권자가 지급하도록 하여 감리 독립성 확보.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>주택법은 감리자가 사업주체로부터 감리비를 직접 받으면 상하종속관계가 형성되어 공정한 감리가 어렵다는 점을 반영해 감리비 예치제도를 운영 중이나, 건축법에는 해당 제도가 없어 감리자가 건축주의 요구에 압박을 받는다는 지적이 있음. 착공신고 시 감리비용을 허가권자에게 예치하고 사용승인 신청 시 허가권자가 지급하도록 하여 감리 독립성을 확보하려는 것임.</div><details><summary>세부 개정내용 2건</summary><div class="det"><ul><li>제25조⑪ 개정 — 감리계약서 제출 → 감리비용 자체를 허가권자에게 예치, 사용승인 신청 시 허가권자가 지급 후 사용승인</li><li>주택법의 사업계획승인권자 예치제도를 건축법에 도입</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제25조⑪</td><td>착공신고 시 감리비용이 명시된 감리 계약서 제출, 사용승인 신청 시 계약내용에 따라 지급 + 허가권자 지급 확인 후 사용승인</td><td class="new">착공신고 시 감리비용을 국토부령에 따라 허가권자에게 예치, 사용승인 신청 시 허가권자가 감리비용 지급 후 사용승인</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://likms.assembly.go.kr/bill/BillSearchResult.do?billName=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">의안정보시스템 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>통과 시 감리대가 미수금 리스크 감소. 건축사사무소 자금흐름·계약서식 변경 필요.</div>
+</article>
+<article class="card" id="i17" style="--cc:#8b98b3"
+ data-cat="추가검토" data-field="건축|소방" data-s="건물의 피난 설치기준 및 관련 법률 안전기준 정리 건축법 건축법 제49조 ~ 피난·방화규칙 제14조, 하향식 피난구 구조기준, nftc 301 피난기구 적응성 정리. 추가검토 건축 소방 건축법 제49조 — 피난시설·소방관 진입창·경계벽 및 바닥 건축법 시행령 제46조⑤ — 아파트 4층 이상 대피공간 설치 예외 4가지 피난·방화규칙 제14조④ 하향식 피난구 — 비차열 1시간 이상, 유효 개구부 직경 60cm 이상, 상·하층 수평거리 15cm 이상, 사다리 아래층 바닥 50cm 이하, 개방 시 경보, 예비전원 조명 nftc 301 표 2.1.1 — 설치장소별·층별 피난기구 적응성(노유자시설·의료시설·다중이용업소·그 밖의 것)  2026-07-01"
+ data-title="건물의 피난 설치기준 및 관련 법률 안전기준 정리" data-law="건축법" data-sum="건축법 제49조 ~ 피난·방화규칙 제14조, 하향식 피난구 구조기준, NFTC 301 피난기구 적응성 정리."
+ data-date="2026-07-01" data-dlabel="참고"
+ data-detail="[&quot;건축법 제49조 — 피난시설·소방관 진입창·경계벽 및 바닥&quot;, &quot;건축법 시행령 제46조⑤ — 아파트 4층 이상 대피공간 설치 예외 4가지&quot;, &quot;피난·방화규칙 제14조④ 하향식 피난구 — 비차열 1시간 이상, 유효 개구부 직경 60cm 이상, 상·하층 수평거리 15cm 이상, 사다리 아래층 바닥 50cm 이하, 개방 시 경보, 예비전원 조명&quot;, &quot;NFTC 301 표 2.1.1 — 설치장소별·층별 피난기구 적응성(노유자시설·의료시설·다중이용업소·그 밖의 것)&quot;]"
+ data-reason="건축법 제49조(피난시설)·시행령 제46조(방화구획·대피공간)·피난방화규칙 제14조(하향식 피난구), NFTC 301(피난기구 적응성)을 통합 정리하여 화재·지진 등 위급상황 시 거주자 비상 탈출 경로 확보 기준을 숙지하기 위한 교육자료임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">추가검토</span><span class="field">건축</span><span class="field">소방</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i17')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">건물의 피난 설치기준 및 관련 법률 안전기준 정리</h3>
+ <div class="lawrow">
+  <span>참고 <b style="color:var(--txt)">2026.07.01</b></span>
+  <span>·</span>
+  <span>근거 건축법</span>
+  <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">건축법 제49조 ~ 피난·방화규칙 제14조, 하향식 피난구 구조기준, NFTC 301 피난기구 적응성 정리.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>건축법 제49조(피난시설)·시행령 제46조(방화구획·대피공간)·피난방화규칙 제14조(하향식 피난구), NFTC 301(피난기구 적응성)을 통합 정리하여 화재·지진 등 위급상황 시 거주자 비상 탈출 경로 확보 기준을 숙지하기 위한 교육자료임.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>건축법 제49조 — 피난시설·소방관 진입창·경계벽 및 바닥</li><li>건축법 시행령 제46조⑤ — 아파트 4층 이상 대피공간 설치 예외 4가지</li><li>피난·방화규칙 제14조④ 하향식 피난구 — 비차열 1시간 이상, 유효 개구부 직경 60cm 이상, 상·하층 수평거리 15cm 이상, 사다리 아래층 바닥 50cm 이하, 개방 시 경보, 예비전원 조명</li><li>NFTC 301 표 2.1.1 — 설치장소별·층별 피난기구 적응성(노유자시설·의료시설·다중이용업소·그 밖의 것)</li></ul></div></details><div class="cmplink">신·구조문 대비 — 법령 요약 교육자료로 대비표 없음 — 관계 조문 원문은 링크 참조<a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EA%B1%B4%EC%B6%95%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a></div>
+</article>
+<article class="card" id="i18" style="--cc:#8b98b3"
+ data-cat="추가검토" data-field="소방" data-s="다중이용업소 비상구·안전시설 설치·유지 기준 다중이용업소의 안전관리에 관한 특별법 다중이용업소 주출입구·비상구 및 피난시설 설치·유지 기준(시행규칙 별표 2) 요약. 추가검토 소방 비상구 규격 — 가로 75cm 이상 × 세로 150cm 이상, 피난방향으로 열리는 구조 비상구는 주출입구 반대방향 설치(건물구조상 장변의 1/2 이상 이격 시 가능) 4층 이하 — 발코니(너비 50cm·길이 1m·난간 1m 이상) 또는 부속실(1m×1m 이상, 준불연재료 이상, 바닥~천장 완전구획) 5층 이상 — 철제계단 등 설치(지상·옥상 연결) 피난시설 — 출입구·비상구 상단 유도등, 피난계단 없는 경우 피난기구(완강기·금속제피난사다리 등)  2026-07-01"
+ data-title="다중이용업소 비상구·안전시설 설치·유지 기준" data-law="다중이용업소의 안전관리에 관한 특별법" data-sum="다중이용업소 주출입구·비상구 및 피난시설 설치·유지 기준(시행규칙 별표 2) 요약."
+ data-date="2026-07-01" data-dlabel="참고"
+ data-detail="[&quot;비상구 규격 — 가로 75cm 이상 × 세로 150cm 이상, 피난방향으로 열리는 구조&quot;, &quot;비상구는 주출입구 반대방향 설치(건물구조상 장변의 1/2 이상 이격 시 가능)&quot;, &quot;4층 이하 — 발코니(너비 50cm·길이 1m·난간 1m 이상) 또는 부속실(1m×1m 이상, 준불연재료 이상, 바닥~천장 완전구획)&quot;, &quot;5층 이상 — 철제계단 등 설치(지상·옥상 연결)&quot;, &quot;피난시설 — 출입구·비상구 상단 유도등, 피난계단 없는 경우 피난기구(완강기·금속제피난사다리 등)&quot;]"
+ data-reason="다중이용업소에 적용되는 업종 범위와 필수 안전시설(소방·피난시설, 비상구·대피공간) 기준을 숙지하여 화재·재난 시 신속한 대피와 생명·재산 보호를 도모하기 위한 교육자료임."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">추가검토</span><span class="field">소방</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i18')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">다중이용업소 비상구·안전시설 설치·유지 기준</h3>
+ <div class="lawrow">
+  <span>참고 <b style="color:var(--txt)">2026.07.01</b></span>
+  <span>·</span>
+  <span>근거 다중이용업소의 안전관리에 관한 특별법</span>
+  <a href="https://www.law.go.kr/법령/%EB%8B%A4%EC%A4%91%EC%9D%B4%EC%9A%A9%EC%97%85%EC%86%8C%EC%9D%98%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%EA%B4%80%ED%95%9C%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EB%8B%A4%EC%A4%91%EC%9D%B4%EC%9A%A9%EC%97%85%EC%86%8C%EC%9D%98%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">다중이용업소 주출입구·비상구 및 피난시설 설치·유지 기준(시행규칙 별표 2) 요약.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>다중이용업소에 적용되는 업종 범위와 필수 안전시설(소방·피난시설, 비상구·대피공간) 기준을 숙지하여 화재·재난 시 신속한 대피와 생명·재산 보호를 도모하기 위한 교육자료임.</div><details><summary>세부 개정내용 5건</summary><div class="det"><ul><li>비상구 규격 — 가로 75cm 이상 × 세로 150cm 이상, 피난방향으로 열리는 구조</li><li>비상구는 주출입구 반대방향 설치(건물구조상 장변의 1/2 이상 이격 시 가능)</li><li>4층 이하 — 발코니(너비 50cm·길이 1m·난간 1m 이상) 또는 부속실(1m×1m 이상, 준불연재료 이상, 바닥~천장 완전구획)</li><li>5층 이상 — 철제계단 등 설치(지상·옥상 연결)</li><li>피난시설 — 출입구·비상구 상단 유도등, 피난계단 없는 경우 피난기구(완강기·금속제피난사다리 등)</li></ul></div></details><div class="cmplink">신·구조문 대비 — 법령 요약 교육자료로 대비표 없음 — 시행규칙 별표 2 원문은 링크 참조<a href="https://www.law.go.kr/법령/%EB%8B%A4%EC%A4%91%EC%9D%B4%EC%9A%A9%EC%97%85%EC%86%8C%EC%9D%98%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%EA%B4%80%ED%95%9C%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EB%8B%A4%EC%A4%91%EC%9D%B4%EC%9A%A9%EC%97%85%EC%86%8C%EC%9D%98%20%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%97%90%20%EA%B4%80%ED%95%9C%20%ED%8A%B9%EB%B3%84%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a></div>
+</article></div>
+ <div class="empty" id="empty" style="display:none">검색 조건에 맞는 항목이 없습니다.</div>
+</main>
+
+<div class="mask" id="mask">
+ <div class="modal">
+  <div class="mh"><b>블로그 · 유튜브 원고 추출</b>
+    <button class="btn" onclick="closeModal()">닫기 ✕</button></div>
+  <div class="mtabs" id="mtabs">
+    <span class="chip on" data-m="blog" onclick="setMode('blog')">네이버 블로그용</span>
+    <span class="chip" data-m="yt" onclick="setMode('yt')">유튜브 대본용</span>
+    <span style="flex:1"></span>
+    <span class="hint" style="margin:0">현재 필터에 표시된 항목만 추출됩니다</span>
+  </div>
+  <div class="mbody"><textarea id="ta" spellcheck="false"></textarea></div>
+  <div class="mfoot">
+    <button class="btn" onclick="copyText(document.getElementById('ta').value,'원고가 복사되었습니다')">전체 복사</button>
+    <button class="btn gold" onclick="window.open('https://blog.naver.com/manmin72','_blank')">블로그 열기 ↗</button>
+  </div>
+ </div>
+</div>
+<footer><div class="wrap">
+<div class="fl">
+  <a href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">MANMIN 엔지니어링 플랫폼</a>
+  <a href="https://blog.naver.com/manmin72" target="_blank" rel="noopener">네이버 블로그</a>
+  <a href="https://www.youtube.com/@김만민-x8p" target="_blank" rel="noopener">유튜브 채널</a>
+  <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a>
+  <a href="https://opinion.lawmaking.go.kr" target="_blank" rel="noopener">국민참여입법센터</a>
+  <a href="https://www.kcsc.re.kr" target="_blank" rel="noopener">국가건설기준센터</a>
+</div>
+<p class="disc">
+본 자료는 김만민 건축사 · ㈜대성건축사사무소가 월간 법규교육 자료를 기준으로 정리한 <b>요약본</b>입니다.
+실제 인허가·설계·감리 업무에 적용할 때는 반드시 국가법령정보센터의 <b>원문 및 시행일</b>을 직접 확인하시기 바랍니다.
+입법예고·의원발의 항목은 확정된 법령이 아니며 심의 과정에서 내용이 변경될 수 있습니다.<br>
+KDS·KCS 국가건설기준은 국가건설기준센터(kcsc.re.kr) 공고본을 출처로 합니다.<br>
+© 2026 김만민 건축사 · ㈜대성건축사사무소. 무단 전재·상업적 이용을 금합니다. · MANMIN VER-1.0
+</p>
+</div></footer>
+<script>
+/* ── PWA 설치 ── */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+  /* 새 SW 가 활성화되면 1회만 자동 새로고침 — 아이콘·본문 교체가 즉시 반영된다 */
+  var _swReloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){
+    if(_swReloaded)return; _swReloaded=true; location.reload();
+  });
+}
+function isStandalone(){
+  return window.matchMedia('(display-mode: standalone)').matches ||
+         window.matchMedia('(display-mode: minimal-ui)').matches ||
+         navigator.standalone===true;
+}
+function envInfo(){
+  var ua=navigator.userAgent;
+  return {
+    ios: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
+    android: /Android/.test(ua),
+    samsung: /SamsungBrowser/.test(ua),
+    firefox: /Firefox/.test(ua),
+    naver: /NAVER\(inapp/.test(ua) || /whale/i.test(ua),
+    kakao: /KAKAOTALK/i.test(ua),
+    mobile: /Mobi|Android|iPhone|iPad/.test(ua)
+  };
+}
+/* 이미 설치된 앱인지 감지 — manifest 의 related_applications(webapp) 선언 기반 */
+window.__alreadyInstalled=false;
+function detectInstalled(){
+  if(!navigator.getInstalledRelatedApps) return Promise.resolve(false);
+  return navigator.getInstalledRelatedApps()
+    .then(function(l){ return !!(l && l.length); })
+    .catch(function(){ return false; });
+}
+/* 설치되지 않았으면 버튼을 항상 노출 — 프롬프트가 없어도 수동 안내로 대응 */
+function syncInstallBtn(){
+  var b=document.getElementById('btnInstall'); if(!b)return;
+  if(isStandalone()||window.__installed){ b.classList.remove('on'); return; }
+  b.classList.add('on');
+  var s=b.querySelector('span');
+  if(window.__alreadyInstalled){
+    b.title='이미 설치되어 있습니다 — 설치된 앱을 여는 방법 안내';
+    if(s)s.textContent='앱으로 열기';
+  }else{
+    b.title='앱으로 설치 — 주소창 없는 독립 창으로 열립니다';
+    if(s)s.textContent='웹에 추가';
+  }
+}
+window.addEventListener('load',function(){
+  detectInstalled().then(function(v){ window.__alreadyInstalled=v; syncInstallBtn(); });
+});
+window.addEventListener('bip-ready', syncInstallBtn);
+window.addEventListener('appinstalled', function(){
+  syncInstallBtn(); closeGuide(); toast('홈 화면에 설치되었습니다');
+});
+
+function firePrompt(){
+  window.__bip.prompt();
+  window.__bip.userChoice.then(function(c){
+    window.__bip=null;
+    if(c.outcome==='accepted'){ window.__installed=true; syncInstallBtn(); }
+    else { toast('설치를 취소했습니다 — 다시 누르면 안내가 열립니다'); }
+  });
+}
+/* 프롬프트가 늦게 도착하는 경우가 있어 즉시 안내로 넘기지 않고 최대 2초 기다린다 */
+function installApp(){
+  if(window.__bip){ firePrompt(); return; }
+  if(window.__alreadyInstalled){ openGuide(); return; }
+  var b=document.getElementById('btnInstall'), done=false;
+  var fin=function(){
+    if(done)return; done=true;
+    window.removeEventListener('bip-ready',on);
+    if(b)b.style.opacity='';
+    if(window.__bip) firePrompt(); else openGuide();
+  };
+  var on=function(){ fin(); };
+  window.addEventListener('bip-ready',on);
+  if(b)b.style.opacity='.6';
+  setTimeout(fin,2000);
+}
+function openGuide(){
+  var e=envInfo(), t='', h='';
+  if(e.kakao || e.naver){
+    h='먼저 기본 브라우저로 열어주세요';
+    t='<b>카카오톡·네이버 앱 내부 화면에서는 설치할 수 없습니다.</b><br><br>' +
+      '우측 상단 <b>⋮ 또는 ⋯</b> → <b>“다른 브라우저로 열기”</b>(또는 Chrome·Safari로 열기)를 선택한 뒤 다시 설치를 눌러 주세요.';
+  } else if(e.ios){
+    h='iPhone · iPad 에서 설치하기';
+    t='① 화면 하단(또는 상단)의 <b>공유 버튼 [ ⬆ ]</b> 을 누릅니다.<br>' +
+      '② 목록을 내려 <b>“홈 화면에 추가”</b> 를 선택합니다.<br>' +
+      '③ 우측 상단 <b>“추가”</b> 를 누르면 완료됩니다.<br><br>' +
+      '<span style="color:var(--muted)">※ iOS 는 이 방식이 곧 앱 설치입니다. 홈 화면 아이콘을 누르면 주소창 없이 앱처럼 열립니다.</span><br>' +
+      '<span style="color:var(--muted)">※ 사파리(Safari)에서만 가능합니다. 크롬에서는 지원되지 않습니다.</span>';
+  } else if(e.samsung){
+    h='삼성 인터넷 — 앱으로 설치';
+    t='① 하단 <b>메뉴(≡)</b> 를 누릅니다.<br>' +
+      '② <b>“현재 페이지 추가”</b> → <b>“홈 화면”</b> 을 선택합니다.<br><br>' +
+      '<span style="color:var(--muted)">※ 삼성 인터넷은 이 경로로 앱 형태(WebAPK)로 설치됩니다. ' +
+      '더 확실하게 하시려면 <b>Chrome</b> 으로 접속해 주세요.</span>';
+  } else if(e.android){
+    h='Android — 앱으로 설치하기';
+    t='① 우측 상단 <b>⋮</b> 메뉴를 누릅니다.<br>' +
+      '② <b>“앱 설치”</b> 를 선택합니다. <span style="color:var(--muted)">(설치형 앱)</span><br><br>' +
+      '<span style="color:var(--muted)">※ “앱 설치”가 안 보이고 <b>“홈 화면에 추가”</b>만 있다면 단순 바로가기입니다. ' +
+      '페이지를 새로고침하고 10초쯤 머문 뒤 다시 열어 보시면 “앱 설치”로 바뀝니다.</span>';
+  } else if(e.firefox){
+    h='Firefox 에서 설치하기';
+    t='Firefox 데스크톱은 앱 설치를 지원하지 않습니다.<br>' +
+      '<b>Chrome · Edge</b> 로 접속하시거나, 이 페이지를 <b>즐겨찾기(Ctrl+D)</b> 에 추가해 주세요.';
+  } else {
+    h='PC — 앱으로 설치하기';
+    t='① 주소창 오른쪽의 <b>설치 아이콘 [ ⊕ ]</b> 또는 모니터 모양 아이콘을 누릅니다.<br>' +
+      '② 아이콘이 없으면 <b>⋮ 메뉴 → 캐스트·저장 및 공유 → 페이지를 앱으로 설치</b> 를 선택합니다.<br><br>' +
+      '<span style="color:var(--muted)">※ 설치하면 주소창 없는 독립 창으로 열리고 시작 메뉴·작업표시줄에 등록됩니다. ' +
+      'Chrome 또는 Edge 에서 지원됩니다.</span>';
+  }
+  if(window.__alreadyInstalled){
+    h='이미 설치되어 있습니다';
+    t='이 사이트는 이 기기에 <b>이미 앱으로 설치</b>되어 있어 설치창이 다시 뜨지 않습니다.<br>' +
+      '시작 메뉴 · 작업표시줄(휴대폰은 홈 화면)에서 <b>만민법규</b> 아이콘을 실행하세요.<br><br>' +
+      '<span style="color:var(--muted)">※ 아이콘 그림이 예전 것이라면 앱을 <b>삭제 후 재설치</b>해야 새 아이콘이 적용됩니다. ' +
+      'Android WebAPK · iOS 홈화면 아이콘은 설치 시점의 이미지를 그대로 보관합니다.</span>';
+  } else if(!window.__bip && !e.ios && !e.kakao && !e.naver){
+    t += '<br><br><b style="color:var(--gold)">설치창이 안 뜨나요?</b><br>' +
+      '① 이전에 <b>“설치 안 함”</b> 을 누르면 Chrome 이 한동안 설치창을 다시 띄우지 않습니다.<br>' +
+      '② 주소창 왼쪽 <b>🔒 → 사이트 설정 → 권한 재설정</b> 후 새로고침하면 복구됩니다.<br>' +
+      '③ <b>chrome://apps</b> 에 이미 설치본이 있으면 삭제한 뒤 다시 시도하세요.<br>' +
+      '④ 현재 상태를 확인하려면 주소 끝에 <b>?diag=1</b> 을 붙여 접속하세요.';
+  }
+  document.getElementById('gdTitle').innerHTML=h;
+  document.getElementById('gdBody').innerHTML=t;
+  document.getElementById('iosgd').classList.add('on');
+}
+function closeGuide(){var g=document.getElementById('iosgd'); if(g)g.classList.remove('on');}
+
+/* ── 설치 진단 — 주소 끝에 ?diag=1 ── */
+function installDiag(){
+  var m=document.querySelector('link[rel=manifest]'), out=[];
+  var push=function(k,v,ok){
+    out.push('<tr><td style="padding:3px 12px 3px 0;color:var(--muted);white-space:nowrap">'+k+
+      '</td><td><b style="color:'+(ok?'#5fbf7a':'var(--danger)')+'">'+v+'</b></td></tr>');
+  };
+  var swOn=!!(navigator.serviceWorker && navigator.serviceWorker.controller);
+  push('HTTPS', isSecureContext?'OK':'실패', isSecureContext);
+  push('manifest 링크', m?'OK':'없음', !!m);
+  push('Service Worker', swOn?'제어중':'미제어', swOn);
+  push('설치 프롬프트', window.__bip?'수신됨':'미수신', !!window.__bip);
+  push('이미 설치됨', window.__alreadyInstalled?'예':'아니오', !window.__alreadyInstalled);
+  push('독립창 실행', isStandalone()?'예':'아니오', true);
+  var job = m ? fetch(m.href).then(function(r){return r.json()}).then(function(j){
+      return Promise.all((j.icons||[]).map(function(i){
+        return fetch(new URL(i.src,m.href).href,{cache:'reload'})
+          .then(function(r){ push('아이콘 '+i.sizes+' · '+(i.purpose||'any'), r.status, r.ok); })
+          .catch(function(){ push('아이콘 '+i.sizes, '요청 실패', false); });
+      }));
+    }).catch(function(){}) : Promise.resolve();
+  job.then(function(){
+    document.getElementById('gdTitle').innerHTML='PWA 설치 진단';
+    document.getElementById('gdBody').innerHTML='<table style="font-size:12.5px">'+out.join('')+'</table>' +
+      '<div style="margin-top:10px;color:var(--muted);font-size:11.5px;line-height:1.6">' +
+      '“설치 프롬프트 · 미수신” 인데 나머지가 모두 OK 라면 → 이미 설치되었거나, 이전에 설치를 취소해 ' +
+      'Chrome 이 프롬프트를 억제하는 중입니다. 사이트 권한 재설정 또는 기존 설치본 삭제 후 재시도하세요.</div>';
+    document.getElementById('iosgd').classList.add('on');
+  });
+}
+if(/[?&]diag=1/.test(location.search)){
+  window.addEventListener('load',function(){ setTimeout(installDiag,1500); });
+}
+
+/* ── 테마 ── */
+(function(){var t=localStorage.getItem('mlr-theme');if(t)document.documentElement.dataset.theme=t;})();
+function toggleTheme(){var h=document.documentElement;
+ var n=h.dataset.theme==='light'?'dark':'light';h.dataset.theme=n;localStorage.setItem('mlr-theme',n);}
+
+/* ── 토스트 ── */
+var _tt;
+function toast(m){var e=document.getElementById('toast');e.textContent=m;e.classList.add('on');
+ clearTimeout(_tt);_tt=setTimeout(function(){e.classList.remove('on')},1900);}
+
+/* ── 복사 ── */
+function copyText(t,msg){
+ if(navigator.clipboard&&window.isSecureContext){
+   navigator.clipboard.writeText(t).then(function(){toast(msg||'복사되었습니다')});
+ }else{
+   var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.left='-9999px';
+   document.body.appendChild(a);a.select();try{document.execCommand('copy');toast(msg||'복사되었습니다')}
+   catch(e){toast('복사 실패')}document.body.removeChild(a);
+ }}
+
+/* ── 공유 ── */
+function share(title){
+ var u=location.href;
+ if(navigator.share){navigator.share({title:title,url:u}).catch(function(){});}
+ else copyText(u,'링크가 복사되었습니다');
+}
+function copyAnchor(id){
+ copyText(location.origin+location.pathname+'#'+id,'항목 링크가 복사되었습니다');
+ location.hash=id;
+}
+
+/* ── D-day ── */
+function dday(iso){
+ if(!iso)return null;
+ var t=new Date();t.setHours(0,0,0,0);
+ var d=new Date(iso+'T00:00:00');
+ return Math.round((d-t)/86400000);
+}
+function paintDday(){
+ document.querySelectorAll('[data-dl]').forEach(function(el){
+   var n=dday(el.dataset.dl),kind=el.dataset.kind||'예고';
+   if(n===null)return;
+   if(n<0){el.textContent=kind+' 종료';el.className='dday soft';}
+   else if(n===0){el.textContent=kind+' 마감 D-DAY';el.className='dday';}
+   else if(n<=10){el.textContent=kind+' 마감 D-'+n;el.className='dday';}
+   else {el.textContent=kind+' 마감 D-'+n;el.className='dday soft';}
+ });
+ document.querySelectorAll('[data-ef]').forEach(function(el){
+   var n=dday(el.dataset.ef);
+   if(n===null)return;
+   if(n>0){el.textContent='시행 D-'+n;el.className='dday ok';}
+   else {el.style.display='none';}
+ });
+}
+
+/* ── 필터 ── */
+var F={q:'',cat:'ALL',field:'ALL'};
+function applyFilter(){
+ var q=F.q.trim().toLowerCase(), n=0;
+ document.querySelectorAll('.card').forEach(function(c){
+  var okc = F.cat==='ALL' || c.dataset.cat===F.cat;
+  var okf = F.field==='ALL' || (c.dataset.field||'').split('|').indexOf(F.field)>=0;
+  var okq = !q || (c.dataset.s||'').indexOf(q)>=0;
+  var show = okc&&okf&&okq;
+  c.style.display = show?'':'none';
+  if(show)n++;
+ });
+ document.getElementById('cnt').textContent=n;
+ document.getElementById('empty').style.display = n?'none':'block';
+ document.querySelector('.searchbox .x').style.display = F.q?'block':'none';
+}
+function setChip(g,v,el){
+ F[g]=v;
+ document.querySelectorAll('.chip[data-g="'+g+'"]').forEach(function(e){e.classList.remove('on')});
+ el.classList.add('on');applyFilter();
+}
+function clearQ(){document.getElementById('q').value='';F.q='';applyFilter();}
+
+/* ── 전체 펼침/접기 ── */
+var _open=false;
+function toggleAll(){
+ _open=!_open;
+ document.querySelectorAll('details').forEach(function(d){d.open=_open});
+ document.getElementById('bAll').textContent=_open?'전체 접기':'전체 펼치기';
+}
+
+/* ── 텍스트 추출 ── */
+function buildText(mode){
+ var meta=window.__META__, lines=[];
+ var vis=[].slice.call(document.querySelectorAll('.card')).filter(function(c){return c.style.display!=='none'});
+ if(mode==='blog'){
+  lines.push('['+meta.label+' 법규 검토 요약] '+meta.headline);
+  lines.push('');
+  lines.push('건축사 김만민입니다. '+meta.label+' 건축·설비·소방 분야 법령 개정사항을 정리했습니다.');
+  lines.push('');
+  var cur='';
+  vis.forEach(function(c,i){
+   if(c.dataset.cat!==cur){cur=c.dataset.cat;lines.push('');lines.push('■ '+cur);lines.push('');}
+   lines.push('▶ '+c.dataset.title);
+   lines.push('   · 근거법령 : '+c.dataset.law);
+   lines.push('   · '+c.dataset.dlabel+' : '+c.dataset.date.replace(/-/g,'.')+'.');
+   lines.push('   · '+c.dataset.sum);
+   if(c.dataset.reason)lines.push('   · 제안이유·주요내용 : '+c.dataset.reason);
+   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
+   d.forEach(function(x){lines.push('     - '+x)});
+   if(c.dataset.impact)lines.push('     ※ 실무영향 : '+c.dataset.impact);
+   lines.push('');
+  });
+  lines.push('──────────────');
+  lines.push('전체 요약본 보기 : '+location.href);
+  lines.push('MANMIN 엔지니어링 계산도구 : '+meta.home);
+  lines.push('#건축법규 #법규개정 #건축사 #'+meta.label.replace(/\s/g,'')+' #만민법규검토요약');
+ } else {
+  lines.push('['+meta.label+' 법규 검토 요약 — 유튜브 대본 초안]');
+  lines.push('');
+  lines.push('(오프닝)');
+  lines.push('안녕하세요, 건축사 김만민입니다.');
+  lines.push('오늘은 '+meta.label+'에 나온 건축 관련 법규 개정사항 '+vis.length+'건을 정리해 드리겠습니다.');
+  lines.push('핵심만 말씀드리면 — '+meta.headline+' 입니다.');
+  lines.push('');
+  vis.forEach(function(c,i){
+   lines.push('── '+(i+1)+'. '+c.dataset.title+' ['+c.dataset.cat+'] ──');
+   lines.push('근거는 '+c.dataset.law+'이고, '+c.dataset.dlabel+'은 '+c.dataset.date.replace(/-/g,'.')+'입니다.');
+   lines.push(c.dataset.sum);
+   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
+   if(d.length){lines.push('세부 내용은 이렇습니다.');d.forEach(function(x){lines.push('  · '+x)});}
+   if(c.dataset.impact)lines.push('실무에서는요, '+c.dataset.impact);
+   lines.push('');
+  });
+  lines.push('(클로징)');
+  lines.push('오늘 정리한 내용은 설명란 링크에서 원문과 함께 확인하실 수 있습니다.');
+  lines.push('도움이 되셨다면 구독과 좋아요 부탁드립니다. 감사합니다.');
+ }
+ return lines.join('\n');
+}
+function openText(mode){
+ document.getElementById('mask').classList.add('on');
+ setMode(mode);
+}
+function setMode(mode){
+ document.getElementById('ta').value=buildText(mode);
+ document.querySelectorAll('#mtabs .chip').forEach(function(e){
+   e.classList.toggle('on', e.dataset.m===mode)});
+}
+function closeModal(){document.getElementById('mask').classList.remove('on')}
+
+/* ── 초기화 ── */
+document.addEventListener('DOMContentLoaded',function(){
+ paintDday();
+ syncInstallBtn();
+ var q=document.getElementById('q');
+ if(q){q.addEventListener('input',function(){F.q=this.value.toLowerCase();applyFilter()});}
+ applyFilter();
+ if(location.hash){var el=document.querySelector(location.hash);
+   if(el){el.classList.add('hi');setTimeout(function(){el.classList.remove('hi')},2600);}}
+ window.addEventListener('scroll',function(){
+   document.getElementById('top').classList.toggle('on',window.scrollY>500)});
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){closeModal();closeGuide();}
+   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){
+     e.preventDefault();if(q)q.focus();}
+ });
+ var m=document.getElementById('mask');
+ if(m)m.addEventListener('click',function(e){if(e.target===m)closeModal()});
+});
+</script>
+</body></html>

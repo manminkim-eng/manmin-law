@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+window.__bip=null;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault(); window.__bip=e;
+  window.dispatchEvent(new Event('bip-ready'));
+});
+window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
+</script>
+<title>2026년 5월 법규 검토 요약 — MANMIN LEGAL REVIEW</title>
+<meta name="description" content="주택건설기준 규정 개정 공포(11.7 시행) · 부동산개발사업 관리법 제정 공포 · 도시형생활주택 층수완화 1차 예고">
+<meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
+<meta name="theme-color" content="#0c1120">
+<link rel="canonical" href="https://manminkim-eng.github.io/manmin-law/2026-05.html">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="만민 건축법규 검토요약">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="만민법규">
+<meta name="msapplication-TileColor" content="#0c1120">
+<meta name="msapplication-TileImage" content="assets/icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://manminkim-eng.github.io/manmin-law/assets/logo-full.png">
+<meta property="og:image:alt" content="ARCHITECT KIM MANMIN — 만민 법규 검토 요약">
+<meta property="og:site_name" content="MANMIN LEGAL REVIEW — 만민 법규 검토 요약">
+<meta property="og:title" content="2026년 5월 법규 검토 요약 — MANMIN LEGAL REVIEW">
+<meta property="og:description" content="주택건설기준 규정 개정 공포(11.7 시행) · 부동산개발사업 관리법 제정 공포 · 도시형생활주택 층수완화 1차 예고">
+<meta property="og:url" content="https://manminkim-eng.github.io/manmin-law/2026-05.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#0c1120; --panel:#131b2c; --panel2:#182134; --line:#26314a;
+ --gold:#d4a843; --txt:#e8edf7; --muted:#8b98b3; --danger:#e0645c;
+}
+html[data-theme="light"]{
+ --bg:#f4f6fa; --panel:#ffffff; --panel2:#f0f3f8; --line:#dbe1ec;
+ --gold:#a67c1f; --txt:#151b28; --muted:#5c6883;
+}
+body{background:var(--bg);color:var(--txt);
+ font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,BlinkMacSystemFont,sans-serif;
+ line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(212,168,67,.07),transparent);
+ position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background-color:var(--bg)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.markchip{flex:none;height:46px;width:auto;border-radius:10px;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;padding:4px 8px;
+ background:#f0ead9;border:1.5px solid rgba(212,168,67,.55);
+ box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.brandmark{height:100%;width:auto;max-width:none;object-fit:contain;display:block}
+html[data-theme="light"] .markchip{border-color:rgba(43,58,103,.35);box-shadow:none}
+.btn.install{display:none;background:var(--gold);color:#0c1120;border-color:var(--gold);
+ font-weight:800;align-items:center;gap:6px;padding:6px 12px 6px 8px}
+.btn.install:hover{filter:brightness(1.08);color:#0c1120}
+.btn.install.on{display:inline-flex}
+.btn.install img{height:19px;width:19px;object-fit:contain;display:block;
+ filter:brightness(0) saturate(100%)}
+.btn.install span{line-height:1}
+.iosgd{position:fixed;left:12px;right:12px;bottom:12px;z-index:150;background:var(--panel);
+ border:1px solid var(--gold);border-radius:13px;padding:15px 17px;display:none;
+ box-shadow:0 10px 36px rgba(0,0,0,.45)}
+.iosgd.on{display:block}
+.iosgd b{color:var(--gold);font-size:13px;display:block;margin-bottom:7px}
+.iosgd p{font-size:13px;color:var(--txt);line-height:1.7}
+.iosgd .x2{position:absolute;top:11px;right:13px;color:var(--muted);cursor:pointer;font-size:15px}
+.ver{font-size:10px;font-weight:800;letter-spacing:.09em;color:#0c1120;
+ background:var(--gold);padding:3px 8px;border-radius:5px;white-space:nowrap;align-self:center}
+.brand b{font-size:19px;letter-spacing:.11em;color:var(--gold);font-weight:800}
+.brand span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+.hdbtns{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--txt);
+ padding:7px 12px;border-radius:8px;font-size:12.5px;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.gold{background:var(--gold);color:#0c1120;border-color:var(--gold);font-weight:700}
+.btn.gold:hover{filter:brightness(1.1);color:#0c1120}
+select.btn{appearance:none;padding-right:26px;
+ background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+ background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+/* HERO */
+.hero{padding:34px 0 22px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-bottom:9px}
+h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.lead{color:var(--muted);margin-top:11px;font-size:14.5px;max-width:860px}
+.meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:15px;font-size:12px;color:var(--muted)}
+.meta b{color:var(--txt);font-weight:600}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:9px;margin:20px 0 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.stat i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.stat b{display:block;font-size:20px;font-weight:800;margin-top:3px}
+
+/* TOOLBAR */
+.toolbar{position:sticky;top:59px;z-index:40;background:var(--bg);
+ padding:15px 0 11px;border-bottom:1px solid var(--line)}
+.searchbox{position:relative;margin-bottom:11px}
+.searchbox input{width:100%;padding:11px 40px 11px 14px;border-radius:10px;
+ border:1px solid var(--line);background:var(--panel);color:var(--txt);font-size:14px;outline:none;font-family:inherit}
+.searchbox input:focus{border-color:var(--gold)}
+.searchbox .x{position:absolute;right:11px;top:50%;transform:translateY(-50%);
+ color:var(--muted);cursor:pointer;font-size:16px;display:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chips .lb{font-size:11px;color:var(--muted);margin-right:3px;letter-spacing:.05em}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--muted);
+ padding:5px 11px;border-radius:99px;font-size:12px;cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{color:var(--txt)}
+.chip.on{background:var(--gold);color:#0c1120;border-color:var(--gold);font-weight:700}
+.chip .n{opacity:.65;font-size:10.5px;margin-left:3px}
+.hint{font-size:11.5px;color:var(--muted);margin-top:9px}
+
+/* CARD */
+.list{padding:22px 0 40px;display:flex;flex-direction:column;gap:13px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+ padding:17px 19px;border-left:4px solid var(--cc,var(--gold));transition:.18s;scroll-margin-top:150px}
+.card:hover{border-color:var(--line);box-shadow:0 5px 22px rgba(0,0,0,.22)}
+.card.hi{box-shadow:0 0 0 2px var(--gold)}
+.ctop{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
+.tag{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.03em;
+ background:var(--cc);color:#0c1120}
+.field{font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:5px}
+.dday{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;
+ background:rgba(224,100,92,.14);color:var(--danger);border:1px solid rgba(224,100,92,.35)}
+.dday.soft{background:rgba(139,152,179,.12);color:var(--muted);border-color:var(--line)}
+.dday.ok{background:rgba(111,192,138,.13);color:#6fc08a;border-color:rgba(111,192,138,.33)}
+.ctop .sp{flex:1}
+.anchor{font-size:11px;color:var(--muted);cursor:pointer;opacity:.6}
+.anchor:hover{opacity:1;color:var(--gold)}
+h3.ct{font-size:16.5px;font-weight:750;letter-spacing:-.01em;line-height:1.45}
+.lawrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:7px 0 9px;font-size:12.5px;color:var(--muted)}
+.lawrow a{color:var(--gold);border-bottom:1px dotted rgba(212,168,67,.5);padding-bottom:1px}
+.lawrow a:hover{border-bottom-style:solid}
+.sum{font-size:14px;color:var(--txt);opacity:.93}
+details{margin-top:11px}
+summary{cursor:pointer;font-size:12.5px;color:var(--gold);list-style:none;
+ display:inline-flex;align-items:center;gap:5px;user-select:none;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";transition:.15s;display:inline-block}
+details[open] summary::before{transform:rotate(90deg)}
+.det{margin-top:10px;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.det ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.det li{font-size:13px;padding-left:14px;position:relative;color:var(--txt);opacity:.9}
+.det li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;
+ border-radius:99px;background:var(--cc);opacity:.75}
+.impact{margin-top:11px;padding:10px 13px;border-radius:8px;font-size:12.8px;
+ background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.25)}
+.impact b{color:var(--gold);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:4px}
+.reason{margin-top:10px;padding:11px 14px;border-radius:8px;font-size:13.2px;
+ background:var(--panel2);border:1px solid var(--line);line-height:1.7}
+.reason b{color:var(--cc);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:5px}
+.cmp{width:100%;border-collapse:collapse;font-size:12.3px;margin-top:8px}
+.cmp th{background:var(--panel);border:1px solid var(--line);padding:6px 9px;
+ font-size:10.8px;letter-spacing:.07em;color:var(--muted);font-weight:700;text-align:left}
+.cmp th.new{color:var(--gold)}
+.cmp td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;line-height:1.6;width:44%}
+.cmp td.art{width:12%;font-weight:700;font-size:11.5px;color:var(--cc);
+ background:var(--panel);white-space:nowrap}
+.cmp td.new{background:rgba(212,168,67,.05)}
+.cmplink{margin-top:8px;font-size:12px;color:var(--muted)}
+.cmplink a{color:var(--gold);border-bottom:1px dotted rgba(212,168,67,.5);margin-left:8px}
+.empty{text-align:center;padding:56px 20px;color:var(--muted);font-size:14px}
+
+/* ARCHIVE */
+.sec{padding:34px 0;border-top:1px solid var(--line)}
+.sech{font-size:11.5px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:15px}
+.arch{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:11px}
+.acard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+ display:block;transition:.18s}
+.acard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.acard i{font-style:normal;font-size:10.5px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.acard b{display:block;font-size:17px;margin:5px 0 7px;font-weight:750}
+.acard p{font-size:12.3px;color:var(--muted);line-height:1.55}
+.acard .cnt{margin-top:9px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+
+/* MODAL */
+.mask{position:fixed;inset:0;background:rgba(4,7,14,.78);z-index:100;display:none;
+ align-items:center;justify-content:center;padding:20px}
+.mask.on{display:flex}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+ max-width:760px;width:100%;max-height:86vh;display:flex;flex-direction:column}
+.mh{padding:15px 19px;border-bottom:1px solid var(--line);display:flex;
+ align-items:center;justify-content:space-between;gap:10px}
+.mh b{font-size:14.5px}
+.mtabs{display:flex;gap:6px;padding:11px 19px 0}
+.mbody{padding:13px 19px 19px;overflow:auto;flex:1}
+.mbody textarea{width:100%;min-height:340px;background:var(--bg);color:var(--txt);
+ border:1px solid var(--line);border-radius:9px;padding:13px;font-size:12.5px;
+ line-height:1.75;font-family:'D2Coding','Consolas',monospace;resize:vertical;outline:none}
+.mfoot{padding:12px 19px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+
+/* TOAST */
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+ background:var(--gold);color:#0c1120;padding:11px 20px;border-radius:9px;font-size:13px;
+ font-weight:700;z-index:200;opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:12px;color:var(--muted)}
+footer .fl{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:11px}
+footer a:hover{color:var(--gold)}
+.disc{font-size:11.3px;line-height:1.7;opacity:.8}
+
+/* TOP */
+#top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:99px;
+ background:var(--panel);border:1px solid var(--line);color:var(--gold);cursor:pointer;
+ display:none;align-items:center;justify-content:center;font-size:16px;z-index:60}
+#top.on{display:flex}
+
+*{-webkit-tap-highlight-color:transparent}
+@media(max-width:640px){
+ .toolbar{top:0;position:relative}
+ header{position:relative}
+ .card{padding:15px 14px}
+ .hd{gap:9px;padding:11px 0}
+ .brand span:not(.ver):not(.markchip){display:none}
+ .markchip{height:38px;width:auto;border-radius:8px;padding:3px 6px}
+ .brandmark{height:100%;width:auto}
+ .brand b{font-size:15.5px}
+ .ver{font-size:9px;padding:2px 6px}
+ .btn.install{padding:7px 9px}
+ .btn.install span{display:none}
+ .btn.install img{height:21px;width:21px}
+ .searchbox input{font-size:16px;padding:12px 40px 12px 14px}
+ .btn{padding:9px 13px;font-size:13px}
+ .chip{padding:7px 12px;font-size:12.5px}
+ h3.ct{font-size:15.5px}
+ .sum{font-size:13.5px}
+ .lawrow{font-size:12px;gap:7px}
+ .det{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:11px 12px}
+ .cmp{min-width:540px}
+ .stats{grid-template-columns:repeat(auto-fit,minmax(92px,1fr))}
+ .arch{grid-template-columns:1fr}
+ .meta{gap:10px;font-size:11.5px}
+ .mbody textarea{min-height:240px;font-size:12px}
+ .modal{max-height:92vh}
+ #top{right:14px;bottom:16px}
+}
+@media(max-width:400px){
+ .hdbtns .btn:not(select){padding:8px 10px;font-size:12px}
+ h1{font-size:20px}
+}
+
+/* PRINT — A4 */
+@media print{
+ @page{size:A4;margin:14mm 12mm}
+ html,body{background:#fff!important;color:#000!important;font-size:10pt}
+ :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
+ header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}
+ details{display:block!important}
+ details>summary{display:none!important}
+ .det{background:#f7f7f7!important;border:1px solid #ccc!important;page-break-inside:avoid}
+ .card{page-break-inside:avoid;border:1px solid #ccc!important;border-left:3px solid #888!important;
+  box-shadow:none!important;margin-bottom:6mm;padding:4mm 5mm}
+ .hero{border-bottom:1.5px solid #000;padding:0 0 5mm}
+ h1{font-size:16pt}
+ .tag{background:#eee!important;color:#000!important;border:1px solid #999}
+ .impact{background:#fbf7ec!important;border:1px solid #d8c68e!important}
+ a{color:#000!important;border:none!important}
+ a[href^="http"]::after{content:" (" attr(href) ")";font-size:7pt;color:#666;word-break:break-all}
+ .wrap{max-width:none;padding:0}
+ .list{gap:0}
+}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<div class="iosgd" id="iosgd">
+ <span class="x2" onclick="closeGuide()">✕</span>
+ <b id="gdTitle">홈 화면에 추가하기</b>
+ <p id="gdBody"></p>
+</div>
+<button id="top" onclick="scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+<header><div class="wrap hd">
+<a class="brand" href="index.html">
+  <span class="markchip"><img class="brandmark" src="assets/logo-full.png" alt="ARCHITECT KIM MANMIN — 건축사 김만민" width="1200" height="867"></span>
+  <b>MANMIN LEGAL REVIEW</b><span class="ver">MANMIN VER-1.0</span><span>만민 법규 검토 요약 · 김만민 건축사 · ㈜대성건축사사무소</span>
+</a>
+<div class="hdbtns">
+  <select class="btn" onchange="if(this.value)location.href=this.value"><option value="">■ 월별 아카이브 이동</option><option value="index.html">전체 목록 (INDEX)</option><option value="2026-08.html">2026년 8월 (2026-08)</option><option value="2026-07.html">2026년 7월 (2026-07)</option><option value="2026-06.html">2026년 6월 (2026-06)</option><option value="2026-05.html" selected>2026년 5월 (2026-05)</option></select>
+  <button class="btn install" id="btnInstall" onclick="installApp()" title="앱으로 설치 — 주소창 없는 독립 창으로 열립니다"><img src="assets/mark-trans.png" alt=""><span>웹에 추가</span></button>
+  <button class="btn" onclick="toggleTheme()" title="밝게/어둡게">◐</button>
+  <a class="btn" href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">MANMIN 계산도구 ↗</a>
+</div>
+</div></header>
+
+<script>window.__META__={"label": "2026년 5월", "headline": "주택건설기준 규정 개정 공포(11.7 시행) · 부동산개발사업 관리법 제정 공포 · 도시형생활주택 층수완화 1차 예고", "issue": "2026-05", "home": "https://manminkim-eng.github.io/KIMMANMIN/"};</script>
+<section class="hero"><div class="wrap">
+ <div class="eyebrow">MONTHLY LEGAL REVIEW · 2026-05 · MANMIN VER-1.0</div>
+ <h1>2026년 5월 법규 검토 요약</h1>
+ <p class="lead">주택건설기준 규정 개정 공포(11.7 시행) · 부동산개발사업 관리법 제정 공포 · 도시형생활주택 층수완화 1차 예고</p>
+ <div class="meta">
+   <span>작성 <b>김만민 건축사 · ㈜대성건축사사무소</b></span>
+   <span>발행 <b>2026.06.02</b></span>
+   <span>출처 <b>LawMCP(국가법령정보센터) 조사 — 2026.5월 공포·예고 사항</b></span>
+   <span>총 <b>4건</b></span>
+ </div>
+ <div class="stats">
+   <div class="stat"><i>시행법령</i><b>2</b></div><div class="stat"><i>입법예고</i><b>1</b></div><div class="stat"><i>추가검토</i><b>1</b></div>
+ </div>
+</div></section>
+
+<div class="toolbar"><div class="wrap">
+ <div class="searchbox">
+   <input id="q" type="search" placeholder="법령명 · 조문 · 키워드 검색   (단축키 /)" autocomplete="off">
+   <span class="x" onclick="clearQ()">✕</span>
+ </div>
+ <div class="chips"><span class="lb">구분</span><span class="chip on" data-g="cat" onclick="setChip('cat','ALL',this)">전체<span class="n">4</span></span><span class="chip" data-g="cat" onclick="setChip('cat','시행법령',this)">시행법령<span class="n">2</span></span><span class="chip" data-g="cat" onclick="setChip('cat','입법예고',this)">입법예고<span class="n">1</span></span><span class="chip" data-g="cat" onclick="setChip('cat','추가검토',this)">추가검토<span class="n">1</span></span></div>
+ <div class="chips" style="margin-top:6px"><span class="lb">분야</span><span class="chip on" data-g="field" onclick="setChip('field','ALL',this)">전체</span><span class="chip" data-g="field" onclick="setChip('field','건축',this)">건축</span><span class="chip" data-g="field" onclick="setChip('field','도시계획',this)">도시계획</span><span class="chip" data-g="field" onclick="setChip('field','소방',this)">소방</span><span class="chip" data-g="field" onclick="setChip('field','안전진단',this)">안전진단</span></div>
+ <div class="chips" style="margin-top:9px">
+   <button class="btn" id="bAll" onclick="toggleAll()">전체 펼치기</button>
+   <button class="btn" onclick="window.print()">🖨 인쇄 · PDF 저장</button>
+   <button class="btn" onclick="share('2026년 5월 법규 검토 요약')">🔗 공유</button>
+   <button class="btn gold" onclick="openText('blog')">📝 블로그·유튜브 원고</button>
+   <span style="flex:1"></span>
+   <span class="hint" style="margin:0">표시 <b id="cnt" style="color:var(--gold)">0</b>건</span>
+ </div>
+</div></div>
+
+<main class="wrap">
+ <div class="list"><article class="card" id="i01" style="--cc:#d4a843"
+ data-cat="시행법령" data-field="건축" data-s="주택건설기준 등에 관한 규정 일부개정 공포 (시행 2026.11.7.) 주택건설기준 등에 관한 규정 대통령령 제36308호로 일부개정 공포. 공포 후 6개월이 경과한 2026.11.7. 시행 예정. 시행법령 건축 대통령령 제36308호(2026.5.6. 공포 / 2026.11.7. 시행) — lawmcp 법령정보 확인 6월 개정(제36475호, 2026.6.30. 공포·시행 — 소음규제 완화 등)과 별개의 개정령 세부 개정 조문은 시행일 전 법제처 시행예정본으로 확인 권장 2026.11.7. 전후 사업계획승인 신청분의 적용 기준(부칙 경과조치)을 설계 착수 단계에서 확인해야 함. 2026-05-06"
+ data-title="주택건설기준 등에 관한 규정 일부개정 공포 (시행 2026.11.7.)" data-law="주택건설기준 등에 관한 규정" data-sum="대통령령 제36308호로 일부개정 공포. 공포 후 6개월이 경과한 2026.11.7. 시행 예정."
+ data-date="2026-05-06" data-dlabel="공포"
+ data-detail="[&quot;대통령령 제36308호(2026.5.6. 공포 / 2026.11.7. 시행) — LawMCP 법령정보 확인&quot;, &quot;6월 개정(제36475호, 2026.6.30. 공포·시행 — 소음규제 완화 등)과 별개의 개정령&quot;, &quot;세부 개정 조문은 시행일 전 법제처 시행예정본으로 확인 권장&quot;]"
+ data-reason="주택건설기준 등에 관한 규정의 일부개정령(대통령령 제36308호)이 공포됨. 공포 후 6개월 경과일인 2026.11.7. 시행 예정으로, 세부 개정이유·주요내용은 법제처 시행예정본 공개 시 확인 예정."
+ data-impact="2026.11.7. 전후 사업계획승인 신청분의 적용 기준(부칙 경과조치)을 설계 착수 단계에서 확인해야 함.">
+ <div class="ctop">
+  <span class="tag">시행법령</span><span class="field">건축</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i01')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">주택건설기준 등에 관한 규정 일부개정 공포 (시행 2026.11.7.)</h3>
+ <div class="lawrow">
+  <span>공포 <b style="color:var(--txt)">2026.05.06</b></span>
+  <span>·</span>
+  <span>근거 주택건설기준 등에 관한 규정</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">대통령령 제36308호로 일부개정 공포. 공포 후 6개월이 경과한 2026.11.7. 시행 예정.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>주택건설기준 등에 관한 규정의 일부개정령(대통령령 제36308호)이 공포됨. 공포 후 6개월 경과일인 2026.11.7. 시행 예정으로, 세부 개정이유·주요내용은 법제처 시행예정본 공개 시 확인 예정.</div><details><summary>세부 개정내용 3건</summary><div class="det"><ul><li>대통령령 제36308호(2026.5.6. 공포 / 2026.11.7. 시행) — LawMCP 법령정보 확인</li><li>6월 개정(제36475호, 2026.6.30. 공포·시행 — 소음규제 완화 등)과 별개의 개정령</li><li>세부 개정 조문은 시행일 전 법제처 시행예정본으로 확인 권장</li></ul></div></details><div class="cmplink">신·구조문 대비 — 시행예정(2026.11.7.) 개정령 — 신·구조문 대비표는 법제처 시행예정본 링크에서 확인<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%A4%80%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95" target="_blank" rel="noopener">법령 검색 ↗</a></div><div class="impact"><b>실무 영향</b>2026.11.7. 전후 사업계획승인 신청분의 적용 기준(부칙 경과조치)을 설계 착수 단계에서 확인해야 함.</div>
+</article>
+<article class="card" id="i02" style="--cc:#d4a843"
+ data-cat="시행법령" data-field="건축|도시계획" data-s="부동산개발사업 관리 등에 관한 법률 제정·공포 (시행 2026.11.13.) 부동산개발사업 관리 등에 관한 법률 부동산개발사업의 체계적 관리와 신속 인·허가 지원을 위한 제정법 공포. 국토교통부에 신속 인·허가 지원센터 설치 근거 마련. 시행법령 건축 도시계획 법률 제21632호(2026.5.12. 공포 / 2026.11.13. 시행) 신속 인·허가 지원센터 설치·운영 근거 — 지원대상·절차는 하위 규정(2026.7월 행정예고)으로 구체화 같은 날 「국토의 계획 및 이용에 관한 법률」 타법개정(법률 제21626호, 시행 2027.5.13.) 병행 — 관계 법령 정비 후속 운영 규정 행정예고(26.7.3.~7.23.)는 2026-07호 참조 지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 공식 중재 창구가 신설됨 — 개발사업 인허가 전략에 활용 가능. 2026-05-12"
+ data-title="부동산개발사업 관리 등에 관한 법률 제정·공포 (시행 2026.11.13.)" data-law="부동산개발사업 관리 등에 관한 법률" data-sum="부동산개발사업의 체계적 관리와 신속 인·허가 지원을 위한 제정법 공포. 국토교통부에 신속 인·허가 지원센터 설치 근거 마련."
+ data-date="2026-05-12" data-dlabel="공포"
+ data-detail="[&quot;법률 제21632호(2026.5.12. 공포 / 2026.11.13. 시행)&quot;, &quot;신속 인·허가 지원센터 설치·운영 근거 — 지원대상·절차는 하위 규정(2026.7월 행정예고)으로 구체화&quot;, &quot;같은 날 「국토의 계획 및 이용에 관한 법률」 타법개정(법률 제21626호, 시행 2027.5.13.) 병행 — 관계 법령 정비&quot;, &quot;후속 운영 규정 행정예고(26.7.3.~7.23.)는 2026-07호 참조&quot;]"
+ data-reason="부동산개발사업의 체계적 관리와 신속한 인가·허가 지원을 위한 제정법. 지자체와 사업자 간 법령해석 이견 등으로 지연되는 인허가를 중재·지원하는 신속 인·허가 지원센터의 설치 근거를 국토교통부에 마련함."
+ data-impact="지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 공식 중재 창구가 신설됨 — 개발사업 인허가 전략에 활용 가능.">
+ <div class="ctop">
+  <span class="tag">시행법령</span><span class="field">건축</span><span class="field">도시계획</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i02')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">부동산개발사업 관리 등에 관한 법률 제정·공포 (시행 2026.11.13.)</h3>
+ <div class="lawrow">
+  <span>공포 <b style="color:var(--txt)">2026.05.12</b></span>
+  <span>·</span>
+  <span>근거 부동산개발사업 관리 등에 관한 법률</span>
+  <a href="https://www.law.go.kr/법령/%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%20%EA%B4%80%EB%A6%AC%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">부동산개발사업의 체계적 관리와 신속 인·허가 지원을 위한 제정법 공포. 국토교통부에 신속 인·허가 지원센터 설치 근거 마련.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>부동산개발사업의 체계적 관리와 신속한 인가·허가 지원을 위한 제정법. 지자체와 사업자 간 법령해석 이견 등으로 지연되는 인허가를 중재·지원하는 신속 인·허가 지원센터의 설치 근거를 국토교통부에 마련함.</div><details><summary>세부 개정내용 4건</summary><div class="det"><ul><li>법률 제21632호(2026.5.12. 공포 / 2026.11.13. 시행)</li><li>신속 인·허가 지원센터 설치·운영 근거 — 지원대상·절차는 하위 규정(2026.7월 행정예고)으로 구체화</li><li>같은 날 「국토의 계획 및 이용에 관한 법률」 타법개정(법률 제21626호, 시행 2027.5.13.) 병행 — 관계 법령 정비</li><li>후속 운영 규정 행정예고(26.7.3.~7.23.)는 2026-07호 참조</li></ul></div></details><div class="cmplink">신·구조문 대비 — 제정법으로 신·구조문 대비표 없음 — 조문 전문은 원문 링크 참조<a href="https://www.law.go.kr/법령/%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%EA%B4%80%EB%A6%AC%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EB%B6%80%EB%8F%99%EC%82%B0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%20%EA%B4%80%EB%A6%AC%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">법령 검색 ↗</a></div><div class="impact"><b>실무 영향</b>지자체와 사업자 간 법령해석 이견으로 지연되는 인허가 건의 공식 중재 창구가 신설됨 — 개발사업 인허가 전략에 활용 가능.</div>
+</article>
+<article class="card" id="i03" style="--cc:#4ea8de"
+ data-cat="입법예고" data-field="건축" data-s="도시형생활주택 단지형 연립·다세대 층수 완화 1차 입법예고 주택법 시행령 건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 5개층에서 6개층으로 완화하는 개정안 1차 예고. 입법예고 건축 제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층 제1종전용주거지역·제1종일반주거지역은 5개층 유지 이후 2026.6.29.~8.10. 재입법예고 진행 — 상세는 2026-07호 참조  2026-05-19"
+ data-title="도시형생활주택 단지형 연립·다세대 층수 완화 1차 입법예고" data-law="주택법 시행령" data-sum="건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 5개층에서 6개층으로 완화하는 개정안 1차 예고."
+ data-date="2026-05-19" data-dlabel="예고기간"
+ data-detail="[&quot;제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층&quot;, &quot;제1종전용주거지역·제1종일반주거지역은 5개층 유지&quot;, &quot;이후 2026.6.29.~8.10. 재입법예고 진행 — 상세는 2026-07호 참조&quot;]"
+ data-reason="도시형생활주택 중 단지형 연립주택·단지형 다세대주택에 적용되는 층수 제한을 완화하여 도심 내 신속한 공급이 가능한 도시형생활주택의 확대를 유도하고 민간의 비아파트 공급 부진을 보완·해소하려는 것임(1차 예고)."
+ data-impact="">
+ <div class="ctop">
+  <span class="tag">입법예고</span><span class="field">건축</span><span class="dday soft" data-dl="2026-06-09" data-kind="입법예고">입법예고</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i03')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">도시형생활주택 단지형 연립·다세대 층수 완화 1차 입법예고</h3>
+ <div class="lawrow">
+  <span>예고기간 <b style="color:var(--txt)">2026.05.19</b></span>
+  <span>·</span>
+  <span>근거 주택법 시행령</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a>
+ </div>
+ <p class="sum">건축위원회 심의를 받은 단지형 연립주택·단지형 다세대주택의 주택 층수를 5개층에서 6개층으로 완화하는 개정안 1차 예고.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>도시형생활주택 중 단지형 연립주택·단지형 다세대주택에 적용되는 층수 제한을 완화하여 도심 내 신속한 공급이 가능한 도시형생활주택의 확대를 유도하고 민간의 비아파트 공급 부진을 보완·해소하려는 것임(1차 예고).</div><details><summary>세부 개정내용 3건</summary><div class="det"><ul><li>제10조①2호·3호 — 건축위원회 심의 시 주택으로 쓰는 층수 5개층 → 6개층</li><li>제1종전용주거지역·제1종일반주거지역은 5개층 유지</li><li>이후 2026.6.29.~8.10. 재입법예고 진행 — 상세는 2026-07호 참조</li></ul></div></details><details><summary>신·구조문 대비 1건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제10조①2호·3호</td><td>건축위원회 심의 시 주택으로 쓰는 층수 5개층까지</td><td class="new">6개층까지(제1종전용·제1종일반주거지역은 5개층 유지)</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://opinion.lawmaking.go.kr/gcom/govLm" target="_blank" rel="noopener">국민참여입법센터 ↗</a></div></div></details>
+</article>
+<article class="card" id="i04" style="--cc:#8b98b3"
+ data-cat="추가검토" data-field="건축|소방|안전진단" data-s="[예고] 주택법 개정법률(2026.2.3. 공포) 8.4. 시행 대비 주택법 2026.2.3. 공포된 주택법 개정법률이 8.4. 시행 예정 — 통합심의 확대·간선시설 상환 의무화 등 사업 실무 변화 예고. 추가검토 건축 소방 안전진단 제18조 — 통합심의 대상에 교육환경평가·성능위주설계 평가·재해영향평가등 추가 제28조⑦ — 간선시설 대행설치 비용 상환의무 강행규정화('이에 따라야 한다') 제46조② — 자연재난 발생 시 감리자의 건축구조기술사 협력 의무 신설 제49조⑤ — 입주예정자 과반수 요청 시 사용검사 전 현장점검 의무 상세 분석은 시행 후 2026-08호에 수록 주택건설사업 수행 중인 현장은 8.4. 이전에 통합심의 신청 전략과 감리 계약조건(구조기술사 협력)을 점검해 둘 것. 2026-08-04"
+ data-title="[예고] 주택법 개정법률(2026.2.3. 공포) 8.4. 시행 대비" data-law="주택법" data-sum="2026.2.3. 공포된 주택법 개정법률이 8.4. 시행 예정 — 통합심의 확대·간선시설 상환 의무화 등 사업 실무 변화 예고."
+ data-date="2026-08-04" data-dlabel="시행 예정"
+ data-detail="[&quot;제18조 — 통합심의 대상에 교육환경평가·성능위주설계 평가·재해영향평가등 추가&quot;, &quot;제28조⑦ — 간선시설 대행설치 비용 상환의무 강행규정화('이에 따라야 한다')&quot;, &quot;제46조② — 자연재난 발생 시 감리자의 건축구조기술사 협력 의무 신설&quot;, &quot;제49조⑤ — 입주예정자 과반수 요청 시 사용검사 전 현장점검 의무&quot;, &quot;상세 분석은 시행 후 2026-08호에 수록&quot;]"
+ data-reason="2026.2.3. 공포된 주택법 개정법률의 8.4. 시행을 앞두고 주요 개정사항을 사전 안내함 — 통합심의 대상 확대로 인허가 기간을 단축하고, 간선시설 설치비 상환의무를 강행규정화하며, 자연재난 시 감리 구조안전 협력과 입주예정자 사전 현장점검으로 구조안전 관리를 강화하는 내용임."
+ data-impact="주택건설사업 수행 중인 현장은 8.4. 이전에 통합심의 신청 전략과 감리 계약조건(구조기술사 협력)을 점검해 둘 것.">
+ <div class="ctop">
+  <span class="tag">추가검토</span><span class="field">건축</span><span class="field">소방</span><span class="field">안전진단</span>
+  <span class="sp"></span>
+  <span class="anchor" onclick="copyAnchor('i04')" title="이 항목 링크 복사">🔗 링크</span>
+ </div>
+ <h3 class="ct">[예고] 주택법 개정법률(2026.2.3. 공포) 8.4. 시행 대비</h3>
+ <div class="lawrow">
+  <span>시행 예정 <b style="color:var(--txt)">2026.08.04</b></span>
+  <span>·</span>
+  <span>근거 주택법</span>
+  <a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a>
+  <a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a>
+ </div>
+ <p class="sum">2026.2.3. 공포된 주택법 개정법률이 8.4. 시행 예정 — 통합심의 확대·간선시설 상환 의무화 등 사업 실무 변화 예고.</p>
+ <div class="reason"><b>제안이유 및 주요내용</b>2026.2.3. 공포된 주택법 개정법률의 8.4. 시행을 앞두고 주요 개정사항을 사전 안내함 — 통합심의 대상 확대로 인허가 기간을 단축하고, 간선시설 설치비 상환의무를 강행규정화하며, 자연재난 시 감리 구조안전 협력과 입주예정자 사전 현장점검으로 구조안전 관리를 강화하는 내용임.</div><details><summary>세부 개정내용 5건</summary><div class="det"><ul><li>제18조 — 통합심의 대상에 교육환경평가·성능위주설계 평가·재해영향평가등 추가</li><li>제28조⑦ — 간선시설 대행설치 비용 상환의무 강행규정화('이에 따라야 한다')</li><li>제46조② — 자연재난 발생 시 감리자의 건축구조기술사 협력 의무 신설</li><li>제49조⑤ — 입주예정자 과반수 요청 시 사용검사 전 현장점검 의무</li><li>상세 분석은 시행 후 2026-08호에 수록</li></ul></div></details><details><summary>신·구조문 대비 2건</summary><div class="det"><table class="cmp"><tr><th>조문</th><th>현행(개정 전)</th><th class="new">개정(안)</th></tr><tr><td class="art">제18조①</td><td>도시계획·건축·교통 등 통합심의</td><td class="new">도시계획·건축·환경·교통·재해 등으로 확대 + 교육환경평가·성능위주설계 평가·재해영향평가 추가</td></tr><tr><td class="art">제28조⑦</td><td>비용의 상환을 요구할 수 있다</td><td class="new">요구할 수 있으며, 간선시설 설치의무자는 이에 따라야 한다</td></tr></table><div class="cmplink">전체 대비표·원문<a href="https://www.law.go.kr/법령/%EC%A3%BC%ED%83%9D%EB%B2%95" target="_blank" rel="noopener">법제처 원문 ↗</a><a href="https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=%EC%A3%BC%ED%83%9D%EB%B2%95" target="_blank" rel="noopener">법령 검색 ↗</a></div></div></details><div class="impact"><b>실무 영향</b>주택건설사업 수행 중인 현장은 8.4. 이전에 통합심의 신청 전략과 감리 계약조건(구조기술사 협력)을 점검해 둘 것.</div>
+</article></div>
+ <div class="empty" id="empty" style="display:none">검색 조건에 맞는 항목이 없습니다.</div>
+</main>
+
+<div class="mask" id="mask">
+ <div class="modal">
+  <div class="mh"><b>블로그 · 유튜브 원고 추출</b>
+    <button class="btn" onclick="closeModal()">닫기 ✕</button></div>
+  <div class="mtabs" id="mtabs">
+    <span class="chip on" data-m="blog" onclick="setMode('blog')">네이버 블로그용</span>
+    <span class="chip" data-m="yt" onclick="setMode('yt')">유튜브 대본용</span>
+    <span style="flex:1"></span>
+    <span class="hint" style="margin:0">현재 필터에 표시된 항목만 추출됩니다</span>
+  </div>
+  <div class="mbody"><textarea id="ta" spellcheck="false"></textarea></div>
+  <div class="mfoot">
+    <button class="btn" onclick="copyText(document.getElementById('ta').value,'원고가 복사되었습니다')">전체 복사</button>
+    <button class="btn gold" onclick="window.open('https://blog.naver.com/manmin72','_blank')">블로그 열기 ↗</button>
+  </div>
+ </div>
+</div>
+<footer><div class="wrap">
+<div class="fl">
+  <a href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">MANMIN 엔지니어링 플랫폼</a>
+  <a href="https://blog.naver.com/manmin72" target="_blank" rel="noopener">네이버 블로그</a>
+  <a href="https://www.youtube.com/@김만민-x8p" target="_blank" rel="noopener">유튜브 채널</a>
+  <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a>
+  <a href="https://opinion.lawmaking.go.kr" target="_blank" rel="noopener">국민참여입법센터</a>
+  <a href="https://www.kcsc.re.kr" target="_blank" rel="noopener">국가건설기준센터</a>
+</div>
+<p class="disc">
+본 자료는 김만민 건축사 · ㈜대성건축사사무소가 월간 법규교육 자료를 기준으로 정리한 <b>요약본</b>입니다.
+실제 인허가·설계·감리 업무에 적용할 때는 반드시 국가법령정보센터의 <b>원문 및 시행일</b>을 직접 확인하시기 바랍니다.
+입법예고·의원발의 항목은 확정된 법령이 아니며 심의 과정에서 내용이 변경될 수 있습니다.<br>
+KDS·KCS 국가건설기준은 국가건설기준센터(kcsc.re.kr) 공고본을 출처로 합니다.<br>
+© 2026 김만민 건축사 · ㈜대성건축사사무소. 무단 전재·상업적 이용을 금합니다. · MANMIN VER-1.0
+</p>
+</div></footer>
+<script>
+/* ── PWA 설치 ── */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+  /* 새 SW 가 활성화되면 1회만 자동 새로고침 — 아이콘·본문 교체가 즉시 반영된다 */
+  var _swReloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){
+    if(_swReloaded)return; _swReloaded=true; location.reload();
+  });
+}
+function isStandalone(){
+  return window.matchMedia('(display-mode: standalone)').matches ||
+         window.matchMedia('(display-mode: minimal-ui)').matches ||
+         navigator.standalone===true;
+}
+function envInfo(){
+  var ua=navigator.userAgent;
+  return {
+    ios: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
+    android: /Android/.test(ua),
+    samsung: /SamsungBrowser/.test(ua),
+    firefox: /Firefox/.test(ua),
+    naver: /NAVER\(inapp/.test(ua) || /whale/i.test(ua),
+    kakao: /KAKAOTALK/i.test(ua),
+    mobile: /Mobi|Android|iPhone|iPad/.test(ua)
+  };
+}
+/* 이미 설치된 앱인지 감지 — manifest 의 related_applications(webapp) 선언 기반 */
+window.__alreadyInstalled=false;
+function detectInstalled(){
+  if(!navigator.getInstalledRelatedApps) return Promise.resolve(false);
+  return navigator.getInstalledRelatedApps()
+    .then(function(l){ return !!(l && l.length); })
+    .catch(function(){ return false; });
+}
+/* 설치되지 않았으면 버튼을 항상 노출 — 프롬프트가 없어도 수동 안내로 대응 */
+function syncInstallBtn(){
+  var b=document.getElementById('btnInstall'); if(!b)return;
+  if(isStandalone()||window.__installed){ b.classList.remove('on'); return; }
+  b.classList.add('on');
+  var s=b.querySelector('span');
+  if(window.__alreadyInstalled){
+    b.title='이미 설치되어 있습니다 — 설치된 앱을 여는 방법 안내';
+    if(s)s.textContent='앱으로 열기';
+  }else{
+    b.title='앱으로 설치 — 주소창 없는 독립 창으로 열립니다';
+    if(s)s.textContent='웹에 추가';
+  }
+}
+window.addEventListener('load',function(){
+  detectInstalled().then(function(v){ window.__alreadyInstalled=v; syncInstallBtn(); });
+});
+window.addEventListener('bip-ready', syncInstallBtn);
+window.addEventListener('appinstalled', function(){
+  syncInstallBtn(); closeGuide(); toast('홈 화면에 설치되었습니다');
+});
+
+function firePrompt(){
+  window.__bip.prompt();
+  window.__bip.userChoice.then(function(c){
+    window.__bip=null;
+    if(c.outcome==='accepted'){ window.__installed=true; syncInstallBtn(); }
+    else { toast('설치를 취소했습니다 — 다시 누르면 안내가 열립니다'); }
+  });
+}
+/* 프롬프트가 늦게 도착하는 경우가 있어 즉시 안내로 넘기지 않고 최대 2초 기다린다 */
+function installApp(){
+  if(window.__bip){ firePrompt(); return; }
+  if(window.__alreadyInstalled){ openGuide(); return; }
+  var b=document.getElementById('btnInstall'), done=false;
+  var fin=function(){
+    if(done)return; done=true;
+    window.removeEventListener('bip-ready',on);
+    if(b)b.style.opacity='';
+    if(window.__bip) firePrompt(); else openGuide();
+  };
+  var on=function(){ fin(); };
+  window.addEventListener('bip-ready',on);
+  if(b)b.style.opacity='.6';
+  setTimeout(fin,2000);
+}
+function openGuide(){
+  var e=envInfo(), t='', h='';
+  if(e.kakao || e.naver){
+    h='먼저 기본 브라우저로 열어주세요';
+    t='<b>카카오톡·네이버 앱 내부 화면에서는 설치할 수 없습니다.</b><br><br>' +
+      '우측 상단 <b>⋮ 또는 ⋯</b> → <b>“다른 브라우저로 열기”</b>(또는 Chrome·Safari로 열기)를 선택한 뒤 다시 설치를 눌러 주세요.';
+  } else if(e.ios){
+    h='iPhone · iPad 에서 설치하기';
+    t='① 화면 하단(또는 상단)의 <b>공유 버튼 [ ⬆ ]</b> 을 누릅니다.<br>' +
+      '② 목록을 내려 <b>“홈 화면에 추가”</b> 를 선택합니다.<br>' +
+      '③ 우측 상단 <b>“추가”</b> 를 누르면 완료됩니다.<br><br>' +
+      '<span style="color:var(--muted)">※ iOS 는 이 방식이 곧 앱 설치입니다. 홈 화면 아이콘을 누르면 주소창 없이 앱처럼 열립니다.</span><br>' +
+      '<span style="color:var(--muted)">※ 사파리(Safari)에서만 가능합니다. 크롬에서는 지원되지 않습니다.</span>';
+  } else if(e.samsung){
+    h='삼성 인터넷 — 앱으로 설치';
+    t='① 하단 <b>메뉴(≡)</b> 를 누릅니다.<br>' +
+      '② <b>“현재 페이지 추가”</b> → <b>“홈 화면”</b> 을 선택합니다.<br><br>' +
+      '<span style="color:var(--muted)">※ 삼성 인터넷은 이 경로로 앱 형태(WebAPK)로 설치됩니다. ' +
+      '더 확실하게 하시려면 <b>Chrome</b> 으로 접속해 주세요.</span>';
+  } else if(e.android){
+    h='Android — 앱으로 설치하기';
+    t='① 우측 상단 <b>⋮</b> 메뉴를 누릅니다.<br>' +
+      '② <b>“앱 설치”</b> 를 선택합니다. <span style="color:var(--muted)">(설치형 앱)</span><br><br>' +
+      '<span style="color:var(--muted)">※ “앱 설치”가 안 보이고 <b>“홈 화면에 추가”</b>만 있다면 단순 바로가기입니다. ' +
+      '페이지를 새로고침하고 10초쯤 머문 뒤 다시 열어 보시면 “앱 설치”로 바뀝니다.</span>';
+  } else if(e.firefox){
+    h='Firefox 에서 설치하기';
+    t='Firefox 데스크톱은 앱 설치를 지원하지 않습니다.<br>' +
+      '<b>Chrome · Edge</b> 로 접속하시거나, 이 페이지를 <b>즐겨찾기(Ctrl+D)</b> 에 추가해 주세요.';
+  } else {
+    h='PC — 앱으로 설치하기';
+    t='① 주소창 오른쪽의 <b>설치 아이콘 [ ⊕ ]</b> 또는 모니터 모양 아이콘을 누릅니다.<br>' +
+      '② 아이콘이 없으면 <b>⋮ 메뉴 → 캐스트·저장 및 공유 → 페이지를 앱으로 설치</b> 를 선택합니다.<br><br>' +
+      '<span style="color:var(--muted)">※ 설치하면 주소창 없는 독립 창으로 열리고 시작 메뉴·작업표시줄에 등록됩니다. ' +
+      'Chrome 또는 Edge 에서 지원됩니다.</span>';
+  }
+  if(window.__alreadyInstalled){
+    h='이미 설치되어 있습니다';
+    t='이 사이트는 이 기기에 <b>이미 앱으로 설치</b>되어 있어 설치창이 다시 뜨지 않습니다.<br>' +
+      '시작 메뉴 · 작업표시줄(휴대폰은 홈 화면)에서 <b>만민법규</b> 아이콘을 실행하세요.<br><br>' +
+      '<span style="color:var(--muted)">※ 아이콘 그림이 예전 것이라면 앱을 <b>삭제 후 재설치</b>해야 새 아이콘이 적용됩니다. ' +
+      'Android WebAPK · iOS 홈화면 아이콘은 설치 시점의 이미지를 그대로 보관합니다.</span>';
+  } else if(!window.__bip && !e.ios && !e.kakao && !e.naver){
+    t += '<br><br><b style="color:var(--gold)">설치창이 안 뜨나요?</b><br>' +
+      '① 이전에 <b>“설치 안 함”</b> 을 누르면 Chrome 이 한동안 설치창을 다시 띄우지 않습니다.<br>' +
+      '② 주소창 왼쪽 <b>🔒 → 사이트 설정 → 권한 재설정</b> 후 새로고침하면 복구됩니다.<br>' +
+      '③ <b>chrome://apps</b> 에 이미 설치본이 있으면 삭제한 뒤 다시 시도하세요.<br>' +
+      '④ 현재 상태를 확인하려면 주소 끝에 <b>?diag=1</b> 을 붙여 접속하세요.';
+  }
+  document.getElementById('gdTitle').innerHTML=h;
+  document.getElementById('gdBody').innerHTML=t;
+  document.getElementById('iosgd').classList.add('on');
+}
+function closeGuide(){var g=document.getElementById('iosgd'); if(g)g.classList.remove('on');}
+
+/* ── 설치 진단 — 주소 끝에 ?diag=1 ── */
+function installDiag(){
+  var m=document.querySelector('link[rel=manifest]'), out=[];
+  var push=function(k,v,ok){
+    out.push('<tr><td style="padding:3px 12px 3px 0;color:var(--muted);white-space:nowrap">'+k+
+      '</td><td><b style="color:'+(ok?'#5fbf7a':'var(--danger)')+'">'+v+'</b></td></tr>');
+  };
+  var swOn=!!(navigator.serviceWorker && navigator.serviceWorker.controller);
+  push('HTTPS', isSecureContext?'OK':'실패', isSecureContext);
+  push('manifest 링크', m?'OK':'없음', !!m);
+  push('Service Worker', swOn?'제어중':'미제어', swOn);
+  push('설치 프롬프트', window.__bip?'수신됨':'미수신', !!window.__bip);
+  push('이미 설치됨', window.__alreadyInstalled?'예':'아니오', !window.__alreadyInstalled);
+  push('독립창 실행', isStandalone()?'예':'아니오', true);
+  var job = m ? fetch(m.href).then(function(r){return r.json()}).then(function(j){
+      return Promise.all((j.icons||[]).map(function(i){
+        return fetch(new URL(i.src,m.href).href,{cache:'reload'})
+          .then(function(r){ push('아이콘 '+i.sizes+' · '+(i.purpose||'any'), r.status, r.ok); })
+          .catch(function(){ push('아이콘 '+i.sizes, '요청 실패', false); });
+      }));
+    }).catch(function(){}) : Promise.resolve();
+  job.then(function(){
+    document.getElementById('gdTitle').innerHTML='PWA 설치 진단';
+    document.getElementById('gdBody').innerHTML='<table style="font-size:12.5px">'+out.join('')+'</table>' +
+      '<div style="margin-top:10px;color:var(--muted);font-size:11.5px;line-height:1.6">' +
+      '“설치 프롬프트 · 미수신” 인데 나머지가 모두 OK 라면 → 이미 설치되었거나, 이전에 설치를 취소해 ' +
+      'Chrome 이 프롬프트를 억제하는 중입니다. 사이트 권한 재설정 또는 기존 설치본 삭제 후 재시도하세요.</div>';
+    document.getElementById('iosgd').classList.add('on');
+  });
+}
+if(/[?&]diag=1/.test(location.search)){
+  window.addEventListener('load',function(){ setTimeout(installDiag,1500); });
+}
+
+/* ── 테마 ── */
+(function(){var t=localStorage.getItem('mlr-theme');if(t)document.documentElement.dataset.theme=t;})();
+function toggleTheme(){var h=document.documentElement;
+ var n=h.dataset.theme==='light'?'dark':'light';h.dataset.theme=n;localStorage.setItem('mlr-theme',n);}
+
+/* ── 토스트 ── */
+var _tt;
+function toast(m){var e=document.getElementById('toast');e.textContent=m;e.classList.add('on');
+ clearTimeout(_tt);_tt=setTimeout(function(){e.classList.remove('on')},1900);}
+
+/* ── 복사 ── */
+function copyText(t,msg){
+ if(navigator.clipboard&&window.isSecureContext){
+   navigator.clipboard.writeText(t).then(function(){toast(msg||'복사되었습니다')});
+ }else{
+   var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.left='-9999px';
+   document.body.appendChild(a);a.select();try{document.execCommand('copy');toast(msg||'복사되었습니다')}
+   catch(e){toast('복사 실패')}document.body.removeChild(a);
+ }}
+
+/* ── 공유 ── */
+function share(title){
+ var u=location.href;
+ if(navigator.share){navigator.share({title:title,url:u}).catch(function(){});}
+ else copyText(u,'링크가 복사되었습니다');
+}
+function copyAnchor(id){
+ copyText(location.origin+location.pathname+'#'+id,'항목 링크가 복사되었습니다');
+ location.hash=id;
+}
+
+/* ── D-day ── */
+function dday(iso){
+ if(!iso)return null;
+ var t=new Date();t.setHours(0,0,0,0);
+ var d=new Date(iso+'T00:00:00');
+ return Math.round((d-t)/86400000);
+}
+function paintDday(){
+ document.querySelectorAll('[data-dl]').forEach(function(el){
+   var n=dday(el.dataset.dl),kind=el.dataset.kind||'예고';
+   if(n===null)return;
+   if(n<0){el.textContent=kind+' 종료';el.className='dday soft';}
+   else if(n===0){el.textContent=kind+' 마감 D-DAY';el.className='dday';}
+   else if(n<=10){el.textContent=kind+' 마감 D-'+n;el.className='dday';}
+   else {el.textContent=kind+' 마감 D-'+n;el.className='dday soft';}
+ });
+ document.querySelectorAll('[data-ef]').forEach(function(el){
+   var n=dday(el.dataset.ef);
+   if(n===null)return;
+   if(n>0){el.textContent='시행 D-'+n;el.className='dday ok';}
+   else {el.style.display='none';}
+ });
+}
+
+/* ── 필터 ── */
+var F={q:'',cat:'ALL',field:'ALL'};
+function applyFilter(){
+ var q=F.q.trim().toLowerCase(), n=0;
+ document.querySelectorAll('.card').forEach(function(c){
+  var okc = F.cat==='ALL' || c.dataset.cat===F.cat;
+  var okf = F.field==='ALL' || (c.dataset.field||'').split('|').indexOf(F.field)>=0;
+  var okq = !q || (c.dataset.s||'').indexOf(q)>=0;
+  var show = okc&&okf&&okq;
+  c.style.display = show?'':'none';
+  if(show)n++;
+ });
+ document.getElementById('cnt').textContent=n;
+ document.getElementById('empty').style.display = n?'none':'block';
+ document.querySelector('.searchbox .x').style.display = F.q?'block':'none';
+}
+function setChip(g,v,el){
+ F[g]=v;
+ document.querySelectorAll('.chip[data-g="'+g+'"]').forEach(function(e){e.classList.remove('on')});
+ el.classList.add('on');applyFilter();
+}
+function clearQ(){document.getElementById('q').value='';F.q='';applyFilter();}
+
+/* ── 전체 펼침/접기 ── */
+var _open=false;
+function toggleAll(){
+ _open=!_open;
+ document.querySelectorAll('details').forEach(function(d){d.open=_open});
+ document.getElementById('bAll').textContent=_open?'전체 접기':'전체 펼치기';
+}
+
+/* ── 텍스트 추출 ── */
+function buildText(mode){
+ var meta=window.__META__, lines=[];
+ var vis=[].slice.call(document.querySelectorAll('.card')).filter(function(c){return c.style.display!=='none'});
+ if(mode==='blog'){
+  lines.push('['+meta.label+' 법규 검토 요약] '+meta.headline);
+  lines.push('');
+  lines.push('건축사 김만민입니다. '+meta.label+' 건축·설비·소방 분야 법령 개정사항을 정리했습니다.');
+  lines.push('');
+  var cur='';
+  vis.forEach(function(c,i){
+   if(c.dataset.cat!==cur){cur=c.dataset.cat;lines.push('');lines.push('■ '+cur);lines.push('');}
+   lines.push('▶ '+c.dataset.title);
+   lines.push('   · 근거법령 : '+c.dataset.law);
+   lines.push('   · '+c.dataset.dlabel+' : '+c.dataset.date.replace(/-/g,'.')+'.');
+   lines.push('   · '+c.dataset.sum);
+   if(c.dataset.reason)lines.push('   · 제안이유·주요내용 : '+c.dataset.reason);
+   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
+   d.forEach(function(x){lines.push('     - '+x)});
+   if(c.dataset.impact)lines.push('     ※ 실무영향 : '+c.dataset.impact);
+   lines.push('');
+  });
+  lines.push('──────────────');
+  lines.push('전체 요약본 보기 : '+location.href);
+  lines.push('MANMIN 엔지니어링 계산도구 : '+meta.home);
+  lines.push('#건축법규 #법규개정 #건축사 #'+meta.label.replace(/\s/g,'')+' #만민법규검토요약');
+ } else {
+  lines.push('['+meta.label+' 법규 검토 요약 — 유튜브 대본 초안]');
+  lines.push('');
+  lines.push('(오프닝)');
+  lines.push('안녕하세요, 건축사 김만민입니다.');
+  lines.push('오늘은 '+meta.label+'에 나온 건축 관련 법규 개정사항 '+vis.length+'건을 정리해 드리겠습니다.');
+  lines.push('핵심만 말씀드리면 — '+meta.headline+' 입니다.');
+  lines.push('');
+  vis.forEach(function(c,i){
+   lines.push('── '+(i+1)+'. '+c.dataset.title+' ['+c.dataset.cat+'] ──');
+   lines.push('근거는 '+c.dataset.law+'이고, '+c.dataset.dlabel+'은 '+c.dataset.date.replace(/-/g,'.')+'입니다.');
+   lines.push(c.dataset.sum);
+   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
+   if(d.length){lines.push('세부 내용은 이렇습니다.');d.forEach(function(x){lines.push('  · '+x)});}
+   if(c.dataset.impact)lines.push('실무에서는요, '+c.dataset.impact);
+   lines.push('');
+  });
+  lines.push('(클로징)');
+  lines.push('오늘 정리한 내용은 설명란 링크에서 원문과 함께 확인하실 수 있습니다.');
+  lines.push('도움이 되셨다면 구독과 좋아요 부탁드립니다. 감사합니다.');
+ }
+ return lines.join('\n');
+}
+function openText(mode){
+ document.getElementById('mask').classList.add('on');
+ setMode(mode);
+}
+function setMode(mode){
+ document.getElementById('ta').value=buildText(mode);
+ document.querySelectorAll('#mtabs .chip').forEach(function(e){
+   e.classList.toggle('on', e.dataset.m===mode)});
+}
+function closeModal(){document.getElementById('mask').classList.remove('on')}
+
+/* ── 초기화 ── */
+document.addEventListener('DOMContentLoaded',function(){
+ paintDday();
+ syncInstallBtn();
+ var q=document.getElementById('q');
+ if(q){q.addEventListener('input',function(){F.q=this.value.toLowerCase();applyFilter()});}
+ applyFilter();
+ if(location.hash){var el=document.querySelector(location.hash);
+   if(el){el.classList.add('hi');setTimeout(function(){el.classList.remove('hi')},2600);}}
+ window.addEventListener('scroll',function(){
+   document.getElementById('top').classList.toggle('on',window.scrollY>500)});
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){closeModal();closeGuide();}
+   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){
+     e.preventDefault();if(q)q.focus();}
+ });
+ var m=document.getElementById('mask');
+ if(m)m.addEventListener('click',function(e){if(e.target===m)closeModal()});
+});
+</script>
+</body></html>
