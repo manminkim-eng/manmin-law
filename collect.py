@@ -246,6 +246,8 @@ def collect_moleg(cfg, month, cat, probe=False):
     ret = root.find("retMsg")
     if ret is not None and (ret.text or "").strip() == "401":
         print("  [인증실패] %s — OC 계정이 승인되지 않았습니다. 정보공개 신청 상태를 확인하세요." % cat)
+        print("             전에는 되던 수집이 갑자기 401 이면 공인 IP 변경을 먼저 의심하십시오.")
+        print("             신청서에 등록한 IP 와 달라졌을 수 있습니다 (curl -s https://api.ipify.org).")
         return []
 
     out = []
