@@ -17,9 +17,14 @@ collect.py — 예고·발의 단계 자동 수집기  (MANMIN LEGAL REVIEW)
     공포·시행 확정분은 LawMCP(국가법령정보센터)로 별도 확인한다. 이 스크립트 범위 밖.
 
 사용법
-    python collect.py                # 이번 달
+    python collect.py                # 직전 달 — 첫째 화요일 정규 실행
     python collect.py --month 2026-08
     python collect.py --probe        # 인증·응답 형태만 확인 (필터·저장 안 함)
+
+발행 시점
+    매월 첫째 화요일에 '직전 달' 호를 완성본으로 낸다. 당월 호를 당월 초에 내면
+    그 달 자료가 며칠치밖에 안 담겨 호별 건수가 개정량과 무관하게 요동친다.
+    그래서 인자 없이 실행하면 이번 달이 아니라 직전 달을 수집한다.
 
 설정
     같은 폴더에 config.local.json 을 만든다. (git 에 올리지 말 것 — .gitignore 등록됨)
@@ -167,6 +172,11 @@ def _months_before(d, n):
         m += 12
         y -= 1
     return dt.date(y, m, 1)
+
+
+def _prev_month(d):
+    """첫째 화요일에 내는 호는 '직전 달' 자료다 — 기본 수집 대상."""
+    return _months_before(dt.date(d.year, d.month, 1), 1).strftime("%Y-%m")
 
 
 def _base_law(title):
@@ -436,7 +446,8 @@ def dedupe(items, month):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--month", default=dt.date.today().strftime("%Y-%m"))
+    ap.add_argument("--month", default=_prev_month(dt.date.today()),
+                    help="수집 대상 월(YYYY-MM). 생략하면 직전 달 — 첫째 화요일 정규 실행")
     ap.add_argument("--probe", action="store_true", help="인증·응답 형태만 확인")
     args = ap.parse_args()
 
