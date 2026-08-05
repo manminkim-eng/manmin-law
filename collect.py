@@ -11,6 +11,7 @@ collect.py — 예고·발의 단계 자동 수집기  (MANMIN LEGAL REVIEW)
         ① 입법예고   (법제처 국민참여입법센터)
         ② 행정예고   (법제처 국민참여입법센터)
         ③ 의원발의 · 국회통과 (열린국회정보 의안 API)
+           — 발의는 발의일, 통과는 처리일(PROC_DT) 기준으로 각각 거른다
     를 긁어와 data/_inbox/YYYY-MM_수집.json 초안을 만든다.
 
     공포·시행 확정분은 LawMCP(국가법령정보센터)로 별도 확인한다. 이 스크립트 범위 밖.
@@ -116,14 +117,28 @@ def month_range(month):
 
 
 def _dig_rows(data):
-    if isinstance(data, list):
-        return [x for x in data if isinstance(x, dict)]
-    if isinstance(data, dict):
-        for v in data.values():
-            got = _dig_rows(v)
-            if got:
-                return got
-    return []
+    """열린국회정보 응답에서 실제 의안 행만 뽑는다.
+
+    응답이 {"nzmimeepazxkubdpn": [{"head": [...]}, {"row": [...]}]} 구조라
+    "처음 만난 dict 리스트"를 반환하면 바깥 껍데기 [{head}, {row}] 2개가 잡힌다.
+    그 2개에는 PROPOSE_DT 가 없어 모든 행이 걸러졌다 — 수집 결과가 늘 0건이던 원인.
+    그래서 'row' 키를 명시적으로 찾는다.
+    """
+    out = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == "row" and isinstance(v, list):
+                    out.extend(x for x in v if isinstance(x, dict))
+                else:
+                    walk(v)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x)
+
+    walk(data)
+    return out
 
 
 def _pick(row, keys):
@@ -137,6 +152,21 @@ def _pick(row, keys):
 def _norm_date(s):
     d = re.sub(r"\D", "", s or "")
     return "%s-%s-%s" % (d[:4], d[4:6], d[6:8]) if len(d) >= 8 else ""
+
+
+def _to_date(s):
+    try:
+        return dt.date(*map(int, s.split("-")))
+    except Exception:
+        return None
+
+
+def _months_before(d, n):
+    y, m = d.year, d.month - n
+    while m <= 0:
+        m += 12
+        y -= 1
+    return dt.date(y, m, 1)
 
 
 def _base_law(title):
@@ -241,26 +271,48 @@ def collect_moleg(cfg, month, cat, probe=False):
 
 # ── ③ 열린국회정보 의안(발의·처리) ─────────────────────────────────────────
 ASSEMBLY_URL = "https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn"
-PASSED = ("원안가결", "수정가결", "대안반영폐기")
+PASSED = ("원안가결", "수정가결")   # 본회의 의결 = 국회통과
+ALT_MERGED = "대안반영폐기"         # 원안 폐기 + 내용은 위원장 대안으로 이관 = 사실상 개정 성립
+#
+#   대안반영폐기를 버리면 안 된다. 위원장 대안(「OO법 일부개정법률안(대안)」)은
+#   의원발의 목록인 이 API 에 아예 잡히지 않는다. 실제로 2026-07-23 건축법 개정은
+#   원안 4건이 전부 '대안반영폐기'로만 남아 있어, 이를 버리면 개정 사실이 통째로 사라진다.
+#   그래서 같은 (법령, 처리일) 끼리 묶어 대안 1건으로 만들어 둔다.
+ASSEMBLY_PSIZE = 1000               # API 상한 확인됨
+ASSEMBLY_MAX_PAGES = 40             # 40,000건 — 22대 전체(약 1.9만) 대비 여유
+LOOKBACK_MONTHS = 24                # 통과분 역추적 범위 (발의는 한참 전일 수 있다)
 
 
 def collect_assembly(cfg, month, probe=False):
+    """당월 의원발의 + 당월 국회통과를 함께 수집한다.
+
+    통과분은 발의일이 아니라 처리일(PROC_DT) 기준이다. 당월 발의분만 훑으면
+    "6월 발의 → 8월 본회의 통과" 같은 건이 영구히 잡히지 않으므로,
+    최근 LOOKBACK_MONTHS 개월치를 훑어 PROC_DT 로 따로 거른다.
+    """
     a = cfg.get("assembly", {})
     key = (a.get("key") or "").strip()
     if not key:
         print("  [건너뜀] assembly.key 미설정")
         return []
     first, last = month_range(month)
-    out, page = [], 1
-    while page <= 20:
-        params = {"KEY": key, "Type": "json", "pIndex": page, "pSize": 100, "AGE": a.get("age", "22")}
+    scan_from = _months_before(first, LOOKBACK_MONTHS)
+
+    picked, alt_groups = {}, {}
+    page, scanned, truncated, reached = 1, 0, False, False
+    while True:
+        if page > ASSEMBLY_MAX_PAGES:
+            truncated = True
+            break
+        params = {"KEY": key, "Type": "json", "pIndex": page,
+                  "pSize": ASSEMBLY_PSIZE, "AGE": a.get("age", "22")}
         try:
-            full, raw = fetch(ASSEMBLY_URL, params)
+            full, raw = fetch(ASSEMBLY_URL, params, timeout=60)
         except Exception as e:
             print("  [실패] 의안 — %s" % e)
             break
         if probe:
-            print("  요청: %s" % full)
+            print("  요청: %s" % re.sub(r"KEY=[^&]*", "KEY=***", full))
             print("  응답(앞 600자): %s" % raw[:600].decode("utf-8", "replace"))
             return []
         try:
@@ -271,41 +323,96 @@ def collect_assembly(cfg, month, probe=False):
         rows = _dig_rows(data)
         if not rows:
             break
-        stop = False
+        scanned += len(rows)
         for r in rows:
-            d = _norm_date(_pick(r, ["PROPOSE_DT", "propose_dt"]))
-            if not d:
+            pd = _to_date(_norm_date(_pick(r, ["PROPOSE_DT", "propose_dt"])))
+            cd = _to_date(_norm_date(_pick(r, ["PROC_DT", "proc_dt"])))
+            if pd and pd < scan_from:
+                reached = True          # 발의일 내림차순 — 이 뒤는 범위 밖
+            title = _pick(r, ["BILL_NAME", "bill_name"]).strip()
+            if not title:
                 continue
-            dd = dt.date(*map(int, d.split("-")))
-            if dd < first:
-                stop = True
-                continue
-            if dd > last:
-                continue
-            title = _pick(r, ["BILL_NAME", "bill_name"])
             fields = match_fields(title)
             if not fields:
                 continue
-            result = _pick(r, ["PROC_RESULT", "proc_result"])
-            out.append({
-                "cat": "국회통과" if any(p in result for p in PASSED) else "의원발의",
-                "field": fields, "law": _base_law(title), "title": title.strip(),
-                "dateLabel": "발의", "date": d, "summary": "", "reason": "",
+            result = _pick(r, ["PROC_RESULT", "proc_result"]).strip()
+            if result == ALT_MERGED and cd and first <= cd <= last:
+                # 원안은 죽었지만 내용은 대안으로 살아 있다 — 법령·처리일 단위로 묶는다
+                g = alt_groups.setdefault((_base_law(title), cd),
+                                          {"fields": [], "from": []})
+                for f in fields:
+                    if f not in g["fields"]:
+                        g["fields"].append(f)
+                g["from"].append("%s (%s)" % (title, _pick(r, ["PROPOSER", "proposer"])))
+                continue
+            passed = bool(result in PASSED and cd and first <= cd <= last)
+            proposed = bool(pd and first <= pd <= last)
+            if not (passed or proposed):
+                continue
+            item = {
+                "cat": "국회통과" if passed else "의원발의",
+                "field": fields, "law": _base_law(title), "title": title,
+                "dateLabel": "의결" if passed else "발의",
+                "date": (cd if passed else pd).strftime("%Y-%m-%d"),
+                "summary": "", "reason": "",
                 "link": _pick(r, ["DETAIL_LINK", "detail_link", "LINK_URL"]),
                 "_proposer": _pick(r, ["PROPOSER", "proposer"]),
                 "_committee": _pick(r, ["COMMITTEE", "committee"]),
+                "_proposeDt": pd.strftime("%Y-%m-%d") if pd else "",
+                "_procDt": cd.strftime("%Y-%m-%d") if cd else "",
                 "_result": result, "_src": "의안",
-            })
-        if stop:
+            }
+            item["_billId"] = _pick(r, ["BILL_ID", "bill_id"])
+            bid = item["_billId"] or title
+            prev = picked.get(bid)
+            if prev is None or (passed and prev["cat"] != "국회통과"):
+                picked[bid] = item      # 같은 의안이면 통과 상태를 우선
+        if reached:
             break
         page += 1
-    return out
+
+    if truncated:
+        print("  [경고] 페이지 상한(%d쪽 × %d건)에 걸려 끝까지 훑지 못했습니다."
+              " ASSEMBLY_MAX_PAGES 를 늘리십시오." % (ASSEMBLY_MAX_PAGES, ASSEMBLY_PSIZE))
+    for (law, cd), g in sorted(alt_groups.items(), key=lambda x: (x[0][1], x[0][0])):
+        picked["alt:%s:%s" % (law, cd)] = {
+            "cat": "국회통과",
+            "field": g["fields"],
+            "law": law,
+            "title": "%s 일부개정법률안(대안)" % law,
+            "dateLabel": "대안반영",
+            "date": cd.strftime("%Y-%m-%d"),
+            "summary": "", "reason": "",
+            "link": "",
+            "_result": ALT_MERGED,
+            "_altMergedFrom": g["from"],
+            "_note": "원안 %d건이 위원회 대안에 반영되어 폐기됐습니다. 대안 본문은 이 API"
+                     "(의원발의 목록)에 없으니 의안정보시스템에서 조문을 확인하십시오." % len(g["from"]),
+            "_src": "의안",
+        }
+        print("  [대안] %s %s — 원안 %d건 통합" % (cd, law, len(g["from"])))
+    print("  훑은 의안 %d건 (%s 이후 발의분) → 해당 %d건" % (scanned, scan_from, len(picked)))
+    return list(picked.values())
+
+
+def _dedupe_key(it):
+    """중복 판정 키.
+
+    · cat 을 넣는다 — 빼면 '6월 의원발의'로 실린 법안이 8월에 통과해도
+      '기존 호와 중복'으로 잘려 단계 전환이 영영 안 잡힌다.
+    · date 를 넣는다 — 「건축법 일부개정법률안」처럼 이름이 같은 의안이
+      발의자만 달리해 여러 건 올라오므로, 법령명+제목만으로는 서로를 지운다.
+    같은 의안을 두 번 싣는 것보다 다른 의안을 놓치는 쪽이 나쁘므로 느슨하게 잡는다.
+    """
+    return (it.get("cat") or "", it.get("law") or "",
+            re.sub(r"\s+", "", it.get("title") or "")[:40], it.get("date") or "")
 
 
 def dedupe(items, month):
     seen, out = set(), []
     for it in items:
-        k = (it["law"], re.sub(r"\s+", "", it["title"])[:40])
+        # 같은 배치 안에서는 의안 고유번호가 있으면 그것으로 판정한다
+        k = it.get("_billId") or _dedupe_key(it)
         if k in seen:
             continue
         seen.add(k)
@@ -320,8 +427,8 @@ def dedupe(items, month):
             except Exception:
                 continue
             for it in d.get("items", []):
-                prev.add((it.get("law", ""), re.sub(r"\s+", "", it.get("title", ""))[:40]))
-    fresh = [it for it in out if (it["law"], re.sub(r"\s+", "", it["title"])[:40]) not in prev]
+                prev.add(_dedupe_key(it))
+    fresh = [it for it in out if _dedupe_key(it) not in prev]
     if len(out) - len(fresh):
         print("  기존 호와 중복 %d건 제외" % (len(out) - len(fresh)))
     return fresh
