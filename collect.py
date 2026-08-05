@@ -427,7 +427,10 @@ def dedupe(items, month):
             continue
         seen.add(k)
         out.append(it)
-    prev = set()
+    # 발행할 때 제목을 실무 표현으로 바꿔 쓰기 때문에(의안명 「건축물관리법 일부개정법률안」
+    # → 「공장·창고 화재위험등급 평가 의무」) 제목 기반 판정은 다음 달에 샌다.
+    # data/*.json 항목에 billId 를 남겨 두면 제목이 달라져도 확실히 걸러진다.
+    prev, prev_ids = set(), set()
     for root, _, files in os.walk(os.path.join(HERE, "data")):
         for f in files:
             if not f.endswith(".json") or f.startswith(month):
@@ -438,9 +441,14 @@ def dedupe(items, month):
                 continue
             for it in d.get("items", []):
                 prev.add(_dedupe_key(it))
-    fresh = [it for it in out if _dedupe_key(it) not in prev]
+                if it.get("billId"):
+                    prev_ids.add(str(it["billId"]).strip())
+    fresh = [it for it in out
+             if _dedupe_key(it) not in prev
+             and str(it.get("_billId") or "").strip() not in prev_ids]
     if len(out) - len(fresh):
-        print("  기존 호와 중복 %d건 제외" % (len(out) - len(fresh)))
+        print("  기존 호와 중복 %d건 제외 (의안번호 대조 %d건 등록)"
+              % (len(out) - len(fresh), len(prev_ids)))
     return fresh
 
 
@@ -486,6 +494,8 @@ def main():
     print("\n다음 단계")
     print("  1) 초안을 검토해 실무 영향 있는 항목만 고른다")
     print("  2) summary·reason·impact 를 채워 data/%s.json 의 items 에 붙인다" % month)
+    print("     이때 초안의 _billId 값을 billId 필드로 옮겨 둔다 — 제목을 바꿔 써도")
+    print("     다음 달 수집에서 같은 의안이 다시 올라오지 않는다")
     print("  3) LawMCP 로 공포·시행 확정분(시행법령·훈령예규고시)을 추가한다")
     print("  4) python build.py")
 
