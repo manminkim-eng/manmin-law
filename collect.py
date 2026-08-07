@@ -155,8 +155,16 @@ def _pick(row, keys):
 
 
 def _norm_date(s):
-    d = re.sub(r"\D", "", s or "")
-    return "%s-%s-%s" % (d[:4], d[4:6], d[6:8]) if len(d) >= 8 else ""
+    """YYYYMMDD · YYYY-MM-DD · 'YYYY. M. D.' 를 모두 YYYY-MM-DD 로.
+
+    국민참여입법센터는 월·일을 한 자리로 준다('2026. 7. 31.'). 숫자만 뽑아
+    8자리로 자르던 예전 방식은 이걸 7자리로 읽어 날짜를 통째로 버렸다.
+    """
+    m = re.search(r"(\d{4})\D{0,3}(\d{1,2})\D{0,3}(\d{1,2})", s or "")
+    if not m:
+        return ""
+    y, mo, d = m.groups()
+    return "%s-%02d-%02d" % (y, int(mo), int(d))
 
 
 def _to_date(s):
@@ -199,14 +207,30 @@ MOLEG = {
         "name": ["lsNm"],          # 입법예고명
         "kind": "lsClsNm",         # 법령종류
         "seq": "ogLmPpSeq",
+        "detail": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/%s",
     },
     "행정예고": {
         "url": "https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml",
         "name": ["admRulNm"],      # 행정예고명
         "kind": "lsClsNm",         # 행정규칙종류
         "seq": "ogAdmPpSeq",
+        "detail": "https://opinion.lawmaking.go.kr/gcom/admpp/%s",
     },
 }
+
+MOLEG_PSIZE = 100      # 기본값이 20 이라 명시하지 않으면 한 달치가 잘린다
+MOLEG_MAX_PAGES = 30   # 3,000건 — 월 300건 안팎이므로 충분한 여유
+
+# 예고명 앞에 붙는 진행상태 표기: "[진행]유아교육법 시행령 일부개정령안 입법예고"
+_STATUS_RE = re.compile(r"^\s*\[([^\]]{1,10})\]\s*")
+
+
+def _split_status(title):
+    """'[진행]OO법 …' → ('진행', 'OO법 …')"""
+    m = _STATUS_RE.match(title or "")
+    if not m:
+        return "", (title or "").strip()
+    return m.group(1), _STATUS_RE.sub("", title, count=1).strip()
 
 
 def _fmt_ymd(d):
@@ -227,57 +251,78 @@ def collect_moleg(cfg, month, cat, probe=False):
         return []
     spec = MOLEG[cat]
     first, last = month_range(month)
-    params = {"OC": oc, "stYdFmt": _fmt_ymd(first), "edYdFmt": _fmt_ymd(last)}
-    try:
-        full, raw = fetch(spec["url"], params)
-    except Exception as e:
-        print("  [실패] %s — %s" % (cat, e))
-        return []
-    body = raw.decode("utf-8", "replace")
-    if probe:
-        print("  요청: %s" % full)
-        print("  응답(앞 600자): %s" % body[:600])
-        return []
-    try:
-        root = ET.fromstring(body)
-    except Exception:
-        print("  [실패] %s — XML 파싱 불가" % cat)
-        return []
-    ret = root.find("retMsg")
-    if ret is not None and (ret.text or "").strip() == "401":
-        print("  [인증실패] %s — OC 계정이 승인되지 않았습니다. 정보공개 신청 상태를 확인하세요." % cat)
-        print("             전에는 되던 수집이 갑자기 401 이면 공인 IP 변경을 먼저 의심하십시오.")
-        print("             신청서에 등록한 IP 와 달라졌을 수 있습니다 (curl -s https://api.ipify.org).")
-        return []
+    base = {"OC": oc, "stYdFmt": _fmt_ymd(first), "edYdFmt": _fmt_ymd(last)}
 
-    out = []
-    for node in root.iter():
-        title = ""
-        for tag in spec["name"]:
-            title = _txt(node, tag)
-            if title:
-                break
-        if not title:
-            continue
-        fields = match_fields(title)
-        if not fields:
-            continue
-        out.append({
-            "cat": cat,
-            "field": fields,
-            "law": _base_law(title),
-            "title": title,
-            "dateLabel": "예고",
-            "date": _norm_date(_txt(node, "pntcDt") or _txt(node, "stYd")),
-            "deadline": _norm_date(_txt(node, "edYd")),
-            "summary": "",
-            "reason": "",
-            "_kind": _txt(node, spec["kind"]),
-            "_org": _txt(node, "asndOfiNm"),
-            "_pntcNo": _txt(node, "pntcNo"),
-            "_seq": _txt(node, spec["seq"]),
-            "_src": cat,
-        })
+    out, scanned, total, page = [], 0, None, 1
+    while page <= MOLEG_MAX_PAGES:
+        params = dict(base, pageIndex=page, pageSize=MOLEG_PSIZE)
+        try:
+            full, raw = fetch(spec["url"], params, timeout=30)
+        except Exception as e:
+            print("  [실패] %s — %s" % (cat, e))
+            return out
+        body = raw.decode("utf-8", "replace")
+        if probe:
+            print("  요청: %s" % full)
+            print("  응답(앞 600자): %s" % body[:600])
+            return []
+        try:
+            root = ET.fromstring(body)
+        except Exception:
+            print("  [실패] %s — XML 파싱 불가" % cat)
+            return out
+        ret = root.find("retMsg")
+        if ret is not None and (ret.text or "").strip() == "401":
+            print("  [인증실패] %s — OC 계정이 승인되지 않았습니다. 정보공개 신청 상태를 확인하세요." % cat)
+            print("             전에는 되던 수집이 갑자기 401 이면 공인 IP 변경을 먼저 의심하십시오.")
+            print("             신청서에 등록한 IP 와 달라졌을 수 있습니다 (curl -s https://api.ipify.org).")
+            return []
+        if total is None:
+            t = root.find("totalCnt")
+            total = int(t.text) if t is not None and (t.text or "").strip().isdigit() else 0
+
+        rows = 0
+        for node in root.iter():
+            title = ""
+            for tag in spec["name"]:
+                title = _txt(node, tag)
+                if title:
+                    break
+            if not title:
+                continue
+            rows += 1
+            status, title = _split_status(title)   # "[진행]" 등 상태 표기 분리
+            fields = match_fields(title)
+            if not fields:
+                continue
+            seq = _txt(node, spec["seq"])
+            out.append({
+                "cat": cat,
+                "field": fields,
+                "law": _base_law(title),
+                "title": title,
+                "dateLabel": "예고",
+                "date": _norm_date(_txt(node, "pntcDt") or _txt(node, "stYd")),
+                "deadline": _norm_date(_txt(node, "edYd")),
+                "summary": "",
+                "reason": "",
+                "link": (spec["detail"] % seq) if seq else "",
+                "_kind": _txt(node, spec["kind"]),
+                "_org": _txt(node, "asndOfiNm"),
+                "_pntcNo": _txt(node, "pntcNo"),
+                "_seq": seq,
+                "_status": status,
+                "_src": cat,
+            })
+        scanned += rows
+        if rows == 0 or scanned >= (total or 0):
+            break
+        page += 1
+    else:
+        print("  [경고] %s — 페이지 상한(%d쪽 × %d건)에 걸렸습니다. MOLEG_MAX_PAGES 를 늘리십시오."
+              % (cat, MOLEG_MAX_PAGES, MOLEG_PSIZE))
+
+    print("  훑은 예고 %d건 (공고 전체 %s건) → 해당 %d건" % (scanned, total, len(out)))
     return out
 
 
