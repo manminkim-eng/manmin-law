@@ -1080,12 +1080,14 @@ def main():
     if not issues:
         print("[!] data/*.json 이 없습니다.")
         return
+    # newline="\n" — 윈도우 기본값(CRLF)으로 쓰면 내용이 같아도 전 파일이
+    # 바뀐 것으로 잡혀 매달 커밋 이력이 무의미해진다. 저장소는 LF 로 통일한다.
     for d in issues:
         p = os.path.join(BASE, d["issue"] + ".html")
-        with open(p, "w", encoding="utf-8") as f:
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(render_issue(d, issues))
         print(f"  생성  {d['issue']}.html   ({len(d['items'])}건)")
-    with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
+    with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8", newline="\n") as f:
         f.write(render_index(issues))
     print(f"  생성  index.html      (총 {len(issues)}개호)")
     print("\n완료. 로컬에서 index.html 을 열어 확인하세요.")
