@@ -725,9 +725,13 @@ def esc(s):
 
 
 def head(title, desc, canonical):
+    # MANMIN 공통 계측 스니펫 (GoatCounter + Cloudflare).
+    # 2026-08-09 에 index.html 에 손으로 넣었던 줄인데, build.py 에 없어서 다음 빌드마다
+    # 지워졌다(2026-09-01 확인). 여기에 두어야 모든 호에 유지된다. 직접 편집 금지.
     return f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
 <head>
+  <script defer src="/manmin-blog-report/web/assets/manmin-analytics.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>
