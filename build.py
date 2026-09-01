@@ -728,6 +728,14 @@ def head(title, desc, canonical):
     # MANMIN 공통 계측 스니펫 (GoatCounter + Cloudflare).
     # 2026-08-09 에 index.html 에 손으로 넣었던 줄인데, build.py 에 없어서 다음 빌드마다
     # 지워졌다(2026-09-01 확인). 여기에 두어야 모든 호에 유지된다. 직접 편집 금지.
+    #
+    # ⚠ 저장소 간 의존: 이 자산은 manmin-law 가 아니라 **manmin-blog-report** 저장소의
+    #   GitHub Pages 가 서빙한다(2026-09-01 검증: 200 OK, 2,685 bytes).
+    #   여러 사이트가 같은 스니펫을 쓰도록 한 의도이므로 복사해 오지 않았다.
+    #   대신 이것이 깨지는 조건을 적어 둔다 — manmin-blog-report 저장소가
+    #   비공개로 바뀌거나, 이름이 바뀌거나, Pages 가 꺼지거나, 그 저장소에서
+    #   web/assets/manmin-analytics.js 경로가 바뀌면 **이 사이트 계측이 조용히 멈춘다.**
+    #   그 셋 중 하나라도 하게 되면 여기 경로를 함께 고칠 것.
     return f"""<!DOCTYPE html>
 <html lang="ko" data-theme="dark">
 <head>

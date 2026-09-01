@@ -39,10 +39,12 @@ collect.py — 예고·발의 단계 자동 수집기  (MANMIN LEGAL REVIEW)
 
 import argparse
 import datetime as dt
+import http.cookiejar
 import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -74,6 +76,9 @@ LAWS = [
     ("지진·화산재해대책", "구조"),
     ("소방시설 설치 및 관리", "소방"), ("소방시설공사업", "소방"), ("소방기본법", "소방"),
     ("화재의 예방 및 안전관리", "소방"), ("위험물안전관리", "소방"),
+    # 2026-08호에서 화이트리스트에 안 걸려 수동으로 건진 것들 — 2026-09-01 추가
+    ("녹색건축 인증", "건축|기계설비"), ("다중생활시설", "건축|소방"),
+    ("소화약제", "소방"), ("소방용품", "소방"),
     ("도로법", "토목"), ("유료도로법", "토목"), ("하수도법", "토목"),
     ("산지관리법", "토목"), ("지하안전관리", "토목"),
     ("전기사업법", "전기"), ("전기안전관리법", "전기"), ("신재생에너지", "전기"),
@@ -99,6 +104,55 @@ def fetch(url, params, timeout=20):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         raw = r.read()
     return full, raw
+
+
+# ── 법제처 접속 대기열 대응 ────────────────────────────────────────────────
+#
+#   법제처는 접속량이 많으면 XML 대신 'Waitingroom' 대기열 HTML(약 4.4KB)을 돌려준다.
+#   2026-09-01 자동 수집이 입법예고·행정예고 0건으로 끝난 원인이 이것이었다.
+#   당시 코드는 이걸 "XML 파싱 불가"로만 남기고 0건으로 넘어가, 미수집이
+#   '0건 확인'처럼 보였다 — README 2-1 이 막으려던 바로 그 상황이다.
+#
+#   UA 나 pageSize 로는 회피되지 않는다(둘 다 대기열에 걸림). 브라우저처럼
+#   쿠키를 물고 재시도하면 첫 페이지만 뚫으면 이후 페이지는 바로 통과한다.
+#   실측: 1페이지 13회 시도 후 통과 → 2·3페이지는 각 1회.
+#
+BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
+_JAR = http.cookiejar.CookieJar()
+_OPENER = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(_JAR))
+_OPENER.addheaders = [("User-Agent", BROWSER_UA)]
+
+WAITING_TRIES = 40      # 실측 통과까지 13회 — 여유를 둔다
+WAITING_WAIT = 2        # 초
+
+
+def _is_waitingroom(raw):
+    return b"Waitingroom" in raw[:2000]
+
+
+def fetch_queued(url, params, timeout=30, tries=WAITING_TRIES):
+    """대기열이면 같은 쿠키 세션으로 재시도한다.
+
+    끝내 못 뚫으면 (full, None) 을 돌려준다. 호출부는 이를 **0건이 아니라
+    수집 실패**로 다뤄야 한다.
+    """
+    q = urllib.parse.urlencode(params, doseq=True)
+    full = url + ("&" if "?" in url else "?") + q
+    for i in range(1, tries + 1):
+        try:
+            raw = _OPENER.open(full, timeout=timeout).read()
+        except Exception:
+            if i >= tries:
+                raise
+            time.sleep(WAITING_WAIT)
+            continue
+        if not _is_waitingroom(raw):
+            if i > 1:
+                print("      (대기열 %d회 재시도 후 통과)" % i)
+            return full, raw
+        time.sleep(WAITING_WAIT)
+    return full, None
 
 
 def match_fields(title):
@@ -257,10 +311,16 @@ def collect_moleg(cfg, month, cat, probe=False):
     while page <= MOLEG_MAX_PAGES:
         params = dict(base, pageIndex=page, pageSize=MOLEG_PSIZE)
         try:
-            full, raw = fetch(spec["url"], params, timeout=30)
+            full, raw = fetch_queued(spec["url"], params,
+                                     tries=1 if probe else WAITING_TRIES)
         except Exception as e:
             print("  [실패] %s — %s" % (cat, e))
-            return out
+            return None
+        if raw is None:
+            print("  [실패] %s — 법제처 접속 대기열을 %d회 시도했으나 통과하지 못했습니다."
+                  % (cat, WAITING_TRIES))
+            print("           이것은 0건이 아니라 '수집 못 함'입니다. 잠시 후 다시 실행하십시오.")
+            return None
         body = raw.decode("utf-8", "replace")
         if probe:
             print("  요청: %s" % full)
@@ -269,14 +329,17 @@ def collect_moleg(cfg, month, cat, probe=False):
         try:
             root = ET.fromstring(body)
         except Exception:
-            print("  [실패] %s — XML 파싱 불가" % cat)
-            return out
+            if _is_waitingroom(raw):
+                print("  [실패] %s — 접속 대기열. 0건이 아니라 수집 실패입니다." % cat)
+            else:
+                print("  [실패] %s — XML 파싱 불가 (응답 앞 200자: %s)" % (cat, body[:200]))
+            return None
         ret = root.find("retMsg")
         if ret is not None and (ret.text or "").strip() == "401":
             print("  [인증실패] %s — OC 계정이 승인되지 않았습니다. 정보공개 신청 상태를 확인하세요." % cat)
             print("             전에는 되던 수집이 갑자기 401 이면 공인 IP 변경을 먼저 의심하십시오.")
             print("             신청서에 등록한 IP 와 달라졌을 수 있습니다 (curl -s https://api.ipify.org).")
-            return []
+            return None
         if total is None:
             t = root.find("totalCnt")
             total = int(t.text) if t is not None and (t.text or "").strip().isdigit() else 0
@@ -510,13 +573,16 @@ def main():
     month = args.month
     print("수집 대상: %s" % month)
 
-    items = []
-    print(" ① 입법예고")
-    items += collect_moleg(cfg, month, "입법예고", args.probe)
-    print(" ② 행정예고")
-    items += collect_moleg(cfg, month, "행정예고", args.probe)
+    items, failed = [], []
+    for label, cat in ((" ① 입법예고", "입법예고"), (" ② 행정예고", "행정예고")):
+        print(label)
+        got = collect_moleg(cfg, month, cat, args.probe)
+        if got is None:          # 수집 실패 — 0건과 구분해야 한다
+            failed.append(cat)
+        else:
+            items += got
     print(" ③ 의원발의·국회통과")
-    items += collect_assembly(cfg, month, args.probe)
+    items += collect_assembly(cfg, month, args.probe) or []
 
     if args.probe:
         print("\nprobe 모드 — 저장하지 않았습니다.")
@@ -532,12 +598,20 @@ def main():
     payload = {"issue": month,
                "collected": dt.datetime.now().strftime("%Y-%m-%d %H:%M"),
                "scope": "입법예고 · 행정예고 · 의원발의 · 국회통과 (공포·시행 확정분은 LawMCP 로 별도 확인)",
+               "failed": failed,
                "counts": by_cat, "items": items}
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
     print("\n총 %d건 — %s" % (len(items), by_cat or "없음"))
     print("저장: %s" % path)
+    if failed:
+        print("\n" + "!" * 68)
+        print("[경고] 수집하지 못한 단계: %s" % " · ".join(failed))
+        print("       이 단계는 '0건 확인'이 아니라 '못 훑음'입니다.")
+        print("       README 2-1 에 따라 이 상태로는 발행하지 마십시오.")
+        print("       잠시 후 다시 실행하거나, 부득이하면 그 호 source 에 미수집 사실을 명시하십시오.")
+        print("!" * 68)
     print("\n다음 단계")
     print("  1) 초안을 검토해 실무 영향 있는 항목만 고른다")
     print("  2) summary·reason·impact 를 채워 data/%s.json 의 items 에 붙인다" % month)
