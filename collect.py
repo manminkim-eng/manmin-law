@@ -49,52 +49,49 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
+# 콘솔 인코딩(cp949 등) 때문에 출력 한 줄이 수집 전체를 죽이는 일이 없도록.
+# 2026-09-01 에 대안 안내 문구의 em dash 가 cp949 로 인코딩되지 않아
+# UnicodeEncodeError 로 수집이 중단된 적이 있다. 표시 문제로 작업이 죽으면 안 된다.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(HERE, "config.local.json")
 INBOX = os.path.join(HERE, "data", "_inbox")
 
 # ── 분야 분류 ──────────────────────────────────────────────────────────────
-# 키워드 부분일치는 오탐이 심하다(기초연금법→"기초", 전기통신사업법→"전기",
-# 농어촌구조개선→"구조", 국제형사사법 공조법→"공조", 도로교통법→"도로").
-# 그래서 실무 관련 법령명을 화이트리스트로 명시하고, 혼동되는 법령은 DENY 로 끊는다.
-# 새 법령이 나오면 LAWS 에 (법령명조각, "분야|분야") 형태로 추가한다.
-LAWS = [
-    ("건축법", "건축"), ("건축물관리법", "건축"), ("건축물의 분양", "건축"),
-    ("건축서비스산업", "건축"), ("건축사법", "건축"),
-    ("건축물의 피난", "건축|구조|소방"), ("건축물의 설비기준", "기계설비"),
-    ("건축물의 구조기준", "구조"),
-    ("주택법", "건축"), ("주택건설기준", "건축"), ("공동주택관리법", "건축"),
-    ("공공주택 특별법", "건축"), ("빈집 및 소규모주택", "건축"),
-    ("도시 및 주거환경정비", "건축"), ("국토의 계획 및 이용", "건축"),
-    ("개발제한구역", "건축"), ("특정건축물 정리", "건축"),
-    ("공사중단 장기방치 건축물", "건축"), ("모듈러 건축", "건축"), ("혁신건축", "건축"),
-    ("녹색건축물", "건축|기계설비"), ("장애인·노인·임산부", "건축"),
-    ("장애인등편의", "건축"), ("승강기 안전관리", "건축"), ("옥외광고물", "건축"),
-    ("학교시설사업", "건축"), ("주차장법", "건축|토목"), ("다중이용업소", "건축|소방"),
-    ("실내공기질", "기계설비"), ("기계설비법", "기계설비"), ("에너지이용 합리화", "기계설비"),
-    ("시설물의 안전 및 유지관리", "구조"), ("건설기술 진흥", "구조"),
-    ("지진·화산재해대책", "구조"),
-    ("소방시설 설치 및 관리", "소방"), ("소방시설공사업", "소방"), ("소방기본법", "소방"),
-    ("화재의 예방 및 안전관리", "소방"), ("위험물안전관리", "소방"),
-    # 2026-08호에서 화이트리스트에 안 걸려 수동으로 건진 것들 — 2026-09-01 추가
-    ("녹색건축 인증", "건축|기계설비"), ("다중생활시설", "건축|소방"),
-    ("소화약제", "소방"), ("소방용품", "소방"),
-    ("도로법", "토목"), ("유료도로법", "토목"), ("하수도법", "토목"),
-    ("산지관리법", "토목"), ("지하안전관리", "토목"),
-    ("전기사업법", "전기"), ("전기안전관리법", "전기"),
-    # 법령 정식명칭이 「신에너지 및 재생에너지 개발·이용·보급 촉진법」이라
-    # "신재생에너지"로는 부분일치가 되지 않는다. 2026-08 PPT 대조에서 드러난 누락.
-    ("신에너지 및 재생에너지", "전기|기계설비"),
-    # 2026-08 협회 법규교육 PPT 와 대조해 보태진 것들 — 셋 다 건축 인허가에 걸린다
-    ("국유재산법", "건축"),          # 국유지 점유 학교 증·개축 등
-    ("농지법", "건축|토목"),          # 농지 내 화장실·주차장 등 편의시설
-    ("건축물의 설비기준", "기계설비|건축"),
-]
+#
+#   키워드 부분일치는 오탐이 심하다(기초연금법→"기초", 전기통신사업법→"전기",
+#   농어촌구조개선→"구조", 국제형사사법 공조법→"공조", 도로교통법→"도로").
+#   그래서 실무 관련 법령명을 화이트리스트로 명시하고, 혼동되는 법령은 deny 로 끊는다.
+#
+#   목록은 data/domain_filter.json 에 있다. 예전에는 이 파일 안에 파이썬 리스트로
+#   박혀 있어서, 법령 하나 추가하려면 스크립트를 고쳐야 했고 무엇보다
+#   **죽은 항목을 아무도 몰랐다.** 「신에너지 및 재생에너지 개발·이용·보급 촉진법」을
+#   "신재생에너지"로 적어 둔 항목이 한 번도 매칭되지 않았고, 2026-09 에 협회 PPT 와
+#   대조하고 나서야 드러났다. 그 사이 8월 시행령 개정(공급의무비율을 재생에너지만으로)을
+#   놓쳤다. 지금은 목록을 데이터로 빼고, 매 실행마다 매칭 횟수를 세어 죽은 항목을 알린다.
+#
+FILTER_PATH = os.path.join(HERE, "data", "domain_filter.json")
+STATS_PATH = os.path.join(HERE, "data", "domain_filter_stats.json")
 
-# 이름이 비슷해 걸려드는 무관 법령 — 화이트리스트보다 우선 적용
-DENY = ["도로교통법", "전기통신", "기초연금", "국민기초생활", "농어촌구조개선",
-        "119구조", "소방공무원", "주택임대차", "국제형사", "사립대학", "지진해일",
-        "주택도시기금", "장기공공임대주택", "농어촌 전기공급", "전기용품"]
+
+def _load_filter():
+    if not os.path.exists(FILTER_PATH):
+        sys.exit("data/domain_filter.json 이 없습니다: %s" % FILTER_PATH)
+    with open(FILTER_PATH, encoding="utf-8") as f:
+        d = json.load(f)
+    laws = [(e["match"], list(e["fields"])) for e in d.get("laws", [])]
+    if not laws:
+        sys.exit("data/domain_filter.json 의 laws 가 비었습니다.")
+    return laws, list(d.get("deny", []))
+
+
+LAWS, DENY = _load_filter()
+HITS = {}   # match 조각 → 이번 실행에서 제목에 걸린 횟수
 
 
 def load_config():
@@ -169,7 +166,8 @@ def match_fields(title):
     hit = []
     for key, fields in LAWS:
         if key in title:
-            for f in fields.split("|"):
+            HITS[key] = HITS.get(key, 0) + 1
+            for f in fields:
                 if f not in hit:
                     hit.append(f)
     return hit or None
@@ -569,6 +567,57 @@ def dedupe(items, month):
     return fresh
 
 
+def report_filter_health(month):
+    """이번 실행에서 화이트리스트 각 항목이 몇 번 걸렸는지 누적하고, 한 번도
+    걸리지 않은 항목을 알린다.
+
+    「신에너지 및 재생에너지 개발·이용·보급 촉진법」을 "신재생에너지"로 적어 둔
+    항목이 한 번도 매칭되지 않았는데 아무도 몰랐고, 협회 PPT 와 대조하고 나서야
+    드러났다. 그 사이 8월 시행령 개정을 놓쳤다. 스스로 드러내게 만든다.
+    """
+    stats = {}
+    if os.path.exists(STATS_PATH):
+        try:
+            with open(STATS_PATH, encoding="utf-8") as f:
+                stats = json.load(f)
+        except Exception:
+            stats = {}
+    counts = stats.get("counts") or {}
+    last = stats.get("lastHit") or {}
+    runs = int(stats.get("runs") or 0) + 1
+
+    for k, n in HITS.items():
+        counts[k] = int(counts.get(k) or 0) + n
+        last[k] = month
+
+    keys = set(k for k, _ in LAWS)          # 목록에서 뺀 항목의 기록은 정리
+    counts = dict((k, v) for k, v in counts.items() if k in keys)
+    last = dict((k, v) for k, v in last.items() if k in keys)
+
+    stats = {"_설명": "domain_filter.json 항목별 누적 매칭 횟수. collect.py 가 갱신한다.",
+             "_갱신": month, "runs": runs, "counts": counts, "lastHit": last}
+    try:
+        with open(STATS_PATH, "w", encoding="utf-8", newline="") as f:
+            json.dump(stats, f, ensure_ascii=False, indent=2, sort_keys=True)
+            f.write(chr(10))
+    except Exception as e:
+        print("  [주의] 화이트리스트 통계를 저장하지 못했습니다 — %s" % e)
+
+    dead = [k for k, _ in LAWS if not counts.get(k)]
+    if not dead:
+        return
+    print("")
+    print("[화이트리스트 점검] 누적 %d회 실행 동안 한 번도 걸리지 않은 항목 %d개"
+          % (runs, len(dead)))
+    for k in dead[:15]:
+        print("   · %s" % k)
+    if len(dead) > 15:
+        print("   ... 외 %d개" % (len(dead) - 15))
+    print("   실행 횟수가 적으면 그 달에 개정이 없었을 뿐일 수 있습니다.")
+    print("   여러 달 연속 0회면 법령 제명이 틀렸거나 폐지된 것입니다 —")
+    print("   data/domain_filter.json 의 match 값을 확인하십시오.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--month", default=_prev_month(dt.date.today()),
@@ -612,6 +661,7 @@ def main():
 
     print("\n총 %d건 — %s" % (len(items), by_cat or "없음"))
     print("저장: %s" % path)
+    report_filter_health(month)
     if failed:
         print("\n" + "!" * 68)
         print("[경고] 수집하지 못한 단계: %s" % " · ".join(failed))

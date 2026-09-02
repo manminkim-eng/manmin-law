@@ -37,6 +37,15 @@ import re
 import subprocess
 import sys
 
+# 콘솔 인코딩(cp949 등) 때문에 출력 한 줄이 수집 전체를 죽이는 일이 없도록.
+# 2026-09-01 에 대안 안내 문구의 em dash 가 cp949 로 인코딩되지 않아
+# UnicodeEncodeError 로 수집이 중단된 적이 있다. 표시 문제로 작업이 죽으면 안 된다.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data")
 INBOX = os.path.join(DATA, "_inbox")
@@ -180,6 +189,25 @@ def step_check(month, verbose=True):
     if nobill:
         warn.append("billId 가 없는 의안 항목 %d건 — 다음 달 초안에 다시 올라옵니다."
                     % len(nobill))
+
+    # 7) 화이트리스트 건강도 — 죽은 항목은 조용히 자료를 빠뜨린다
+    fpath = os.path.join(DATA, "domain_filter.json")
+    spath = os.path.join(DATA, "domain_filter_stats.json")
+    if os.path.exists(fpath) and os.path.exists(spath):
+        try:
+            laws = [e["match"] for e in json.load(io.open(fpath, encoding="utf-8"))["laws"]]
+            st = json.load(io.open(spath, encoding="utf-8"))
+            counts, runs = st.get("counts") or {}, int(st.get("runs") or 0)
+            dead = [k for k in laws if not counts.get(k)]
+            if dead and runs >= 3:
+                warn.append("화이트리스트에서 %d회 실행 동안 한 번도 걸리지 않은 항목 %d개: %s "
+                            "— 제명이 틀렸을 수 있습니다."
+                            % (runs, len(dead), " / ".join(dead[:5])))
+            elif dead:
+                info.append("화이트리스트 미매칭 항목 %d개 (누적 %d회 실행 — 판단하기엔 이릅니다)"
+                            % (len(dead), runs))
+        except Exception:
+            warn.append("domain_filter 통계를 읽지 못했습니다.")
 
     # 7) 참고 정보
     today = dt.date.today().isoformat()
