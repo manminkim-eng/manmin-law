@@ -277,6 +277,12 @@ MOLEG = {
     },
 }
 
+# 화이트리스트에 안 걸렸지만 이 부처 소관이면 놓친 것일 수 있다 — 실행 끝에 보고한다.
+# 2026-09 협회 PPT 대조에서 「건축물의 설계도서 작성기준」·「주택건설사업 기반시설
+# 기부채납 운영기준」 행정예고가 목록에 없어 통째로 빠질 뻔했다. 사람이 PPT 와
+# 대조해야만 알 수 있는 구조를 없앤다.
+MISS_ORGS = ("국토교통부", "소방청")
+
 MOLEG_PSIZE = 100      # 기본값이 20 이라 명시하지 않으면 한 달치가 잘린다
 MOLEG_MAX_PAGES = 30   # 3,000건 — 월 300건 안팎이므로 충분한 여유
 
@@ -312,7 +318,7 @@ def collect_moleg(cfg, month, cat, probe=False):
     first, last = month_range(month)
     base = {"OC": oc, "stYdFmt": _fmt_ymd(first), "edYdFmt": _fmt_ymd(last)}
 
-    out, scanned, total, page = [], 0, None, 1
+    out, scanned, total, page, missed = [], 0, None, 1, []
     while page <= MOLEG_MAX_PAGES:
         params = dict(base, pageIndex=page, pageSize=MOLEG_PSIZE)
         try:
@@ -362,6 +368,9 @@ def collect_moleg(cfg, month, cat, probe=False):
             status, title = _split_status(title)   # "[진행]" 등 상태 표기 분리
             fields = match_fields(title)
             if not fields:
+                org = _txt(node, "asndOfiNm")
+                if any(o in org for o in MISS_ORGS):
+                    missed.append((org, title))
                 continue
             seq = _txt(node, spec["seq"])
             out.append({
@@ -391,6 +400,14 @@ def collect_moleg(cfg, month, cat, probe=False):
               % (cat, MOLEG_MAX_PAGES, MOLEG_PSIZE))
 
     print("  훑은 예고 %d건 (공고 전체 %s건) → 해당 %d건" % (scanned, total, len(out)))
+    if missed:
+        print("  [검토] 화이트리스트에 안 걸린 %s 소관 %s %d건 —"
+              % (" · ".join(MISS_ORGS), cat, len(missed)))
+        for org, t in missed[:8]:
+            print("         · [%s] %s" % (org, t[:52]))
+        if len(missed) > 8:
+            print("         ... 외 %d건" % (len(missed) - 8))
+        print("         실무에 걸리는 것이 있으면 data/domain_filter.json 에 추가하십시오.")
     return out
 
 
@@ -533,11 +550,25 @@ def _dedupe_key(it):
             re.sub(r"\s+", "", it.get("title") or "")[:40], it.get("date") or "")
 
 
+def _unique_id(it):
+    """같은 배치 안에서 쓰는 고유 식별자.
+
+    같은 날 같은 법령으로 서로 다른 예고가 두 건 나가는 일이 있다. 2026-09 에
+    「주택법 시행령」 입법예고가 9/16 자로 두 건(주상복합 완화 / 주택조합 개선)
+    올라왔는데, 제목·법령·공고일이 모두 같아 제목 기반 키가 서로를 지웠다.
+    협회 PPT 와 대조하고 나서야 드러났다. 공고 고유번호(_seq)가 있으면 그걸 쓴다.
+    """
+    if it.get("_billId"):
+        return ("bill", str(it["_billId"]))
+    if it.get("_seq"):
+        return ("seq", it.get("cat"), str(it["_seq"]))
+    return _dedupe_key(it)
+
+
 def dedupe(items, month):
     seen, out = set(), []
     for it in items:
-        # 같은 배치 안에서는 의안 고유번호가 있으면 그것으로 판정한다
-        k = it.get("_billId") or _dedupe_key(it)
+        k = _unique_id(it)
         if k in seen:
             continue
         seen.add(k)
@@ -557,10 +588,12 @@ def dedupe(items, month):
             for it in d.get("items", []):
                 prev.add(_dedupe_key(it))
                 if it.get("billId"):
-                    prev_ids.add(str(it["billId"]).strip())
+                    prev_ids.add(("bill", str(it["billId"]).strip()))
+                if it.get("noticeId"):
+                    prev_ids.add(("seq", it.get("cat"), str(it["noticeId"]).strip()))
     fresh = [it for it in out
              if _dedupe_key(it) not in prev
-             and str(it.get("_billId") or "").strip() not in prev_ids]
+             and _unique_id(it) not in prev_ids]
     if len(out) - len(fresh):
         print("  기존 호와 중복 %d건 제외 (의안번호 대조 %d건 등록)"
               % (len(out) - len(fresh), len(prev_ids)))
@@ -672,8 +705,8 @@ def main():
     print("\n다음 단계")
     print("  1) 초안을 검토해 실무 영향 있는 항목만 고른다")
     print("  2) summary·reason·impact 를 채워 data/%s.json 의 items 에 붙인다" % month)
-    print("     이때 초안의 _billId 값을 billId 필드로 옮겨 둔다 — 제목을 바꿔 써도")
-    print("     다음 달 수집에서 같은 의안이 다시 올라오지 않는다")
+    print("     이때 초안의 _billId 는 billId 로, _seq 는 noticeId 로 옮겨 둔다 —")
+    print("     제목을 바꿔 써도 다음 달 수집에서 같은 건이 다시 올라오지 않는다")
     print("  3) LawMCP 로 공포·시행 확정분(시행법령·훈령예규고시)을 추가한다")
     print("  4) python build.py")
 
