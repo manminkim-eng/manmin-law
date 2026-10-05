@@ -679,9 +679,12 @@ function applyFilter(){
   c.style.display = show?'':'none';
   if(show)n++;
  });
- document.getElementById('cnt').textContent=n;
- document.getElementById('empty').style.display = n?'none':'block';
- document.querySelector('.searchbox .x').style.display = F.q?'block':'none';
+ /* index.html 에는 검색·카드 영역이 없다 — 없는 요소를 건드리면 초기화가 중단돼 스크롤 처리까지 죽는다 */
+ var cnt=document.getElementById('cnt'), emp=document.getElementById('empty'),
+     x=document.querySelector('.searchbox .x');
+ if(cnt)cnt.textContent=n;
+ if(emp)emp.style.display = n?'none':'block';
+ if(x)x.style.display = F.q?'block':'none';
 }
 function setChip(g,v,el){
  F[g]=v;

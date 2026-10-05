@@ -87,10 +87,13 @@ def _load_filter():
     laws = [(e["match"], list(e["fields"])) for e in d.get("laws", [])]
     if not laws:
         sys.exit("data/domain_filter.json 의 laws 가 비었습니다.")
-    return laws, list(d.get("deny", []))
+    # 제명확인: 정식 제명을 법제처에서 확인한 날짜. 개정이 드물어 몇 달씩 0회여도
+    # 이름이 틀린 게 아니므로 죽은 항목 경고에서 뺀다.
+    verified = set(e["match"] for e in d.get("laws", []) if e.get("제명확인"))
+    return laws, list(d.get("deny", [])), verified
 
 
-LAWS, DENY = _load_filter()
+LAWS, DENY, VERIFIED = _load_filter()
 HITS = {}   # match 조각 → 이번 실행에서 제목에 걸린 횟수
 
 
@@ -159,13 +162,21 @@ def fetch_queued(url, params, timeout=30, tries=WAITING_TRIES):
     return full, None
 
 
+def _dot(s):
+    """가운뎃점 통일. 법제처 제명은 'ㆍ'(U+318D), 의안·입법예고는 대개 '·'(U+00B7)를
+    쓴다. 그대로 비교하면 출처가 표기를 바꾸는 순간 '장애인·노인·임산부' 같은
+    항목이 조용히 빠진다."""
+    return s.replace("ㆍ", "·").replace("‧", "·").replace("・", "·")
+
+
 def match_fields(title):
     """법령명 화이트리스트로 분야 판정. 해당 없으면 None(수집 제외)."""
-    if any(d in title for d in DENY):
+    title = _dot(title)
+    if any(_dot(d) in title for d in DENY):
         return None
     hit = []
     for key, fields in LAWS:
-        if key in title:
+        if _dot(key) in title:
             HITS[key] = HITS.get(key, 0) + 1
             for f in fields:
                 if f not in hit:
@@ -636,7 +647,7 @@ def report_filter_health(month):
     except Exception as e:
         print("  [주의] 화이트리스트 통계를 저장하지 못했습니다 — %s" % e)
 
-    dead = [k for k, _ in LAWS if not counts.get(k)]
+    dead = [k for k, _ in LAWS if not counts.get(k) and k not in VERIFIED]
     if not dead:
         return
     print("")

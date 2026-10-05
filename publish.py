@@ -184,8 +184,11 @@ def step_check(month, verbose=True):
                         "source 에 그 사실을 적으십시오.")
 
     # 6) billId — 다음 달 중복 재수집 방지
+    #    위원장 대안은 열린국회정보 목록에 billId 없이 '원안 N건 대안반영폐기'로만 나오고
+    #    의결일로 걸러져 다음 달에 다시 오지 않으므로 대상에서 뺀다.
     nobill = [it for it in items
-              if it.get("cat") in ("의원발의", "국회통과") and not it.get("billId")]
+              if it.get("cat") in ("의원발의", "국회통과") and not it.get("billId")
+              and "대안" not in (it.get("title") or "")]
     if nobill:
         warn.append("billId 가 없는 의안 항목 %d건 — 다음 달 초안에 다시 올라옵니다."
                     % len(nobill))
@@ -195,10 +198,15 @@ def step_check(month, verbose=True):
     spath = os.path.join(DATA, "domain_filter_stats.json")
     if os.path.exists(fpath) and os.path.exists(spath):
         try:
-            laws = [e["match"] for e in json.load(io.open(fpath, encoding="utf-8"))["laws"]]
+            entries = json.load(io.open(fpath, encoding="utf-8"))["laws"]
             st = json.load(io.open(spath, encoding="utf-8"))
             counts, runs = st.get("counts") or {}, int(st.get("runs") or 0)
-            dead = [k for k in laws if not counts.get(k)]
+            zero = [e for e in entries if not counts.get(e["match"])]
+            dead = [e["match"] for e in zero if not e.get("제명확인")]
+            quiet = [e["match"] for e in zero if e.get("제명확인")]
+            if quiet:
+                info.append("제명 확인된 저빈도 항목 %d개는 이번에도 0회 (정상 — 개정이 드묾): %s"
+                            % (len(quiet), " / ".join(quiet)))
             if dead and runs >= 3:
                 warn.append("화이트리스트에서 %d회 실행 동안 한 번도 걸리지 않은 항목 %d개: %s "
                             "— 제명이 틀렸을 수 있습니다."
