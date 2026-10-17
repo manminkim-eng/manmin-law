@@ -30,7 +30,7 @@
     {
       "name": "최신호 보기", "short_name": "최신호",
       "description": "가장 최근 발행된 월별 법규 검토 요약",
-      "url": "/manmin-law/2026-08.html",
+      "url": "/manmin-law/2026-09.html",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {

@@ -1,0 +1,35 @@
+/* ============================================================
+   MANMIN 공통 폰트 팩 — 로컬 폴백  v1.0  (2026-08-08)
+   ------------------------------------------------------------
+   역할 : Google Fonts CDN이 차단·오프라인일 때만 동작하는 폴백.
+          패밀리명을 'Noto Sans KR Local'로 분리했으므로
+          온라인 상태에서는 이 파일을 다운로드하지 않는다.
+   서브셋 : KS X 1001 한글 2,350자 + KS 기호 987자 + 라틴
+            + 공학기호(㎡ ㎥ ㎜ ㎏ ℓ ㎾ ℃ ± × ÷ ≤ ≥ √ ∑ ① ~ ⑩ 등)
+   원본 : 11.개발자료/73.폰트파일/NotoSansKR/NotoSansKR-VariableFont_wght.ttf
+   라이선스 : SIL Open Font License 1.1
+   ============================================================ */
+
+@font-face {
+  font-family: 'Noto Sans KR Local';
+  src: url('./NotoSansKR-var.woff2') format('woff2-variations'),
+       url('./NotoSansKR-var.woff2') format('woff2');
+  font-weight: 100 900;   /* 가변축 wght — 1파일로 300~900 전부 커버 */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   MANMIN 표준 폰트 토큰 (WAP 공통 규격)
+   기존 --f-kr / --f-serif / --f-mono 는 index.html :root 에서
+   'Noto Sans KR Local' 폴백을 포함하도록 갱신되었다.
+   아래 4종은 신규 WAP·향후 통일용 표준 토큰이며,
+   본 파일이 index.html 의 <style> 보다 먼저 로드되므로
+   페이지 :root 정의가 우선한다(의도된 동작).
+   ============================================================ */
+:root {
+  --font-sans:    'Noto Sans KR', 'Noto Sans KR Local', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-display: 'Noto Sans KR', 'Noto Sans KR Local', 'Apple SD Gothic Neo', sans-serif;
+  --font-serif:   'Noto Serif KR', 'KoPubWorld Batang', 'Batang', serif;
+  --font-mono:    'JetBrains Mono', 'Consolas', 'D2Coding', ui-monospace, monospace;
+}

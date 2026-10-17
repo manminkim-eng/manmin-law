@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>만민 법규 검토 요약 이용 매뉴얼 Ver-1.0</title>
+<meta name="description" content="매월 첫째 화요일 발간하는 건축 · 구조 · 기계설비 · 소방 · 토목 법령 개정 요약 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용">
+<meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@700;900&display=swap">
+<link rel="stylesheet" href="./assets/fonts/manmin-fonts.css">
+<style>
+:root{
+  --navy:#2D3A8C;--navy-d:#1F2A6B;--navy-l:#E9ECF8;--accent:#F4A261;--accent-d:#C97A3A;--accent-l:#FDF1E7;
+  --bg:#F8F9FA;--card:#FFFFFF;--text:#1A1A2E;--text2:#4A4F66;--line:#DDE1EA;--ok:#0F766E;--ng:#B42318;
+  --r:12px;--pad:24px;--shadow:0 4px 20px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--navy)}a:hover{color:var(--accent-d)}
+code,kbd,.mono{font-family:var(--font-mono);font-size:.9em}
+code{background:var(--navy-l);color:var(--navy-d);padding:1px 6px;border-radius:5px}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:#fff}
+/* 상단 */
+.top{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff}
+.top-in{max-width:1240px;margin:0 auto;padding:44px 24px 36px}
+.eyebrow{font-family:var(--font-brand);font-weight:700;font-size:12px;letter-spacing:.18em;opacity:.85}
+.top h1{font-size:28px;font-weight:900;margin:8px 0 6px;line-height:1.35}
+.top .sub{opacity:.9;margin:0}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 12px;font-size:13px}
+a.badge{color:#fff;text-decoration:none}a.badge:hover{background:rgba(255,255,255,.24);color:#fff}
+.badge.acc{background:var(--accent);border-color:var(--accent);color:#1A1A2E;font-weight:700}
+/* 레이아웃 */
+.wrap{max-width:1240px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px}
+nav.toc{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 16px;font-size:14px}
+nav.toc h2{font-size:13px;letter-spacing:.12em;color:var(--text2);margin:0 0 8px}
+nav.toc ol{list-style:none;margin:0;padding:0}
+nav.toc li a{display:block;padding:5px 8px;border-radius:8px;text-decoration:none;color:var(--text)}
+nav.toc li a:hover,nav.toc li a.on{background:var(--navy-l);color:var(--navy)}
+nav.toc li.sub a{padding-left:20px;font-size:13px;color:var(--text2)}
+main{min-width:0}
+section.ch{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--pad) calc(var(--pad) + 8px);margin-bottom:28px}
+section.ch>h2{font-size:24px;font-weight:700;color:var(--navy);margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
+section.ch>h2 .n{font-family:var(--font-brand);font-weight:700;font-size:14px;color:#fff;background:var(--navy);border-radius:8px;padding:2px 9px}
+section.ch>.lead{color:var(--text2);margin:0 0 18px}
+h3{font-size:19px;color:var(--navy-d);margin:34px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+h3:first-of-type{border-top:0}
+h4{font-size:16px;margin:22px 0 8px}
+p{margin:8px 0}
+ul,ol{padding-left:22px}
+.note,.tip,.warn{border-radius:10px;padding:12px 16px;margin:14px 0;font-size:15px}
+.note{background:var(--navy-l);border-left:4px solid var(--navy)}
+.tip{background:var(--accent-l);border-left:4px solid var(--accent)}
+.warn{background:#FEF3F2;border-left:4px solid var(--ng)}
+.note b:first-child,.tip b:first-child,.warn b:first-child{margin-right:6px}
+/* 표 */
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy-l);color:var(--navy-d);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-family:var(--font-mono);white-space:nowrap}
+.ok{color:var(--ok);font-weight:700}.ng{color:var(--ng);font-weight:700}
+/* 그림 */
+figure.shot{margin:18px 0 26px}
+figure.shot .frame{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in}
+figure.shot img{display:block;width:100%;height:auto}
+figure.narrow{max-width:420px}
+.pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#1A1A2E;font:700 13px/26px var(--font-mono);text-align:center;box-shadow:0 0 0 3px #fff,0 2px 8px rgba(0,0,0,.35);pointer-events:none}
+figcaption{font-size:14px;color:var(--text2);margin-top:8px}
+.fno{font-family:var(--font-mono);font-size:11px;background:var(--navy);color:#fff;border-radius:6px;padding:1px 7px;margin-right:8px}
+ol.legend{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 16px;font-size:14px}
+ol.legend li{display:flex;gap:8px;align-items:flex-start}
+ol.legend b{flex:0 0 22px;height:22px;border-radius:50%;background:var(--accent);font:700 12px/22px var(--font-mono);text-align:center}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+/* 단계 */
+.steps{counter-reset:st;list-style:none;padding:0;margin:16px 0}
+.steps>li{counter-increment:st;position:relative;padding:4px 0 18px 54px;border-left:2px solid var(--line);margin-left:18px}
+.steps>li:last-child{border-left-color:transparent}
+.steps>li::before{content:counter(st);position:absolute;left:-19px;top:0;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;font:700 15px/36px var(--font-mono);text-align:center;box-shadow:0 0 0 4px var(--bg)}
+.steps>li>b.t{display:block;font-size:17px;color:var(--navy-d);margin-bottom:2px}
+/* 수식 */
+.eq{font-family:var(--font-mono);background:#0F1630;color:#E8ECFF;border-radius:10px;padding:14px 18px;margin:12px 0;overflow-x:auto;font-size:14px;line-height:1.9;white-space:pre}
+.eq .c{color:#9AA6D6}
+.svgbox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin:14px 0;overflow-x:auto}
+.svgbox svg{display:block;width:100%;min-width:640px;height:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:#fff}
+.card h5{margin:0 0 4px;font-size:15px;color:var(--navy)}
+.card p{margin:0;font-size:14px;color:var(--text2)}
+footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2);font-size:13px}
+/* 라이트박스 */
+#lb{position:fixed;inset:0;background:rgba(10,14,30,.88);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out;padding:16px}
+#lb.open{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+.totop{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:0;font-size:18px;box-shadow:var(--shadow);cursor:pointer}
+/* 반응형 5단계 */
+@media (max-width:1240px){.wrap{grid-template-columns:230px minmax(0,1fr);gap:24px}}
+@media (max-width:1024px){.wrap{grid-template-columns:1fr}nav.toc{position:static;max-height:none}nav.toc ol{columns:2}}
+@media (max-width:760px){.pair{grid-template-columns:1fr}section.ch{padding:20px 18px}.top h1{font-size:24px}}
+@media (max-width:640px){nav.toc ol{columns:1}body{font-size:15px}}
+@media (max-width:480px){.wrap,.top-in{padding-left:16px;padding-right:16px}.pin{width:22px;height:22px;font-size:11px;line-height:22px}}
+@media (max-width:400px){section.ch>h2{font-size:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* A4 인쇄 */
+@page{size:A4;margin:14mm 12mm 14mm}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff;font-size:10.5pt}
+  nav.toc,.totop,#lb{display:none!important}
+  .wrap{display:block;padding:0}
+  section.ch{box-shadow:none;padding:0 0 8mm;margin:0;break-before:page}
+  main{padding-bottom:8mm}
+  section.ch:first-of-type{break-before:auto}
+  figure.shot,.tbl,.eq,.svgbox,.note,.tip,.warn,.steps>li{break-inside:avoid}
+  h3,h4{break-after:avoid}
+  .top{border-radius:0}
+  .pfoot{position:fixed;bottom:0;left:0;right:0;height:6mm;background:#fff;font-size:8pt;color:#666;border-top:1px solid #ccc;padding-top:1.5mm;display:flex;justify-content:space-between}
+}
+.pfoot{display:none}
+@media print{.pfoot{display:flex}}
+/* ── 좁은 화면 대응(r1 · 2026-10-12) : 화면 전용 — 인쇄·PDF에는 영향 없음 ── */
+@media screen and (max-width:640px){
+  .k1 td:first-child,.k1 th:first-child{white-space:normal}
+  /* 글 표(숫자 칸 없는 표) → 행마다 카드로 쌓기 */
+  .tbl.stack{border:0;border-radius:0;overflow:visible}
+  .tbl.stack table,.tbl.stack tbody,.tbl.stack tr,.tbl.stack td{display:block;width:auto}
+  .tbl.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl.stack table{background:transparent}
+  .tbl.stack tr{border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 10px;overflow:hidden}
+  .tbl.stack td{border-bottom:1px solid var(--line);padding:8px 12px}
+  .tbl.stack tr td:last-child{border-bottom:0}
+  .tbl.stack td:first-child{background:var(--navy-l);color:var(--navy-d);font-weight:700}
+  .tbl.stack td[data-th]:not(:first-child)::before{content:attr(data-th);display:block;font-size:12px;font-weight:700;color:var(--text2);margin-bottom:2px}
+  .tbl.stack.c2 td[data-th]:not(:first-child)::before{display:none}
+  .tbl.stack td:empty{display:none}
+  /* 숫자 표 → 표 모양 유지, 글자·여백 축소, 넘치면 좌우로 밀기(오른쪽 그림자로 표시) */
+  .tbl:not(.stack){background:linear-gradient(to right,#fff 30%,rgba(255,255,255,0)) left/40px 100% no-repeat local,linear-gradient(to left,#fff 30%,rgba(255,255,255,0)) right/40px 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(26,26,46,.22),transparent) right/12px 100% no-repeat scroll,#fff}
+  .tbl:not(.stack) table{font-size:13px;background:transparent}
+  .tbl:not(.stack) th,.tbl:not(.stack) td{padding:7px 8px}
+  /* 수식 → 줄바꿈 허용 */
+  .eq{white-space:pre-wrap;word-break:keep-all;font-size:13px;line-height:1.75;padding:12px 14px}
+  .eq .c{display:block;padding-left:1em}
+  .svgbox{position:relative}
+  .svgbox::after{content:"← 좌우로 밀어서 보기 →";display:block;text-align:center;font-size:12px;color:var(--text2);margin-top:6px;position:sticky;left:0}
+  ol.legend{grid-template-columns:1fr}
+  .steps>li{padding-left:34px;margin-left:14px}
+}
+.rev{white-space:nowrap}
+@media print{.rev{display:none}}
+</style>
+</head><body>
+<header class="top"><div class="top-in">
+<div class="eyebrow">MANMIN LEGAL REVIEW · MONTHLY · USER MANUAL</div>
+<h1>만민 법규 검토 요약 이용 매뉴얼</h1>
+<p class="sub">매월 첫째 화요일, 지난달 법령 변화를 6단계로 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용</p>
+<div class="badges"><span class="badge acc">매뉴얼 <span style="font-family:var(--font-brand)">Ver-1.0</span></span><a class="badge" href="../index.html">▶ 간행물 열기</a><a class="badge" href="만민법규검토요약_이용매뉴얼_Ver-1.0.pdf" download>⤓ PDF</a><span class="badge">2026-10-17</span><span class="badge">김만민 건축사 · ㈜대성건축사사무소</span></div>
+</div></header>
+<div class="wrap"><nav class="toc" aria-label="목차"><h2>목차</h2><ol><li><a href="#ch0">0. 이 매뉴얼에 대하여</a></li><li><a href="#ch1">1. 월간 발간 안내</a></li><li class="sub"><a href="#s1-1">발간일 · 수록 기간</a></li><li class="sub"><a href="#s1-2">발간 일정</a></li><li class="sub"><a href="#s1-3">함께 보는 매체</a></li><li><a href="#ch2">2. 수록 기준</a></li><li class="sub"><a href="#s2-1">6단계 수집</a></li><li class="sub"><a href="#s2-2">분야 · 대상 법령</a></li><li class="sub"><a href="#s2-3">확인 방법</a></li><li><a href="#ch3">3. 화면 안내</a></li><li class="sub"><a href="#s3-1">첫 화면</a></li><li class="sub"><a href="#s3-2">지금 챙겨야 할 일정</a></li><li class="sub"><a href="#s3-3">월별 아카이브</a></li><li class="sub"><a href="#s3-4">월호 머리</a></li><li class="sub"><a href="#s3-5">검색 · 필터 · 도구</a></li><li class="sub"><a href="#s3-6">항목 카드</a></li><li class="sub"><a href="#s3-7">예고 항목과 D-day</a></li><li class="sub"><a href="#s3-8">블로그 · 유튜브 원고</a></li><li class="sub"><a href="#s3-9">인쇄 · 밝은 화면</a></li><li class="sub"><a href="#s3-10">휴대전화 · 앱 설치</a></li><li><a href="#ch4">4. 항목 읽는 법</a></li><li class="sub"><a href="#s4-1">카드 구성</a></li><li class="sub"><a href="#s4-2">날짜 표기</a></li><li class="sub"><a href="#s4-3">D-day 규칙</a></li><li><a href="#ch5">5. 2026년 9월호 살펴보기</a></li><li class="sub"><a href="#s5-1">머리기사</a></li><li class="sub"><a href="#s5-2">단계별 건수</a></li><li class="sub"><a href="#s5-3">의견 제출 가능한 예고</a></li><li><a href="#ch6">6. 실무 활용</a></li><li class="sub"><a href="#s6-1">매월 확인 순서</a></li><li class="sub"><a href="#s6-2">자주 묻는 질문</a></li><li><a href="#ch7">부록</a></li><li class="sub"><a href="#a1">발간 이력</a></li><li class="sub"><a href="#a2">발간 절차 (편집)</a></li><li class="sub"><a href="#a3">용어</a></li><li class="sub"><a href="#a4">매뉴얼 변경 내역</a></li></ol></nav><main><style>
+.ctag{display:inline-block;font-size:12px;font-weight:700;padding:1px 9px;border-radius:6px;border:1px solid var(--c);color:#1A1A2E;background:color-mix(in srgb,var(--c) 22%,#fff);white-space:nowrap}
+#fig-s02_chips{max-width:900px}#fig-s10_text{max-width:720px}#fig-s12_print{max-width:520px}
+#fig-s07_card,#fig-s08_notice,#fig-s03_watch,#fig-s04_archive{max-width:900px}
+.k1 td:first-child,.k1 th:first-child{white-space:nowrap}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:16px 0}
+.flow div{border-radius:10px;padding:12px 10px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);font-size:14px;line-height:1.5}
+.flow b{display:block;color:var(--navy-d);font-size:15px;margin-bottom:2px}
+.flow i{font-style:normal;font-size:12px;color:var(--text2)}
+.cal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.cal div{background:var(--navy-l);border-radius:10px;padding:14px 16px}
+.cal div.next{background:var(--accent-l);border:1px solid var(--accent)}
+.cal b{display:block;font-size:18px;color:var(--navy-d)}
+.cal span{font-size:13px;color:var(--text2)}
+@media (max-width:1024px){.flow{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.flow{grid-template-columns:repeat(2,1fr)}.cal{grid-template-columns:1fr}}
+@media print{
+  figure.shot{max-width:none!important}
+  figure.shot .frame{width:fit-content;max-width:100%}
+  figure.shot img{width:auto;height:auto;max-width:100%;max-height:118mm}
+  #fig-s12_print img,#fig-s13_mobile_index img,#fig-s14_mobile_card img{max-height:150mm}
+  .pair{grid-template-columns:1fr 1fr}.flow{grid-template-columns:repeat(3,1fr)}
+}
+</style><section class="ch" id="ch0"><h2><span class="n">00</span>이 매뉴얼에 대하여</h2>
+<p class="lead">만민 법규 검토 요약(MANMIN LEGAL REVIEW)은 건축사 김만민이 <b>매월 첫째 화요일</b>에 <b>직전 달</b>의 건축 · 구조 · 기계설비 · 소방 · 토목 관련 법령 개정사항을 정리해 발간하는 <b>정기 월간 웹 간행물</b>입니다. 이 매뉴얼은 간행물의 발간 체계와 수록 기준, 화면 사용법, 항목을 읽고 실무에 쓰는 방법을 설명합니다.</p>
+<div class="k1"><div class="tbl"><table><thead><tr><th class="">항목</th><th class="">내용</th></tr></thead><tbody><tr><td class="">간행물</td><td class="">만민 법규 검토 요약 · <b>MANMIN VER-1.0</b> · 월간 (매월 첫째 화요일)</td></tr><tr><td class="">접속 주소</td><td class=""><a href="https://manminkim-eng.github.io/manmin-law/" target="_blank" rel="noopener">manminkim-eng.github.io/manmin-law</a></td></tr><tr><td class="">최신호</td><td class=""><b>2026년 9월호</b> · 발간 2026-10-06 · 46건</td></tr><tr><td class="">누적</td><td class="">5개호 · 177건 (2026년 5월호 ~ 2026년 9월호)</td></tr><tr><td class="">매뉴얼 판</td><td class=""><b>Ver-1.0</b> (초판) · 2026-10-17 · 작성 김만민 건축사(㈜대성건축사사무소)</td></tr><tr><td class="">내려받기</td><td class=""><a href="만민법규검토요약_이용매뉴얼_Ver-1.0.pdf" download>PDF(A4)</a> · <a href="../index.html">간행물 열기</a></td></tr><tr><td class="">화면 캡처 기준</td><td class="">2026-10-17 — 화면의 D-day · 「종료」 표시는 보는 날짜에 따라 달라집니다</td></tr></tbody></table></div></div>
+<div class="note"><b>성격</b>법령 원문을 대신하지 않습니다. 각 항목은 법제처 국가법령정보센터 · 국민참여입법센터 · 국회 의안 원문으로 바로 연결되며, 인허가 · 감리 판단은 반드시 원문과 부칙의 시행일로 확인합니다.</div>
+</section>
+<section class="ch" id="ch1"><h2><span class="n">01</span>월간 발간 안내</h2>
+<p class="lead">한 달 동안 나온 법령 변화를 그달이 끝난 뒤 한 번에 정리합니다. 달이 끝나야 그달의 공포 · 예고 · 발의가 모두 확정되기 때문입니다.</p>
+<h3 id="s1-1">발간일 · 수록 기간</h3>
+<div class="k1"><div class="tbl"><table><thead><tr><th class="">항목</th><th class="">내용</th></tr></thead><tbody><tr><td class="">발간일</td><td class=""><b>매월 첫째 화요일</b></td></tr><tr><td class="">수록 기간</td><td class=""><b>직전 달 1일 ~ 말일</b> (예: 11월 첫째 화요일 → 10월호)</td></tr><tr><td class="">발간 단위</td><td class="">월호(YYYY-MM) — 예: 2026-09 = 2026년 9월호</td></tr><tr><td class="">수정</td><td class="">발간 뒤 누락이 확인되면 다음 호 「추가검토」로 보완 수록합니다 (예: 9월호에 7월 누락분 1건)</td></tr></tbody></table></div></div>
+<h3 id="s1-2">발간 일정</h3>
+<div class="cal"><div class=""><span>2026-09-01(화) 발간</span><b>2026년 8월호</b><span>08-01 ~ 08-31 수록</span></div><div class=""><span>2026-10-06(화) 발간</span><b>2026년 9월호</b><span>09-01 ~ 09-30 수록 · 최신호</span></div><div class="next"><span>2026-11-03(화) 발간 예정</span><b>2026년 10월호</b><span>10-01 ~ 10-31 수록 · 다음 호</span></div></div>
+<h3 id="s1-3">함께 보는 매체</h3>
+<div class="tbl"><table><thead><tr><th class="">매체</th><th class="">주소</th><th class="">역할</th></tr></thead><tbody><tr><td class="">웹 간행물</td><td class=""><a href="https://manminkim-eng.github.io/manmin-law/" target="_blank" rel="noopener">manminkim-eng.github.io/manmin-law</a></td><td class="">원본 — 원문 연결 · D-day · 검색 · 인쇄</td></tr><tr><td class="">네이버 블로그</td><td class=""><a href="https://blog.naver.com/manmin72" target="_blank" rel="noopener">blog.naver.com/manmin72</a></td><td class="">월호 원고 (웹의 「블로그 원고」로 추출)</td></tr><tr><td class="">유튜브</td><td class=""><a href="https://www.youtube.com/@김만민-x8p" target="_blank" rel="noopener">@김만민-x8p</a></td><td class="">월호 해설 영상 · 쇼츠</td></tr><tr><td class="">MANMIN 계산도구</td><td class=""><a href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">manminkim-eng.github.io/KIMMANMIN</a></td><td class="">같은 분야의 엔지니어링 웹 계산도구 모음</td></tr></tbody></table></div>
+</section>
+<section class="ch" id="ch2"><h2><span class="n">02</span>수록 기준</h2>
+<p class="lead">법령이 만들어지는 길목을 6단계로 나누어 매달 모두 훑습니다. <b>한 단계라도 수집이 빠지면 그 호는 발간하지 않습니다.</b> 해당 단계에 실적이 없으면 「0건」으로 기록합니다.</p>
+<h3 id="s2-1">6단계 수집</h3>
+<div class="flow"><div style="--c:#4ea8de"><b>①</b>입법예고<br><i>국민참여입법센터</i></div><div style="--c:#6fc08a"><b>②</b>행정예고<br><i>국민참여입법센터</i></div><div style="--c:#f0a05a"><b>③</b>의원발의<br><i>열린국회정보</i></div><div style="--c:#e0645c"><b>④</b>국회통과<br><i>열린국회정보</i></div><div style="--c:#d4a843"><b>⑤</b>시행법령<br><i>국가법령정보센터</i></div><div style="--c:#b98ce0"><b>⑥</b>훈령예규고시<br><i>국가법령정보센터</i></div></div>
+<div class="tbl"><table><thead><tr><th class="">단계</th><th class="">대상</th><th class="">출처</th><th class="">실무 의미</th></tr></thead><tbody><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">법률 · 시행령 · 시행규칙의 공포 · 시행 확정분</td><td class="">국가법령정보센터 (부칙 대조)</td><td class="">이미 정해졌다 — 시행일부터 적용</td></tr><tr><td class=""><span class="ctag" style="--c:#b98ce0">훈령예규고시</span></td><td class="">고시 · 훈령 · 예규 발령분</td><td class="">국가법령정보센터 행정규칙</td><td class="">운영기준 · 세부기준이 바뀐다</td></tr><tr><td class=""><span class="ctag" style="--c:#e0645c">국회통과</span></td><td class="">본회의 의결 법률안</td><td class="">열린국회정보</td><td class="">곧 공포된다 — 다음 호 「시행법령」 후보</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">정부 법령안 입법예고</td><td class="">국민참여입법센터</td><td class="">아직 안 · 마감 전 의견 제출 가능</td></tr><tr><td class=""><span class="ctag" style="--c:#6fc08a">행정예고</span></td><td class="">고시 · 지침 행정예고</td><td class="">국민참여입법센터</td><td class="">아직 안 · 마감 전 의견 제출 가능</td></tr><tr><td class=""><span class="ctag" style="--c:#f0a05a">의원발의</span></td><td class="">국회의원 발의 법률안</td><td class="">열린국회정보</td><td class="">방향 참고 — 확정이 아니다</td></tr><tr><td class=""><span class="ctag" style="--c:#8b98b3">추가검토</span></td><td class="">지난 호 누락분 · 관련 정책 묶음</td><td class="">위 출처 동일</td><td class="">보완 수록</td></tr></tbody></table></div>
+<div class="tip"><b>읽는 순서</b>확정(시행법령 · 훈령예규고시) → 임박(국회통과 · 마감 전 예고) → 방향(의원발의) 순으로 보면 이번 달 업무에 바로 쓰이는 것부터 챙길 수 있습니다.</div>
+<h3 id="s2-2">분야 · 대상 법령</h3>
+<p>각 항목에는 분야 태그가 붙습니다 — 건축 · 구조 · 기계설비 · 소방 · 토목 · 전기 · 도시계획 · 안전진단 · 환경. 수집 대상은 실무 관련 <b>법령명 53개</b>를 명시한 목록(화이트리스트)으로 정하고, 이름이 비슷해 잘못 걸리는 법령 15개는 제외 목록으로 끊습니다(예: 「전기통신」 · 「기초연금」 · 「도로교통법」). 농지법은 설계 · 감리 실무 대상이 아니어서 의도적으로 수집하지 않습니다(2026-09-01 결정).</p>
+<div class="tbl"><table><thead><tr><th class="">목록</th><th class="num">규모</th><th class="">쓰임</th></tr></thead><tbody><tr><td class="">시행법령 감시목록</td><td class="num">36건</td><td class="">매월 공포 · 시행 여부를 법령명으로 개별 조회 · 부칙 대조 (전수 스캔 아님)</td></tr><tr><td class="">훈령 · 예규 · 고시 감시목록</td><td class="num">14건</td><td class="">매월 발령 여부를 명칭으로 개별 조회 (전수 스캔 아님)</td></tr><tr><td class="">법령명 화이트리스트</td><td class="num">53개</td><td class="">예고 · 발의 자동 수집 대상</td></tr><tr><td class="">제외 목록</td><td class="num">15개 + 농지법</td><td class="">오탐 차단 · 범위 밖</td></tr></tbody></table></div>
+<h3 id="s2-3">확인 방법</h3>
+<ul>
+<li>공포 · 시행 확정분은 법령 번호와 공포일 · 시행일을 <b>국가법령정보센터 연혁 · 부칙</b>과 대조합니다. 같은 날 여러 개정이 겹치면 현행 화면에는 나중 시행분만 보이므로 연혁으로 확인합니다(예: 9월호 국토계획법 시행령 대통령령 제36656호 — 9.18. 시행 타법개정 제36587호가 현행 머리에 표시됨).</li>
+<li>「제안이유 및 주요내용」은 정부 · 발의자가 밝힌 공식 사유를 그대로 옮깁니다. 편집자의 해석은 「실무 영향」에만 씁니다.</li>
+<li>발간 전 자동 점검(<code>publish.py check</code>)이 제안이유가 빈 항목, 수집 실패 단계, 발간일 규칙 위반을 찾아 발간을 막습니다.</li>
+</ul>
+</section>
+<section class="ch" id="ch3"><h2><span class="n">03</span>화면 안내</h2>
+<p class="lead">첫 화면(index)은 지금 챙겨야 할 일정과 월별 아카이브를, 월호 페이지(YYYY-MM)는 그달의 전체 항목을 보여 줍니다.</p>
+<h3 id="s3-1">첫 화면</h3>
+<figure class="shot" id="fig-s01_index"><div class="frame"><img src="images/s01_index.webp" width="1440" height="900" loading="lazy" alt="첫 화면 — 머리 막대 · 소개 · 바로가기 단추"><span class="pin" style="left:11.51%;top:2.36%">1</span><span class="pin" style="left:11.51%;top:9.39%">2</span><span class="pin" style="left:23.18%;top:9.22%">3</span><span class="pin" style="left:30.64%;top:9.39%">4</span><span class="pin" style="left:12.90%;top:21.64%">5</span><span class="pin" style="left:12.90%;top:34.61%">6</span><span class="pin" style="left:12.90%;top:38.81%">7</span><span class="pin" style="left:39.94%;top:38.81%">8</span><span class="pin" style="left:45.42%;top:38.81%">9</span></div><figcaption><span class="fno">S01</span>첫 화면 — 머리 막대 · 소개 · 바로가기 단추</figcaption><ol class="legend"><li><b>1</b><span>사이트 이름 · Ver-1.0</span></li><li><b>2</b><span>월별 아카이브 이동</span></li><li><b>3</b><span>웹에 추가</span></li><li><b>4</b><span>밝게 · 어둡게</span></li><li><b>5</b><span>만민 법규 검토 요약</span></li><li><b>6</b><span>편집 · 최신호 · 누적 · 갱신</span></li><li><b>7</b><span>최신호 보기</span></li><li><b>8</b><span>유튜브</span></li><li><b>9</b><span>📘 매뉴얼</span></li></ol></figure>
+<figure class="shot" id="fig-s02_chips"><div class="frame"><img src="images/s02_chips.webp" width="1104" height="61" loading="lazy" alt="바로가기 단추 — 유튜브 오른쪽에 「📘 매뉴얼」"><span class="pin" style="left:1.50%;top:22.79%">1</span><span class="pin" style="left:16.91%;top:25.78%">2</span><span class="pin" style="left:26.38%;top:22.79%">3</span><span class="pin" style="left:36.75%;top:22.79%">4</span><span class="pin" style="left:43.90%;top:22.79%">5</span></div><figcaption><span class="fno">S02</span>바로가기 단추 — 유튜브 오른쪽에 「📘 매뉴얼」</figcaption><ol class="legend"><li><b>1</b><span>최신호 보기</span></li><li><b>2</b><span>링크 공유</span></li><li><b>3</b><span>네이버 블로그</span></li><li><b>4</b><span>유튜브</span></li><li><b>5</b><span>📘 매뉴얼 — 이 문서</span></li></ol></figure>
+<div class="tbl"><table><thead><tr><th class="">단추</th><th class="">기능</th></tr></thead><tbody><tr><td class="">최신호 보기</td><td class="">가장 최근 월호로 이동</td></tr><tr><td class="">링크 공유</td><td class="">공유 기능이 있는 기기(휴대전화 등)는 공유 창, 없으면 주소 복사</td></tr><tr><td class="">네이버 블로그 · 유튜브</td><td class="">같은 내용의 블로그 원고 · 해설 영상 채널</td></tr><tr><td class="">📘 매뉴얼</td><td class="">이 매뉴얼 (새 창)</td></tr><tr><td class="">월별 아카이브 이동</td><td class="">머리 막대 목록에서 원하는 호로 바로 이동</td></tr><tr><td class="">웹에 추가 · ◐</td><td class="">앱으로 설치 · 밝게/어둡게 전환</td></tr></tbody></table></div>
+<h3 id="s3-2">지금 챙겨야 할 일정</h3>
+<figure class="shot" id="fig-s03_watch"><div class="frame"><img src="images/s03_watch.webp" width="1100" height="628" loading="lazy" alt="예고 마감 · 시행 예정 — 모든 호에서 발간(빌드) 날 이후 날짜를 골라 가까운 순으로 최대 8건"><span class="pin" style="left:1.50%;top:7.81%">1</span><span class="pin" style="left:3.40%;top:16.24%">2</span><span class="pin" style="left:9.18%;top:16.08%">3</span><span class="pin" style="left:92.71%;top:16.65%">4</span><span class="pin" style="left:3.40%;top:26.47%">5</span></div><figcaption><span class="fno">S03</span>예고 마감 · 시행 예정 — 모든 호에서 발간(빌드) 날 이후 날짜를 골라 가까운 순으로 최대 8건</figcaption><ol class="legend"><li><b>1</b><span>지금 챙겨야 할 일정</span></li><li><b>2</b><span>단계</span></li><li><b>3</b><span>마감 D-day</span></li><li><b>4</b><span>마감 · 시행일</span></li><li><b>5</b><span>근거 · 원문 · 해당 호</span></li></ol></figure>
+<p>모든 호의 입법예고 · 행정예고 마감일과 앞으로 시행될 항목을 모아 가까운 날짜부터 보여 줍니다. 목록은 발간 때 정해지고, D-day 표시만 보는 날 기준으로 다시 계산됩니다. 제목을 누르면 해당 월호로, 「원문 ↗」은 입법예고 원문으로 갑니다.</p>
+<h3 id="s3-3">월별 아카이브</h3>
+<figure class="shot" id="fig-s04_archive"><div class="frame"><img src="images/s04_archive.webp" width="1100" height="579" loading="lazy" alt="월별 아카이브 — 호 번호 · 머리기사 · 건수 · 발간일"><span class="pin" style="left:1.50%;top:16.65%">1</span><span class="pin" style="left:3.04%;top:18.77%">2</span><span class="pin" style="left:3.04%;top:31.07%">3</span></div><figcaption><span class="fno">S04</span>월별 아카이브 — 호 번호 · 머리기사 · 건수 · 발간일</figcaption><ol class="legend"><li><b>1</b><span>최신호</span></li><li><b>2</b><span>호 번호</span></li><li><b>3</b><span>머리기사</span></li></ol></figure>
+<h3 id="s3-4">월호 머리</h3>
+<figure class="shot" id="fig-s05_issue_hero"><div class="frame"><img src="images/s05_issue_hero.webp" width="1440" height="430" loading="lazy" alt="월호 머리 — 호 번호 · 머리기사 · 발간일 · 수집 출처 · 단계별 건수"><span class="pin" style="left:12.73%;top:11.03%">1</span><span class="pin" style="left:12.73%;top:17.53%">2</span><span class="pin" style="left:12.73%;top:30.06%">3</span><span class="pin" style="left:27.17%;top:44.66%">4</span><span class="pin" style="left:12.73%;top:52.98%">5</span><span class="pin" style="left:12.73%;top:77.36%">6</span></div><figcaption><span class="fno">S05</span>월호 머리 — 호 번호 · 머리기사 · 발간일 · 수집 출처 · 단계별 건수</figcaption><ol class="legend"><li><b>1</b><span>호 번호 · 판</span></li><li><b>2</b><span>호 제목</span></li><li><b>3</b><span>머리기사</span></li><li><b>4</b><span>발행일</span></li><li><b>5</b><span>수집 출처</span></li><li><b>6</b><span>단계별 건수</span></li></ol></figure>
+<h3 id="s3-5">검색 · 필터 · 도구</h3>
+<figure class="shot" id="fig-s06_toolbar"><div class="frame"><img src="images/s06_toolbar.webp" width="1440" height="210" loading="lazy" alt="도구 막대 — 검색 · 단계 · 분야 필터 · 펼치기 · 인쇄 · 공유 · 원고"><span class="pin" style="left:12.73%;top:14.93%">1</span><span class="pin" style="left:12.73%;top:39.26%">2</span><span class="pin" style="left:12.73%;top:57.29%">3</span><span class="pin" style="left:12.73%;top:76.76%">4</span><span class="pin" style="left:19.44%;top:76.76%">5</span><span class="pin" style="left:28.86%;top:76.76%">6</span><span class="pin" style="left:34.07%;top:76.76%">7</span><span class="pin" style="left:85.00%;top:78.86%">8</span></div><figcaption><span class="fno">S06</span>도구 막대 — 검색 · 단계 · 분야 필터 · 펼치기 · 인쇄 · 공유 · 원고</figcaption><ol class="legend"><li><b>1</b><span>검색 (단축키 /)</span></li><li><b>2</b><span>단계 필터</span></li><li><b>3</b><span>분야 필터</span></li><li><b>4</b><span>전체 펼치기</span></li><li><b>5</b><span>인쇄 · PDF</span></li><li><b>6</b><span>공유</span></li><li><b>7</b><span>블로그 · 유튜브 원고</span></li><li><b>8</b><span>표시 건수</span></li></ol></figure>
+<div class="tbl"><table><thead><tr><th class="">도구</th><th class="">기능</th></tr></thead><tbody><tr><td class="">검색</td><td class="">법령명 · 조문 · 키워드 (단축키 <kbd>/</kbd>)</td></tr><tr><td class="">단계 필터</td><td class="">시행법령 · 국회통과 · 훈령예규고시 · 입법예고 · 행정예고 · 의원발의 · 추가검토</td></tr><tr><td class="">분야 필터</td><td class="">건축 · 구조 · 기계설비 · 소방 · 토목 등 — 단계 필터와 함께 걸림</td></tr><tr><td class="">전체 펼치기</td><td class="">모든 카드의 「세부 개정내용」을 한 번에 펼침 · 접기</td></tr><tr><td class="">인쇄 · PDF 저장</td><td class="">브라우저 인쇄 — 「PDF로 저장」 선택</td></tr><tr><td class="">블로그 · 유튜브 원고</td><td class="">현재 필터에 보이는 항목만 원고로 추출</td></tr></tbody></table></div>
+<figure class="shot" id="fig-s09_filter"><div class="frame"><img src="images/s09_filter.webp" width="1440" height="900" loading="lazy" alt="분야 필터 예 — 「소방」만 표시, 오른쪽 표시 건수가 바뀜"><span class="pin" style="left:21.97%;top:18.89%">1</span><span class="pin" style="left:86.71%;top:24.42%">2</span></div><figcaption><span class="fno">S09</span>분야 필터 예 — 「소방」만 표시, 오른쪽 표시 건수가 바뀜</figcaption><ol class="legend"><li><b>1</b><span>분야 = 소방</span></li><li><b>2</b><span>표시 건수</span></li></ol></figure>
+<h3 id="s3-6">항목 카드</h3>
+<figure class="shot" id="fig-s07_card"><div class="frame"><img src="images/s07_card.webp" width="1100" height="743" loading="lazy" alt="항목 카드 — 주택법 공포(법률 제21902호) · 세부 개정내용을 펼친 상태"><span class="pin" style="left:3.40%;top:4.57%">1</span><span class="pin" style="left:9.18%;top:4.57%">2</span><span class="pin" style="left:3.40%;top:13.08%">3</span><span class="pin" style="left:3.40%;top:17.34%">4</span><span class="pin" style="left:3.40%;top:27.11%">5</span><span class="pin" style="left:3.40%;top:46.98%">6</span><span class="pin" style="left:3.40%;top:84.21%">7</span><span class="pin" style="left:3.40%;top:88.36%">8</span><span class="pin" style="left:3.40%;top:4.57%">9</span></div><figcaption><span class="fno">S07</span>항목 카드 — 주택법 공포(법률 제21902호) · 세부 개정내용을 펼친 상태</figcaption><ol class="legend"><li><b>1</b><span>단계</span></li><li><b>2</b><span>분야</span></li><li><b>3</b><span>날짜 · 근거 · 원문</span></li><li><b>4</b><span>요약 — 번호 · 공포 · 시행</span></li><li><b>5</b><span>제안이유 및 주요내용</span></li><li><b>6</b><span>세부 개정내용</span></li><li><b>7</b><span>신 · 구조문 대비</span></li><li><b>8</b><span>실무 영향</span></li><li><b>9</b><span>항목 링크 복사</span></li></ol></figure>
+<h3 id="s3-7">예고 항목과 D-day</h3>
+<figure class="shot" id="fig-s08_notice"><div class="frame"><img src="images/s08_notice.webp" width="1100" height="709" loading="lazy" alt="입법예고 항목 — 마감이 지나면 「입법예고 종료」로 표시"><span class="pin" style="left:3.40%;top:4.89%">1</span><span class="pin" style="left:18.49%;top:4.75%">2</span><span class="pin" style="left:3.40%;top:13.94%">3</span></div><figcaption><span class="fno">S08</span>입법예고 항목 — 마감이 지나면 「입법예고 종료」로 표시</figcaption><ol class="legend"><li><b>1</b><span>입법예고</span></li><li><b>2</b><span>마감 · 종료 표시</span></li><li><b>3</b><span>입법예고 원문</span></li></ol></figure>
+<h3 id="s3-8">블로그 · 유튜브 원고</h3>
+<figure class="shot" id="fig-s10_text"><div class="frame"><img src="images/s10_text.webp" width="760" height="547" loading="lazy" alt="원고 추출 창 — 네이버 블로그용 · 유튜브 대본용 전환 · 전체 복사"><span class="pin" style="left:3.03%;top:14.69%">1</span><span class="pin" style="left:16.90%;top:14.69%">2</span><span class="pin" style="left:3.03%;top:25.08%">3</span><span class="pin" style="left:72.05%;top:92.39%">4</span></div><figcaption><span class="fno">S10</span>원고 추출 창 — 네이버 블로그용 · 유튜브 대본용 전환 · 전체 복사</figcaption><ol class="legend"><li><b>1</b><span>네이버 블로그용</span></li><li><b>2</b><span>유튜브 대본용</span></li><li><b>3</b><span>원고</span></li><li><b>4</b><span>전체 복사</span></li></ol></figure>
+<p>보이는 항목만 추출되므로, 예를 들어 「소방」 필터를 건 뒤 원고를 열면 소방 항목만으로 원고가 만들어집니다.</p>
+<h3 id="s3-9">인쇄 · 밝은 화면</h3>
+<div class="pair"><div><figure class="shot" id="fig-s12_print"><div class="frame"><img src="images/s12_print.webp" width="794" height="1123" loading="lazy" alt="인쇄 화면 — A4 · 흰 바탕"></div><figcaption><span class="fno">S12</span>인쇄 화면 — A4 · 흰 바탕</figcaption></figure></div><div><figure class="shot" id="fig-s11_light"><div class="frame"><img src="images/s11_light.webp" width="1440" height="900" loading="lazy" alt="밝은 화면(◐) — 첫 화면"></div><figcaption><span class="fno">S11</span>밝은 화면(◐) — 첫 화면</figcaption></figure></div></div>
+<h3 id="s3-10">휴대전화 · 앱 설치</h3>
+<div class="pair"><div><figure class="shot narrow" id="fig-s13_mobile_index"><div class="frame"><img src="images/s13_mobile_index.webp" width="390" height="844" loading="lazy" alt="휴대전화 첫 화면 (390 px)"></div><figcaption><span class="fno">S13</span>휴대전화 첫 화면 (390 px)</figcaption></figure></div><div><figure class="shot narrow" id="fig-s14_mobile_card"><div class="frame"><img src="images/s14_mobile_card.webp" width="390" height="844" loading="lazy" alt="휴대전화 항목 카드"></div><figcaption><span class="fno">S14</span>휴대전화 항목 카드</figcaption></figure></div></div>
+<p>「웹에 추가」를 누르면 주소창 없는 독립 창으로 설치됩니다(PWA). 설치한 앱의 바로가기 「최신호 보기」는 매월 발간 때 최신호로 자동 갱신됩니다(v1.2).</p>
+</section>
+<section class="ch" id="ch4"><h2><span class="n">04</span>항목 읽는 법</h2>
+<h3 id="s4-1">카드 구성</h3>
+<div class="tbl"><table><thead><tr><th class="">구성</th><th class="">담는 내용</th><th class="">9월호 i03 예</th></tr></thead><tbody><tr><td class="">단계 · 분야 태그</td><td class="">어느 단계의 무엇인가</td><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span> · 건축</td></tr><tr><td class="">제목</td><td class="">핵심 변경을 한 줄로</td><td class="">주택법 공포 — 사업계획승인 대지확보 95%→80% 즉시 시행 · 지역주택조합 강화·도시형생활주택 500세대는 2027.3.9.</td></tr><tr><td class="">날짜 · 근거</td><td class="">공포 / 시행 / 예고기간 · 근거 법령 · 원문</td><td class="">공포 2026-09-08 · 주택법</td></tr><tr><td class="">요약</td><td class="">법령 번호 · 공포일 · 시행일 · 주요 수치</td><td class="">법률 제21902호(2026.9.8. 공포)</td></tr><tr><td class="">제안이유 및 주요내용</td><td class="">정부 · 발의자의 공식 사유 (원문 그대로)</td><td class="">—</td></tr><tr><td class="">세부 개정내용</td><td class="">조문별 시행일 · 부칙 경과조치</td><td class="">8건</td></tr><tr><td class="">신 · 구조문 대비</td><td class="">법제처 원문 · 법령 검색 연결</td><td class="">—</td></tr><tr><td class="">실무 영향</td><td class="">설계 · 인허가 · 감리에서 달라지는 점 (편집자 의견)</td><td class="">대지확보 80% 완화는 이미 시행 중 — 지금 사업계획승인을 준비하는 현장은 95% 기준을 기다릴 필요가 없…</td></tr><tr><td class="">링크</td><td class="">항목 주소 복사 — 동료에게 그 항목만 공유</td><td class="">#i03</td></tr></tbody></table></div>
+<h3 id="s4-2">날짜 표기</h3>
+<div class="tbl"><table><thead><tr><th class="">표기</th><th class="">뜻</th><th class="">쓰는 단계</th></tr></thead><tbody><tr><td class="">시행</td><td class="">그날부터 적용</td><td class="">시행법령</td></tr><tr><td class="">공포</td><td class="">공포만 되고 시행일은 따로 — 요약 · 세부에서 시행일 확인</td><td class="">시행법령</td></tr><tr><td class="">발령</td><td class="">고시 · 훈령 · 예규 발령일</td><td class="">훈령예규고시</td></tr><tr><td class="">의결</td><td class="">국회 본회의 의결일</td><td class="">국회통과</td></tr><tr><td class="">예고기간</td><td class="">예고 시작일 · 마감일</td><td class="">입법예고 · 행정예고</td></tr><tr><td class="">발의</td><td class="">법률안 발의일</td><td class="">의원발의</td></tr></tbody></table></div>
+<div class="warn"><b>주의</b>「공포」 항목은 시행일이 다를 수 있습니다. 같은 법률 안에서도 조문마다 시행일이 갈리는 경우가 많으므로(예: 공공주택 특별법 — 공포일 시행 · 일부 조문 2027.3.9. 시행) 「세부 개정내용」의 부칙 내용을 확인합니다.</div>
+<h3 id="s4-3">D-day 규칙</h3>
+<div class="tbl"><table><thead><tr><th class="">상태</th><th class="">표시</th><th class="">실무</th></tr></thead><tbody><tr><td class="">예고 마감 11일 이상</td><td class="">「입법예고 마감 D-n」 회색</td><td class="">여유 있음</td></tr><tr><td class="">예고 마감 10일 이내</td><td class="">「입법예고 마감 D-n」 강조</td><td class="">의견 제출 준비</td></tr><tr><td class="">마감 당일</td><td class="">「마감 D-DAY」</td><td class="">당일 제출</td></tr><tr><td class="">마감 지남</td><td class="">「입법예고 종료」</td><td class="">다음 단계(공포) 대기</td></tr><tr><td class="">시행 예정</td><td class="">「시행 D-n」 녹색</td><td class="">시행 전 준비</td></tr></tbody></table></div>
+<p>D-day는 페이지를 여는 날짜로 계산합니다. 같은 9월호라도 10월 초에 보면 「마감 D-9」, 마감 뒤에 보면 「종료」로 보입니다.</p>
+</section>
+<section class="ch" id="ch5"><h2><span class="n">05</span>2026년 9월호 살펴보기</h2>
+<p class="lead">2026년 9월호는 2026-10-06(화)에 발간됐고 46건을 수록했습니다. 머리기사 — 건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행</p>
+<h3 id="s5-1">머리기사</h3>
+<div class="tbl"><table><thead><tr><th class="">단계</th><th class="">항목</th><th class="">날짜</th></tr></thead><tbody><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">건축사법 시행 — 명의대여·유사명칭 금지 건축사사무소까지 확대 · 민간 대가기준 준용은 2027.3.18.</td><td class="">시행 2026-09-18</td></tr><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">주택법 공포 — 사업계획승인 대지확보 95%→80% 즉시 시행 · 지역주택조합 강화·도시형생활주택 500세대는 2027.3.9.</td><td class="">공포 2026-09-08</td></tr><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">공공주택 특별법 시행령 시행 — 지식산업센터 공공임대 매입 · 용도변경 전 주차기준 · 다자녀 3→2명</td><td class="">시행 2026-09-08</td></tr><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">국토계획법 시행령 시행 — 일반공업지역 지식산업센터·근생의 오피스텔 용도변경 한시 허용 (7월 예고 확정)</td><td class="">시행 2026-09-08</td></tr><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="">주택건설기준 규정 시행 — 지식산업센터→도시형생활주택 전환 시 기존 주차기준 · 주차·주민공동시설 완화 (7월 예고 확정)</td><td class="">시행 2026-09-08</td></tr></tbody></table></div>
+<h3 id="s5-2">단계별 건수</h3>
+<div class="tbl"><table><thead><tr><th class="">단계</th><th class="num">건수</th><th class="">내용</th></tr></thead><tbody><tr><td class=""><span class="ctag" style="--c:#d4a843">시행법령</span></td><td class="num">10</td><td class="">공포 · 시행 확정</td></tr><tr><td class=""><span class="ctag" style="--c:#b98ce0">훈령예규고시</span></td><td class="num">1</td><td class="">고시 발령</td></tr><tr><td class=""><span class="ctag" style="--c:#e0645c">국회통과</span></td><td class="num">2</td><td class="">본회의 의결</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="num">8</td><td class="">정부안 예고</td></tr><tr><td class=""><span class="ctag" style="--c:#6fc08a">행정예고</span></td><td class="num">2</td><td class="">고시안 예고</td></tr><tr><td class=""><span class="ctag" style="--c:#f0a05a">의원발의</span></td><td class="num">21</td><td class="">법률안 발의</td></tr><tr><td class=""><span class="ctag" style="--c:#8b98b3">추가검토</span></td><td class="num">2</td><td class="">7월 누락분 · 정책 묶음</td></tr><tr><td class=""><b>합계</b></td><td class="num"><b>46</b></td><td class=""></td></tr></tbody></table></div>
+<h3 id="s5-3">의견 제출 가능한 예고 (2026-10-17 기준)</h3>
+<div class="tbl"><table><thead><tr><th class="">단계</th><th class="">항목</th><th class="">마감</th><th class="num">남은 날</th></tr></thead><tbody><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">편의증진법 시행규칙 — 보청기기 보조장비 비치 대상 · 장애인 화장실 대변기 등받이 기준</td><td class="">2026-10-20</td><td class="num">D-3</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">소방시설법 시행령 — 공장 5,000㎡(비불연 2,500㎡) 이상 스프링클러 의무 · 300㎡ 미만 숙박시설 간이스프링클러</td><td class="">2026-10-23</td><td class="num">D-6</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">건축법 시행령 — 일조 높이제한 법률 상향 정비 · 다세대·다가구 바닥면적 660→1,000㎡ · 다가구 3→4층</td><td class="">2026-10-26</td><td class="num">D-9</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">주택법 시행령 — 주택조합 원거주민 조합원 예외 · 자금 공개 강화 · 사업종결 재의결</td><td class="">2026-10-26</td><td class="num">D-9</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">주택법 시행령 — 상업·준주거 주상복합 건축허가 대상 300→500세대 미만 · 연면적 90→100% 미만 (2030년까지)</td><td class="">2026-10-28</td><td class="num">D-11</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">주택법 시행규칙 — 1,000세대 이상 사전방문 3일 이상 권고 · 주말 1일 포함 · 품질점검 대상 1% 이상</td><td class="">2026-11-02</td><td class="num">D-16</td></tr><tr><td class=""><span class="ctag" style="--c:#4ea8de">입법예고</span></td><td class="">특정건축물 정리법 시행령 제정 — 소규모 주거용 위반건축물 한시 사용승인 (12.17. 법 시행 대비)</td><td class="">2026-11-09</td><td class="num">D-23</td></tr></tbody></table></div>
+<div class="tip"><b>활용</b>마감 전 예고는 국민참여입법센터 원문(카드의 「입법예고 원문 ↗」)에서 의견을 낼 수 있습니다. 소방시설법 시행령(공장 스프링클러) · 건축법 시행령(다세대 · 다가구 바닥면적)처럼 설계 기준이 바뀌는 예고는 진행 중인 계획안에 미리 반영 여부를 검토합니다.</div>
+</section>
+<section class="ch" id="ch6"><h2><span class="n">06</span>실무 활용</h2>
+<h3 id="s6-1">매월 확인 순서</h3>
+<ol class="steps">
+<li><b class="t">첫째 화요일 — 최신호 열기</b>첫 화면 「최신호 보기」 또는 설치한 앱의 「최신호」 바로가기.</li>
+<li><b class="t">확정분 먼저</b>단계 필터 「시행법령」 · 「훈령예규고시」 → 진행 중인 설계 · 인허가 · 감리 현장에 걸리는지 확인. 시행일과 경과조치(부칙)는 원문으로 대조.</li>
+<li><b class="t">내 분야만</b>분야 필터(건축 · 소방 · 기계설비 …)로 좁혀 놓고 「전체 펼치기」.</li>
+<li><b class="t">임박 일정</b>첫 화면 「지금 챙겨야 할 일정」에서 예고 마감 · 시행 예정 확인 → 필요하면 의견 제출.</li>
+<li><b class="t">공유 · 보관</b>항목 「링크」로 동료에게 해당 항목만 공유, 「인쇄 · PDF 저장」으로 현장 서류에 첨부.</li>
+</ol>
+<h3 id="s6-2">자주 묻는 질문</h3>
+<div class="tbl"><table><thead><tr><th class="">질문</th><th class="">답</th></tr></thead><tbody><tr><td class="">발간일에 열었는데 지난달 호가 최신호입니다</td><td class="">발간은 첫째 화요일 중에 반영됩니다. 앱 화면이 예전 내용이면 새로 고침하거나 앱을 다시 엽니다(HTML은 네트워크 우선으로 받습니다).</td></tr><tr><td class="">항목 날짜와 법제처 현행 화면의 번호가 다릅니다</td><td class="">같은 날 · 같은 달에 개정이 겹치면 현행 화면 머리에는 나중 시행분이 보입니다. 국가법령정보센터 「연혁」에서 해당 번호를 찾습니다(2장 확인 방법).</td></tr><tr><td class="">의원발의 항목도 지켜야 하나요</td><td class="">아니요. 의원발의는 국회 심사 전 단계로 확정이 아닙니다. 방향 참고용이며, 통과되면 「국회통과」 → 「시행법령」으로 다시 실립니다.</td></tr><tr><td class="">예고가 「종료」로 바뀌었습니다</td><td class="">의견 제출 기간이 끝났다는 뜻입니다. 공포되면 이후 호 「시행법령」에 실립니다.</td></tr><tr><td class="">지난 호를 보려면</td><td class="">첫 화면 「월별 아카이브」 또는 머리 막대의 호 선택 목록.</td></tr><tr><td class="">블로그 원고에 일부 항목만 넣고 싶습니다</td><td class="">단계 · 분야 필터나 검색으로 원하는 항목만 남긴 뒤 원고를 엽니다.</td></tr></tbody></table></div>
+</section>
+<section class="ch" id="ch7"><h2><span class="n">부록</span>발간 이력 · 절차 · 용어</h2>
+<h3 id="a1">발간 이력</h3>
+<div class="tbl"><table><thead><tr><th class="">호</th><th class="">발간일</th><th class="num">건수</th><th class="">단계별</th></tr></thead><tbody><tr><td class="">2026년 9월호</td><td class="">2026-10-06</td><td class="num">46</td><td class="">시행법령 10 · 훈령예규고시 1 · 국회통과 2 · 입법예고 8 · 행정예고 2 · 의원발의 21 · 추가검토 2</td></tr><tr><td class="">2026년 8월호</td><td class="">2026-09-01</td><td class="num">62</td><td class="">시행법령 15 · 국회통과 6 · 입법예고 5 · 행정예고 5 · 의원발의 30 · 추가검토 1</td></tr><tr><td class="">2026년 7월호</td><td class="">2026-08-04</td><td class="num">32</td><td class="">시행법령 3 · 훈령예규고시 1 · 국회통과 1 · 입법예고 14 · 행정예고 2 · 의원발의 9 · 추가검토 2</td></tr><tr><td class="">2026년 6월호</td><td class="">2026-07-07</td><td class="num">24</td><td class="">시행법령 1 · 입법예고 1 · 의원발의 21 · 추가검토 1</td></tr><tr><td class="">2026년 5월호</td><td class="">2026-06-02</td><td class="num">13</td><td class="">시행법령 2 · 입법예고 1 · 의원발의 9 · 추가검토 1</td></tr><tr><td class=""><b>누적</b></td><td class=""></td><td class="num"><b>177</b></td><td class="">5개호</td></tr></tbody></table></div>
+<p>2025-09 · 2025-10 · 2025-12 · 2026-01 네 개 호(협회 법규교육 자료 기반)는 수집 기준이 달라 사이트에 싣지 않고 보관만 합니다.</p>
+<h3 id="a2">발간 절차 (편집)</h3>
+<div class="tbl"><table><thead><tr><th class="">단계</th><th class="">명령</th><th class="">내용</th></tr></thead><tbody><tr><td class="">① 수집</td><td class=""><code>python publish.py collect</code></td><td class="">입법예고 · 행정예고 · 의원발의 · 국회통과 자동 수집 → 초안</td></tr><tr><td class="">② 작성</td><td class="">사람</td><td class="">실을 항목 선택 · 요약 · 제안이유 · 실무 영향 작성 · 공포 · 시행 확정분은 법령정보로 대조해 추가</td></tr><tr><td class="">③ 점검</td><td class=""><code>python publish.py check</code></td><td class="">빈 제안이유 · 수집 실패 단계 · 발간일 규칙 위반이면 발간 차단</td></tr><tr><td class="">④ 발간</td><td class=""><code>python publish.py release --push</code></td><td class="">점검 → 빌드(첫 화면 · 월호 · 앱 바로가기 갱신) → 커밋 → 게시</td></tr></tbody></table></div>
+<h3 id="a3">용어</h3>
+<div class="tbl"><table><thead><tr><th class="">용어</th><th class="">뜻</th></tr></thead><tbody><tr><td class="">공포</td><td class="">법령을 관보에 게재해 알리는 것 — 시행과 다를 수 있음</td></tr><tr><td class="">시행</td><td class="">법령의 효력이 실제로 생기는 날</td></tr><tr><td class="">부칙</td><td class="">시행일 · 경과조치 · 적용례를 정한 조항</td></tr><tr><td class="">입법예고</td><td class="">정부가 법령안을 미리 알리고 의견을 받는 절차</td></tr><tr><td class="">행정예고</td><td class="">고시 · 지침 등 행정규칙안을 미리 알리는 절차</td></tr><tr><td class="">타법개정</td><td class="">다른 법령의 제정 · 개정에 따라 함께 바뀌는 개정</td></tr><tr><td class="">PWA</td><td class="">웹을 앱처럼 설치해 쓰는 방식 — 「웹에 추가」</td></tr></tbody></table></div>
+<h3 id="a4">매뉴얼 변경 내역</h3>
+<div class="tbl"><table><thead><tr><th class="">판</th><th class="">날짜</th><th class="">내용</th></tr></thead><tbody><tr><td class="">Ver-1.0</td><td class="">2026-10-17</td><td class="">초판 — 첫 화면 「📘 매뉴얼」 단추 신설과 함께 발행 (사이트 서비스워커 v1.2)</td></tr></tbody></table></div>
+</section></main></div>
+<footer class="foot">© 2026 김만민 건축사 · ㈜대성건축사사무소 · 만민 법규 검토 요약 이용 매뉴얼 Ver-1.0 · 법령 원문을 대신하지 않습니다 — 원문 · 부칙으로 확인 </footer>
+<div class="pfoot"><span>만민 법규 검토 요약 이용 매뉴얼 Ver-1.0</span><span>2026-10-17</span></div>
+<div id="lb" role="dialog" aria-label="그림 확대"><img alt=""></div>
+<button class="totop" aria-label="맨 위로">↑</button>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),li=lb.querySelector('img');
+  document.querySelectorAll('figure.shot .frame').forEach(function(f){f.addEventListener('click',function(){li.src=f.querySelector('img').src;li.alt=f.querySelector('img').alt;lb.classList.add('open');});});
+  lb.addEventListener('click',function(){lb.classList.remove('open');li.removeAttribute('src');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
+  document.querySelector('.totop').addEventListener('click',function(){window.scrollTo(0,0);});
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'0px 0px -70% 0px'});
+    document.querySelectorAll('section.ch,h3[id]').forEach(function(s){io.observe(s);});
+  }
+})();
+/* 좁은 화면 표 쌓기 준비: 숫자 칸이 없는 표에 stack 표시, 각 칸에 머리글(data-th) 복사 */
+(function(){document.querySelectorAll('.tbl').forEach(function(t){var tb=t.querySelector('table');if(!tb||!tb.tHead)return;
+ if(tb.querySelector('td.num,th.num'))return;var hs=[].map.call(tb.tHead.rows[0].cells,function(c){return c.textContent.trim()});
+ [].forEach.call(tb.tBodies[0].rows,function(r){[].forEach.call(r.cells,function(c,i){if(hs[i])c.setAttribute('data-th',hs[i])})});t.classList.add('stack');if(hs.length===2)t.classList.add('c2')})})();
+</script>
+</body></html>

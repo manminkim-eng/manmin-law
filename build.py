@@ -1130,6 +1130,7 @@ def render_index(issues):
   <button class="btn" onclick="share('만민 법규 검토 요약')">🔗 링크 공유</button>
   <a class="btn" href="{BLOG}" target="_blank" rel="noopener">네이버 블로그 ↗</a>
   <a class="btn" href="{YOUTUBE}" target="_blank" rel="noopener">유튜브 ↗</a>
+  <a class="btn" href="manual/" target="_blank" rel="noopener">📘 매뉴얼 ↗</a>
  </div>
 </div></section>
 
@@ -1165,6 +1166,23 @@ def render_index(issues):
 """ + footer_bar()
 
 
+def update_manifest_latest(issue):
+    """manifest.json 「최신호 보기」 바로가기를 최신호로 맞춘다 (v1.2 — 2026-10-17).
+    9월호 발행 뒤에도 2026-08.html 을 가리키던 문제의 재발 방지. 해당 url 한 줄만
+    바꿔 손으로 정리한 manifest 서식은 그대로 둔다."""
+    p = os.path.join(BASE, "manifest.json")
+    with open(p, encoding="utf-8") as f:
+        s = f.read()
+    new, n = re.subn(r'("url": "/manmin-law/)\d{4}-\d{2}(\.html")', r"\g<1>" + issue + r"\g<2>", s, count=1)
+    if n != 1:
+        print("  [!] manifest.json 최신호 바로가기 url 을 찾지 못했습니다 — 손으로 확인하세요.")
+        return
+    if new != s:
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
+            f.write(new)
+    print(f"  갱신  manifest.json   (최신호 바로가기 → {issue}.html)")
+
+
 def main():
     issues = load_issues()
     if not issues:
@@ -1180,6 +1198,7 @@ def main():
     with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8", newline="\n") as f:
         f.write(render_index(issues))
     print(f"  생성  index.html      (총 {len(issues)}개호)")
+    update_manifest_latest(issues[0]["issue"])
     print("\n완료. 로컬에서 index.html 을 열어 확인하세요.")
 
 
