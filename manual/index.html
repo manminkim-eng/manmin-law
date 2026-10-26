@@ -4,10 +4,10 @@
 <title>만민 법규 검토 요약 이용 매뉴얼 Ver-1.0</title>
 <meta name="description" content="매월 첫째 화요일 발간하는 건축 · 구조 · 기계설비 · 소방 · 토목 법령 개정 요약 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@700;900&display=swap">
+<meta name="theme-color" content="#131b2c"><meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="./assets/fonts/manmin-fonts.css">
-<style>
+<style>:root{--mh-a:#0c1120;--mh-b:#131b2c;--mh-c:#182134;--mh-accent:#d4a843;--mh-shadow:rgba(12,17,32,.35);--mh-btn-ink:#131b2c;--mh-veil:0;--mh-bp:50%}
+
 :root{
   --navy:#2D3A8C;--navy-d:#1F2A6B;--navy-l:#E9ECF8;--accent:#F4A261;--accent-d:#C97A3A;--accent-l:#FDF1E7;
   --bg:#F8F9FA;--card:#FFFFFF;--text:#1A1A2E;--text2:#4A4F66;--line:#DDE1EA;--ok:#0F766E;--ng:#B42318;
@@ -21,15 +21,25 @@ code,kbd,.mono{font-family:var(--font-mono);font-size:.9em}
 code{background:var(--navy-l);color:var(--navy-d);padding:1px 6px;border-radius:5px}
 kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:#fff}
 /* 상단 */
-.top{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff}
-.top-in{max-width:1240px;margin:0 auto;padding:44px 24px 36px}
-.eyebrow{font-family:var(--font-brand);font-weight:700;font-size:12px;letter-spacing:.18em;opacity:.85}
+.top{position:relative;background:linear-gradient(135deg,var(--mh-a),var(--mh-b) var(--mh-bp),var(--mh-c));color:#fff;box-shadow:0 2px 20px var(--mh-shadow)}
+.top::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--mh-veil));pointer-events:none}
+.top-in{position:relative;max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding:40px 24px 32px}
+.eyebrow{font-family:var(--font-brand);font-weight:700;font-size:12px;letter-spacing:.18em;color:var(--mh-accent)}
 .top h1{font-size:28px;font-weight:900;margin:8px 0 6px;line-height:1.35}
 .top .sub{opacity:.9;margin:0}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 12px;font-size:13px}
-a.badge{color:#fff;text-decoration:none}a.badge:hover{background:rgba(255,255,255,.24);color:#fff}
-.badge.acc{background:var(--accent);border-color:var(--accent);color:#1A1A2E;font-weight:700}
+.mh-main{flex:1 1 640px;min-width:0}
+.mh-eb{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mh-ver{font:700 11px var(--font-brand);background:var(--mh-accent);color:#1A1A2E;border-radius:999px;padding:1px 10px}
+.mh-meta{margin:12px 0 0;font-size:13px;color:rgba(255,255,255,.9)}
+.mh-act{display:flex;gap:10px;flex-wrap:wrap}
+.mh-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;font-size:15px;text-decoration:none}
+.mh-btn.pri{background:#fff;color:var(--mh-btn-ink);font-weight:700}
+.mh-btn.sec{border:1px solid rgba(255,255,255,.45);color:#fff}
+.mh-btn.pri:hover{background:var(--mh-accent);color:#1A1A2E}.mh-btn.sec:hover{background:rgba(255,255,255,.12);color:#fff}
+.mh-btn:focus-visible{outline:3px solid var(--mh-accent);outline-offset:2px}
+.mh-prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:50;pointer-events:none}
+.mh-prog i{display:block;height:100%;width:0;background:var(--mh-accent)}
+.toc-sum{display:none}
 /* 레이아웃 */
 .wrap{max-width:1240px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px}
 nav.toc{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 16px;font-size:14px}
@@ -100,6 +110,21 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 @media (max-width:640px){nav.toc ol{columns:1}body{font-size:15px}}
 @media (max-width:480px){.wrap,.top-in{padding-left:16px;padding-right:16px}.pin{width:22px;height:22px;font-size:11px;line-height:22px}}
 @media (max-width:400px){section.ch>h2{font-size:20px}}
+/* v-mh1 D4 접이식 목차 · D9 터치 44px (≤1024px) */
+@media (max-width:1024px){
+  nav.toc{padding:0 16px}
+  nav.toc .toc-sum{display:flex;align-items:center;justify-content:space-between;min-height:48px;font-weight:700;font-size:14px;color:var(--navy);cursor:pointer;list-style:none}
+  nav.toc .toc-sum::-webkit-details-marker{display:none}
+  nav.toc details:not([open]) ol,nav.toc details:not([open]) h2{display:none}
+  nav.toc details[open]{padding-bottom:12px}
+  nav.toc li a{display:flex;align-items:center;min-height:44px;padding:0 8px}
+}
+/* v-mh1 D5 좁은 화면 헤드 */
+@media (max-width:640px){
+  .top-in{padding:28px 16px 24px;gap:16px}.top h1{font-size:22px}.top .sub{font-size:13px}.mh-meta{font-size:12px}
+  .mh-act{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.mh-btn{padding:0 8px;font-size:14px}
+}
+@media (max-width:480px){.eyebrow{letter-spacing:.04em}.mh-eb{gap:8px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* A4 인쇄 */
 @page{size:A4;margin:14mm 12mm 14mm}
@@ -113,7 +138,9 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
   section.ch:first-of-type{break-before:auto}
   figure.shot,.tbl,.eq,.svgbox,.note,.tip,.warn,.steps>li{break-inside:avoid}
   h3,h4{break-after:avoid}
-  .top{border-radius:0}
+  .top{border-radius:0;box-shadow:none}
+  .mh-prog,.mh-act{display:none!important}
+  .mh-meta{color:#fff}
   .pfoot{position:fixed;bottom:0;left:0;right:0;height:6mm;background:#fff;font-size:8pt;color:#666;border-top:1px solid #ccc;padding-top:1.5mm;display:flex;justify-content:space-between}
 }
 .pfoot{display:none}
@@ -147,15 +174,39 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 }
 .rev{white-space:nowrap}
 @media print{.rev{display:none}}
+/* v-mh1 D6 다크 모드(화면 전용 · 헤드 색 불변 · 그림과 흐름도는 흰 바탕 유지) */
+@media screen and (prefers-color-scheme:dark){
+  :root{--bg:#0F1420;--card:#171D2C;--text:#E6E8EF;--text2:#A9AFC3;--line:#2A3245;--navy-l:#232B45;--accent-l:#33281D;--shadow:0 4px 20px rgba(0,0,0,.35)}
+  a,section.ch>h2,h3,.steps>li>b.t,.card h5,nav.toc li a.on,nav.toc .toc-sum{color:#AEB8F5}
+  a:hover{color:#F4A261}
+  code{background:var(--navy-l);color:#C9D0FA}
+  kbd{background:var(--card);color:var(--text)}
+  table,.card,nav.toc,section.ch{background:var(--card)}
+  th{background:var(--navy-l);color:#C9D0FA}
+  .note{border-left-color:#7F8CE0}
+  .warn{background:#3A1F22}
+  .ok{color:#5EEAD4}.ng{color:#FDA29B}
+  figure.shot .frame,.svgbox{background:#fff;border-color:var(--line)}
+  .tbl.stack tr{background:var(--card)}
+  .tbl.stack td:first-child{color:#C9D0FA}
+  .tbl:not(.stack){background:var(--card)}
+}
+@media screen and (prefers-color-scheme:dark) and (max-width:640px){
+  .tbl:not(.stack){background:linear-gradient(to right,var(--card) 30%,rgba(23,29,44,0)) left/40px 100% no-repeat local,linear-gradient(to left,var(--card) 30%,rgba(23,29,44,0)) right/40px 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.5),transparent) right/12px 100% no-repeat scroll,var(--card)}
+}
 </style>
 </head><body>
+<div class="mh-prog" aria-hidden="true"><i></i></div>
 <header class="top"><div class="top-in">
-<div class="eyebrow">MANMIN LEGAL REVIEW · MONTHLY · USER MANUAL</div>
+<div class="mh-main">
+<div class="mh-eb"><span class="eyebrow">MANMIN LEGAL REVIEW · MONTHLY · USER MANUAL</span><span class="mh-ver">Ver-1.0</span></div>
 <h1>만민 법규 검토 요약 이용 매뉴얼</h1>
 <p class="sub">매월 첫째 화요일, 지난달 법령 변화를 6단계로 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용</p>
-<div class="badges"><span class="badge acc">매뉴얼 <span style="font-family:var(--font-brand)">Ver-1.0</span></span><a class="badge" href="../index.html">▶ 간행물 열기</a><a class="badge" href="만민법규검토요약_이용매뉴얼_Ver-1.0.pdf" download>⤓ PDF</a><span class="badge">2026-10-17</span><span class="badge">김만민 건축사 · ㈜대성건축사사무소</span></div>
+<p class="mh-meta">2026-10-17 · 김만민 건축사 · ㈜대성건축사사무소 · 법령 원문 · 부칙으로 확인</p>
+</div>
+<div class="mh-act"><a class="mh-btn pri" href="../index.html" aria-label="간행물 열기">▶ 도구 열기</a><a class="mh-btn sec" href="만민법규검토요약_이용매뉴얼_Ver-1.0.pdf" download>⤓ PDF (A4)</a></div>
 </div></header>
-<div class="wrap"><nav class="toc" aria-label="목차"><h2>목차</h2><ol><li><a href="#ch0">0. 이 매뉴얼에 대하여</a></li><li><a href="#ch1">1. 월간 발간 안내</a></li><li class="sub"><a href="#s1-1">발간일 · 수록 기간</a></li><li class="sub"><a href="#s1-2">발간 일정</a></li><li class="sub"><a href="#s1-3">함께 보는 매체</a></li><li><a href="#ch2">2. 수록 기준</a></li><li class="sub"><a href="#s2-1">6단계 수집</a></li><li class="sub"><a href="#s2-2">분야 · 대상 법령</a></li><li class="sub"><a href="#s2-3">확인 방법</a></li><li><a href="#ch3">3. 화면 안내</a></li><li class="sub"><a href="#s3-1">첫 화면</a></li><li class="sub"><a href="#s3-2">지금 챙겨야 할 일정</a></li><li class="sub"><a href="#s3-3">월별 아카이브</a></li><li class="sub"><a href="#s3-4">월호 머리</a></li><li class="sub"><a href="#s3-5">검색 · 필터 · 도구</a></li><li class="sub"><a href="#s3-6">항목 카드</a></li><li class="sub"><a href="#s3-7">예고 항목과 D-day</a></li><li class="sub"><a href="#s3-8">블로그 · 유튜브 원고</a></li><li class="sub"><a href="#s3-9">인쇄 · 밝은 화면</a></li><li class="sub"><a href="#s3-10">휴대전화 · 앱 설치</a></li><li><a href="#ch4">4. 항목 읽는 법</a></li><li class="sub"><a href="#s4-1">카드 구성</a></li><li class="sub"><a href="#s4-2">날짜 표기</a></li><li class="sub"><a href="#s4-3">D-day 규칙</a></li><li><a href="#ch5">5. 2026년 9월호 살펴보기</a></li><li class="sub"><a href="#s5-1">머리기사</a></li><li class="sub"><a href="#s5-2">단계별 건수</a></li><li class="sub"><a href="#s5-3">의견 제출 가능한 예고</a></li><li><a href="#ch6">6. 실무 활용</a></li><li class="sub"><a href="#s6-1">매월 확인 순서</a></li><li class="sub"><a href="#s6-2">자주 묻는 질문</a></li><li><a href="#ch7">부록</a></li><li class="sub"><a href="#a1">발간 이력</a></li><li class="sub"><a href="#a2">발간 절차 (편집)</a></li><li class="sub"><a href="#a3">용어</a></li><li class="sub"><a href="#a4">매뉴얼 변경 내역</a></li></ol></nav><main><style>
+<div class="wrap"><nav class="toc" aria-label="목차"><details open><summary class="toc-sum">목차 <span aria-hidden="true">▾</span></summary><h2>목차</h2><ol><li><a href="#ch0">0. 이 매뉴얼에 대하여</a></li><li><a href="#ch1">1. 월간 발간 안내</a></li><li class="sub"><a href="#s1-1">발간일 · 수록 기간</a></li><li class="sub"><a href="#s1-2">발간 일정</a></li><li class="sub"><a href="#s1-3">함께 보는 매체</a></li><li><a href="#ch2">2. 수록 기준</a></li><li class="sub"><a href="#s2-1">6단계 수집</a></li><li class="sub"><a href="#s2-2">분야 · 대상 법령</a></li><li class="sub"><a href="#s2-3">확인 방법</a></li><li><a href="#ch3">3. 화면 안내</a></li><li class="sub"><a href="#s3-1">첫 화면</a></li><li class="sub"><a href="#s3-2">지금 챙겨야 할 일정</a></li><li class="sub"><a href="#s3-3">월별 아카이브</a></li><li class="sub"><a href="#s3-4">월호 머리</a></li><li class="sub"><a href="#s3-5">검색 · 필터 · 도구</a></li><li class="sub"><a href="#s3-6">항목 카드</a></li><li class="sub"><a href="#s3-7">예고 항목과 D-day</a></li><li class="sub"><a href="#s3-8">블로그 · 유튜브 원고</a></li><li class="sub"><a href="#s3-9">인쇄 · 밝은 화면</a></li><li class="sub"><a href="#s3-10">휴대전화 · 앱 설치</a></li><li><a href="#ch4">4. 항목 읽는 법</a></li><li class="sub"><a href="#s4-1">카드 구성</a></li><li class="sub"><a href="#s4-2">날짜 표기</a></li><li class="sub"><a href="#s4-3">D-day 규칙</a></li><li><a href="#ch5">5. 2026년 9월호 살펴보기</a></li><li class="sub"><a href="#s5-1">머리기사</a></li><li class="sub"><a href="#s5-2">단계별 건수</a></li><li class="sub"><a href="#s5-3">의견 제출 가능한 예고</a></li><li><a href="#ch6">6. 실무 활용</a></li><li class="sub"><a href="#s6-1">매월 확인 순서</a></li><li class="sub"><a href="#s6-2">자주 묻는 질문</a></li><li><a href="#ch7">부록</a></li><li class="sub"><a href="#a1">발간 이력</a></li><li class="sub"><a href="#a2">발간 절차 (편집)</a></li><li class="sub"><a href="#a3">용어</a></li><li class="sub"><a href="#a4">매뉴얼 변경 내역</a></li></ol></details></nav><main><style>
 .ctag{display:inline-block;font-size:12px;font-weight:700;padding:1px 9px;border-radius:6px;border:1px solid var(--c);color:#1A1A2E;background:color-mix(in srgb,var(--c) 22%,#fff);white-space:nowrap}
 #fig-s02_chips{max-width:900px}#fig-s10_text{max-width:720px}#fig-s12_print{max-width:520px}
 #fig-s07_card,#fig-s08_notice,#fig-s03_watch,#fig-s04_archive{max-width:900px}
@@ -281,7 +332,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 <h3 id="a4">매뉴얼 변경 내역</h3>
 <div class="tbl"><table><thead><tr><th class="">판</th><th class="">날짜</th><th class="">내용</th></tr></thead><tbody><tr><td class="">Ver-1.0</td><td class="">2026-10-17</td><td class="">초판 — 첫 화면 「📘 매뉴얼」 단추 신설과 함께 발행 (사이트 서비스워커 v1.2)</td></tr></tbody></table></div>
 </section></main></div>
-<footer class="foot">© 2026 김만민 건축사 · ㈜대성건축사사무소 · 만민 법규 검토 요약 이용 매뉴얼 Ver-1.0 · 법령 원문을 대신하지 않습니다 — 원문 · 부칙으로 확인 </footer>
+<footer class="foot">© 2026 김만민 건축사 · ㈜대성건축사사무소 · 만민 법규 검토 요약 이용 매뉴얼 Ver-1.0 · 법령 원문을 대신하지 않습니다 — 원문 · 부칙으로 확인  <span class="rev">· 디자인 개정 2026-10-26</span></footer>
 <div class="pfoot"><span>만민 법규 검토 요약 이용 매뉴얼 Ver-1.0</span><span>2026-10-17</span></div>
 <div id="lb" role="dialog" aria-label="그림 확대"><img alt=""></div>
 <button class="totop" aria-label="맨 위로">↑</button>
@@ -302,5 +353,9 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 (function(){document.querySelectorAll('.tbl').forEach(function(t){var tb=t.querySelector('table');if(!tb||!tb.tHead)return;
  if(tb.querySelector('td.num,th.num'))return;var hs=[].map.call(tb.tHead.rows[0].cells,function(c){return c.textContent.trim()});
  [].forEach.call(tb.tBodies[0].rows,function(r){[].forEach.call(r.cells,function(c,i){if(hs[i])c.setAttribute('data-th',hs[i])})});t.classList.add('stack');if(hs.length===2)t.classList.add('c2')})})();
+/* v-mh1 D3 읽기 진행 막대 · D4 좁은 화면 목차 접힘 */
+(function(){var b=document.querySelector('.mh-prog i');if(b){var f=function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;b.style.width=(m>0?h.scrollTop/m*100:0)+'%';};addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();}
+ var d=document.querySelector('nav.toc details'),mq=matchMedia('(max-width:1024px)');if(d){var s=function(){d.open=!mq.matches;};s();(mq.addEventListener?mq.addEventListener('change',s):mq.addListener(s));
+ d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mq.matches)d.open=false;});});}})();
 </script>
 </body></html>

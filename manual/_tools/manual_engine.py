@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
-"""공통 매뉴얼 엔진 (RTS-MANMIN 매뉴얼에서 분리) — CSS·JS·fig()
+"""공통 매뉴얼 엔진 v-mh1(2026-10-26 디자인 개정) (RTS-MANMIN 매뉴얼에서 분리) — CSS·JS·fig()
    캡처 좌표(images/_marks.json)를 읽어 번호 배지를 HTML 위에 겹쳐 그린다(재캡처 시 재생성만 하면 됨)."""
 import json, os, html
 B = os.environ.get('MANUAL_DIR') or os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 MARKS = json.load(open(os.path.join(B, 'images', '_marks.json'), encoding='utf-8'))
 
 def esc(s): return html.escape(s, quote=True)
+
+# v-mh1 (2026-10-26) — 매뉴얼 헤드 토큰: 레지스트리에서 도구별로 뽑은 _tools/manual_header.json
+_HP = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'manual_header.json')
+HDR = json.load(open(_HP, encoding='utf-8'))
+for _k in ('a', 'b', 'c', 'accent', 'shadow', 'btn_ink', 'veil', 'open_label', 'meta_law'):
+    assert _k in HDR, 'manual_header.json missing ' + _k
 
 def fig(sid, caption, legend=None, alt=None, narrow=False):
     m = MARKS.get(sid, {'w': 1600, 'h': 900, 'marks': []})
@@ -38,15 +44,25 @@ code,kbd,.mono{font-family:var(--font-mono);font-size:.9em}
 code{background:var(--navy-l);color:var(--navy-d);padding:1px 6px;border-radius:5px}
 kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:#fff}
 /* 상단 */
-.top{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff}
-.top-in{max-width:1240px;margin:0 auto;padding:44px 24px 36px}
-.eyebrow{font-family:var(--font-brand);font-weight:700;font-size:12px;letter-spacing:.18em;opacity:.85}
+.top{position:relative;background:linear-gradient(135deg,var(--mh-a),var(--mh-b) var(--mh-bp),var(--mh-c));color:#fff;box-shadow:0 2px 20px var(--mh-shadow)}
+.top::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--mh-veil));pointer-events:none}
+.top-in{position:relative;max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding:40px 24px 32px}
+.eyebrow{font-family:var(--font-brand);font-weight:700;font-size:12px;letter-spacing:.18em;color:var(--mh-accent)}
 .top h1{font-size:28px;font-weight:900;margin:8px 0 6px;line-height:1.35}
 .top .sub{opacity:.9;margin:0}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 12px;font-size:13px}
-a.badge{color:#fff;text-decoration:none}a.badge:hover{background:rgba(255,255,255,.24);color:#fff}
-.badge.acc{background:var(--accent);border-color:var(--accent);color:#1A1A2E;font-weight:700}
+.mh-main{flex:1 1 640px;min-width:0}
+.mh-eb{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mh-ver{font:700 11px var(--font-brand);background:var(--mh-accent);color:#1A1A2E;border-radius:999px;padding:1px 10px}
+.mh-meta{margin:12px 0 0;font-size:13px;color:rgba(255,255,255,.9)}
+.mh-act{display:flex;gap:10px;flex-wrap:wrap}
+.mh-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;font-size:15px;text-decoration:none}
+.mh-btn.pri{background:#fff;color:var(--mh-btn-ink);font-weight:700}
+.mh-btn.sec{border:1px solid rgba(255,255,255,.45);color:#fff}
+.mh-btn.pri:hover{background:var(--mh-accent);color:#1A1A2E}.mh-btn.sec:hover{background:rgba(255,255,255,.12);color:#fff}
+.mh-btn:focus-visible{outline:3px solid var(--mh-accent);outline-offset:2px}
+.mh-prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:50;pointer-events:none}
+.mh-prog i{display:block;height:100%;width:0;background:var(--mh-accent)}
+.toc-sum{display:none}
 /* 레이아웃 */
 .wrap{max-width:1240px;margin:0 auto;padding:28px 24px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px}
 nav.toc{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 16px;font-size:14px}
@@ -117,6 +133,21 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 @media (max-width:640px){nav.toc ol{columns:1}body{font-size:15px}}
 @media (max-width:480px){.wrap,.top-in{padding-left:16px;padding-right:16px}.pin{width:22px;height:22px;font-size:11px;line-height:22px}}
 @media (max-width:400px){section.ch>h2{font-size:20px}}
+/* v-mh1 D4 접이식 목차 · D9 터치 44px (≤1024px) */
+@media (max-width:1024px){
+  nav.toc{padding:0 16px}
+  nav.toc .toc-sum{display:flex;align-items:center;justify-content:space-between;min-height:48px;font-weight:700;font-size:14px;color:var(--navy);cursor:pointer;list-style:none}
+  nav.toc .toc-sum::-webkit-details-marker{display:none}
+  nav.toc details:not([open]) ol,nav.toc details:not([open]) h2{display:none}
+  nav.toc details[open]{padding-bottom:12px}
+  nav.toc li a{display:flex;align-items:center;min-height:44px;padding:0 8px}
+}
+/* v-mh1 D5 좁은 화면 헤드 */
+@media (max-width:640px){
+  .top-in{padding:28px 16px 24px;gap:16px}.top h1{font-size:22px}.top .sub{font-size:13px}.mh-meta{font-size:12px}
+  .mh-act{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.mh-btn{padding:0 8px;font-size:14px}
+}
+@media (max-width:480px){.eyebrow{letter-spacing:.04em}.mh-eb{gap:8px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* A4 인쇄 */
 @page{size:A4;margin:14mm 12mm 14mm}
@@ -130,7 +161,9 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
   section.ch:first-of-type{break-before:auto}
   figure.shot,.tbl,.eq,.svgbox,.note,.tip,.warn,.steps>li{break-inside:avoid}
   h3,h4{break-after:avoid}
-  .top{border-radius:0}
+  .top{border-radius:0;box-shadow:none}
+  .mh-prog,.mh-act{display:none!important}
+  .mh-meta{color:#fff}
   .pfoot{position:fixed;bottom:0;left:0;right:0;height:6mm;background:#fff;font-size:8pt;color:#666;border-top:1px solid #ccc;padding-top:1.5mm;display:flex;justify-content:space-between}
 }
 .pfoot{display:none}
@@ -164,6 +197,26 @@ footer.foot{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--text2
 }
 .rev{white-space:nowrap}
 @media print{.rev{display:none}}
+/* v-mh1 D6 다크 모드(화면 전용 · 헤드 색 불변 · 그림과 흐름도는 흰 바탕 유지) */
+@media screen and (prefers-color-scheme:dark){
+  :root{--bg:#0F1420;--card:#171D2C;--text:#E6E8EF;--text2:#A9AFC3;--line:#2A3245;--navy-l:#232B45;--accent-l:#33281D;--shadow:0 4px 20px rgba(0,0,0,.35)}
+  a,section.ch>h2,h3,.steps>li>b.t,.card h5,nav.toc li a.on,nav.toc .toc-sum{color:#AEB8F5}
+  a:hover{color:#F4A261}
+  code{background:var(--navy-l);color:#C9D0FA}
+  kbd{background:var(--card);color:var(--text)}
+  table,.card,nav.toc,section.ch{background:var(--card)}
+  th{background:var(--navy-l);color:#C9D0FA}
+  .note{border-left-color:#7F8CE0}
+  .warn{background:#3A1F22}
+  .ok{color:#5EEAD4}.ng{color:#FDA29B}
+  figure.shot .frame,.svgbox{background:#fff;border-color:var(--line)}
+  .tbl.stack tr{background:var(--card)}
+  .tbl.stack td:first-child{color:#C9D0FA}
+  .tbl:not(.stack){background:var(--card)}
+}
+@media screen and (prefers-color-scheme:dark) and (max-width:640px){
+  .tbl:not(.stack){background:linear-gradient(to right,var(--card) 30%,rgba(23,29,44,0)) left/40px 100% no-repeat local,linear-gradient(to left,var(--card) 30%,rgba(23,29,44,0)) right/40px 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.5),transparent) right/12px 100% no-repeat scroll,var(--card)}
+}
 """
 
 JS = r"""
@@ -183,6 +236,10 @@ JS = r"""
 (function(){document.querySelectorAll('.tbl').forEach(function(t){var tb=t.querySelector('table');if(!tb||!tb.tHead)return;
  if(tb.querySelector('td.num,th.num'))return;var hs=[].map.call(tb.tHead.rows[0].cells,function(c){return c.textContent.trim()});
  [].forEach.call(tb.tBodies[0].rows,function(r){[].forEach.call(r.cells,function(c,i){if(hs[i])c.setAttribute('data-th',hs[i])})});t.classList.add('stack');if(hs.length===2)t.classList.add('c2')})})();
+/* v-mh1 D3 읽기 진행 막대 · D4 좁은 화면 목차 접힘 */
+(function(){var b=document.querySelector('.mh-prog i');if(b){var f=function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;b.style.width=(m>0?h.scrollTop/m*100:0)+'%';};addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();}
+ var d=document.querySelector('nav.toc details'),mq=matchMedia('(max-width:1024px)');if(d){var s=function(){d.open=!mq.matches;};s();(mq.addEventListener?mq.addEventListener('change',s):mq.addListener(s));
+ d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mq.matches)d.open=false;});});}})();
 """
 
 
@@ -197,7 +254,8 @@ def toc_html(TOC):
     for cid, t, subs in TOC:
         out.append(f'<li><a href="#{cid}">{t}</a></li>')
         out += [f'<li class="sub"><a href="#{sid}">{st}</a></li>' for sid, st in subs]
-    return '<nav class="toc" aria-label="목차"><h2>목차</h2><ol>' + ''.join(out) + '</ol></nav>'
+    return ('<nav class="toc" aria-label="목차"><details open><summary class="toc-sum">목차 <span aria-hidden="true">▾</span></summary>'
+            '<h2>목차</h2><ol>' + ''.join(out) + '</ol></details></nav>')
 
 def render(*, title, desc, eyebrow, h1, sub, ver, date, app_name, pdf, toc, sections, foot_note):
     tpl = """<!doctype html>
@@ -206,24 +264,30 @@ def render(*, title, desc, eyebrow, h1, sub, ver, date, app_name, pdf, toc, sect
 <title>__TITLE__</title>
 <meta name="description" content="__DESC__">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@700;900&display=swap">
+<meta name="theme-color" content="__MHB__"><meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="./assets/fonts/manmin-fonts.css">
-<style>__CSS__</style>
+<style>:root{--mh-a:__MHA__;--mh-b:__MHB__;--mh-c:__MHC__;--mh-accent:__MHACC__;--mh-shadow:__MHSH__;--mh-btn-ink:__MHINK__;--mh-veil:__MHVEIL__;--mh-bp:__MHBP__}
+__CSS__</style>
 </head><body>
+<div class="mh-prog" aria-hidden="true"><i></i></div>
 <header class="top"><div class="top-in">
-<div class="eyebrow">__EYEBROW__</div>
+<div class="mh-main">
+<div class="mh-eb"><span class="eyebrow">__EYEBROW__</span><span class="mh-ver">__VER__</span></div>
 <h1>__H1__</h1>
 <p class="sub">__SUB__</p>
-<div class="badges"><span class="badge acc">매뉴얼 <span style="font-family:var(--font-brand)">__VER__</span></span><a class="badge" href="../index.html">▶ __APP__ 열기</a><a class="badge" href="__PDF__" download>⤓ PDF</a><span class="badge">__DATE__</span><span class="badge">김만민 건축사 · ㈜대성건축사사무소</span></div>
+<p class="mh-meta">__DATE__ · 김만민 건축사 · ㈜대성건축사사무소 · __META_LAW__</p>
+</div>
+<div class="mh-act"><a class="mh-btn pri" href="../index.html" aria-label="__APP__ 열기">▶ __OPEN_LABEL__</a><a class="mh-btn sec" href="__PDF__" download>⤓ PDF (A4)</a></div>
 </div></header>
 <div class="wrap">__TOC__<main>__BODY__</main></div>
-<footer class="foot">© 2026 김만민 건축사 · ㈜대성건축사사무소 · __H1__ __VER__ · __FOOT__ <span class="rev">· 화면 대응 개정 2026-10-12</span></footer>
+<footer class="foot">© 2026 김만민 건축사 · ㈜대성건축사사무소 · __H1__ __VER__ · __FOOT__ <span class="rev">· 화면 대응 개정 2026-10-12</span> <span class="rev">· 디자인 개정 2026-10-26</span></footer>
 <div class="pfoot"><span>__H1__ __VER__</span><span>__DATE__</span></div>
 <div id="lb" role="dialog" aria-label="그림 확대"><img alt=""></div>
 <button class="totop" aria-label="맨 위로">↑</button>
 <script>__JS__</script>
 </body></html>"""
-    rep = {'__TITLE__':title,'__DESC__':desc,'__EYEBROW__':eyebrow,'__H1__':h1,'__SUB__':sub,'__VER__':ver,'__APP__':app_name,'__PDF__':pdf,'__DATE__':date,'__FOOT__':foot_note,'__CSS__':CSS,'__TOC__':toc_html(toc),'__BODY__':'\n'.join(sections),'__JS__':JS}
+    rep = {'__TITLE__':title,'__DESC__':desc,'__EYEBROW__':eyebrow,'__H1__':h1,'__SUB__':sub,'__VER__':ver,'__APP__':app_name,'__PDF__':pdf,'__DATE__':date,'__FOOT__':foot_note,'__CSS__':CSS,'__TOC__':toc_html(toc),'__BODY__':'\n'.join(sections),'__JS__':JS,
+           '__MHA__':HDR['a'],'__MHB__':HDR['b'],'__MHC__':HDR['c'],'__MHACC__':HDR['accent'],'__MHSH__':HDR['shadow'],
+           '__MHINK__':HDR['btn_ink'],'__MHVEIL__':str(HDR['veil']),'__MHBP__':HDR.get('bp','50%'),'__OPEN_LABEL__':HDR['open_label'],'__META_LAW__':HDR['meta_law']}
     for k,v in rep.items(): tpl = tpl.replace(k, v)
     return tpl

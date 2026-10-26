@@ -33,3 +33,10 @@
   --font-serif:   'Noto Serif KR', 'KoPubWorld Batang', 'Batang', serif;
   --font-mono:    'JetBrains Mono', 'Consolas', 'D2Coding', ui-monospace, monospace;
 }
+/* v-mh1 (2026-10-26) 외부 폰트 로컬화 — 매뉴얼은 Google Fonts 링크 없이 이 파일만 읽는다 (JetBrains Mono · Orbitron: OFL 1.1, @fontsource 라틴 서브셋) */
+@font-face{font-family:'JetBrains Mono';src:local('JetBrains Mono'),url('./JetBrainsMono-latin-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:local('JetBrains Mono'),url('./JetBrainsMono-latin-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:local('JetBrains Mono'),url('./JetBrainsMono-latin-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Orbitron';src:local('Orbitron'),url('./Orbitron-latin-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Orbitron';src:local('Orbitron'),url('./Orbitron-latin-900.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+:root{--font-brand:'Orbitron','Noto Sans KR','Noto Sans KR Local',sans-serif}
