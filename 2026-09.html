@@ -13,19 +13,20 @@ window.addEventListener('beforeinstallprompt',function(e){
 window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
 </script>
 <title>2026년 9월 법규 검토 요약 — MANMIN LEGAL REVIEW</title>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <meta name="description" content="건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
-<meta name="theme-color" content="#0c1120">
+<meta name="theme-color" content="#785a28">
 <link rel="canonical" href="https://manminkim-eng.github.io/manmin-law/2026-09.html">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<meta name="application-name" content="만민 건축법규 검토요약">
+<meta name="application-name" content="법규검토">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="만민법규">
-<meta name="msapplication-TileColor" content="#0c1120">
+<meta name="apple-mobile-web-app-title" content="법규검토">
+<meta name="msapplication-TileColor" content="#785a28">
 <meta name="msapplication-TileImage" content="assets/icon-192.png">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://manminkim-eng.github.io/manmin-law/assets/logo-full.png">
@@ -38,7 +39,7 @@ window.addEventListener('appinstalled',function(){ window.__bip=null; window.__i
 <meta name="twitter:card" content="summary_large_image">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
+:root{--d:#d8ac50;--d-deep:#785a28;--d-lt:#f1cd7c;--d-tint:#f6ecd6;--d-rgb:216,172,80;
  --bg:#0c1120; --panel:#131b2c; --panel2:#182134; --line:#26314a;
  --gold:#d4a843; --txt:#e8edf7; --muted:#8b98b3; --danger:#e0645c;
 }
@@ -93,7 +94,7 @@ html[data-theme="light"] .markchip{border-color:rgba(43,58,103,.35);box-shadow:n
 .ib-on #top{bottom:96px}
 @media(max-width:560px){.ibar{gap:9px;padding:11px}.ibt span{font-size:11.5px}
  .ibgo{padding:9px 12px;font-size:12.5px}}
-.ver{font-size:10px;font-weight:800;letter-spacing:.09em;color:#0c1120;
+.ver{font-size:11px;font-weight:800;letter-spacing:.09em;color:#0c1120;
  background:var(--gold);padding:3px 8px;border-radius:5px;white-space:nowrap;align-self:center}
 .brand b{font-size:19px;letter-spacing:.11em;color:var(--gold);font-weight:800}
 .brand span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
@@ -118,7 +119,7 @@ h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-hei
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:9px;margin:20px 0 0}
 .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
-.stat i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.stat i{display:block;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.05em}
 .stat b{display:block;font-size:20px;font-weight:800;margin-top:3px}
 
 /* TOOLBAR */
@@ -136,7 +137,7 @@ h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-hei
  padding:5px 11px;border-radius:99px;font-size:12px;cursor:pointer;transition:.15s;user-select:none}
 .chip:hover{color:var(--txt)}
 .chip.on{background:var(--gold);color:#0c1120;border-color:var(--gold);font-weight:700}
-.chip .n{opacity:.65;font-size:10.5px;margin-left:3px}
+.chip .n{opacity:.65;font-size:11px;margin-left:3px}
 .hint{font-size:11.5px;color:var(--muted);margin-top:9px}
 
 /* CARD */
@@ -146,10 +147,10 @@ h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-hei
 .card:hover{border-color:var(--line);box-shadow:0 5px 22px rgba(0,0,0,.22)}
 .card.hi{box-shadow:0 0 0 2px var(--gold)}
 .ctop{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
-.tag{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.03em;
+.tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:5px;letter-spacing:.03em;
  background:var(--cc);color:#0c1120}
-.field{font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:5px}
-.dday{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:5px;
+.field{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:5px}
+.dday{font-size:11px;font-weight:800;padding:3px 9px;border-radius:5px;
  background:rgba(224,100,92,.14);color:var(--danger);border:1px solid rgba(224,100,92,.35)}
 .dday.soft{background:rgba(139,152,179,.12);color:var(--muted);border-color:var(--line)}
 .dday.ok{background:rgba(111,192,138,.13);color:#6fc08a;border-color:rgba(111,192,138,.33)}
@@ -174,13 +175,13 @@ details[open] summary::before{transform:rotate(90deg)}
  border-radius:99px;background:var(--cc);opacity:.75}
 .impact{margin-top:11px;padding:10px 13px;border-radius:8px;font-size:12.8px;
  background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.25)}
-.impact b{color:var(--gold);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:4px}
+.impact b{color:var(--gold);font-size:11px;letter-spacing:.09em;display:block;margin-bottom:4px}
 .reason{margin-top:10px;padding:11px 14px;border-radius:8px;font-size:13.2px;
  background:var(--panel2);border:1px solid var(--line);line-height:1.7}
-.reason b{color:var(--cc);font-size:10.5px;letter-spacing:.09em;display:block;margin-bottom:5px}
+.reason b{color:var(--cc);font-size:11px;letter-spacing:.09em;display:block;margin-bottom:5px}
 .cmp{width:100%;border-collapse:collapse;font-size:12.3px;margin-top:8px}
 .cmp th{background:var(--panel);border:1px solid var(--line);padding:6px 9px;
- font-size:10.8px;letter-spacing:.07em;color:var(--muted);font-weight:700;text-align:left}
+ font-size:11px;letter-spacing:.07em;color:var(--muted);font-weight:700;text-align:left}
 .cmp th.new{color:var(--gold)}
 .cmp td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;line-height:1.6;width:44%}
 .cmp td.art{width:12%;font-weight:700;font-size:11.5px;color:var(--cc);
@@ -197,7 +198,7 @@ details[open] summary::before{transform:rotate(90deg)}
 .acard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
  display:block;transition:.18s}
 .acard:hover{border-color:var(--gold);transform:translateY(-2px)}
-.acard i{font-style:normal;font-size:10.5px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.acard i{font-style:normal;font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700}
 .acard b{display:block;font-size:17px;margin:5px 0 7px;font-weight:750}
 .acard p{font-size:12.3px;color:var(--muted);line-height:1.55}
 .acard .cnt{margin-top:9px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
@@ -246,7 +247,7 @@ footer a:hover{color:var(--gold)}
  .markchip{height:38px;width:auto;border-radius:8px;padding:3px 6px}
  .brandmark{height:100%;width:auto}
  .brand b{font-size:15.5px}
- .ver{font-size:9px;padding:2px 6px}
+ .ver{font-size:11px;padding:2px 6px}
  .btn.install{padding:7px 9px}
  .btn.install span{display:none}
  .btn.install img{height:21px;width:21px}
