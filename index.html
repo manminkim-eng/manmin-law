@@ -13,6 +13,8 @@ window.addEventListener('beforeinstallprompt',function(e){
 window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
 </script>
 <title>MANMIN LEGAL REVIEW — 만민 법규 검토 요약</title>
+<script>/* 2026-10-31 v1.3.4 — PDF 저장 이름 = 법규검토요약_2026년9월_YYYYMMDD(목차는 「목차」) · 인쇄 직전에만 제목 바꾸고 끝나면 되돌림(작업지시서 §25-6-26 R2 · R5) */
+(function(){var o=null;addEventListener('beforeprint',function(){var m=window.__META__,d=new Date(),z=function(n){return(n<10?'0':'')+n};if(o===null)o=document.title;document.title='법규검토요약_'+(m&&m.label?m.label.split(' ').join(''):'목차')+'_'+d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());});addEventListener('afterprint',function(){if(o!==null){document.title=o;o=null;}});})();</script>
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <meta name="description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 9월 — 건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
@@ -274,6 +276,8 @@ footer a:hover{color:var(--gold)}
 /* PRINT — A4 */
 @media print{
  @page{size:A4;margin:14mm 12mm}
+ /* 2026-10-31 v1.3.4 — 쪽 번호 「n / N」(작업지시서 §25-6-26 R1 · R5) */
+ @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555}}
  html,body{background:#fff!important;color:#000!important;font-size:10pt}
  :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
  header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}

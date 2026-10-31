@@ -13,6 +13,8 @@ window.addEventListener('beforeinstallprompt',function(e){
 window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
 </script>
 <title>2026년 5월 법규 검토 요약 — MANMIN LEGAL REVIEW</title>
+<script>/* 2026-10-31 v1.3.4 — PDF 저장 이름 = 법규검토요약_2026년9월_YYYYMMDD(목차는 「목차」) · 인쇄 직전에만 제목 바꾸고 끝나면 되돌림(작업지시서 §25-6-26 R2 · R5) */
+(function(){var o=null;addEventListener('beforeprint',function(){var m=window.__META__,d=new Date(),z=function(n){return(n<10?'0':'')+n};if(o===null)o=document.title;document.title='법규검토요약_'+(m&&m.label?m.label.split(' ').join(''):'목차')+'_'+d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());});addEventListener('afterprint',function(){if(o!==null){document.title=o;o=null;}});})();</script>
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <meta name="description" content="주택건설기준 규정 개정 공포(11.7 시행) · 정비사업 용적률 1.3배 확대 발의 · 산업단지 동별 건축허가 특례 발의">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
@@ -274,6 +276,8 @@ footer a:hover{color:var(--gold)}
 /* PRINT — A4 */
 @media print{
  @page{size:A4;margin:14mm 12mm}
+ /* 2026-10-31 v1.3.4 — 쪽 번호 「n / N」(작업지시서 §25-6-26 R1 · R5) */
+ @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555}}
  html,body{background:#fff!important;color:#000!important;font-size:10pt}
  :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
  header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}
