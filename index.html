@@ -275,9 +275,10 @@ footer a:hover{color:var(--gold)}
 
 /* PRINT — A4 */
 @media print{
- @page{size:A4;margin:14mm 12mm}
+ /* 2026-10-31 v1.3.5 — A4 여백 통일(작업지시서 §25-6-27): 14/12 → 계산 도구 공통 위 14 · 오른쪽 12 · 아래 22 · 왼쪽 14 mm */
+ @page{size:A4;margin:14mm 12mm 22mm 14mm}
  /* 2026-10-31 v1.3.4 — 쪽 번호 「n / N」(작업지시서 §25-6-26 R1 · R5) */
- @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555}}
+ @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555;vertical-align:top;padding-top:5mm}} /* 쪽 번호 위치도 계산 도구와 같게(아래 여백 위쪽 5mm) */
  html,body{background:#fff!important;color:#000!important;font-size:10pt}
  :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
  header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}
