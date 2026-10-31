@@ -4,7 +4,7 @@
    아이콘·정적자원 = 캐시 우선                                */
 /* v1.1 — 아이콘 전면 교체(원본 로고 무크롭 재생성). 캐시명을 올려 구 아이콘을 강제 폐기한다. */
 /* v1.2 — 첫 화면 「📘 매뉴얼」 단추 · manual/ 신설 · manifest 최신호 자동 갱신 (2026-10-17). */
-const CACHE = 'manmin-law-v1.3.2';
+const CACHE = 'manmin-law-v1.3.3';
 const SHELL = [
   './',
   './index.html',

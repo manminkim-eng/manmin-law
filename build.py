@@ -54,6 +54,12 @@ def law_link(name: str) -> str:
     return "https://www.law.go.kr/법령/" + urllib.parse.quote(n, safe="")
 
 
+def pshort(url: str) -> str:
+    """인쇄용 주소 — 퍼센트 인코딩을 풀고 https:// 를 뺀다(2026-10-31 v1.3.3)."""
+    u = urllib.parse.unquote(url or "")
+    return esc(re.sub(r"^https?://", "", u))
+
+
 def law_search(name: str) -> str:
     """법령명 통합검색 링크 (제정안·법률안 등 원문 미등록 대비)."""
     return "https://www.law.go.kr/LSW/lsAstSc.do?menuId=390&query=" + urllib.parse.quote(name or "", safe="")
@@ -382,14 +388,19 @@ footer a:hover{color:var(--gold)}
  details{display:block!important}
  details>summary{display:none!important}
  .det{background:#f7f7f7!important;border:1px solid #ccc!important;page-break-inside:avoid}
- .card{page-break-inside:avoid;border:1px solid #ccc!important;border-left:3px solid #888!important;
+ /* 2026-10-31 v1.3.3 — 카드 통째 쪽 넘김(page-break-inside:avoid)이라 카드가 반 쪽을 조금 넘으면 한 쪽에 1건 + 절반 공백(9월호 46건 42쪽)
+    → 카드는 쪽 경계에서 나뉘게 두고, 제목 · 근거 줄 · 작은 상자(.det · .impact · .cmplink)만 안 나뉘게 */
+ .card{break-inside:auto;page-break-inside:auto;border:1px solid #ccc!important;border-left:3px solid #888!important;
   box-shadow:none!important;margin-bottom:6mm;padding:4mm 5mm}
  .hero{border-bottom:1.5px solid #000;padding:0 0 5mm}
  h1{font-size:16pt}
  .tag{background:#eee!important;color:#000!important;border:1px solid #999}
  .impact{background:#fbf7ec!important;border:1px solid #d8c68e!important}
  a{color:#000!important;border:none!important}
- a[href^="http"]::after{content:" (" attr(href) ")";font-size:7pt;color:#666;word-break:break-all}
+ .card .ctop,.card .ct,.card .lawrow{break-after:avoid;page-break-after:avoid}
+ .card .ct,.card .lawrow,.card .sum,.impact,.cmplink{break-inside:avoid;page-break-inside:avoid}
+ /* 2026-10-31 v1.3.3 — 원문 주소를 %EC%… 인코딩 그대로 찍던 것 → 읽을 수 있게 푼 주소(data-p, https:// 생략) */
+ a[data-p]::after{content:" (" attr(data-p) ")";font-size:7pt;color:#666;word-break:break-all}
  .wrap{max-width:none;padding:0}
  .list{gap:0}
 }
@@ -934,8 +945,8 @@ def render_card(it, idx):
         det = f'<details><summary>세부 개정내용 {len(it["detail"])}건</summary><div class="det"><ul>{lis}</ul></div></details>'
 
     cmp_html = ""
-    cmp_link = (f'<div class="cmplink">전체 대비표·원문<a href="{it["primary"][1]}" target="_blank" '
-                f'rel="noopener">{it["primary"][0]}</a><a href="{it["secondary"][1]}" '
+    cmp_link = (f'<div class="cmplink">전체 대비표·원문<a href="{it["primary"][1]}" data-p="{pshort(it["primary"][1])}" target="_blank" '
+                f'rel="noopener">{it["primary"][0]}</a><a href="{it["secondary"][1]}" data-p="{pshort(it["secondary"][1])}" '
                 f'target="_blank" rel="noopener">{it["secondary"][0]}</a></div>')
     if it.get("compare"):
         rows = "".join(
@@ -949,8 +960,8 @@ def render_card(it, idx):
                     f'{rows}</table>{cmp_link}</div></details>')
     elif it.get("compareNote"):
         cmp_html = (f'<div class="cmplink">신·구조문 대비 — {esc(it["compareNote"])}'
-                    f'<a href="{it["primary"][1]}" target="_blank" rel="noopener">{it["primary"][0]}</a>'
-                    f'<a href="{it["secondary"][1]}" target="_blank" rel="noopener">{it["secondary"][0]}</a></div>')
+                    f'<a href="{it["primary"][1]}" data-p="{pshort(it["primary"][1])}" target="_blank" rel="noopener">{it["primary"][0]}</a>'
+                    f'<a href="{it["secondary"][1]}" data-p="{pshort(it["secondary"][1])}" target="_blank" rel="noopener">{it["secondary"][0]}</a></div>')
 
     imp = ""
     if it.get("impact"):
@@ -973,8 +984,8 @@ def render_card(it, idx):
   <span>{dlabel} <b style="color:var(--txt)">{dtxt}</b></span>
   <span>·</span>
   <span>근거 {esc(it.get('law',''))}</span>
-  <a href="{it['primary'][1]}" target="_blank" rel="noopener">{it['primary'][0]}</a>
-  <a href="{it['secondary'][1]}" target="_blank" rel="noopener">{it['secondary'][0]}</a>
+  <a href="{it['primary'][1]}" data-p="{pshort(it['primary'][1])}" target="_blank" rel="noopener">{it['primary'][0]}</a>
+  <a href="{it['secondary'][1]}" data-p="{pshort(it['secondary'][1])}" target="_blank" rel="noopener">{it['secondary'][0]}</a>
  </div>
  <p class="sum">{esc(it.get('summary',''))}</p>
  {reason}{det}{cmp_html}{imp}
@@ -1100,7 +1111,7 @@ def render_index(issues):
    <span class="sp"></span><span class="anchor">{dt.replace('-','.')}</span></div>
   <h3 class="ct"><a href="{d['issue']}.html">{esc(it['title'])}</a></h3>
   <div class="lawrow"><span>근거 {esc(it.get('law',''))}</span>
-   <a href="{it['primary'][1]}" target="_blank" rel="noopener">{it['primary'][0]}</a>
+   <a href="{it['primary'][1]}" data-p="{pshort(it['primary'][1])}" target="_blank" rel="noopener">{it['primary'][0]}</a>
    <a href="{d['issue']}.html">{esc(d['label'])}호 보기 →</a></div>
   <p class="sum">{esc(it.get('summary',''))}</p></article>"""
 
