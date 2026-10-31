@@ -1,6 +1,6 @@
 {
   "id": "/manmin-law/",
-  "name": "MANMIN 건축 · 만민 건축법규 검토요약",
+  "name": "MANMIN 법규검토",
   "short_name": "법규검토",
   "description": "건축·구조·기계설비·소방·토목 법령 개정사항을 매월 첫째 주 화요일에 정리해 공유합니다. 법제처 원문 연동·입법예고 D-day 자동 계산.",
   "start_url": "/manmin-law/",
