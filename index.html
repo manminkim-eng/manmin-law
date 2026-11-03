@@ -16,7 +16,7 @@ window.addEventListener('appinstalled',function(){ window.__bip=null; window.__i
 <script>/* 2026-10-31 v1.3.4 — PDF 저장 이름 = 법규검토요약_2026년9월_YYYYMMDD(목차는 「목차」) · 인쇄 직전에만 제목 바꾸고 끝나면 되돌림(작업지시서 §25-6-26 R2 · R5) */
 (function(){var o=null;addEventListener('beforeprint',function(){var m=window.__META__,d=new Date(),z=function(n){return(n<10?'0':'')+n};if(o===null)o=document.title;document.title='법규검토요약_'+(m&&m.label?m.label.split(' ').join(''):'목차')+'_'+d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());});addEventListener('afterprint',function(){if(o!==null){document.title=o;o=null;}});})();</script>
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
-<meta name="description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 9월 — 건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행">
+<meta name="description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 10월 — 건축법 시행령·피난방화 규칙 시행 — 반도체공장 수직 통로 내화바닥 면제 · 방화문 달린 자동방화셔터 3m 별도 방화문 면제(진행 중 허가에도 적용) · 역량 있는 건축사 설계자 감리 특례 폐지 법안 · 데이터센터 별도 용도·허가 거부 법안 발의">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
 <meta name="theme-color" content="#785a28">
 <link rel="canonical" href="https://manminkim-eng.github.io/manmin-law/">
@@ -35,7 +35,7 @@ window.addEventListener('appinstalled',function(){ window.__bip=null; window.__i
 <meta property="og:image:alt" content="ARCHITECT KIM MANMIN — 만민 법규 검토 요약">
 <meta property="og:site_name" content="MANMIN LEGAL REVIEW — 만민 법규 검토 요약">
 <meta property="og:title" content="MANMIN LEGAL REVIEW — 만민 법규 검토 요약">
-<meta property="og:description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 9월 — 건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행">
+<meta property="og:description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 10월 — 건축법 시행령·피난방화 규칙 시행 — 반도체공장 수직 통로 내화바닥 면제 · 방화문 달린 자동방화셔터 3m 별도 방화문 면제(진행 중 허가에도 적용) · 역량 있는 건축사 설계자 감리 특례 폐지 법안 · 데이터센터 별도 용도·허가 거부 법안 발의">
 <meta property="og:url" content="https://manminkim-eng.github.io/manmin-law/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -324,7 +324,7 @@ footer a:hover{color:var(--gold)}
   <b>MANMIN LEGAL REVIEW</b><span class="ver">MANMIN VER-1.0</span><span>만민 법규 검토 요약 · 김만민 건축사 · ㈜대성건축사사무소</span>
 </a>
 <div class="hdbtns">
-  <select class="btn" onchange="if(this.value)location.href=this.value"><option value="">■ 월별 아카이브 이동</option><option value="index.html">● 전체 목록 (INDEX)</option><option value="2026-09.html">2026년 9월 (2026-09)</option><option value="2026-08.html">2026년 8월 (2026-08)</option><option value="2026-07.html">2026년 7월 (2026-07)</option><option value="2026-06.html">2026년 6월 (2026-06)</option><option value="2026-05.html">2026년 5월 (2026-05)</option></select>
+  <select class="btn" onchange="if(this.value)location.href=this.value"><option value="">■ 월별 아카이브 이동</option><option value="index.html">● 전체 목록 (INDEX)</option><option value="2026-10.html">2026년 10월 (2026-10)</option><option value="2026-09.html">2026년 9월 (2026-09)</option><option value="2026-08.html">2026년 8월 (2026-08)</option><option value="2026-07.html">2026년 7월 (2026-07)</option><option value="2026-06.html">2026년 6월 (2026-06)</option><option value="2026-05.html">2026년 5월 (2026-05)</option></select>
   <button class="btn install" id="btnInstall" onclick="installApp()" title="앱으로 설치 — 주소창 없는 독립 창으로 열립니다"><img src="assets/mark-trans.png" alt=""><span>웹에 추가</span></button>
   <button class="btn" onclick="toggleTheme()" title="밝게/어둡게">◐</button>
   <a class="btn" href="https://manminkim-eng.github.io/KIMMANMIN/" target="_blank" rel="noopener">MANMIN 계산도구 ↗</a>
@@ -338,12 +338,12 @@ footer a:hover{color:var(--gold)}
  각 항목은 법제처 국가법령정보센터 원문으로 바로 연결되며, 입법예고 마감일은 자동으로 D-day가 계산됩니다.</p>
  <div class="meta">
   <span>편집 <b>김만민 건축사 · ㈜대성건축사사무소</b></span>
-  <span>최신호 <b>2026년 9월</b></span>
-  <span>누적 <b>5개호 · 177건</b></span>
+  <span>최신호 <b>2026년 10월</b></span>
+  <span>누적 <b>6개호 · 210건</b></span>
   <span>갱신 <b>매월 첫째 주 화요일</b></span>
  </div>
  <div class="chips" style="margin-top:18px">
-  <a class="btn gold" href="2026-09.html">최신호 2026년 9월 보기 →</a>
+  <a class="btn gold" href="2026-10.html">최신호 2026년 10월 보기 →</a>
   <button class="btn" onclick="share('만민 법규 검토 요약')">🔗 링크 공유</button>
   <a class="btn" href="https://blog.naver.com/manmin72" target="_blank" rel="noopener">네이버 블로그 ↗</a>
   <a class="btn" href="https://www.youtube.com/@김만민-x8p" target="_blank" rel="noopener">유튜브 ↗</a>
@@ -355,39 +355,70 @@ footer a:hover{color:var(--gold)}
  <section class="sec" style="border-top:none">
   <div class="sech">■ 지금 챙겨야 할 일정 — 예고 마감 · 시행 예정</div>
   <div class="list" style="padding-top:0"><article class="card" style="--cc:#4ea8de">
-  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-02" data-kind="입법예고"></span>
-   <span class="sp"></span><span class="anchor">2026.11.02</span></div>
-  <h3 class="ct"><a href="2026-09.html">주택법 시행규칙 — 1,000세대 이상 사전방문 3일 이상 권고 · 주말 1일 포함 · 품질점검 대상 1% 이상</a></h3>
-  <div class="lawrow"><span>근거 주택법 시행규칙</span>
-   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/88822" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/88822" target="_blank" rel="noopener">입법예고 원문 ↗</a>
-   <a href="2026-09.html">2026년 9월호 보기 →</a></div>
-  <p class="sum">사용검사권자가 필요시 1,000세대 이상 단지에 3일 이상 사전방문을 실시하도록 권고하고, 사전방문 기간에 주말·공휴일 1일 이상과 오전 10시~오후 4시를 포함하도록 하며, 연기 시 시작 20일 전까지 통보하도록 함. 품질점검단 세대 내부 점검 대상은 전체 세대수의 1% 이상.</p></article><article class="card" style="--cc:#4ea8de">
   <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-09" data-kind="입법예고"></span>
    <span class="sp"></span><span class="anchor">2026.11.09</span></div>
   <h3 class="ct"><a href="2026-09.html">특정건축물 정리법 시행령 제정 — 소규모 주거용 위반건축물 한시 사용승인 (12.17. 법 시행 대비)</a></h3>
   <div class="lawrow"><span>근거 특정건축물 정리에 관한 특별조치법 시행령</span>
    <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/88894" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/88894" target="_blank" rel="noopener">입법예고 원문 ↗</a>
    <a href="2026-09.html">2026년 9월호 보기 →</a></div>
-  <p class="sum">「특정건축물 정리에 관한 특별조치법」(법률 제21820호, 2026.6.16. 공포, 12.17. 시행)의 위임사항을 정하는 시행령 제정안. 일정 기준을 충족하는 소규모 주거용 위반건축물이 한시적으로 사용승인을 받을 수 있게 하는 제도의 세부 기준.</p></article><article class="card" style="--cc:#d4a843">
-  <div class="ctop"><span class="tag">시행법령</span><span class="dday ok" data-ef="2026-12-17"></span>
-   <span class="sp"></span><span class="anchor">2026.12.17</span></div>
-  <h3 class="ct"><a href="2026-07.html">특정건축물 정리에 관한 특별조치법 제정</a></h3>
-  <div class="lawrow"><span>근거 특정건축물 정리에 관한 특별조치법</span>
-   <a href="https://www.law.go.kr/법령/%ED%8A%B9%EC%A0%95%EA%B1%B4%EC%B6%95%EB%AC%BC%EC%A0%95%EB%A6%AC%EC%97%90%EA%B4%80%ED%95%9C%ED%8A%B9%EB%B3%84%EC%A1%B0%EC%B9%98%EB%B2%95" data-p="www.law.go.kr/법령/특정건축물정리에관한특별조치법" target="_blank" rel="noopener">법제처 원문 ↗</a>
-   <a href="2026-07.html">2026년 7월호 보기 →</a></div>
-  <p class="sum">소규모 주거용 위반건축물에 한시적 사용승인 기회를 부여하는 양성화 특별법. 시행일부터 18개월 한시법.</p></article><article class="card" style="--cc:#d4a843">
-  <div class="ctop"><span class="tag">시행법령</span><span class="dday ok" data-ef="2027-01-01"></span>
-   <span class="sp"></span><span class="anchor">2027.01.01</span></div>
-  <h3 class="ct"><a href="2026-07.html">설계공모 정보 공개 채널 변경 (세움터 → 건축HUB)</a></h3>
-  <div class="lawrow"><span>근거 건축서비스산업 진흥법 시행령</span>
-   <a href="https://www.law.go.kr/법령/%EA%B1%B4%EC%B6%95%EC%84%9C%EB%B9%84%EC%8A%A4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9" data-p="www.law.go.kr/법령/건축서비스산업진흥법시행령" target="_blank" rel="noopener">법제처 원문 ↗</a>
-   <a href="2026-07.html">2026년 7월호 보기 →</a></div>
-  <p class="sum">공공기관 설계공모 시행공고·심사결과 공개 채널을 건축법상 세움터에서 건축서비스산업 정보체계(건축HUB)로 변경.</p></article></div>
+  <p class="sum">「특정건축물 정리에 관한 특별조치법」(법률 제21820호, 2026.6.16. 공포, 12.17. 시행)의 위임사항을 정하는 시행령 제정안. 일정 기준을 충족하는 소규모 주거용 위반건축물이 한시적으로 사용승인을 받을 수 있게 하는 제도의 세부 기준.</p></article><article class="card" style="--cc:#6fc08a">
+  <div class="ctop"><span class="tag">행정예고</span><span class="dday soft" data-dl="2026-11-20" data-kind="행정예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.20</span></div>
+  <h3 class="ct"><a href="2026-10.html">해체계획서 작성기준 — 여러 건축물 해체 시 동별 해체 순서 포함</a></h3>
+  <div class="lawrow"><span>근거 건축물 해체계획서의 작성 및 감리업무 등에 관한 기준</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/admpp/47578" data-p="opinion.lawmaking.go.kr/gcom/admpp/47578" target="_blank" rel="noopener">행정예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">여러 건축물을 해체하는 경우 인접 동에 대한 영향 등을 고려해 해체계획서에 동별 해체 순서를 포함하도록 함(현행은 개별 건축물의 부재별 해체순서 중심).</p></article><article class="card" style="--cc:#6fc08a">
+  <div class="ctop"><span class="tag">행정예고</span><span class="dday soft" data-dl="2026-11-20" data-kind="행정예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.20</span></div>
+  <h3 class="ct"><a href="2026-10.html">옥내소화전 방수구 — 레버나 호스를 당겨 여는 방식 형식승인 기준 신설</a></h3>
+  <div class="lawrow"><span>근거 소화전의 형식승인 및 제품검사의 기술기준</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/admpp/47620" data-p="opinion.lawmaking.go.kr/gcom/admpp/47620" target="_blank" rel="noopener">행정예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">기존 수동 개폐 방식 외에 레버 또는 호스를 당겨서 개방하는 옥내소화전 방수구 기술을 제도적으로 수용 — 방수구 정의 개선, 덮개 재료기준, 추가 밸브개폐장치 주의사항·레버기능시험·수력작동시험 판정기준 신설.</p></article><article class="card" style="--cc:#4ea8de">
+  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-23" data-kind="입법예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.23</span></div>
+  <h3 class="ct"><a href="2026-10.html">개발제한구역 내 스마트농업 재배시설 설치 허용 · 설치기준 신설</a></h3>
+  <div class="lawrow"><span>근거 개발제한구역의 지정 및 관리에 관한 특별조치법 시행령</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/88988" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/88988" target="_blank" rel="noopener">입법예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">개발제한구역 주민이 신기술을 활용한 농업활동을 할 수 있도록 개발제한구역 내 설치 가능 시설에 스마트농업 재배시설을 추가하고 설치기준을 신설.</p></article><article class="card" style="--cc:#4ea8de">
+  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-23" data-kind="입법예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.23</span></div>
+  <h3 class="ct"><a href="2026-10.html">화재예방법 시행령 — 용접·용단 작업 안전조치에서 산업안전보건법 사업장 적용 제외 단서 삭제</a></h3>
+  <div class="lawrow"><span>근거 화재의 예방 및 안전관리에 관한 법률 시행령</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/88966" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/88966" target="_blank" rel="noopener">입법예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">화재예방법 시행령 별표 1의 용접·용단 기구 안전조치 의무에서 「산업안전보건법」 제38조 적용 사업장을 제외하던 단서를 삭제해, 다른 화재위험 설비·기구와 같은 체계로 정비.</p></article><article class="card" style="--cc:#4ea8de">
+  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-24" data-kind="입법예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.24</span></div>
+  <h3 class="ct"><a href="2026-10.html">국토계획법 시행령 — 상업지역 주상복합 공동주택 비율 조례로 100% 미만까지 · 1종일반주거 다가구 필로티 포함 5층</a></h3>
+  <div class="lawrow"><span>근거 국토의 계획 및 이용에 관한 법률 시행령</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/88982" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/88982" target="_blank" rel="noopener">입법예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">「주택 신속공급 방안」(8.13.) 후속. 중심·일반·근린상업지역 주상복합 건축물에서 조례로 조정할 수 있는 공동주택 비율을 최대 100% 미만으로 확대하고 '공동주택과 그 외의 용도'가 복합된 건축물로 정비. 건축법 시행령 다가구 4층 개정에 맞춰 제1종일반주거지역 다가구 층수를 필로티 포함 5층까지 허용.</p></article><article class="card" style="--cc:#4ea8de">
+  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-11-25" data-kind="입법예고"></span>
+   <span class="sp"></span><span class="anchor">2026.11.25</span></div>
+  <h3 class="ct"><a href="2026-10.html">건축물관리법 시행규칙 — 한 해체공사 구역 안의 여러 건축물, 일괄 해체허가·신고</a></h3>
+  <div class="lawrow"><span>근거 건축물관리법 시행규칙</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/89076" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/89076" target="_blank" rel="noopener">입법예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">한 관리자가 동일한 목적으로 둘 이상의 건축물을 해체하려는 경우 필지 단위로 각각 받던 해체허가·신고를 일괄 신청할 수 있도록 서식(별지 제5호·제6호 등)을 개선.</p></article><article class="card" style="--cc:#4ea8de">
+  <div class="ctop"><span class="tag">입법예고</span><span class="dday soft" data-dl="2026-12-11" data-kind="입법예고"></span>
+   <span class="sp"></span><span class="anchor">2026.12.11</span></div>
+  <h3 class="ct"><a href="2026-10.html">건축법 시행령 — 시장 아케이드·도로 차양 등 가설건축물, 200㎡ 이상 축사·창고·재배사 구조안전확인 대상 포함</a></h3>
+  <div class="lawrow"><span>근거 건축법 시행령</span>
+   <a href="https://opinion.lawmaking.go.kr/gcom/ogLmPp/89242" data-p="opinion.lawmaking.go.kr/gcom/ogLmPp/89242" target="_blank" rel="noopener">입법예고 원문 ↗</a>
+   <a href="2026-10.html">2026년 10월호 보기 →</a></div>
+  <p class="sum">2024년 11월 폭설로 구조기준이 적용되지 않던 창고·축사·비가림막·차양 등 3층 미만 가설건축물이 주로 붕괴한 데 따른 개정안. 공공이 이용하는 시장 아케이드·도로 차양시설과 조례로 정한 가설건축물, 200㎡ 이상 축사·창고·작물 재배사를 구조안전확인 대상에 넣음.</p></article></div>
  </section>
 
  <section class="sec">
   <div class="sech">■ 월별 아카이브</div>
-  <div class="arch"><a class="acard" href="2026-09.html">
+  <div class="arch"><a class="acard" href="2026-10.html">
+  <i>2026-10</i><b>2026년 10월</b>
+  <p>건축법 시행령·피난방화 규칙 시행 — 반도체공장 수직 통로 내화바닥 면제 · 방화문 달린 자동방화셔터 3m 별도 방화문 면제(진행 중 허가에도 적용) · 역량 있는 건축사 설계자 감리 특례 폐지 법안 · 데이터센터 별도 용도·허가 거부 법안 발의</p>
+  <div class="cnt">33건 · 발행 2026.11.03</div></a><a class="acard" href="2026-09.html">
   <i>2026-09</i><b>2026년 9월</b>
   <p>건축사법 9.18 시행 — 명의대여·유사명칭 금지 사무소까지 확대 · 주택법 공포 — 사업계획승인 대지확보 95→80% 즉시 시행 · 지식산업센터 주거 전환 3종(공공주택특별법 시행령·국토계획법 시행령·주택건설기준) 시행</p>
   <div class="cnt">46건 · 발행 2026.10.06</div></a><a class="acard" href="2026-08.html">

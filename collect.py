@@ -596,7 +596,11 @@ def dedupe(items, month):
                 d = json.load(open(os.path.join(root, f), encoding="utf-8"))
             except Exception:
                 continue
-            for it in d.get("items", []):
+            # _inbox 에는 발행 작업용 보조 파일(제안이유 목록 등 리스트·사전)도 놓인다 —
+            # 호 데이터(items 를 가진 dict)만 본다. 2026-11 에 리스트 파일 때문에 수집이 죽었다.
+            if not isinstance(d, dict) or not isinstance(d.get("items"), list):
+                continue
+            for it in d["items"]:
                 prev.add(_dedupe_key(it))
                 if it.get("billId"):
                     prev_ids.add(("bill", str(it["billId"]).strip()))
