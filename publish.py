@@ -19,6 +19,8 @@ publish.py — 월간호 발행 파이프라인  (MANMIN LEGAL REVIEW)
     python publish.py release                 점검 → 빌드 → 커밋
     python publish.py release --push          위 + 푸시
     python publish.py release --month 2026-09 특정 월
+    python publish.py ppt                     협회 법규교육 PPT 1쪽 요약을 전 호와 대조
+    python publish.py ppt --pdf "경로.pdf"     (기본: ../참고자료 의 가장 최근 PPT)
 
     python 은 PATH 에 없을 수 있다. 이 PC 기준:
         C:\\Users\\user\\miniconda3\\python.exe publish.py release
@@ -95,6 +97,22 @@ def _report(month, block, warn, info, verbose):
         if not block:
             print("  → 발행 가능%s" % (" (주의 %d건 확인 요망)" % len(warn) if warn else ""))
     return block, warn, info
+
+
+def norm_law(s):
+    """법령명 비교용 — 공백·낫표·가운뎃점(ㆍ/·) 차이를 없앤다."""
+    return re.sub(r"[\s「」ㆍ·]", "", s or "")
+
+
+def _issues_upto(month):
+    out = {}
+    for name in sorted(os.listdir(DATA)):
+        if re.fullmatch(r"\d{4}-\d{2}\.json", name) and name[:7] <= month:
+            try:
+                out[name[:7]] = json.load(io.open(os.path.join(DATA, name), encoding="utf-8"))
+            except Exception:
+                pass
+    return out
 
 
 def step_check(month, verbose=True):
@@ -217,7 +235,50 @@ def step_check(month, verbose=True):
         except Exception:
             warn.append("domain_filter 통계를 읽지 못했습니다.")
 
-    # 7) 참고 정보
+    # 8) 예고 → 공포 후속 추적
+    #    2026-08호에 「건축물관리법 시행령」 입법예고를 싣고 9.22. 공포·시행은 9월호·10월호
+    #    모두 놓쳤다(2026-11-04 협회 PPT 대조로 발견). 예고 마감이 지났는데 같은 법령의
+    #    시행·공포 항목이 그 뒤 어느 호에도 없으면 LawMCP 로 공포 여부를 확인하게 한다.
+    #    같은 법령의 다른 개정이 실려도 '확인됨'으로 치는 느슨한 대조라 놓친 것만 잡는 용도다.
+    issues = _issues_upto(month)
+    shown = [(norm_law(it.get("law")), it.get("date") or "")
+             for d2 in issues.values() for it in d2.get("items", [])
+             if it.get("cat") in ("시행법령", "추가검토")]
+    first = "%s-01" % month
+    window = "%04d-%02d" % (int(y) - (1 if int(m) <= 6 else 0), (int(m) - 7) % 12 + 1)
+    open_ = []
+    for mon2, d2 in issues.items():
+        if mon2 < window:
+            continue
+        for it in d2.get("items", []):
+            if it.get("cat") != "입법예고":
+                continue
+            dl = it.get("deadline") or it.get("date") or ""
+            if dl >= first:
+                continue
+            law = norm_law(it.get("law"))
+            if not any(l == law and dd >= (it.get("date") or "") for l, dd in shown):
+                open_.append("%s(%s호 예고, 마감 %s)" % (it.get("law"), mon2, dl))
+    if open_:
+        warn.append("예고 마감 후 공포·시행이 어느 호에도 없는 법령 %d건 — LawMCP 로 공포 여부를 "
+                    "확인하십시오(미공포면 정상): %s" % (len(open_), " / ".join(open_)))
+
+    # 9) 스냅샷 감시 범위 — 이번 호 법령이 law_snapshot.json 에 없으면 다음 개정을 못 본다
+    #    (소방기본법이 감시목록 밖이라 2026.9.3. 시행을 놓쳤다)
+    try:
+        snap = json.load(io.open(os.path.join(DATA, "law_snapshot.json"), encoding="utf-8"))
+        watched = {norm_law(n) for b in snap.get("batches", []) for n in b}
+        unwatched = sorted({it.get("law") for it in items
+                            if it.get("cat") in ("시행법령", "입법예고", "국회통과")
+                            and norm_law(it.get("law")) not in watched})
+        if unwatched:
+            warn.append("law_snapshot.json 감시 밖 법령 %d개: %s — 발행 커밋 때 batches·snapshot 에 "
+                        "법률·시행령·시행규칙 정확한 제명으로 추가하십시오(미시행 제정법은 시행 후)."
+                        % (len(unwatched), " / ".join(unwatched)))
+    except Exception:
+        warn.append("law_snapshot.json 을 읽지 못했습니다.")
+
+    # 10) 참고 정보
     today = dt.date.today().isoformat()
     past = [it for it in items if it.get("deadline") and it["deadline"] < today]
     if past:
@@ -263,8 +324,9 @@ def step_release(month, message, push):
 
 def main():
     ap = argparse.ArgumentParser(description="MANMIN LEGAL REVIEW 발행 파이프라인")
-    ap.add_argument("step", choices=["collect", "check", "build", "release"])
+    ap.add_argument("step", choices=["collect", "check", "build", "release", "ppt"])
     ap.add_argument("--month", default=None, help="대상 월 YYYY-MM (기본: 직전 달)")
+    ap.add_argument("--pdf", default=None, help="ppt: 협회 법규교육 PPT 경로 (기본: 참고자료 폴더 최신)")
     ap.add_argument("--push", action="store_true", help="release 에서 푸시까지")
     ap.add_argument("-m", "--message", default=None, help="커밋 메시지")
     ap.add_argument("--force", action="store_true", help="점검 차단을 무시하고 진행")
@@ -276,6 +338,15 @@ def main():
 
     if args.step == "build":
         sys.exit(0 if step_build() else 1)
+
+    if args.step == "ppt":
+        import ppt_check
+        pdf = args.pdf or ppt_check.latest_ppt()
+        if not pdf or not os.path.exists(pdf):
+            print("PPT 를 찾지 못했습니다: %r (--pdf 로 지정)" % pdf)
+            sys.exit(2)
+        rows = ppt_check.check(pdf)
+        sys.exit(1 if any(r[5] == "누락?" for r in rows) else 0)
 
     block, warn, _ = step_check(month)
 
