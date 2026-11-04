@@ -20,7 +20,7 @@ publish.py — 월간호 발행 파이프라인  (MANMIN LEGAL REVIEW)
     python publish.py release --push          위 + 푸시
     python publish.py release --month 2026-09 특정 월
     python publish.py ppt                     협회 법규교육 PPT 1쪽 요약을 전 호와 대조
-    python publish.py ppt --pdf "경로.pdf"     (기본: ../참고자료 의 가장 최근 PPT)
+    python publish.py ppt --pdf "경로.pdf"     (기본: ../참고자료 와 하위 폴더의 가장 최근 PPT)
 
     python 은 PATH 에 없을 수 있다. 이 PC 기준:
         C:\\Users\\user\\miniconda3\\python.exe publish.py release
@@ -337,7 +337,7 @@ def main():
     ap = argparse.ArgumentParser(description="MANMIN LEGAL REVIEW 발행 파이프라인")
     ap.add_argument("step", choices=["collect", "check", "build", "release", "ppt"])
     ap.add_argument("--month", default=None, help="대상 월 YYYY-MM (기본: 직전 달)")
-    ap.add_argument("--pdf", default=None, help="ppt: 협회 법규교육 PPT 경로 (기본: 참고자료 폴더 최신)")
+    ap.add_argument("--pdf", default=None, help="ppt: 협회 법규교육 PPT 경로 (기본: 참고자료·하위 폴더 최신)")
     ap.add_argument("--push", action="store_true", help="release 에서 푸시까지")
     ap.add_argument("-m", "--message", default=None, help="커밋 메시지")
     ap.add_argument("--force", action="store_true", help="점검 차단을 무시하고 진행")

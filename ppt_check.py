@@ -11,7 +11,7 @@ ppt_check.py — 협회 법규교육 PPT 대조  (MANMIN LEGAL REVIEW)
     싣고 공포는 놓친 것이다. 눈 대조는 매달 빠뜨리기 쉬우므로 스크립트로 남긴다.
 
 사용법
-    python publish.py ppt                       참고자료 폴더의 가장 최근 PPT
+    python publish.py ppt                       참고자료 폴더(하위 폴더 포함)의 가장 최근 PPT — 파일명 (YY년MM월) 기준
     python publish.py ppt --pdf "경로.pdf"       특정 PPT
     python ppt_check.py "경로.pdf" [...]         여러 개 한 번에
 
@@ -221,8 +221,19 @@ def check(path, verbose=True):
     return rows
 
 
+def _ppt_key(path):
+    """파일명의 '(26년10월)' 을 (2026, 10) 으로 — 없으면 수정 시각. 폴더를 옮기면 mtime 이 바뀔 수 있어 이름을 우선한다."""
+    m = re.search(r"(\d{2,4})\s*년\s*(\d{1,2})\s*월", os.path.basename(path))
+    if m:
+        y = int(m.group(1))
+        return (1, y + 2000 if y < 100 else y, int(m.group(2)), os.path.getmtime(path))
+    return (0, 0, 0, os.path.getmtime(path))
+
+
 def latest_ppt():
-    c = sorted(glob.glob(os.path.join(glob.escape(REF), "*PPT*.pdf")), key=os.path.getmtime)
+    # 참고자료 바로 아래와 하위 폴더(예: 참고자료\26년10월\) 모두 찾는다 (2026-11-04)
+    c = glob.glob(os.path.join(glob.escape(REF), "**", "*PPT*.pdf"), recursive=True)
+    c = sorted(set(os.path.normpath(p) for p in c), key=_ppt_key)
     return c[-1] if c else None
 
 
