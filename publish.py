@@ -278,7 +278,18 @@ def step_check(month, verbose=True):
     except Exception:
         warn.append("law_snapshot.json 을 읽지 못했습니다.")
 
-    # 10) 참고 정보
+    # 10) 조문 번호 — 2026-11-04 검토에서 시행·예고 7건이 개정문의 조문(제61조제2항 재편,
+    #     제19조의4 용어 변경, 별표 8~10 등)을 빠뜨리거나 절차를 뭉뚱그린 것이 지적됐다.
+    #     제·개정이유만 보고 쓰면 생긴다. 개정문(조문안)을 열어 detail 에 조문 번호를 적게 한다.
+    noart = [it.get("law") for it in items
+             if it.get("cat") in ("시행법령", "입법예고", "행정예고")
+             and not re.search(r"제\d+조|별표|별지|부칙",
+                               " ".join(it.get("detail") or []) + " " + (it.get("summary") or ""))]
+    if noart:
+        warn.append("조문 번호(제N조·별표·부칙)가 summary·detail 어디에도 없는 항목 %d건: %s — "
+                    "개정문·조문안을 열어 바뀐 조문을 적으십시오." % (len(noart), " / ".join(noart)))
+
+    # 11) 참고 정보
     today = dt.date.today().isoformat()
     past = [it for it in items if it.get("deadline") and it["deadline"] < today]
     if past:
