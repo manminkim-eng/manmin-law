@@ -2,13 +2,15 @@
 """만민 법규 검토 요약(MANMIN LEGAL REVIEW) 이용 매뉴얼 생성기 — MANMIN 매뉴얼 공통 엔진 사용
    실행: MANUAL_DIR=<manual 폴더> python gen_manual_law.py  →  <manual>/index.html
    수치(호수 · 건수 · 단계별 건수 · 마감일)는 저장소 data/*.json 에서 직접 읽는다 — 손으로 옮겨 적지 않는다.
-   캡처 기준일 = CAP_DATE (D-day 표시는 캡처한 날 기준으로 칠해진다)."""
-import os, sys, json, glob
+   캡처 기준일 = CAP_DATE (D-day 표시는 캡처한 날 기준으로 칠해진다) — 환경변수 CAP_DATE, 없으면 실행일.
+   최신호(5장 · 첫 표 · 발간 일정 · 4장 예시 카드)는 data/ 의 가장 늦은 호에서 읽는다 — 매달 고정값을 고치지 않는다(2026-11-08, 종전 9월호 고정 검사)."""
+import os, sys, json, glob, re
 from datetime import date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from manual_engine import fig, T, render, B, MARKS
 
-VER, DATE, CAP_DATE = 'Ver-1.0', '2026-10-17', '2026-10-17'
+VER, DATE = 'Ver-1.0', '2026-10-17'   # DATE = 초판 발행일
+CAP_DATE = os.environ.get('CAP_DATE') or date.today().isoformat()
 PDF = '만민법규검토요약_이용매뉴얼_Ver-1.0.pdf'
 SITE = 'https://manminkim-eng.github.io/manmin-law/'
 APP = '만민 법규 검토 요약'
@@ -22,8 +24,15 @@ def cnt(d):
     return c
 LC = cnt(LATEST)
 TOTAL = sum(len(d['items']) for d in ISSUES)
-assert LATEST['issue'] == '2026-09' and len(LATEST['items']) == 46 and LC == {'시행법령': 10, '훈령예규고시': 1, '국회통과': 2, '입법예고': 8, '행정예고': 2, '의원발의': 21, '추가검토': 2}, LC
-assert TOTAL == 177 and len(ISSUES) == 5, TOTAL
+# 데이터 자체 점검(호 번호 형식 · 단계 이름 · 건수 합) — 특정 호의 건수를 고정하지 않음
+assert len(ISSUES) >= 2 and all(re.fullmatch(r'\d{4}-\d{2}', d['issue']) for d in ISSUES), [d['issue'] for d in ISSUES]
+assert set(LC) <= set(ORDER) and sum(LC.values()) == len(LATEST['items']), LC
+assert TOTAL == sum(sum(cnt(d).values()) for d in ISSUES), TOTAL
+LM = LATEST['label'].split(' ')[-1]   # '10월'
+def first_tue(y, m):
+    d0 = date(y, m, 1); return d0.replace(day=1 + (1 - d0.weekday()) % 7)
+_y, _m = map(int, LATEST['issue'].split('-')); _ny, _nm = (_y + 1, 1) if _m == 12 else (_y, _m + 1); _py, _pm = (_ny + 1, 1) if _nm == 12 else (_ny, _nm + 1)
+NEXT_PUB = first_tue(_py, _pm)   # 다음 호(최신호 다음 달분) 발간 예정일
 IT = {f'i{i:02d}': x for i, x in enumerate(LATEST['items'], 1)}
 OPEN = [(k, x) for k, x in IT.items() if x.get('deadline') and x['deadline'] >= CAP_DATE]
 OPEN.sort(key=lambda kx: kx[1]['deadline'])
@@ -67,7 +76,7 @@ TOC = [
  ('ch2', '2. 수록 기준', [('s2-1', '6단계 수집'), ('s2-2', '분야 · 대상 법령'), ('s2-3', '확인 방법')]),
  ('ch3', '3. 화면 안내', [('s3-1', '첫 화면'), ('s3-2', '지금 챙겨야 할 일정'), ('s3-3', '월별 아카이브'), ('s3-4', '월호 머리'), ('s3-5', '검색 · 필터 · 도구'), ('s3-6', '항목 카드'), ('s3-7', '예고 항목과 D-day'), ('s3-8', '블로그 · 유튜브 원고'), ('s3-9', '인쇄 · 밝은 화면'), ('s3-10', '휴대전화 · 앱 설치')]),
  ('ch4', '4. 항목 읽는 법', [('s4-1', '카드 구성'), ('s4-2', '날짜 표기'), ('s4-3', 'D-day 규칙')]),
- ('ch5', '5. 2026년 9월호 살펴보기', [('s5-1', '머리기사'), ('s5-2', '단계별 건수'), ('s5-3', '의견 제출 가능한 예고')]),
+ ('ch5', f'5. {LATEST["label"]}호 살펴보기', [('s5-1', '머리기사'), ('s5-2', '단계별 건수'), ('s5-3', '의견 제출 가능한 예고')]),
  ('ch6', '6. 실무 활용', [('s6-1', '매월 확인 순서'), ('s6-2', '자주 묻는 질문')]),
  ('ch7', '부록', [('a1', '발간 이력'), ('a2', '발간 절차 (편집)'), ('a3', '용어'), ('a4', '매뉴얼 변경 내역')]),
 ]
@@ -79,17 +88,21 @@ S_.append(f"""{EXTRA_CSS}<section class="ch" id="ch0"><h2><span class="n">00</sp
  ['접속 주소', f'<a href="{SITE}" target="_blank" rel="noopener">manminkim-eng.github.io/manmin-law</a>'],
  ['최신호', f'<b>{LATEST["label"]}호</b> · 발간 {LATEST["published"]} · {len(LATEST["items"])}건'],
  ['누적', f'{len(ISSUES)}개호 · {TOTAL}건 (2026년 5월호 ~ {LATEST["label"]}호)'],
- ['매뉴얼 판', f'<b>{VER}</b> (초판) · {DATE} · 작성 김만민 건축사(㈜대성건축사사무소)'],
+ ['매뉴얼 판', f'<b>{VER}</b> (초판 {DATE} · 최신호 반영 {CAP_DATE}) · 작성 김만민 건축사(㈜대성건축사사무소)'],
  ['내려받기', f'<a href="{PDF}" download>PDF(A4)</a> · <a href="../index.html">간행물 열기</a>'],
  ['화면 캡처 기준', f'{CAP_DATE} — 화면의 D-day · 「종료」 표시는 보는 날짜에 따라 달라집니다'],
 ], ['항목', '내용']))}
 <div class="note"><b>성격</b>법령 원문을 대신하지 않습니다. 각 항목은 법제처 국가법령정보센터 · 국민참여입법센터 · 국회 의안 원문으로 바로 연결되며, 인허가 · 감리 판단은 반드시 원문과 부칙의 시행일로 확인합니다.</div>
 </section>""")
 
+import calendar
+def _pd(s): d = date.fromisoformat(s); return f"{s}({'월화수목금토일'[d.weekday()]})"
+def _rng(iss): y, m = map(int, iss.split('-')); return f"{m:02d}-01 ~ {m:02d}-{calendar.monthrange(y, m)[1]:02d} 수록"
+_nlabel = f"{_ny}년 {_nm}월"; _niss = f"{_ny}-{_nm:02d}"
 cal = ''.join(f'<div class="{"next" if n else ""}"><span>{a}</span><b>{b}</b><span>{c}</span></div>' for a, b, c, n in [
- ('2026-09-01(화) 발간', '2026년 8월호', '08-01 ~ 08-31 수록', 0),
- ('2026-10-06(화) 발간', '2026년 9월호', '09-01 ~ 09-30 수록 · 최신호', 0),
- ('2026-11-03(화) 발간 예정', '2026년 10월호', '10-01 ~ 10-31 수록 · 다음 호', 1)])
+ (_pd(ISSUES[1]['published']) + ' 발간', ISSUES[1]['label'] + '호', _rng(ISSUES[1]['issue']), 0),
+ (_pd(LATEST['published']) + ' 발간', LATEST['label'] + '호', _rng(LATEST['issue']) + ' · 최신호', 0),
+ (_pd(NEXT_PUB.isoformat()) + ' 발간 예정', _nlabel + '호', _rng(_niss) + ' · 다음 호', 1)])
 S_.append(f"""<section class="ch" id="ch1"><h2><span class="n">01</span>월간 발간 안내</h2>
 <p class="lead">한 달 동안 나온 법령 변화를 그달이 끝난 뒤 한 번에 정리합니다. 달이 끝나야 그달의 공포 · 예고 · 발의가 모두 확정되기 때문입니다.</p>
 <h3 id="s1-1">발간일 · 수록 기간</h3>
@@ -188,20 +201,20 @@ S_.append(f"""<section class="ch" id="ch3"><h2><span class="n">03</span>화면 �
 <p>「웹에 추가」를 누르면 주소창 없는 독립 창으로 설치됩니다(PWA). 설치한 앱의 바로가기 「최신호 보기」는 매월 발간 때 최신호로 자동 갱신됩니다(v1.2).</p>
 </section>""")
 
-ex = IT['i03']
+ex = IT['i03']   # 4장 예시 카드 = 최신호 i03 (캡처 s07 과 같은 항목)
 S_.append(f"""<section class="ch" id="ch4"><h2><span class="n">04</span>항목 읽는 법</h2>
 <h3 id="s4-1">카드 구성</h3>
 {T([
- ['단계 · 분야 태그', '어느 단계의 무엇인가', f'{TAG("시행법령")} · 건축'],
+ ['단계 · 분야 태그', '어느 단계의 무엇인가', f'{TAG(ex["cat"])} · {ex["field"] if isinstance(ex["field"], str) else " · ".join(ex["field"])}'],
  ['제목', '핵심 변경을 한 줄로', ex['title']],
  ['날짜 · 근거', '공포 / 시행 / 예고기간 · 근거 법령 · 원문', f'{ex["dateLabel"]} {ex["date"]} · {ex["law"]}'],
- ['요약', '법령 번호 · 공포일 · 시행일 · 주요 수치', '법률 제21902호(2026.9.8. 공포)'],
+ ['요약', '법령 번호 · 공포일 · 시행일 · 주요 수치', (re.match(r'[^(.]*\([^)]*\)', ex['summary']) or re.match(r'[^.]*', ex['summary'])).group(0)],
  ['제안이유 및 주요내용', '정부 · 발의자의 공식 사유 (원문 그대로)', '—'],
  ['세부 개정내용', '조문별 시행일 · 부칙 경과조치', f'{len(ex["detail"])}건'],
  ['신 · 구조문 대비', '법제처 원문 · 법령 검색 연결', '—'],
  ['실무 영향', '설계 · 인허가 · 감리에서 달라지는 점 (편집자 의견)', ex['impact'][:60] + '…'],
  ['링크', '항목 주소 복사 — 동료에게 그 항목만 공유', '#i03'],
-], ['구성', '담는 내용', '9월호 i03 예'])}
+], ['구성', '담는 내용', f'{LM}호 i03 예'])}
 <h3 id="s4-2">날짜 표기</h3>
 {T([
  ['시행', '그날부터 적용', '시행법령'],
@@ -220,20 +233,21 @@ S_.append(f"""<section class="ch" id="ch4"><h2><span class="n">04</span>항목 �
  ['마감 지남', '「입법예고 종료」', '다음 단계(공포) 대기'],
  ['시행 예정', '「시행 D-n」 녹색', '시행 전 준비'],
 ], ['상태', '표시', '실무'])}
-<p>D-day는 페이지를 여는 날짜로 계산합니다. 같은 9월호라도 10월 초에 보면 「마감 D-9」, 마감 뒤에 보면 「종료」로 보입니다.</p>
+<p>D-day는 페이지를 여는 날짜로 계산합니다. 같은 호라도 마감 전에 보면 「마감 D-n」, 마감 뒤에 보면 「종료」로 보입니다.</p>
 </section>""")
 
-heads = [IT[k] for k in ('i08', 'i03', 'i02', 'i05', 'i06')]
+heads = sorted(LATEST['items'], key=lambda x: ORDER.index(x['cat']))[:5]   # 머리기사 표 = 단계 순(확정분 먼저) 앞 5건
+TIP = ('설계 기준이 바뀌는 예고(' + ' · '.join(x['law'] for _, x in OPEN[:2]) + ' 등)는 진행 중인 계획안에 미리 반영 여부를 검토합니다.') if OPEN else '이번 호에는 기준일 현재 마감 전 예고가 없습니다.'
 rows_open = [[TAG(x['cat']), x['title'], f'{x["deadline"]}', f'D-{dd(x["deadline"])}'] for k, x in OPEN]
-S_.append(f"""<section class="ch" id="ch5"><h2><span class="n">05</span>2026년 9월호 살펴보기</h2>
+S_.append(f"""<section class="ch" id="ch5"><h2><span class="n">05</span>{LATEST['label']}호 살펴보기</h2>
 <p class="lead">{LATEST['label']}호는 {LATEST['published']}(화)에 발간됐고 {len(LATEST['items'])}건을 수록했습니다. 머리기사 — {LATEST['headline']}</p>
 <h3 id="s5-1">머리기사</h3>
 {T([[TAG(x['cat']), x['title'], f'{x["dateLabel"]} {x["date"]}'] for x in heads], ['단계', '항목', '날짜'])}
 <h3 id="s5-2">단계별 건수</h3>
-{T([[TAG(c), LC.get(c, 0), {'시행법령':'공포 · 시행 확정','훈령예규고시':'고시 발령','국회통과':'본회의 의결','입법예고':'정부안 예고','행정예고':'고시안 예고','의원발의':'법률안 발의','추가검토':'7월 누락분 · 정책 묶음'}[c]] for c in ORDER] + [['<b>합계</b>', f'<b>{len(LATEST["items"])}</b>', '']], ['단계', '건수', '내용'], num_cols=(1,))}
+{T([[TAG(c), LC.get(c, 0), {'시행법령':'공포 · 시행 확정','훈령예규고시':'고시 발령','국회통과':'본회의 의결','입법예고':'정부안 예고','행정예고':'고시안 예고','의원발의':'법률안 발의','추가검토':'이전 호 누락분 · 정책 묶음'}[c]] for c in ORDER] + [['<b>합계</b>', f'<b>{len(LATEST["items"])}</b>', '']], ['단계', '건수', '내용'], num_cols=(1,))}
 <h3 id="s5-3">의견 제출 가능한 예고 ({CAP_DATE} 기준)</h3>
 {T(rows_open, ['단계', '항목', '마감', '남은 날'], num_cols=(3,))}
-<div class="tip"><b>활용</b>마감 전 예고는 국민참여입법센터 원문(카드의 「입법예고 원문 ↗」)에서 의견을 낼 수 있습니다. 소방시설법 시행령(공장 스프링클러) · 건축법 시행령(다세대 · 다가구 바닥면적)처럼 설계 기준이 바뀌는 예고는 진행 중인 계획안에 미리 반영 여부를 검토합니다.</div>
+<div class="tip"><b>활용</b>마감 전 예고는 국민참여입법센터 원문(카드의 「입법예고 원문 ↗」)에서 의견을 낼 수 있습니다. {TIP}</div>
 </section>""")
 
 S_.append(f"""<section class="ch" id="ch6"><h2><span class="n">06</span>실무 활용</h2>
@@ -279,12 +293,12 @@ S_.append(f"""<section class="ch" id="ch7"><h2><span class="n">부록</span>발�
  ['PWA', '웹을 앱처럼 설치해 쓰는 방식 — 「웹에 추가」'],
 ], ['용어', '뜻'])}
 <h3 id="a4">매뉴얼 변경 내역</h3>
-{T([[VER, DATE, '초판 — 첫 화면 「📘 매뉴얼」 단추 신설과 함께 발행 (사이트 서비스워커 v1.2)']], ['판', '날짜', '내용'])}
+{T([[VER, DATE, '초판 — 첫 화면 「📘 매뉴얼」 단추 신설과 함께 발행 (사이트 서비스워커 v1.2)'], [VER, CAP_DATE, f'최신호 반영 — {LATEST["label"]}호 기준 수치 · 발간 일정 · 「살펴보기」 장 · 화면 다시 캡처(기준일 {CAP_DATE}). 생성기가 최신호를 데이터에서 읽도록 바꿈']], ['판', '날짜', '내용'])}
 </section>""")
 
 html = render(title=f'{APP} 이용 매뉴얼 {VER}', desc='매월 첫째 화요일 발간하는 건축 · 구조 · 기계설비 · 소방 · 토목 법령 개정 요약 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용',
               eyebrow='MANMIN LEGAL REVIEW · MONTHLY · USER MANUAL', h1=f'{APP} 이용 매뉴얼', sub='매월 첫째 화요일, 지난달 법령 변화를 6단계로 — 발간 체계 · 수록 기준 · 화면 사용법 · 실무 활용',
-              ver=VER, date=DATE, app_name='간행물', pdf=PDF, toc=TOC, sections=S_, foot_note='법령 원문을 대신하지 않습니다 — 원문 · 부칙으로 확인')
+              ver=VER, date=CAP_DATE, app_name='간행물', pdf=PDF, toc=TOC, sections=S_, foot_note='법령 원문을 대신하지 않습니다 — 원문 · 부칙으로 확인')
 html = html.replace('<span class="rev">· 화면 대응 개정 2026-10-12</span>', '')
 out = os.path.join(B, 'index.html')
 open(out, 'w', encoding='utf-8', newline='\n').write(html)

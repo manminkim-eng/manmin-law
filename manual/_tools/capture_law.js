@@ -11,17 +11,19 @@ window.__find=sel=>{
  for(const s of sel.split(',')){const e=[...document.querySelectorAll(s)].find(__vis);if(e)return e;}return null;};
 window.__chip=(g,v)=>{const e=[...document.querySelectorAll('.chip[data-g="'+g+'"]')].find(c=>c.getAttribute('onclick').includes("'"+v+"'"));setChip(g,v,e);};`;
 const P=f=>`http://127.0.0.1:${PORT}/${f}`;
+// 월호 화면 = 최신호(data/YYYY-MM.json 중 가장 늦은 호) — 매달 고치지 않아도 됨(2026-11-08, 종전 9월호 고정)
+const ISS=fs.readdirSync(path.join(repo,'data')).filter(f=>/^\d{4}-\d{2}\.json$/.test(f)).sort().pop().slice(0,7);
 const SHOTS=[
  {id:'s01_index',url:'index.html',clip:'viewport',m:[['.brand','사이트 이름 · Ver-1.0'],['.hdbtns select','월별 아카이브 이동'],['#btnInstall','웹에 추가'],['txt:.hdbtns .btn|◐','밝게 · 어둡게'],['.hero h1','만민 법규 검토 요약'],['.hero .meta','편집 · 최신호 · 누적 · 갱신'],['.hero .btn.gold','최신호 보기'],['txt:.hero .btn|유튜브','유튜브'],['txt:.hero .btn|매뉴얼','📘 매뉴얼']]},
  {id:'s02_chips',url:'index.html',clip:'.hero .chips',pad:12,m:[['.hero .btn.gold','최신호 보기'],['txt:.hero .btn|링크 공유','링크 공유'],['txt:.hero .btn|네이버','네이버 블로그'],['txt:.hero .btn|유튜브','유튜브'],['txt:.hero .btn|매뉴얼','📘 매뉴얼 — 이 문서']]},
  {id:'s03_watch',url:'index.html',clip:'nth:main .sec|0',to:'nth:main .sec .card|2',m:[['nth:main .sec .sech|0','지금 챙겨야 할 일정'],['nth:main .sec .card .tag|0','단계'],['nth:main .sec .card .dday|0','마감 D-day'],['nth:main .sec .card .anchor|0','마감 · 시행일'],['nth:main .sec .card .lawrow|0','근거 · 원문 · 해당 호']]},
  {id:'s04_archive',url:'index.html',clip:'txt:main .sec|월별 아카이브',m:[['nth:.acard|0','최신호'],['nth:.acard i|0','호 번호'],['nth:.acard p|0','머리기사']]},
- {id:'s05_issue_hero',url:'2026-09.html',clip:'.hero',m:[['.hero .eyebrow','호 번호 · 판'],['.hero h1','호 제목'],['.hero .lead','머리기사'],['txt:.hero .meta span|발행','발행일'],['txt:.hero .meta span|출처','수집 출처'],['.hero .stats','단계별 건수']]},
- {id:'s06_toolbar',url:'2026-09.html',clip:'.toolbar',m:[['#q','검색 (단축키 /)'],['nth:.toolbar .chips|0','단계 필터'],['nth:.toolbar .chips|1','분야 필터'],['#bAll','전체 펼치기'],['txt:.toolbar .btn|인쇄','인쇄 · PDF'],['txt:.toolbar .btn|공유','공유'],['txt:.toolbar .btn|원고','블로그 · 유튜브 원고'],['#cnt','표시 건수']]},
- {id:'s07_card',url:'2026-09.html',pre:"document.querySelector('#i03 details').open=true",clip:'#i03',m:[['#i03 .tag','단계'],['#i03 .field','분야'],['#i03 .lawrow','날짜 · 근거 · 원문'],['#i03 .sum','요약 — 번호 · 공포 · 시행'],['#i03 .reason','제안이유 및 주요내용'],['#i03 details','세부 개정내용'],['#i03 .cmplink','신 · 구조문 대비'],['#i03 .impact','실무 영향'],['txt:#i03 *|링크','항목 링크 복사']]},
- {id:'s08_notice',url:'2026-09.html',pre:"__chip('cat','입법예고')",clip:'nth:.card|0',to:'nth:.card|1',post:"__chip('cat','ALL')",m:[['nth:.card .tag|0','입법예고'],['nth:.card .dday|0','마감 · 종료 표시'],['nth:.card .lawrow|0','입법예고 원문']]},
- {id:'s09_filter',url:'2026-09.html',pre:"__chip('field','소방');window.scrollTo(0,document.querySelector('.toolbar').getBoundingClientRect().top+scrollY-10)",clip:'viewport',post:"__chip('field','ALL')",m:[['txt:.chip.on|소방','분야 = 소방'],['#cnt','표시 건수']]},
- {id:'s10_text',url:'2026-09.html',pre:"openText('blog')",clip:'.modal',fixed:true,post:"closeModal()",m:[['txt:#mtabs .chip|블로그','네이버 블로그용'],['txt:#mtabs .chip|유튜브','유튜브 대본용'],['#ta','원고'],['txt:.mfoot .btn|복사','전체 복사']]},
+ {id:'s05_issue_hero',url:ISS+'.html',clip:'.hero',m:[['.hero .eyebrow','호 번호 · 판'],['.hero h1','호 제목'],['.hero .lead','머리기사'],['txt:.hero .meta span|발행','발행일'],['txt:.hero .meta span|출처','수집 출처'],['.hero .stats','단계별 건수']]},
+ {id:'s06_toolbar',url:ISS+'.html',clip:'.toolbar',m:[['#q','검색 (단축키 /)'],['nth:.toolbar .chips|0','단계 필터'],['nth:.toolbar .chips|1','분야 필터'],['#bAll','전체 펼치기'],['txt:.toolbar .btn|인쇄','인쇄 · PDF'],['txt:.toolbar .btn|공유','공유'],['txt:.toolbar .btn|원고','블로그 · 유튜브 원고'],['#cnt','표시 건수']]},
+ {id:'s07_card',url:ISS+'.html',pre:"document.querySelector('#i03 details').open=true",clip:'#i03',m:[['#i03 .tag','단계'],['#i03 .field','분야'],['#i03 .lawrow','날짜 · 근거 · 원문'],['#i03 .sum','요약 — 번호 · 공포 · 시행'],['#i03 .reason','제안이유 및 주요내용'],['#i03 details','세부 개정내용'],['#i03 .cmplink','신 · 구조문 대비'],['#i03 .impact','실무 영향'],['txt:#i03 *|링크','항목 링크 복사']]},
+ {id:'s08_notice',url:ISS+'.html',pre:"__chip('cat','입법예고')",clip:'nth:.card|0',to:'nth:.card|1',post:"__chip('cat','ALL')",m:[['nth:.card .tag|0','입법예고'],['nth:.card .dday|0','마감 · 종료 표시'],['nth:.card .lawrow|0','입법예고 원문']]},
+ {id:'s09_filter',url:ISS+'.html',pre:"__chip('field','소방');window.scrollTo(0,document.querySelector('.toolbar').getBoundingClientRect().top+scrollY-10)",clip:'viewport',post:"__chip('field','ALL')",m:[['txt:.chip.on|소방','분야 = 소방'],['#cnt','표시 건수']]},
+ {id:'s10_text',url:ISS+'.html',pre:"openText('blog')",clip:'.modal',fixed:true,post:"closeModal()",m:[['txt:#mtabs .chip|블로그','네이버 블로그용'],['txt:#mtabs .chip|유튜브','유튜브 대본용'],['#ta','원고'],['txt:.mfoot .btn|복사','전체 복사']]},
  {id:'s11_light',url:'index.html',pre:"toggleTheme()",clip:'viewport',post:"toggleTheme()",m:[]},
 ];
 (async()=>{
@@ -52,7 +54,7 @@ const SHOTS=[
   if(S.post){try{await pg.evaluate(S.post);}catch(e){errs.push(S.id+' post '+e.message);}await pg.waitForTimeout(250);}
  }
  // 인쇄 화면(첫 쪽) — media print 흉내
- await pg.goto(P('2026-09.html'));await pg.waitForTimeout(600);await pg.emulateMedia({media:'print'});await pg.setViewportSize({width:794,height:1123});await pg.waitForTimeout(400);
+ await pg.goto(P(ISS+'.html'));await pg.waitForTimeout(600);await pg.emulateMedia({media:'print'});await pg.setViewportSize({width:794,height:1123});await pg.waitForTimeout(400);
  await pg.screenshot({path:path.join(out,'s12_print.png')});meta['s12_print']={w:794,h:1123,marks:[]};await pg.emulateMedia({media:'screen'});await pg.setViewportSize({width:VW,height:VH});
  // 휴대전화
  const mctx=await b.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,serviceWorkers:'block',isMobile:true,hasTouch:true,locale:'ko-KR'});await setup(mctx);
@@ -60,7 +62,7 @@ const SHOTS=[
  await mp.goto(P('index.html'));await mp.waitForTimeout(800);await mp.addStyleTag({content:HIDE});
  await mp.screenshot({path:path.join(out,'s13_mobile_index.png')});meta['s13_mobile_index']={w:390,h:844,marks:[]};
  const mob={index:await mp.evaluate(()=>document.documentElement.scrollWidth)};
- await mp.goto(P('2026-09.html#i03'));await mp.waitForTimeout(800);await mp.addStyleTag({content:HIDE});await mp.evaluate(()=>{const e=document.getElementById('i03');window.scrollTo(0,e.getBoundingClientRect().top+scrollY-8);});await mp.waitForTimeout(300);
+ await mp.goto(P(ISS+'.html#i03'));await mp.waitForTimeout(800);await mp.addStyleTag({content:HIDE});await mp.evaluate(()=>{const e=document.getElementById('i03');window.scrollTo(0,e.getBoundingClientRect().top+scrollY-8);});await mp.waitForTimeout(300);
  await mp.screenshot({path:path.join(out,'s14_mobile_card.png')});meta['s14_mobile_card']={w:390,h:844,marks:[]};
  mob.issue=await mp.evaluate(()=>document.documentElement.scrollWidth);
  fs.writeFileSync(path.join(out,'_marks.json'),JSON.stringify(meta,null,1));
