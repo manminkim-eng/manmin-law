@@ -1,10 +1,11 @@
 /* MANMIN LEGAL REVIEW — Service Worker
+   v1.3.7 (2026-11-25) — 헤더 고정 — 공통 원본 MM-HEADER v1.1 주입(태블릿 · 데스크톱만 — 폭 768px · 높이 600px 이상, 휴대폰은 고정 없음 · 머리+탭 sticky · 내리면 제목 한 줄+탭으로 접힘 · 다른 sticky 패널 top 보정) — 계산 · 인쇄 불변 · MIN 「추천안대로 승인」 · 「추천안대로 진행해줘」(모바일 제외) · 캐시명 v1.3.7 (종전 v1.3.6)
    범위: /manmin-law/  (메인 사이트 sw.js 와 독립)
    HTML·JSON = 네트워크 우선(매월 갱신 즉시 반영)
    아이콘·정적자원 = 캐시 우선                                */
 /* v1.1 — 아이콘 전면 교체(원본 로고 무크롭 재생성). 캐시명을 올려 구 아이콘을 강제 폐기한다. */
 /* v1.2 — 첫 화면 「📘 매뉴얼」 단추 · manual/ 신설 · manifest 최신호 자동 갱신 (2026-10-17). */
-const CACHE = 'manmin-law-v1.3.6';
+const CACHE = 'manmin-law-v1.3.7';
 const SHELL = [
   './',
   './index.html',

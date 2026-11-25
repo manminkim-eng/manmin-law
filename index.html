@@ -857,4 +857,90 @@ document.addEventListener('DOMContentLoaded',function(){
  if(m)m.addEventListener('click',function(e){if(e.target===m)closeModal()});
 });
 </script>
+<!-- MM-HEADER:BEGIN v1.1 -->
+<style id="mm-header-local">@media (min-width:768px) and (min-height:600px){.mm-hdr-c .hd{padding-top:8px!important;padding-bottom:8px!important}.toolbar{top:var(--mm-hdr-h,59px)}}</style>
+<script id="mm-header-js" data-shell="body&gt;header" data-hide=".hdbtns">
+/* manmin-header.js v1.1 — MANMIN 공통 헤더 고정 원본 (2026-11-25, MIN 「추천안대로 진행해줘」 — 데스크톱 · 태블릿만 고정, 휴대폰은 고정 없이)
+   v1.1 보강 — matchMedia 없는 브라우저는 고정하지 않음 · check.py 주입 누락 = 실패(Codex 지적, MIN 「1~3 모두 승인」)
+   v1.0 (2026-11-25, MIN 「추천안대로 승인」) — 처음 판(모든 화면 고정)
+   직접 고치지 말 것: 도구에는 inject.py 로만 넣고 check.py 로 확인한다(MM-PRINT · MM-PROJECT 와 같은 방식).
+   동작
+   - 고정 화면 조건(MQ, 아래 기본값: 폭 768px 이상 + 높이 600px 이상 = 태블릿 · 데스크톱)에서만 작동한다.
+     휴대폰(세로 · 가로 모두)은 조건 밖 → 머리가 지금처럼 스크롤과 함께 올라가고, 도구별 css 도 적용되지 않는다(화면이 원래와 같음).
+     화면을 돌리거나 창 크기가 바뀌어 조건이 바뀌면 그 자리에서 고정/해제가 바뀐다.
+   - data-shell 로 찾은 머리 덩어리(머리 + 탭)를 position:sticky; top:0 으로 붙인다.
+   - 내려서 머리 높이 차(Δ = 전체 − 접힘)만큼 지나면 .mm-hdr-c 를 붙여 data-hide 요소를 숨긴다(접힘).
+     접힐 때 줄어든 Δ 만큼 margin-bottom 을 주어 문서 높이를 그대로 둔다 → 내용이 튀지 않고, 스크롤 고정(앵커링) 때문에 접힘/펼침이 되풀이되지 않는다.
+   - 지금 보이는 머리 높이를 --mm-hdr-h 로 내보낸다(조건 밖이면 0) → html scroll-padding-top(앵커 · scrollIntoView 가림 방지)와 도구의 다른 sticky 패널이 쓴다.
+   - 인쇄 · JPG 출력에는 영향 없음(@media print 에서 static, 머리는 원래 no-print).
+   설정(script 태그 속성 · tools.json): data-shell(필수, CSS 선택자) · data-hide(접힐 때 숨길 요소, 없으면 접지 않고 붙이기만) · data-mq(고정 화면 조건, 없으면 MQ 기본값)
+   도구별 접힘 여백 등은 tools.json "css" → 같은 구간 안 <style id="mm-header-local"> 로 들어가며, inject 가 같은 MQ 조건(@media)으로 감싼다. */
+(function () {
+  var MQ_DEFAULT = '(min-width:768px) and (min-height:600px)';
+  var S = document.currentScript;
+  var SEL = S.getAttribute('data-shell'), HIDE = S.getAttribute('data-hide') || '', MQ = S.getAttribute('data-mq') || MQ_DEFAULT;
+  if (!SEL || !window.matchMedia) return;   /* matchMedia 모르는 옛 브라우저 → 스타일도 넣지 않고 지금처럼(휴대폰과 같게) */
+  var st = document.createElement('style');
+  st.id = 'mm-header-css';
+  st.textContent =
+    '@media ' + MQ + '{' +
+      '.mm-hdr{position:-webkit-sticky;position:sticky;top:0;z-index:1100}' +
+      'html{scroll-padding-top:calc(var(--mm-hdr-h,0px) + 8px)}' +
+      (HIDE ? '.mm-hdr.mm-hdr-c :is(' + HIDE + '){display:none!important}' : '') +
+    '}' +
+    '@media print{.mm-hdr{position:static!important;margin-bottom:0!important}html{scroll-padding-top:0!important}}';
+  document.head.appendChild(st);
+  var mql = window.matchMedia(MQ);
+  function active() { return mql.matches; }
+  var el = null, full = 0, comp = 0, on = false, raf = 0, lastW = 0;
+  function setVar() {
+    document.documentElement.style.setProperty('--mm-hdr-h', active() ? (on ? comp : full) + 'px' : '0px');
+  }
+  function apply(want) {
+    on = want;
+    el.classList.toggle('mm-hdr-c', on);
+    el.style.marginBottom = on ? (full - comp) + 'px' : '';
+    setVar();
+  }
+  function measure() {
+    var was = on;
+    el.classList.remove('mm-hdr-c'); el.style.marginBottom = '';
+    if (!active()) { on = false; full = comp = 0; setVar(); return; }   /* 휴대폰: 고정 · 접힘 없음 */
+    full = el.offsetHeight;
+    if (HIDE) { el.classList.add('mm-hdr-c'); comp = el.offsetHeight; el.classList.remove('mm-hdr-c'); } else comp = full;
+    on = false; apply(was && full - comp > 4); update();
+  }
+  function update() {
+    raf = 0;
+    if (!el || !active()) return;
+    var d = full - comp, want = d > 4 && (window.pageYOffset || document.documentElement.scrollTop) > d;
+    if (want !== on) apply(want);
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(update); }
+  function onResize() {
+    var w = window.innerWidth;
+    if (w === lastW) return;          /* 아이폰 주소창 높이 변화(폭 그대로)는 무시 — 높이 조건이 바뀌면 아래 mql 변화로 처리 */
+    lastW = w; measure();
+  }
+  function init() {
+    try { el = document.querySelector(SEL); } catch (e) { el = null; return true; }   /* :has() 모르는 옛 브라우저 → 고정 없이 지금처럼 */
+    if (!el) return false;
+    el.classList.add('mm-hdr');
+    lastW = window.innerWidth; measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    if (mql.addEventListener) mql.addEventListener('change', measure); else if (mql.addListener) mql.addListener(measure);   /* 화면 돌림 · 창 크기로 조건이 바뀔 때 */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);   /* 글꼴 늦게 오면 높이 다시 */
+    window.addEventListener('load', measure);
+    return true;
+  }
+  if (!init()) {                        /* React 도구: 머리가 늦게 그려지면 나타날 때까지 기다림 */
+    var mo = new MutationObserver(function () { if (init()) mo.disconnect(); });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(function () { mo.disconnect(); }, 15000);
+  }
+  window.mmHeaderRemeasure = function () { if (el) measure(); };
+})();
+</script>
+<!-- MM-HEADER:END -->
 </body></html>
