@@ -943,4 +943,103 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 <!-- MM-HEADER:END -->
+<!-- MM-FAB:BEGIN v1.0 -->
+<script id="mm-fab-js" data-items="[{&quot;sel&quot;:&quot;#top&quot;,&quot;kind&quot;:&quot;mini&quot;}]" data-print-hide="[&quot;.ibar&quot;,&quot;.iosgd&quot;]" data-pill="0">
+/* MANMIN 공통 하단 떠 있는 단추 원본 manmin-fab.js v1.0 (2026-11-26, 작업지시서 §25-6-117 — 샘플 v0.9 · MIN 「권장안대로 승인」)
+   정본: Z:\MIN-A\01.만민자료\02.설계자료\11.개발자료\68.개발자료[하단버튼]\버전s-1.0\manmin-fab-v1.0\
+   도구에는 inject.py 가 MM-FAB:BEGIN · MM-FAB:END 표식 사이에 그대로 끼워 넣음(외부 링크 없음). 도구에서 직접 고치지 말 것.
+   하는 일: 오른쪽 아래 떠 있는 단추(안내 · 초기화 · 앱 설치 · 건물개요 · 맨 위로)를 한 줄 기둥으로 쌓고 크기 · 여백 · 간격을 통일한다.
+     - 도구의 단추 HTML · 이벤트 · 색 · 글자는 그대로 두고, 자리와 크기만 스타일시트(!important)로 정한다(DOM 이동 없음 → React 도구도 안전).
+     - data-items = 아래 → 위 순서의 선택자 목록. 문자열은 tile(72×76), {"sel":..,"kind":"mini"} 은 44×44 원, "pill" 은 72×28.
+       건물개요(.mm-proj-btn, MM-PROJECT)는 목록에 없으면 맨 위 pill 로 자동 추가(data-pill="0" 이면 안 함).
+     - 숨겨진 단추(display:none · 조건부 앱 설치 단추)는 자리를 차지하지 않는다 → 나타나면 위 단추가 한 칸 올라가고, 사라지면 내려와 빈칸 없이 간격 8px.
+     - 앱 설치 단추(선택자에 install · pwa-fab 포함, 또는 "install":true)는 설치 완료(appinstalled) · 앱으로 실행 중(standalone)이면
+       도구가 숨기지 않아도 숨긴다(브라우저 메뉴로 설치해 도구의 설치 단추가 남는 경우 포함).
+     - 화면 아래에 붙는 띠가 보이면 그 높이 + 간격만큼 기둥 전체를 올린다. MANMIN 설치 · 업데이트 띠(AVOID0 — 클래스 · id 14종)는 기본,
+       data-avoid = 도구별 추가(점수 바 · 상태줄 등). 아래 240px 안에 걸친 띠면 화면 끝에서 조금 떠 있어도 피한다. 띠가 닫히면 다시 내려온다.
+     - 건물개요 메뉴(.mm-proj-menu)는 건물개요 단추 바로 위에 열리게 자리만 맞춘다.
+   규격(v1.0): 기준점 오른쪽 18 · 아래 18px(휴대폰 <768px: 12 · 16px) + 아이폰 홈 막대(safe-area), 간격 8px,
+     tile 72×76 · 둥근 모서리 16px, pill 72×28, mini 44×44, z-index 1200(머리 1100 위 · 창 9000 아래).
+     높이가 낮은 화면(≤500px, 휴대폰 가로): tile 60×60 · 간격 6px.
+   인쇄 · JPG: 목록의 단추 + 기본 설치 · 업데이트 띠(AVOID0) + data-print-hide 선택자를 @media print 에서 숨김. */
+(function () {
+  var me = document.currentScript; if (!me || window.MMFab) return;
+  var VER = 'v1.0';
+  function J(a, d) { try { return JSON.parse(me.getAttribute(a) || d); } catch (e) { return JSON.parse(d); } }
+  var INST_RE = /install|pwa-fab|pwa-hdr/i;   /* 앱 설치 단추로 볼 선택자(목록에서 "install":false 로 끌 수 있음) */
+  var items = J('data-items', '[]').map(function (x) {
+    var o = typeof x === 'string' ? { sel: x } : x;
+    return { sel: o.sel, kind: o.kind || 'tile', install: o.install !== undefined ? !!o.install : INST_RE.test(o.sel) };
+  });
+  if (me.getAttribute('data-pill') !== '0' && !items.some(function (x) { return x.sel === '.mm-proj-btn'; })) items.push({ sel: '.mm-proj-btn', kind: 'pill' });
+  var AVOID0 = ['.pwa-install-banner', '.pwa-banner', '.pwa-outer', '.install-banner', '.ibar', '.iosgd', '#pwa-banner', '#pwaBanner', '#pwa-install-banner', '#pwa-install-bar', '#pwa-bottom-banner', '#installBanner', '#sw-update-bar', '#mm-ios-tip'];
+  var avoid = AVOID0.concat(J('data-avoid', '[]'));   /* MANMIN 설치 · 업데이트 띠는 기본으로 피함 + 도구별 추가 */
+  if (!items.length) return;
+  var mqPhone = window.matchMedia ? matchMedia('(max-width:767px)') : null;
+  var mqShort = window.matchMedia ? matchMedia('(max-height:500px)') : null;
+  var mqApp = window.matchMedia ? matchMedia('(display-mode: standalone)') : null;
+  var justInstalled = false;   /* 이번 방문에서 설치 완료(appinstalled) — 새로 고침하면 브라우저가 설치 단추를 다시 띄우지 않으므로 저장하지 않음 */
+  function installed() { return justInstalled || !!(mqApp && mqApp.matches) || navigator.standalone === true; }
+  var live = document.createElement('style'); live.id = 'mm-fab-live';
+  var fixed = document.createElement('style'); fixed.id = 'mm-fab-style';
+  var all = items.map(function (x) { return x.sel; }).concat(AVOID0, J('data-print-hide', '[]')).join(',');   /* 설치 · 업데이트 띠(AVOID0)는 인쇄 내용이 아니므로 기본 숨김 + data-print-hide = 도구별 추가 */
+  fixed.textContent = '@media print{' + all + '{display:none!important}}';
+  document.head.appendChild(fixed); document.head.appendChild(live);
+
+  function geo() {
+    var ph = mqPhone && mqPhone.matches, sh = mqShort && mqShort.matches;
+    return { R: ph ? 12 : 18, B: ph ? 16 : 18, G: sh ? 6 : 8, tile: sh ? [60, 60] : [72, 76], pill: [72, 28], mini: [44, 44] };
+  }
+  function shown(el) {
+    if (!el || !el.getClientRects().length) return false;
+    var cs = getComputedStyle(el); return cs.visibility !== 'hidden' && cs.display !== 'none';
+  }
+  var last = '', state = {};
+  function layout() {
+    var g = geo(), vw = innerWidth, vh = innerHeight, lift = 0, liftBy = [];
+    avoid.forEach(function (s) {
+      var els; try { els = document.querySelectorAll(s); } catch (e) { return; }
+      Array.prototype.forEach.call(els, function (el) {
+        if (!shown(el)) return; var r = el.getBoundingClientRect();
+        if (r.top >= vh - 1 || r.bottom < vh - 240 || r.right < vw - g.R - g.tile[0] || r.height > vh * 0.6) return;   /* 화면 아래쪽(240px 안)에 걸쳐 기둥 쪽에 있는 띠만 — 창 · 큰 패널 제외 */
+        var h = vh - r.top + g.G; if (h > lift) { lift = h; } liftBy.push(s);
+      });
+    });
+    var off = lift, css = '', slots = [], pillOff = null, inst = installed();
+    items.forEach(function (it) {
+      if (it.install && inst) { css += it.sel + '{display:none!important}'; return; }   /* 설치 뒤 · 앱 실행 중 = 설치 단추 숨기고 자리도 비우지 않음 */
+      var el; try { el = document.querySelector(it.sel); } catch (e) { return; }
+      if (!shown(el)) return;
+      var sz = g[it.kind] || g.tile, base = 'bottom:calc(' + g.B + 'px + env(safe-area-inset-bottom,0px) + ' + Math.round(off) + 'px)!important;';
+      css += it.sel + '{position:fixed!important;right:' + g.R + 'px!important;left:auto!important;top:auto!important;' + base
+        + 'width:' + sz[0] + 'px!important;height:' + sz[1] + 'px!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;'
+        + 'margin:0!important;box-sizing:border-box!important;z-index:1200!important;'
+        + (it.kind === 'tile' ? 'padding:4px 3px!important;border-radius:16px!important;justify-content:center!important;align-items:center!important;gap:2px!important;line-height:1.15!important;text-align:center!important;' : '')
+        + (it.kind === 'pill' ? 'padding:0 4px!important;border-radius:999px!important;justify-content:center!important;gap:3px!important;font-size:11.5px!important;line-height:1!important;' : '')
+        + (it.kind === 'mini' ? 'padding:0!important;border-radius:50%!important;' : '')
+        + '}';
+      if (it.kind === 'pill' && it.sel === '.mm-proj-btn') pillOff = off;
+      slots.push({ sel: it.sel, kind: it.kind, bottom: g.B + Math.round(off) });
+      off += sz[1] + g.G;
+    });
+    if (pillOff !== null) {
+      var mb = g.B + Math.round(pillOff) + g.pill[1] + 6;
+      css += '.mm-proj-menu{right:' + g.R + 'px!important;left:auto!important;top:auto!important;bottom:calc(' + mb + 'px + env(safe-area-inset-bottom,0px))!important;max-height:calc(100vh - ' + (mb + 8) + 'px)!important;overflow:auto!important}';
+    }
+    css = '@media screen{' + css + '}';
+    if (css !== last) { live.textContent = css; last = css; }
+    state = { ver: VER, geo: g, lift: Math.round(lift), liftBy: liftBy, installed: inst, slots: slots };
+  }
+  var q = 0;
+  function sched() { if (q) return; q = (window.requestAnimationFrame || setTimeout)(function () { q = 0; layout(); }); }
+  layout();
+  addEventListener('resize', sched); addEventListener('orientationchange', sched); addEventListener('load', sched);
+  addEventListener('appinstalled', function () { justInstalled = true; sched(); });
+  if (mqApp) { if (mqApp.addEventListener) mqApp.addEventListener('change', sched); else if (mqApp.addListener) mqApp.addListener(sched); }
+  document.addEventListener('transitionend', sched, true); document.addEventListener('animationend', sched, true);
+  if (window.MutationObserver) new MutationObserver(sched).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'hidden'] });
+  window.MMFab = { ver: VER, layout: layout, state: function () { return state; } };
+})();
+</script>
+<!-- MM-FAB:END -->
 </body></html>
