@@ -4,17 +4,9 @@
   <script defer src="/manmin-blog-report/web/assets/manmin-analytics.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script>
-window.__bip=null;
-window.addEventListener('beforeinstallprompt',function(e){
-  e.preventDefault(); window.__bip=e;
-  window.dispatchEvent(new Event('bip-ready'));
-});
-window.addEventListener('appinstalled',function(){ window.__bip=null; window.__installed=true; });
-</script>
+<script>window.__bip=null,window.addEventListener("beforeinstallprompt",function(n){n.preventDefault(),window.__bip=n,window.dispatchEvent(new Event("bip-ready"))}),window.addEventListener("appinstalled",function(){window.__bip=null,window.__installed=!0});</script>
 <title>MANMIN LEGAL REVIEW — 만민 법규 검토 요약</title>
-<script>/* 2026-10-31 v1.3.4 — PDF 저장 이름 = 법규검토요약_2026년9월_YYYYMMDD(목차는 「목차」) · 인쇄 직전에만 제목 바꾸고 끝나면 되돌림(작업지시서 §25-6-26 R2 · R5) */
-(function(){var o=null;addEventListener('beforeprint',function(){var m=window.__META__,d=new Date(),z=function(n){return(n<10?'0':'')+n};if(o===null)o=document.title;document.title='법규검토요약_'+(m&&m.label?m.label.split(' ').join(''):'목차')+'_'+d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());});addEventListener('afterprint',function(){if(o!==null){document.title=o;o=null;}});})();</script>
+<script>!function(){var t=null;addEventListener("beforeprint",function(){var n=window.__META__,e=new Date,l=function(t){return(t<10?"0":"")+t};null===t&&(t=document.title),document.title="법규검토요약_"+(n&&n.label?n.label.split(" ").join(""):"목차")+"_"+e.getFullYear()+l(e.getMonth()+1)+l(e.getDate())}),addEventListener("afterprint",function(){null!==t&&(document.title=t,t=null)})}();</script>
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
 <meta name="description" content="건축사 김만민이 매월 정리하는 건축·구조·기계설비·소방·토목 법규 개정 요약. 최신호 2026년 10월 — 건축법 시행령·피난방화 규칙 시행 — 반도체공장 수직 통로 내화바닥 면제 · 방화문 달린 자동방화셔터 3m 별도 방화문 면제(진행 중 허가에도 적용) · 역량 있는 건축사 설계자 감리 특례 폐지 법안 · 데이터센터 별도 용도·허가 거부 법안 발의">
 <meta name="author" content="김만민 건축사 · ㈜대성건축사사무소">
@@ -55,7 +47,6 @@ body{background:var(--bg);color:var(--txt);
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-/* HEADER */
 header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(212,168,67,.07),transparent);
  position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background-color:var(--bg)}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;flex-wrap:wrap}
@@ -80,7 +71,7 @@ html[data-theme="light"] .markchip{border-color:rgba(43,58,103,.35);box-shadow:n
 .iosgd b{color:var(--gold);font-size:13px;display:block;margin-bottom:7px}
 .iosgd p{font-size:13px;color:var(--txt);line-height:1.7}
 .iosgd .x2{position:absolute;top:11px;right:13px;color:var(--muted);cursor:pointer;font-size:15px}
-/* 첫 방문 설치 안내 바 — 헤더 버튼만 두면 첫 방문자는 누를 이유를 모른다 */
+
 .ibar{position:fixed;left:12px;right:12px;bottom:12px;z-index:140;display:none;
  align-items:center;gap:11px;background:var(--panel);border:1px solid var(--gold);
  border-radius:12px;padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
@@ -110,7 +101,6 @@ select.btn{appearance:none;padding-right:26px;
  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
  background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
 
-/* HERO */
 .hero{padding:34px 0 22px;border-bottom:1px solid var(--line)}
 .eyebrow{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-bottom:9px}
 h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
@@ -118,13 +108,11 @@ h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-hei
 .meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:15px;font-size:12px;color:var(--muted)}
 .meta b{color:var(--txt);font-weight:600}
 
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:9px;margin:20px 0 0}
 .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
 .stat i{display:block;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.05em}
 .stat b{display:block;font-size:20px;font-weight:800;margin-top:3px}
 
-/* TOOLBAR */
 .toolbar{position:sticky;top:59px;z-index:40;background:var(--bg);
  padding:15px 0 11px;border-bottom:1px solid var(--line)}
 .searchbox{position:relative;margin-bottom:11px}
@@ -142,7 +130,6 @@ h1{font-size:clamp(22px,4vw,33px);font-weight:800;letter-spacing:-.02em;line-hei
 .chip .n{opacity:.65;font-size:11px;margin-left:3px}
 .hint{font-size:11.5px;color:var(--muted);margin-top:9px}
 
-/* CARD */
 .list{padding:22px 0 40px;display:flex;flex-direction:column;gap:13px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:13px;
  padding:17px 19px;border-left:4px solid var(--cc,var(--gold));transition:.18s;scroll-margin-top:150px}
@@ -193,7 +180,6 @@ details[open] summary::before{transform:rotate(90deg)}
 .cmplink a{color:var(--gold);border-bottom:1px dotted rgba(212,168,67,.5);margin-left:8px}
 .empty{text-align:center;padding:56px 20px;color:var(--muted);font-size:14px}
 
-/* ARCHIVE */
 .sec{padding:34px 0;border-top:1px solid var(--line)}
 .sech{font-size:11.5px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:15px}
 .arch{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:11px}
@@ -205,7 +191,6 @@ details[open] summary::before{transform:rotate(90deg)}
 .acard p{font-size:12.3px;color:var(--muted);line-height:1.55}
 .acard .cnt{margin-top:9px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
 
-/* MODAL */
 .mask{position:fixed;inset:0;background:rgba(4,7,14,.78);z-index:100;display:none;
  align-items:center;justify-content:center;padding:20px}
 .mask.on{display:flex}
@@ -221,19 +206,16 @@ details[open] summary::before{transform:rotate(90deg)}
  line-height:1.75;font-family:'D2Coding','Consolas',monospace;resize:vertical;outline:none}
 .mfoot{padding:12px 19px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
 
-/* TOAST */
 .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
  background:var(--gold);color:#0c1120;padding:11px 20px;border-radius:9px;font-size:13px;
  font-weight:700;z-index:200;opacity:0;pointer-events:none;transition:.25s}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* FOOTER */
 footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:12px;color:var(--muted)}
 footer .fl{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:11px}
 footer a:hover{color:var(--gold)}
 .disc{font-size:11.3px;line-height:1.7;opacity:.8}
 
-/* TOP */
 #top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:99px;
  background:var(--panel);border:1px solid var(--line);color:var(--gold);cursor:pointer;
  display:none;align-items:center;justify-content:center;font-size:16px;z-index:60}
@@ -273,20 +255,18 @@ footer a:hover{color:var(--gold)}
  h1{font-size:20px}
 }
 
-/* PRINT — A4 */
 @media print{
- /* 2026-10-31 v1.3.5 — A4 여백 통일(작업지시서 §25-6-27): 14/12 → 계산 도구 공통 위 14 · 오른쪽 12 · 아래 22 · 왼쪽 14 mm */
+ 
  @page{size:A4;margin:14mm 12mm 22mm 14mm}
- /* 2026-10-31 v1.3.4 — 쪽 번호 「n / N」(작업지시서 §25-6-26 R1 · R5) */
- @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555;vertical-align:top;padding-top:5mm}} /* 쪽 번호 위치도 계산 도구와 같게(아래 여백 위쪽 5mm) */
+ 
+ @page{@bottom-center{content:counter(page) " / " counter(pages);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:8pt;color:#555;vertical-align:top;padding-top:5mm}} 
  html,body{background:#fff!important;color:#000!important;font-size:10pt}
  :root{--txt:#000;--muted:#444;--line:#bbb;--panel:#fff;--panel2:#f7f7f7;--gold:#8a6a12}
  header,.toolbar,.hdbtns,#top,.mask,.anchor,summary,.sec.noprint,footer .fl{display:none!important}
  details{display:block!important}
  details>summary{display:none!important}
  .det{background:#f7f7f7!important;border:1px solid #ccc!important;page-break-inside:avoid}
- /* 2026-10-31 v1.3.3 — 카드 통째 쪽 넘김(page-break-inside:avoid)이라 카드가 반 쪽을 조금 넘으면 한 쪽에 1건 + 절반 공백(9월호 46건 42쪽)
-    → 카드는 쪽 경계에서 나뉘게 두고, 제목 · 근거 줄 · 작은 상자(.det · .impact · .cmplink)만 안 나뉘게 */
+ 
  .card{break-inside:auto;page-break-inside:auto;border:1px solid #ccc!important;border-left:3px solid #888!important;
   box-shadow:none!important;margin-bottom:6mm;padding:4mm 5mm}
  .hero{border-bottom:1.5px solid #000;padding:0 0 5mm}
@@ -296,7 +276,7 @@ footer a:hover{color:var(--gold)}
  a{color:#000!important;border:none!important}
  .card .ctop,.card .ct,.card .lawrow{break-after:avoid;page-break-after:avoid}
  .card .ct,.card .lawrow,.card .sum,.impact,.cmplink{break-inside:avoid;page-break-inside:avoid}
- /* 2026-10-31 v1.3.3 — 원문 주소를 %EC%… 인코딩 그대로 찍던 것 → 읽을 수 있게 푼 주소(data-p, https:// 생략) */
+ 
  a[data-p]::after{content:" (" attr(data-p) ")";font-size:7pt;color:#666;word-break:break-all}
  .wrap{max-width:none;padding:0}
  .list{gap:0}
@@ -471,575 +451,11 @@ KDS·KCS 국가건설기준은 국가건설기준센터(kcsc.re.kr) 공고본을
 © 2026 김만민 건축사 · ㈜대성건축사사무소. 무단 전재·상업적 이용을 금합니다. · MANMIN VER-1.0
 </p>
 </div></footer>
-<script>
-/* ── PWA 설치 ── */
-if('serviceWorker' in navigator){
-  window.addEventListener('load',function(){
-    navigator.serviceWorker.register('sw.js').catch(function(){});
-  });
-  /* 새 SW 가 활성화되면 1회만 자동 새로고침 — 아이콘·본문 교체가 즉시 반영된다 */
-  var _swReloaded=false;
-  navigator.serviceWorker.addEventListener('controllerchange',function(){
-    if(_swReloaded)return; _swReloaded=true; location.reload();
-  });
-}
-function isStandalone(){
-  return window.matchMedia('(display-mode: standalone)').matches ||
-         window.matchMedia('(display-mode: minimal-ui)').matches ||
-         navigator.standalone===true;
-}
-function envInfo(){
-  var ua=navigator.userAgent;
-  return {
-    ios: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
-    android: /Android/.test(ua),
-    samsung: /SamsungBrowser/.test(ua),
-    firefox: /Firefox/.test(ua),
-    naver: /NAVER\(inapp/.test(ua) || /whale/i.test(ua),
-    kakao: /KAKAOTALK/i.test(ua),
-    mobile: /Mobi|Android|iPhone|iPad/.test(ua)
-  };
-}
-/* 이미 설치된 앱인지 감지 — manifest 의 related_applications(webapp) 선언 기반 */
-window.__alreadyInstalled=false;
-function detectInstalled(){
-  if(!navigator.getInstalledRelatedApps) return Promise.resolve(false);
-  return navigator.getInstalledRelatedApps()
-    .then(function(l){ return !!(l && l.length); })
-    .catch(function(){ return false; });
-}
-/* 설치되지 않았으면 버튼을 항상 노출 — 프롬프트가 없어도 수동 안내로 대응 */
-function syncInstallBtn(){
-  var b=document.getElementById('btnInstall'); if(!b)return;
-  if(isStandalone()||window.__installed){ b.classList.remove('on'); return; }
-  b.classList.add('on');
-  var s=b.querySelector('span');
-  if(window.__alreadyInstalled){
-    b.title='이미 설치되어 있습니다 — 설치된 앱을 여는 방법 안내';
-    if(s)s.textContent='앱으로 열기';
-  }else{
-    b.title='앱으로 설치 — 주소창 없는 독립 창으로 열립니다';
-    if(s)s.textContent='웹에 추가';
-  }
-}
-window.addEventListener('load',function(){
-  detectInstalled().then(function(v){ window.__alreadyInstalled=v; syncInstallBtn(); });
-});
-window.addEventListener('bip-ready', syncInstallBtn);
-window.addEventListener('appinstalled', function(){
-  syncInstallBtn(); closeGuide(); toast('홈 화면에 설치되었습니다');
-});
+<script>if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});var _swReloaded=!1;navigator.serviceWorker.addEventListener("controllerchange",function(){_swReloaded||(_swReloaded=!0,location.reload())})}function isStandalone(){return window.matchMedia("(display-mode: standalone)").matches||window.matchMedia("(display-mode: minimal-ui)").matches||!0===navigator.standalone}function envInfo(){var e=navigator.userAgent;return{ios:/iPad|iPhone|iPod/.test(e)&&!window.MSStream,android:/Android/.test(e),samsung:/SamsungBrowser/.test(e),firefox:/Firefox/.test(e),naver:/NAVER\(inapp/.test(e)||/whale/i.test(e),kakao:/KAKAOTALK/i.test(e),mobile:/Mobi|Android|iPhone|iPad/.test(e)}}function detectInstalled(){return navigator.getInstalledRelatedApps?navigator.getInstalledRelatedApps().then(function(e){return!(!e||!e.length)}).catch(function(){return!1}):Promise.resolve(!1)}function syncInstallBtn(){var e=document.getElementById("btnInstall");if(e)if(isStandalone()||window.__installed)e.classList.remove("on");else{e.classList.add("on");var t=e.querySelector("span");window.__alreadyInstalled?(e.title="이미 설치되어 있습니다 — 설치된 앱을 여는 방법 안내",t&&(t.textContent="앱으로 열기")):(e.title="앱으로 설치 — 주소창 없는 독립 창으로 열립니다",t&&(t.textContent="웹에 추가"))}}function firePrompt(){window.__bip.prompt(),window.__bip.userChoice.then(function(e){window.__bip=null,"accepted"===e.outcome?(window.__installed=!0,syncInstallBtn()):toast("설치를 취소했습니다 — 다시 누르면 안내가 열립니다")})}function installApp(){if(window.__bip)firePrompt();else if(window.__alreadyInstalled)openGuide();else{var e=document.getElementById("btnInstall"),t=!1,n=function(){t||(t=!0,window.removeEventListener("bip-ready",a),e&&(e.style.opacity=""),window.__bip?firePrompt():openGuide())},a=function(){n()};window.addEventListener("bip-ready",a),e&&(e.style.opacity=".6"),setTimeout(n,2e3)}}function openGuide(){var e=envInfo(),t="",n="";e.kakao||e.naver?(n="먼저 기본 브라우저로 열어주세요",t="<b>카카오톡·네이버 앱 내부 화면에서는 설치할 수 없습니다.</b><br><br>우측 상단 <b>⋮ 또는 ⋯</b> → <b>“다른 브라우저로 열기”</b>(또는 Chrome·Safari로 열기)를 선택한 뒤 다시 설치를 눌러 주세요."):e.ios?(n="iPhone · iPad 에서 설치하기",t='① 화면 하단(또는 상단)의 <b>공유 버튼 [ ⬆ ]</b> 을 누릅니다.<br>② 목록을 내려 <b>“홈 화면에 추가”</b> 를 선택합니다.<br>③ 우측 상단 <b>“추가”</b> 를 누르면 완료됩니다.<br><br><span style="color:var(--muted)">※ iOS 는 이 방식이 곧 앱 설치입니다. 홈 화면 아이콘을 누르면 주소창 없이 앱처럼 열립니다.</span><br><span style="color:var(--muted)">※ 사파리(Safari)에서만 가능합니다. 크롬에서는 지원되지 않습니다.</span>'):e.samsung?(n="삼성 인터넷 — 앱으로 설치",t='① 하단 <b>메뉴(≡)</b> 를 누릅니다.<br>② <b>“현재 페이지 추가”</b> → <b>“홈 화면”</b> 을 선택합니다.<br><br><span style="color:var(--muted)">※ 삼성 인터넷은 이 경로로 앱 형태(WebAPK)로 설치됩니다. 더 확실하게 하시려면 <b>Chrome</b> 으로 접속해 주세요.</span>'):e.android?(n="Android — 앱으로 설치하기",t='① 우측 상단 <b>⋮</b> 메뉴를 누릅니다.<br>② <b>“앱 설치”</b> 를 선택합니다. <span style="color:var(--muted)">(설치형 앱)</span><br><br><span style="color:var(--muted)">※ “앱 설치”가 안 보이고 <b>“홈 화면에 추가”</b>만 있다면 단순 바로가기입니다. 페이지를 새로고침하고 10초쯤 머문 뒤 다시 열어 보시면 “앱 설치”로 바뀝니다.</span>'):e.firefox?(n="Firefox 에서 설치하기",t="Firefox 데스크톱은 앱 설치를 지원하지 않습니다.<br><b>Chrome · Edge</b> 로 접속하시거나, 이 페이지를 <b>즐겨찾기(Ctrl+D)</b> 에 추가해 주세요."):(n="PC — 앱으로 설치하기",t='① 주소창 오른쪽의 <b>설치 아이콘 [ ⊕ ]</b> 또는 모니터 모양 아이콘을 누릅니다.<br>② 아이콘이 없으면 <b>⋮ 메뉴 → 캐스트·저장 및 공유 → 페이지를 앱으로 설치</b> 를 선택합니다.<br><br><span style="color:var(--muted)">※ 설치하면 주소창 없는 독립 창으로 열리고 시작 메뉴·작업표시줄에 등록됩니다. Chrome 또는 Edge 에서 지원됩니다.</span>'),window.__alreadyInstalled?(n="이미 설치되어 있습니다",t='이 사이트는 이 기기에 <b>이미 앱으로 설치</b>되어 있어 설치창이 다시 뜨지 않습니다.<br>시작 메뉴 · 작업표시줄(휴대폰은 홈 화면)에서 <b>만민법규</b> 아이콘을 실행하세요.<br><br><span style="color:var(--muted)">※ 아이콘 그림이 예전 것이라면 앱을 <b>삭제 후 재설치</b>해야 새 아이콘이 적용됩니다. Android WebAPK · iOS 홈화면 아이콘은 설치 시점의 이미지를 그대로 보관합니다.</span>'):window.__bip||e.ios||e.kakao||e.naver||(t+='<br><br><b style="color:var(--gold)">설치창이 안 뜨나요?</b><br>① 이전에 <b>“설치 안 함”</b> 을 누르면 Chrome 이 한동안 설치창을 다시 띄우지 않습니다.<br>② 주소창 왼쪽 <b>🔒 → 사이트 설정 → 권한 재설정</b> 후 새로고침하면 복구됩니다.<br>③ <b>chrome://apps</b> 에 이미 설치본이 있으면 삭제한 뒤 다시 시도하세요.<br>④ 현재 상태를 확인하려면 주소 끝에 <b>?diag=1</b> 을 붙여 접속하세요.'),document.getElementById("gdTitle").innerHTML=n,document.getElementById("gdBody").innerHTML=t,document.getElementById("iosgd").classList.add("on")}function closeGuide(){var e=document.getElementById("iosgd");e&&e.classList.remove("on")}window.__alreadyInstalled=!1,window.addEventListener("load",function(){detectInstalled().then(function(e){window.__alreadyInstalled=e,syncInstallBtn()})}),window.addEventListener("bip-ready",syncInstallBtn),window.addEventListener("appinstalled",function(){syncInstallBtn(),closeGuide(),toast("홈 화면에 설치되었습니다")});var _tt,IB_KEY="mlr-ibar-hide";function ibHidden(){try{var e=localStorage.getItem(IB_KEY);return!!(e&&Date.now()<+e)}catch(e){return!1}}function ibHide(){var e=document.getElementById("ibar");e&&e.classList.remove("on"),document.documentElement.classList.remove("ib-on")}function ibClose(){try{localStorage.setItem(IB_KEY,String(Date.now()+2592e6))}catch(e){}ibHide()}function ibAct(){var e=envInfo();if(e.kakao||e.naver)return openGuide(),void ibHide();ibHide(),installApp()}function ibMaybeShow(){if(!(isStandalone()||window.__installed||window.__alreadyInstalled||ibHidden())){var e=document.getElementById("ibar");if(e){var t=envInfo();t.kakao||t.naver?(document.getElementById("ibTitle").textContent="카카오톡 안에서는 설치할 수 없습니다",document.getElementById("ibDesc").textContent="우측 상단 ⋮ 또는 ⋯ → “다른 브라우저로 열기”를 눌러 주세요.",document.getElementById("ibGo").textContent="방법 보기"):t.ios&&(document.getElementById("ibDesc").textContent="공유 → “홈 화면에 추가”로 앱처럼 쓸 수 있습니다."),e.classList.add("on"),document.documentElement.classList.add("ib-on")}}}function installDiag(){var e=document.querySelector("link[rel=manifest]"),t=[],n=function(e,n,a){t.push('<tr><td style="padding:3px 12px 3px 0;color:var(--muted);white-space:nowrap">'+e+'</td><td><b style="color:'+(a?"#5fbf7a":"var(--danger)")+'">'+n+"</b></td></tr>")},a=!(!navigator.serviceWorker||!navigator.serviceWorker.controller);n("HTTPS",isSecureContext?"OK":"실패",isSecureContext),n("manifest 링크",e?"OK":"없음",!!e),n("Service Worker",a?"제어중":"미제어",a),n("설치 프롬프트",window.__bip?"수신됨":"미수신",!!window.__bip),n("이미 설치됨",window.__alreadyInstalled?"예":"아니오",!window.__alreadyInstalled),n("독립창 실행",isStandalone()?"예":"아니오",!0),(e?fetch(e.href).then(function(e){return e.json()}).then(function(t){return Promise.all((t.icons||[]).map(function(t){return fetch(new URL(t.src,e.href).href,{cache:"reload"}).then(function(e){n("아이콘 "+t.sizes+" · "+(t.purpose||"any"),e.status,e.ok)}).catch(function(){n("아이콘 "+t.sizes,"요청 실패",!1)})}))}).catch(function(){}):Promise.resolve()).then(function(){document.getElementById("gdTitle").innerHTML="PWA 설치 진단",document.getElementById("gdBody").innerHTML='<table style="font-size:12.5px">'+t.join("")+'</table><div style="margin-top:10px;color:var(--muted);font-size:11.5px;line-height:1.6">“설치 프롬프트 · 미수신” 인데 나머지가 모두 OK 라면 → 이미 설치되었거나, 이전에 설치를 취소해 Chrome 이 프롬프트를 억제하는 중입니다. 사이트 권한 재설정 또는 기존 설치본 삭제 후 재시도하세요.</div>',document.getElementById("iosgd").classList.add("on")})}function toggleTheme(){var e=document.documentElement,t="light"===e.dataset.theme?"dark":"light";e.dataset.theme=t,localStorage.setItem("mlr-theme",t)}function toast(e){var t=document.getElementById("toast");t.textContent=e,t.classList.add("on"),clearTimeout(_tt),_tt=setTimeout(function(){t.classList.remove("on")},1900)}function copyText(e,t){if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(e).then(function(){toast(t||"복사되었습니다")});else{var n=document.createElement("textarea");n.value=e,n.style.position="fixed",n.style.left="-9999px",document.body.appendChild(n),n.select();try{document.execCommand("copy"),toast(t||"복사되었습니다")}catch(e){toast("복사 실패")}document.body.removeChild(n)}}function share(e){var t=location.href;navigator.share?navigator.share({title:e,url:t}).catch(function(){}):copyText(t,"링크가 복사되었습니다")}function copyAnchor(e){copyText(location.origin+location.pathname+"#"+e,"항목 링크가 복사되었습니다"),location.hash=e}function dday(e){if(!e)return null;var t=new Date;t.setHours(0,0,0,0);var n=new Date(e+"T00:00:00");return Math.round((n-t)/864e5)}function paintDday(){document.querySelectorAll("[data-dl]").forEach(function(e){var t=dday(e.dataset.dl),n=e.dataset.kind||"예고";null!==t&&(t<0?(e.textContent=n+" 종료",e.className="dday soft"):0===t?(e.textContent=n+" 마감 D-DAY",e.className="dday"):t<=10?(e.textContent=n+" 마감 D-"+t,e.className="dday"):(e.textContent=n+" 마감 D-"+t,e.className="dday soft"))}),document.querySelectorAll("[data-ef]").forEach(function(e){var t=dday(e.dataset.ef);null!==t&&(t>0?(e.textContent="시행 D-"+t,e.className="dday ok"):e.style.display="none")})}window.addEventListener("load",function(){setTimeout(ibMaybeShow,2500)}),window.addEventListener("appinstalled",ibHide),/[?&]diag=1/.test(location.search)&&window.addEventListener("load",function(){setTimeout(installDiag,1500)}),function(){var e=localStorage.getItem("mlr-theme");e&&(document.documentElement.dataset.theme=e)}();var F={q:"",cat:"ALL",field:"ALL"};function applyFilter(){var e=F.q.trim().toLowerCase(),t=0;document.querySelectorAll(".card").forEach(function(n){var a="ALL"===F.cat||n.dataset.cat===F.cat,o="ALL"===F.field||(n.dataset.field||"").split("|").indexOf(F.field)>=0,i=!e||(n.dataset.s||"").indexOf(e)>=0,d=a&&o&&i;n.style.display=d?"":"none",d&&t++});var n=document.getElementById("cnt"),a=document.getElementById("empty"),o=document.querySelector(".searchbox .x");n&&(n.textContent=t),a&&(a.style.display=t?"none":"block"),o&&(o.style.display=F.q?"block":"none")}function setChip(e,t,n){F[e]=t,document.querySelectorAll('.chip[data-g="'+e+'"]').forEach(function(e){e.classList.remove("on")}),n.classList.add("on"),applyFilter()}function clearQ(){document.getElementById("q").value="",F.q="",applyFilter()}var _open=!1;function toggleAll(){_open=!_open,document.querySelectorAll("details").forEach(function(e){e.open=_open}),document.getElementById("bAll").textContent=_open?"전체 접기":"전체 펼치기"}function buildText(e){var t=window.__META__,n=[],a=[].slice.call(document.querySelectorAll(".card")).filter(function(e){return"none"!==e.style.display});if("blog"===e){n.push("["+t.label+" 법규 검토 요약] "+t.headline),n.push(""),n.push("건축사 김만민입니다. "+t.label+" 건축·설비·소방 분야 법령 개정사항을 정리했습니다."),n.push("");var o="";a.forEach(function(e,t){e.dataset.cat!==o&&(o=e.dataset.cat,n.push(""),n.push("■ "+o),n.push("")),n.push("▶ "+e.dataset.title),n.push("   · 근거법령 : "+e.dataset.law),n.push("   · "+e.dataset.dlabel+" : "+e.dataset.date.replace(/-/g,".")+"."),n.push("   · "+e.dataset.sum),e.dataset.reason&&n.push("   · 제안이유·주요내용 : "+e.dataset.reason),(e.dataset.detail?JSON.parse(e.dataset.detail):[]).forEach(function(e){n.push("     - "+e)}),e.dataset.impact&&n.push("     ※ 실무영향 : "+e.dataset.impact),n.push("")}),n.push("──────────────"),n.push("전체 요약본 보기 : "+location.href),n.push("MANMIN 엔지니어링 계산도구 : "+t.home),n.push("#건축법규 #법규개정 #건축사 #"+t.label.replace(/\s/g,"")+" #만민법규검토요약")}else n.push("["+t.label+" 법규 검토 요약 — 유튜브 대본 초안]"),n.push(""),n.push("(오프닝)"),n.push("안녕하세요, 건축사 김만민입니다."),n.push("오늘은 "+t.label+"에 나온 건축 관련 법규 개정사항 "+a.length+"건을 정리해 드리겠습니다."),n.push("핵심만 말씀드리면 — "+t.headline+" 입니다."),n.push(""),a.forEach(function(e,t){n.push("── "+(t+1)+". "+e.dataset.title+" ["+e.dataset.cat+"] ──"),n.push("근거는 "+e.dataset.law+"이고, "+e.dataset.dlabel+"은 "+e.dataset.date.replace(/-/g,".")+"입니다."),n.push(e.dataset.sum);var a=e.dataset.detail?JSON.parse(e.dataset.detail):[];a.length&&(n.push("세부 내용은 이렇습니다."),a.forEach(function(e){n.push("  · "+e)})),e.dataset.impact&&n.push("실무에서는요, "+e.dataset.impact),n.push("")}),n.push("(클로징)"),n.push("오늘 정리한 내용은 설명란 링크에서 원문과 함께 확인하실 수 있습니다."),n.push("도움이 되셨다면 구독과 좋아요 부탁드립니다. 감사합니다.");return n.join("\n")}function openText(e){document.getElementById("mask").classList.add("on"),setMode(e)}function setMode(e){document.getElementById("ta").value=buildText(e),document.querySelectorAll("#mtabs .chip").forEach(function(t){t.classList.toggle("on",t.dataset.m===e)})}function closeModal(){document.getElementById("mask").classList.remove("on")}document.addEventListener("DOMContentLoaded",function(){paintDday(),syncInstallBtn();var e=document.getElementById("q");if(e&&e.addEventListener("input",function(){F.q=this.value.toLowerCase(),applyFilter()}),applyFilter(),location.hash){var t=document.querySelector(location.hash);t&&(t.classList.add("hi"),setTimeout(function(){t.classList.remove("hi")},2600))}window.addEventListener("scroll",function(){document.getElementById("top").classList.toggle("on",window.scrollY>500)}),document.addEventListener("keydown",function(t){"Escape"===t.key&&(closeModal(),closeGuide()),"/"===t.key&&"INPUT"!==document.activeElement.tagName&&"TEXTAREA"!==document.activeElement.tagName&&(t.preventDefault(),e&&e.focus())});var n=document.getElementById("mask");n&&n.addEventListener("click",function(e){e.target===n&&closeModal()})});</script>
 
-function firePrompt(){
-  window.__bip.prompt();
-  window.__bip.userChoice.then(function(c){
-    window.__bip=null;
-    if(c.outcome==='accepted'){ window.__installed=true; syncInstallBtn(); }
-    else { toast('설치를 취소했습니다 — 다시 누르면 안내가 열립니다'); }
-  });
-}
-/* 프롬프트가 늦게 도착하는 경우가 있어 즉시 안내로 넘기지 않고 최대 2초 기다린다 */
-function installApp(){
-  if(window.__bip){ firePrompt(); return; }
-  if(window.__alreadyInstalled){ openGuide(); return; }
-  var b=document.getElementById('btnInstall'), done=false;
-  var fin=function(){
-    if(done)return; done=true;
-    window.removeEventListener('bip-ready',on);
-    if(b)b.style.opacity='';
-    if(window.__bip) firePrompt(); else openGuide();
-  };
-  var on=function(){ fin(); };
-  window.addEventListener('bip-ready',on);
-  if(b)b.style.opacity='.6';
-  setTimeout(fin,2000);
-}
-function openGuide(){
-  var e=envInfo(), t='', h='';
-  if(e.kakao || e.naver){
-    h='먼저 기본 브라우저로 열어주세요';
-    t='<b>카카오톡·네이버 앱 내부 화면에서는 설치할 수 없습니다.</b><br><br>' +
-      '우측 상단 <b>⋮ 또는 ⋯</b> → <b>“다른 브라우저로 열기”</b>(또는 Chrome·Safari로 열기)를 선택한 뒤 다시 설치를 눌러 주세요.';
-  } else if(e.ios){
-    h='iPhone · iPad 에서 설치하기';
-    t='① 화면 하단(또는 상단)의 <b>공유 버튼 [ ⬆ ]</b> 을 누릅니다.<br>' +
-      '② 목록을 내려 <b>“홈 화면에 추가”</b> 를 선택합니다.<br>' +
-      '③ 우측 상단 <b>“추가”</b> 를 누르면 완료됩니다.<br><br>' +
-      '<span style="color:var(--muted)">※ iOS 는 이 방식이 곧 앱 설치입니다. 홈 화면 아이콘을 누르면 주소창 없이 앱처럼 열립니다.</span><br>' +
-      '<span style="color:var(--muted)">※ 사파리(Safari)에서만 가능합니다. 크롬에서는 지원되지 않습니다.</span>';
-  } else if(e.samsung){
-    h='삼성 인터넷 — 앱으로 설치';
-    t='① 하단 <b>메뉴(≡)</b> 를 누릅니다.<br>' +
-      '② <b>“현재 페이지 추가”</b> → <b>“홈 화면”</b> 을 선택합니다.<br><br>' +
-      '<span style="color:var(--muted)">※ 삼성 인터넷은 이 경로로 앱 형태(WebAPK)로 설치됩니다. ' +
-      '더 확실하게 하시려면 <b>Chrome</b> 으로 접속해 주세요.</span>';
-  } else if(e.android){
-    h='Android — 앱으로 설치하기';
-    t='① 우측 상단 <b>⋮</b> 메뉴를 누릅니다.<br>' +
-      '② <b>“앱 설치”</b> 를 선택합니다. <span style="color:var(--muted)">(설치형 앱)</span><br><br>' +
-      '<span style="color:var(--muted)">※ “앱 설치”가 안 보이고 <b>“홈 화면에 추가”</b>만 있다면 단순 바로가기입니다. ' +
-      '페이지를 새로고침하고 10초쯤 머문 뒤 다시 열어 보시면 “앱 설치”로 바뀝니다.</span>';
-  } else if(e.firefox){
-    h='Firefox 에서 설치하기';
-    t='Firefox 데스크톱은 앱 설치를 지원하지 않습니다.<br>' +
-      '<b>Chrome · Edge</b> 로 접속하시거나, 이 페이지를 <b>즐겨찾기(Ctrl+D)</b> 에 추가해 주세요.';
-  } else {
-    h='PC — 앱으로 설치하기';
-    t='① 주소창 오른쪽의 <b>설치 아이콘 [ ⊕ ]</b> 또는 모니터 모양 아이콘을 누릅니다.<br>' +
-      '② 아이콘이 없으면 <b>⋮ 메뉴 → 캐스트·저장 및 공유 → 페이지를 앱으로 설치</b> 를 선택합니다.<br><br>' +
-      '<span style="color:var(--muted)">※ 설치하면 주소창 없는 독립 창으로 열리고 시작 메뉴·작업표시줄에 등록됩니다. ' +
-      'Chrome 또는 Edge 에서 지원됩니다.</span>';
-  }
-  if(window.__alreadyInstalled){
-    h='이미 설치되어 있습니다';
-    t='이 사이트는 이 기기에 <b>이미 앱으로 설치</b>되어 있어 설치창이 다시 뜨지 않습니다.<br>' +
-      '시작 메뉴 · 작업표시줄(휴대폰은 홈 화면)에서 <b>만민법규</b> 아이콘을 실행하세요.<br><br>' +
-      '<span style="color:var(--muted)">※ 아이콘 그림이 예전 것이라면 앱을 <b>삭제 후 재설치</b>해야 새 아이콘이 적용됩니다. ' +
-      'Android WebAPK · iOS 홈화면 아이콘은 설치 시점의 이미지를 그대로 보관합니다.</span>';
-  } else if(!window.__bip && !e.ios && !e.kakao && !e.naver){
-    t += '<br><br><b style="color:var(--gold)">설치창이 안 뜨나요?</b><br>' +
-      '① 이전에 <b>“설치 안 함”</b> 을 누르면 Chrome 이 한동안 설치창을 다시 띄우지 않습니다.<br>' +
-      '② 주소창 왼쪽 <b>🔒 → 사이트 설정 → 권한 재설정</b> 후 새로고침하면 복구됩니다.<br>' +
-      '③ <b>chrome://apps</b> 에 이미 설치본이 있으면 삭제한 뒤 다시 시도하세요.<br>' +
-      '④ 현재 상태를 확인하려면 주소 끝에 <b>?diag=1</b> 을 붙여 접속하세요.';
-  }
-  document.getElementById('gdTitle').innerHTML=h;
-  document.getElementById('gdBody').innerHTML=t;
-  document.getElementById('iosgd').classList.add('on');
-}
-function closeGuide(){var g=document.getElementById('iosgd'); if(g)g.classList.remove('on');}
-
-/* ── 첫 방문 설치 안내 바 ──────────────────────────────────────────────
-   헤더의 설치 버튼은 아이콘만 보이는 데다(모바일에서 라벨 숨김) 첫 방문자는
-   그걸 누를 이유를 모른다. 특히 링크가 카카오톡으로 공유되는데 카톡 인앱
-   브라우저는 설치가 아예 불가능하고, 지금까지는 버튼을 눌러야만 그 사실을
-   알 수 있었다. 그래서 상황에 맞는 한 줄을 먼저 보여준다.
-   한 번 닫으면 30일간 뜨지 않는다 — 매번 뜨면 그게 더 방해다. */
-var IB_KEY='mlr-ibar-hide';
-function ibHidden(){
-  try{ var v=localStorage.getItem(IB_KEY); return !!(v && Date.now() < +v); }
-  catch(e){ return false; }
-}
-function ibHide(){
-  var b=document.getElementById('ibar');
-  if(b)b.classList.remove('on');
-  document.documentElement.classList.remove('ib-on');
-}
-function ibClose(){
-  try{ localStorage.setItem(IB_KEY, String(Date.now()+30*24*3600*1000)); }catch(e){}
-  ibHide();
-}
-function ibAct(){
-  var e=envInfo();
-  if(e.kakao||e.naver){ openGuide(); ibHide(); return; }   /* 닫힘 기억은 남기지 않는다 */
-  ibHide();
-  installApp();
-}
-function ibMaybeShow(){
-  if(isStandalone()||window.__installed||window.__alreadyInstalled) return;
-  if(ibHidden()) return;
-  var b=document.getElementById('ibar'); if(!b) return;
-  var e=envInfo();
-  if(e.kakao||e.naver){
-    document.getElementById('ibTitle').textContent='카카오톡 안에서는 설치할 수 없습니다';
-    document.getElementById('ibDesc').textContent='우측 상단 ⋮ 또는 ⋯ → “다른 브라우저로 열기”를 눌러 주세요.';
-    document.getElementById('ibGo').textContent='방법 보기';
-  }else if(e.ios){
-    document.getElementById('ibDesc').textContent='공유 → “홈 화면에 추가”로 앱처럼 쓸 수 있습니다.';
-  }
-  b.classList.add('on');
-  document.documentElement.classList.add('ib-on');
-}
-/* 들어오자마자 띄우면 거슬린다. 잠깐 읽을 시간을 준 뒤 올린다. */
-window.addEventListener('load', function(){ setTimeout(ibMaybeShow, 2500); });
-window.addEventListener('appinstalled', ibHide);
-
-/* ── 설치 진단 — 주소 끝에 ?diag=1 ── */
-function installDiag(){
-  var m=document.querySelector('link[rel=manifest]'), out=[];
-  var push=function(k,v,ok){
-    out.push('<tr><td style="padding:3px 12px 3px 0;color:var(--muted);white-space:nowrap">'+k+
-      '</td><td><b style="color:'+(ok?'#5fbf7a':'var(--danger)')+'">'+v+'</b></td></tr>');
-  };
-  var swOn=!!(navigator.serviceWorker && navigator.serviceWorker.controller);
-  push('HTTPS', isSecureContext?'OK':'실패', isSecureContext);
-  push('manifest 링크', m?'OK':'없음', !!m);
-  push('Service Worker', swOn?'제어중':'미제어', swOn);
-  push('설치 프롬프트', window.__bip?'수신됨':'미수신', !!window.__bip);
-  push('이미 설치됨', window.__alreadyInstalled?'예':'아니오', !window.__alreadyInstalled);
-  push('독립창 실행', isStandalone()?'예':'아니오', true);
-  var job = m ? fetch(m.href).then(function(r){return r.json()}).then(function(j){
-      return Promise.all((j.icons||[]).map(function(i){
-        return fetch(new URL(i.src,m.href).href,{cache:'reload'})
-          .then(function(r){ push('아이콘 '+i.sizes+' · '+(i.purpose||'any'), r.status, r.ok); })
-          .catch(function(){ push('아이콘 '+i.sizes, '요청 실패', false); });
-      }));
-    }).catch(function(){}) : Promise.resolve();
-  job.then(function(){
-    document.getElementById('gdTitle').innerHTML='PWA 설치 진단';
-    document.getElementById('gdBody').innerHTML='<table style="font-size:12.5px">'+out.join('')+'</table>' +
-      '<div style="margin-top:10px;color:var(--muted);font-size:11.5px;line-height:1.6">' +
-      '“설치 프롬프트 · 미수신” 인데 나머지가 모두 OK 라면 → 이미 설치되었거나, 이전에 설치를 취소해 ' +
-      'Chrome 이 프롬프트를 억제하는 중입니다. 사이트 권한 재설정 또는 기존 설치본 삭제 후 재시도하세요.</div>';
-    document.getElementById('iosgd').classList.add('on');
-  });
-}
-if(/[?&]diag=1/.test(location.search)){
-  window.addEventListener('load',function(){ setTimeout(installDiag,1500); });
-}
-
-/* ── 테마 ── */
-(function(){var t=localStorage.getItem('mlr-theme');if(t)document.documentElement.dataset.theme=t;})();
-function toggleTheme(){var h=document.documentElement;
- var n=h.dataset.theme==='light'?'dark':'light';h.dataset.theme=n;localStorage.setItem('mlr-theme',n);}
-
-/* ── 토스트 ── */
-var _tt;
-function toast(m){var e=document.getElementById('toast');e.textContent=m;e.classList.add('on');
- clearTimeout(_tt);_tt=setTimeout(function(){e.classList.remove('on')},1900);}
-
-/* ── 복사 ── */
-function copyText(t,msg){
- if(navigator.clipboard&&window.isSecureContext){
-   navigator.clipboard.writeText(t).then(function(){toast(msg||'복사되었습니다')});
- }else{
-   var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.left='-9999px';
-   document.body.appendChild(a);a.select();try{document.execCommand('copy');toast(msg||'복사되었습니다')}
-   catch(e){toast('복사 실패')}document.body.removeChild(a);
- }}
-
-/* ── 공유 ── */
-function share(title){
- var u=location.href;
- if(navigator.share){navigator.share({title:title,url:u}).catch(function(){});}
- else copyText(u,'링크가 복사되었습니다');
-}
-function copyAnchor(id){
- copyText(location.origin+location.pathname+'#'+id,'항목 링크가 복사되었습니다');
- location.hash=id;
-}
-
-/* ── D-day ── */
-function dday(iso){
- if(!iso)return null;
- var t=new Date();t.setHours(0,0,0,0);
- var d=new Date(iso+'T00:00:00');
- return Math.round((d-t)/86400000);
-}
-function paintDday(){
- document.querySelectorAll('[data-dl]').forEach(function(el){
-   var n=dday(el.dataset.dl),kind=el.dataset.kind||'예고';
-   if(n===null)return;
-   if(n<0){el.textContent=kind+' 종료';el.className='dday soft';}
-   else if(n===0){el.textContent=kind+' 마감 D-DAY';el.className='dday';}
-   else if(n<=10){el.textContent=kind+' 마감 D-'+n;el.className='dday';}
-   else {el.textContent=kind+' 마감 D-'+n;el.className='dday soft';}
- });
- document.querySelectorAll('[data-ef]').forEach(function(el){
-   var n=dday(el.dataset.ef);
-   if(n===null)return;
-   if(n>0){el.textContent='시행 D-'+n;el.className='dday ok';}
-   else {el.style.display='none';}
- });
-}
-
-/* ── 필터 ── */
-var F={q:'',cat:'ALL',field:'ALL'};
-function applyFilter(){
- var q=F.q.trim().toLowerCase(), n=0;
- document.querySelectorAll('.card').forEach(function(c){
-  var okc = F.cat==='ALL' || c.dataset.cat===F.cat;
-  var okf = F.field==='ALL' || (c.dataset.field||'').split('|').indexOf(F.field)>=0;
-  var okq = !q || (c.dataset.s||'').indexOf(q)>=0;
-  var show = okc&&okf&&okq;
-  c.style.display = show?'':'none';
-  if(show)n++;
- });
- /* index.html 에는 검색·카드 영역이 없다 — 없는 요소를 건드리면 초기화가 중단돼 스크롤 처리까지 죽는다 */
- var cnt=document.getElementById('cnt'), emp=document.getElementById('empty'),
-     x=document.querySelector('.searchbox .x');
- if(cnt)cnt.textContent=n;
- if(emp)emp.style.display = n?'none':'block';
- if(x)x.style.display = F.q?'block':'none';
-}
-function setChip(g,v,el){
- F[g]=v;
- document.querySelectorAll('.chip[data-g="'+g+'"]').forEach(function(e){e.classList.remove('on')});
- el.classList.add('on');applyFilter();
-}
-function clearQ(){document.getElementById('q').value='';F.q='';applyFilter();}
-
-/* ── 전체 펼침/접기 ── */
-var _open=false;
-function toggleAll(){
- _open=!_open;
- document.querySelectorAll('details').forEach(function(d){d.open=_open});
- document.getElementById('bAll').textContent=_open?'전체 접기':'전체 펼치기';
-}
-
-/* ── 텍스트 추출 ── */
-function buildText(mode){
- var meta=window.__META__, lines=[];
- var vis=[].slice.call(document.querySelectorAll('.card')).filter(function(c){return c.style.display!=='none'});
- if(mode==='blog'){
-  lines.push('['+meta.label+' 법규 검토 요약] '+meta.headline);
-  lines.push('');
-  lines.push('건축사 김만민입니다. '+meta.label+' 건축·설비·소방 분야 법령 개정사항을 정리했습니다.');
-  lines.push('');
-  var cur='';
-  vis.forEach(function(c,i){
-   if(c.dataset.cat!==cur){cur=c.dataset.cat;lines.push('');lines.push('■ '+cur);lines.push('');}
-   lines.push('▶ '+c.dataset.title);
-   lines.push('   · 근거법령 : '+c.dataset.law);
-   lines.push('   · '+c.dataset.dlabel+' : '+c.dataset.date.replace(/-/g,'.')+'.');
-   lines.push('   · '+c.dataset.sum);
-   if(c.dataset.reason)lines.push('   · 제안이유·주요내용 : '+c.dataset.reason);
-   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
-   d.forEach(function(x){lines.push('     - '+x)});
-   if(c.dataset.impact)lines.push('     ※ 실무영향 : '+c.dataset.impact);
-   lines.push('');
-  });
-  lines.push('──────────────');
-  lines.push('전체 요약본 보기 : '+location.href);
-  lines.push('MANMIN 엔지니어링 계산도구 : '+meta.home);
-  lines.push('#건축법규 #법규개정 #건축사 #'+meta.label.replace(/\s/g,'')+' #만민법규검토요약');
- } else {
-  lines.push('['+meta.label+' 법규 검토 요약 — 유튜브 대본 초안]');
-  lines.push('');
-  lines.push('(오프닝)');
-  lines.push('안녕하세요, 건축사 김만민입니다.');
-  lines.push('오늘은 '+meta.label+'에 나온 건축 관련 법규 개정사항 '+vis.length+'건을 정리해 드리겠습니다.');
-  lines.push('핵심만 말씀드리면 — '+meta.headline+' 입니다.');
-  lines.push('');
-  vis.forEach(function(c,i){
-   lines.push('── '+(i+1)+'. '+c.dataset.title+' ['+c.dataset.cat+'] ──');
-   lines.push('근거는 '+c.dataset.law+'이고, '+c.dataset.dlabel+'은 '+c.dataset.date.replace(/-/g,'.')+'입니다.');
-   lines.push(c.dataset.sum);
-   var d=c.dataset.detail?JSON.parse(c.dataset.detail):[];
-   if(d.length){lines.push('세부 내용은 이렇습니다.');d.forEach(function(x){lines.push('  · '+x)});}
-   if(c.dataset.impact)lines.push('실무에서는요, '+c.dataset.impact);
-   lines.push('');
-  });
-  lines.push('(클로징)');
-  lines.push('오늘 정리한 내용은 설명란 링크에서 원문과 함께 확인하실 수 있습니다.');
-  lines.push('도움이 되셨다면 구독과 좋아요 부탁드립니다. 감사합니다.');
- }
- return lines.join('\n');
-}
-function openText(mode){
- document.getElementById('mask').classList.add('on');
- setMode(mode);
-}
-function setMode(mode){
- document.getElementById('ta').value=buildText(mode);
- document.querySelectorAll('#mtabs .chip').forEach(function(e){
-   e.classList.toggle('on', e.dataset.m===mode)});
-}
-function closeModal(){document.getElementById('mask').classList.remove('on')}
-
-/* ── 초기화 ── */
-document.addEventListener('DOMContentLoaded',function(){
- paintDday();
- syncInstallBtn();
- var q=document.getElementById('q');
- if(q){q.addEventListener('input',function(){F.q=this.value.toLowerCase();applyFilter()});}
- applyFilter();
- if(location.hash){var el=document.querySelector(location.hash);
-   if(el){el.classList.add('hi');setTimeout(function(){el.classList.remove('hi')},2600);}}
- window.addEventListener('scroll',function(){
-   document.getElementById('top').classList.toggle('on',window.scrollY>500)});
- document.addEventListener('keydown',function(e){
-   if(e.key==='Escape'){closeModal();closeGuide();}
-   if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){
-     e.preventDefault();if(q)q.focus();}
- });
- var m=document.getElementById('mask');
- if(m)m.addEventListener('click',function(e){if(e.target===m)closeModal()});
-});
-</script>
-<!-- MM-HEADER:BEGIN v1.1 -->
 <style id="mm-header-local">@media (min-width:768px) and (min-height:600px){.mm-hdr-c .hd{padding-top:8px!important;padding-bottom:8px!important}.toolbar{top:var(--mm-hdr-h,59px)}}</style>
-<script id="mm-header-js" data-shell="body&gt;header" data-hide=".hdbtns">
-/* manmin-header.js v1.1 — MANMIN 공통 헤더 고정 원본 (2026-11-25, MIN 「추천안대로 진행해줘」 — 데스크톱 · 태블릿만 고정, 휴대폰은 고정 없이)
-   v1.1 보강 — matchMedia 없는 브라우저는 고정하지 않음 · check.py 주입 누락 = 실패(Codex 지적, MIN 「1~3 모두 승인」)
-   v1.0 (2026-11-25, MIN 「추천안대로 승인」) — 처음 판(모든 화면 고정)
-   직접 고치지 말 것: 도구에는 inject.py 로만 넣고 check.py 로 확인한다(MM-PRINT · MM-PROJECT 와 같은 방식).
-   동작
-   - 고정 화면 조건(MQ, 아래 기본값: 폭 768px 이상 + 높이 600px 이상 = 태블릿 · 데스크톱)에서만 작동한다.
-     휴대폰(세로 · 가로 모두)은 조건 밖 → 머리가 지금처럼 스크롤과 함께 올라가고, 도구별 css 도 적용되지 않는다(화면이 원래와 같음).
-     화면을 돌리거나 창 크기가 바뀌어 조건이 바뀌면 그 자리에서 고정/해제가 바뀐다.
-   - data-shell 로 찾은 머리 덩어리(머리 + 탭)를 position:sticky; top:0 으로 붙인다.
-   - 내려서 머리 높이 차(Δ = 전체 − 접힘)만큼 지나면 .mm-hdr-c 를 붙여 data-hide 요소를 숨긴다(접힘).
-     접힐 때 줄어든 Δ 만큼 margin-bottom 을 주어 문서 높이를 그대로 둔다 → 내용이 튀지 않고, 스크롤 고정(앵커링) 때문에 접힘/펼침이 되풀이되지 않는다.
-   - 지금 보이는 머리 높이를 --mm-hdr-h 로 내보낸다(조건 밖이면 0) → html scroll-padding-top(앵커 · scrollIntoView 가림 방지)와 도구의 다른 sticky 패널이 쓴다.
-   - 인쇄 · JPG 출력에는 영향 없음(@media print 에서 static, 머리는 원래 no-print).
-   설정(script 태그 속성 · tools.json): data-shell(필수, CSS 선택자) · data-hide(접힐 때 숨길 요소, 없으면 접지 않고 붙이기만) · data-mq(고정 화면 조건, 없으면 MQ 기본값)
-   도구별 접힘 여백 등은 tools.json "css" → 같은 구간 안 <style id="mm-header-local"> 로 들어가며, inject 가 같은 MQ 조건(@media)으로 감싼다. */
-(function () {
-  var MQ_DEFAULT = '(min-width:768px) and (min-height:600px)';
-  var S = document.currentScript;
-  var SEL = S.getAttribute('data-shell'), HIDE = S.getAttribute('data-hide') || '', MQ = S.getAttribute('data-mq') || MQ_DEFAULT;
-  if (!SEL || !window.matchMedia) return;   /* matchMedia 모르는 옛 브라우저 → 스타일도 넣지 않고 지금처럼(휴대폰과 같게) */
-  var st = document.createElement('style');
-  st.id = 'mm-header-css';
-  st.textContent =
-    '@media ' + MQ + '{' +
-      '.mm-hdr{position:-webkit-sticky;position:sticky;top:0;z-index:1100}' +
-      'html{scroll-padding-top:calc(var(--mm-hdr-h,0px) + 8px)}' +
-      (HIDE ? '.mm-hdr.mm-hdr-c :is(' + HIDE + '){display:none!important}' : '') +
-    '}' +
-    '@media print{.mm-hdr{position:static!important;margin-bottom:0!important}html{scroll-padding-top:0!important}}';
-  document.head.appendChild(st);
-  var mql = window.matchMedia(MQ);
-  function active() { return mql.matches; }
-  var el = null, full = 0, comp = 0, on = false, raf = 0, lastW = 0;
-  function setVar() {
-    document.documentElement.style.setProperty('--mm-hdr-h', active() ? (on ? comp : full) + 'px' : '0px');
-  }
-  function apply(want) {
-    on = want;
-    el.classList.toggle('mm-hdr-c', on);
-    el.style.marginBottom = on ? (full - comp) + 'px' : '';
-    setVar();
-  }
-  function measure() {
-    var was = on;
-    el.classList.remove('mm-hdr-c'); el.style.marginBottom = '';
-    if (!active()) { on = false; full = comp = 0; setVar(); return; }   /* 휴대폰: 고정 · 접힘 없음 */
-    full = el.offsetHeight;
-    if (HIDE) { el.classList.add('mm-hdr-c'); comp = el.offsetHeight; el.classList.remove('mm-hdr-c'); } else comp = full;
-    on = false; apply(was && full - comp > 4); update();
-  }
-  function update() {
-    raf = 0;
-    if (!el || !active()) return;
-    var d = full - comp, want = d > 4 && (window.pageYOffset || document.documentElement.scrollTop) > d;
-    if (want !== on) apply(want);
-  }
-  function onScroll() { if (!raf) raf = requestAnimationFrame(update); }
-  function onResize() {
-    var w = window.innerWidth;
-    if (w === lastW) return;          /* 아이폰 주소창 높이 변화(폭 그대로)는 무시 — 높이 조건이 바뀌면 아래 mql 변화로 처리 */
-    lastW = w; measure();
-  }
-  function init() {
-    try { el = document.querySelector(SEL); } catch (e) { el = null; return true; }   /* :has() 모르는 옛 브라우저 → 고정 없이 지금처럼 */
-    if (!el) return false;
-    el.classList.add('mm-hdr');
-    lastW = window.innerWidth; measure();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
-    if (mql.addEventListener) mql.addEventListener('change', measure); else if (mql.addListener) mql.addListener(measure);   /* 화면 돌림 · 창 크기로 조건이 바뀔 때 */
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);   /* 글꼴 늦게 오면 높이 다시 */
-    window.addEventListener('load', measure);
-    return true;
-  }
-  if (!init()) {                        /* React 도구: 머리가 늦게 그려지면 나타날 때까지 기다림 */
-    var mo = new MutationObserver(function () { if (init()) mo.disconnect(); });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-    setTimeout(function () { mo.disconnect(); }, 15000);
-  }
-  window.mmHeaderRemeasure = function () { if (el) measure(); };
-})();
-</script>
-<!-- MM-HEADER:END -->
-<!-- MM-FAB:BEGIN v1.0 -->
-<script id="mm-fab-js" data-items="[{&quot;sel&quot;:&quot;#top&quot;,&quot;kind&quot;:&quot;mini&quot;}]" data-print-hide="[&quot;.ibar&quot;,&quot;.iosgd&quot;]" data-pill="0">
-/* MANMIN 공통 하단 떠 있는 단추 원본 manmin-fab.js v1.0 (2026-11-26, 작업지시서 §25-6-117 — 샘플 v0.9 · MIN 「권장안대로 승인」)
-   정본: Z:\MIN-A\01.만민자료\02.설계자료\11.개발자료\68.개발자료[하단버튼]\버전s-1.0\manmin-fab-v1.0\
-   도구에는 inject.py 가 MM-FAB:BEGIN · MM-FAB:END 표식 사이에 그대로 끼워 넣음(외부 링크 없음). 도구에서 직접 고치지 말 것.
-   하는 일: 오른쪽 아래 떠 있는 단추(안내 · 초기화 · 앱 설치 · 건물개요 · 맨 위로)를 한 줄 기둥으로 쌓고 크기 · 여백 · 간격을 통일한다.
-     - 도구의 단추 HTML · 이벤트 · 색 · 글자는 그대로 두고, 자리와 크기만 스타일시트(!important)로 정한다(DOM 이동 없음 → React 도구도 안전).
-     - data-items = 아래 → 위 순서의 선택자 목록. 문자열은 tile(72×76), {"sel":..,"kind":"mini"} 은 44×44 원, "pill" 은 72×28.
-       건물개요(.mm-proj-btn, MM-PROJECT)는 목록에 없으면 맨 위 pill 로 자동 추가(data-pill="0" 이면 안 함).
-     - 숨겨진 단추(display:none · 조건부 앱 설치 단추)는 자리를 차지하지 않는다 → 나타나면 위 단추가 한 칸 올라가고, 사라지면 내려와 빈칸 없이 간격 8px.
-     - 앱 설치 단추(선택자에 install · pwa-fab 포함, 또는 "install":true)는 설치 완료(appinstalled) · 앱으로 실행 중(standalone)이면
-       도구가 숨기지 않아도 숨긴다(브라우저 메뉴로 설치해 도구의 설치 단추가 남는 경우 포함).
-     - 화면 아래에 붙는 띠가 보이면 그 높이 + 간격만큼 기둥 전체를 올린다. MANMIN 설치 · 업데이트 띠(AVOID0 — 클래스 · id 14종)는 기본,
-       data-avoid = 도구별 추가(점수 바 · 상태줄 등). 아래 240px 안에 걸친 띠면 화면 끝에서 조금 떠 있어도 피한다. 띠가 닫히면 다시 내려온다.
-     - 건물개요 메뉴(.mm-proj-menu)는 건물개요 단추 바로 위에 열리게 자리만 맞춘다.
-   규격(v1.0): 기준점 오른쪽 18 · 아래 18px(휴대폰 <768px: 12 · 16px) + 아이폰 홈 막대(safe-area), 간격 8px,
-     tile 72×76 · 둥근 모서리 16px, pill 72×28, mini 44×44, z-index 1200(머리 1100 위 · 창 9000 아래).
-     높이가 낮은 화면(≤500px, 휴대폰 가로): tile 60×60 · 간격 6px.
-   인쇄 · JPG: 목록의 단추 + 기본 설치 · 업데이트 띠(AVOID0) + data-print-hide 선택자를 @media print 에서 숨김. */
-(function () {
-  var me = document.currentScript; if (!me || window.MMFab) return;
-  var VER = 'v1.0';
-  function J(a, d) { try { return JSON.parse(me.getAttribute(a) || d); } catch (e) { return JSON.parse(d); } }
-  var INST_RE = /install|pwa-fab|pwa-hdr/i;   /* 앱 설치 단추로 볼 선택자(목록에서 "install":false 로 끌 수 있음) */
-  var items = J('data-items', '[]').map(function (x) {
-    var o = typeof x === 'string' ? { sel: x } : x;
-    return { sel: o.sel, kind: o.kind || 'tile', install: o.install !== undefined ? !!o.install : INST_RE.test(o.sel) };
-  });
-  if (me.getAttribute('data-pill') !== '0' && !items.some(function (x) { return x.sel === '.mm-proj-btn'; })) items.push({ sel: '.mm-proj-btn', kind: 'pill' });
-  var AVOID0 = ['.pwa-install-banner', '.pwa-banner', '.pwa-outer', '.install-banner', '.ibar', '.iosgd', '#pwa-banner', '#pwaBanner', '#pwa-install-banner', '#pwa-install-bar', '#pwa-bottom-banner', '#installBanner', '#sw-update-bar', '#mm-ios-tip'];
-  var avoid = AVOID0.concat(J('data-avoid', '[]'));   /* MANMIN 설치 · 업데이트 띠는 기본으로 피함 + 도구별 추가 */
-  if (!items.length) return;
-  var mqPhone = window.matchMedia ? matchMedia('(max-width:767px)') : null;
-  var mqShort = window.matchMedia ? matchMedia('(max-height:500px)') : null;
-  var mqApp = window.matchMedia ? matchMedia('(display-mode: standalone)') : null;
-  var justInstalled = false;   /* 이번 방문에서 설치 완료(appinstalled) — 새로 고침하면 브라우저가 설치 단추를 다시 띄우지 않으므로 저장하지 않음 */
-  function installed() { return justInstalled || !!(mqApp && mqApp.matches) || navigator.standalone === true; }
-  var live = document.createElement('style'); live.id = 'mm-fab-live';
-  var fixed = document.createElement('style'); fixed.id = 'mm-fab-style';
-  var all = items.map(function (x) { return x.sel; }).concat(AVOID0, J('data-print-hide', '[]')).join(',');   /* 설치 · 업데이트 띠(AVOID0)는 인쇄 내용이 아니므로 기본 숨김 + data-print-hide = 도구별 추가 */
-  fixed.textContent = '@media print{' + all + '{display:none!important}}';
-  document.head.appendChild(fixed); document.head.appendChild(live);
+<script id="mm-header-js" data-shell="body&gt;header" data-hide=".hdbtns">!function(){var t=document.currentScript,e=t.getAttribute("data-shell"),n=t.getAttribute("data-hide")||"",i=t.getAttribute("data-mq")||"(min-width:768px) and (min-height:600px)";if(e&&window.matchMedia){var d=document.createElement("style");d.id="mm-header-css",d.textContent="@media "+i+"{.mm-hdr{position:-webkit-sticky;position:sticky;top:0;z-index:1100}html{scroll-padding-top:calc(var(--mm-hdr-h,0px) + 8px)}"+(n?".mm-hdr.mm-hdr-c :is("+n+"){display:none!important}":"")+"}@media print{.mm-hdr{position:static!important;margin-bottom:0!important}html{scroll-padding-top:0!important}}",document.head.appendChild(d);var o=window.matchMedia(i),r=null,m=0,a=0,s=!1,c=0,u=0;if(!y()){var l=new MutationObserver(function(){y()&&l.disconnect()});l.observe(document.documentElement,{childList:!0,subtree:!0}),setTimeout(function(){l.disconnect()},15e3)}window.mmHeaderRemeasure=function(){r&&w()}}function h(){return o.matches}function p(){document.documentElement.style.setProperty("--mm-hdr-h",h()?(s?a:m)+"px":"0px")}function f(t){s=t,r.classList.toggle("mm-hdr-c",s),r.style.marginBottom=s?m-a+"px":"",p()}function w(){var t=s;if(r.classList.remove("mm-hdr-c"),r.style.marginBottom="",!h())return s=!1,m=a=0,void p();m=r.offsetHeight,n?(r.classList.add("mm-hdr-c"),a=r.offsetHeight,r.classList.remove("mm-hdr-c")):a=m,s=!1,f(t&&m-a>4),v()}function v(){if(c=0,r&&h()){var t=m-a,e=t>4&&(window.pageYOffset||document.documentElement.scrollTop)>t;e!==s&&f(e)}}function g(){c||(c=requestAnimationFrame(v))}function L(){var t=window.innerWidth;t!==u&&(u=t,w())}function y(){try{r=document.querySelector(e)}catch(t){return r=null,!0}return!!r&&(r.classList.add("mm-hdr"),u=window.innerWidth,w(),window.addEventListener("scroll",g,{passive:!0}),window.addEventListener("resize",L),o.addEventListener?o.addEventListener("change",w):o.addListener&&o.addListener(w),document.fonts&&document.fonts.ready&&document.fonts.ready.then(w),window.addEventListener("load",w),!0)}}();</script>
 
-  function geo() {
-    var ph = mqPhone && mqPhone.matches, sh = mqShort && mqShort.matches;
-    return { R: ph ? 12 : 18, B: ph ? 16 : 18, G: sh ? 6 : 8, tile: sh ? [60, 60] : [72, 76], pill: [72, 28], mini: [44, 44] };
-  }
-  function shown(el) {
-    if (!el || !el.getClientRects().length) return false;
-    var cs = getComputedStyle(el); return cs.visibility !== 'hidden' && cs.display !== 'none';
-  }
-  var last = '', state = {};
-  function layout() {
-    var g = geo(), vw = innerWidth, vh = innerHeight, lift = 0, liftBy = [];
-    avoid.forEach(function (s) {
-      var els; try { els = document.querySelectorAll(s); } catch (e) { return; }
-      Array.prototype.forEach.call(els, function (el) {
-        if (!shown(el)) return; var r = el.getBoundingClientRect();
-        if (r.top >= vh - 1 || r.bottom < vh - 240 || r.right < vw - g.R - g.tile[0] || r.height > vh * 0.6) return;   /* 화면 아래쪽(240px 안)에 걸쳐 기둥 쪽에 있는 띠만 — 창 · 큰 패널 제외 */
-        var h = vh - r.top + g.G; if (h > lift) { lift = h; } liftBy.push(s);
-      });
-    });
-    var off = lift, css = '', slots = [], pillOff = null, inst = installed();
-    items.forEach(function (it) {
-      if (it.install && inst) { css += it.sel + '{display:none!important}'; return; }   /* 설치 뒤 · 앱 실행 중 = 설치 단추 숨기고 자리도 비우지 않음 */
-      var el; try { el = document.querySelector(it.sel); } catch (e) { return; }
-      if (!shown(el)) return;
-      var sz = g[it.kind] || g.tile, base = 'bottom:calc(' + g.B + 'px + env(safe-area-inset-bottom,0px) + ' + Math.round(off) + 'px)!important;';
-      css += it.sel + '{position:fixed!important;right:' + g.R + 'px!important;left:auto!important;top:auto!important;' + base
-        + 'width:' + sz[0] + 'px!important;height:' + sz[1] + 'px!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;'
-        + 'margin:0!important;box-sizing:border-box!important;z-index:1200!important;'
-        + (it.kind === 'tile' ? 'padding:4px 3px!important;border-radius:16px!important;justify-content:center!important;align-items:center!important;gap:2px!important;line-height:1.15!important;text-align:center!important;' : '')
-        + (it.kind === 'pill' ? 'padding:0 4px!important;border-radius:999px!important;justify-content:center!important;gap:3px!important;font-size:11.5px!important;line-height:1!important;' : '')
-        + (it.kind === 'mini' ? 'padding:0!important;border-radius:50%!important;' : '')
-        + '}';
-      if (it.kind === 'pill' && it.sel === '.mm-proj-btn') pillOff = off;
-      slots.push({ sel: it.sel, kind: it.kind, bottom: g.B + Math.round(off) });
-      off += sz[1] + g.G;
-    });
-    if (pillOff !== null) {
-      var mb = g.B + Math.round(pillOff) + g.pill[1] + 6;
-      css += '.mm-proj-menu{right:' + g.R + 'px!important;left:auto!important;top:auto!important;bottom:calc(' + mb + 'px + env(safe-area-inset-bottom,0px))!important;max-height:calc(100vh - ' + (mb + 8) + 'px)!important;overflow:auto!important}';
-    }
-    css = '@media screen{' + css + '}';
-    if (css !== last) { live.textContent = css; last = css; }
-    state = { ver: VER, geo: g, lift: Math.round(lift), liftBy: liftBy, installed: inst, slots: slots };
-  }
-  var q = 0;
-  function sched() { if (q) return; q = (window.requestAnimationFrame || setTimeout)(function () { q = 0; layout(); }); }
-  layout();
-  addEventListener('resize', sched); addEventListener('orientationchange', sched); addEventListener('load', sched);
-  addEventListener('appinstalled', function () { justInstalled = true; sched(); });
-  if (mqApp) { if (mqApp.addEventListener) mqApp.addEventListener('change', sched); else if (mqApp.addListener) mqApp.addListener(sched); }
-  document.addEventListener('transitionend', sched, true); document.addEventListener('animationend', sched, true);
-  if (window.MutationObserver) new MutationObserver(sched).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'hidden'] });
-  window.MMFab = { ver: VER, layout: layout, state: function () { return state; } };
-})();
-</script>
-<!-- MM-FAB:END -->
+<script id="mm-fab-js" data-items="[{&quot;sel&quot;:&quot;#top&quot;,&quot;kind&quot;:&quot;mini&quot;}]" data-print-hide="[&quot;.ibar&quot;,&quot;.iosgd&quot;]" data-pill="0">!function(){var t=document.currentScript;if(t&&!window.MMFab){var n="v1.0",e=/install|pwa-fab|pwa-hdr/i,i=f("data-items","[]").map(function(t){var n="string"==typeof t?{sel:t}:t;return{sel:n.sel,kind:n.kind||"tile",install:void 0!==n.install?!!n.install:e.test(n.sel)}});"0"===t.getAttribute("data-pill")||i.some(function(t){return".mm-proj-btn"===t.sel})||i.push({sel:".mm-proj-btn",kind:"pill"});var a=[".pwa-install-banner",".pwa-banner",".pwa-outer",".install-banner",".ibar",".iosgd","#pwa-banner","#pwaBanner","#pwa-install-banner","#pwa-install-bar","#pwa-bottom-banner","#installBanner","#sw-update-bar","#mm-ios-tip"],r=a.concat(f("data-avoid","[]"));if(i.length){var o=window.matchMedia?matchMedia("(max-width:767px)"):null,d=window.matchMedia?matchMedia("(max-height:500px)"):null,p=window.matchMedia?matchMedia("(display-mode: standalone)"):null,l=!1,m=document.createElement("style");m.id="mm-fab-live";var s=document.createElement("style");s.id="mm-fab-style";var u=i.map(function(t){return t.sel}).concat(a,f("data-print-hide","[]")).join(",");s.textContent="@media print{"+u+"{display:none!important}}",document.head.appendChild(s),document.head.appendChild(m);var c="",h={},b=0;g(),addEventListener("resize",x),addEventListener("orientationchange",x),addEventListener("load",x),addEventListener("appinstalled",function(){l=!0,x()}),p&&(p.addEventListener?p.addEventListener("change",x):p.addListener&&p.addListener(x)),document.addEventListener("transitionend",x,!0),document.addEventListener("animationend",x,!0),window.MutationObserver&&new MutationObserver(x).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class","style","hidden"]}),window.MMFab={ver:n,layout:g,state:function(){return h}}}}function f(n,e){try{return JSON.parse(t.getAttribute(n)||e)}catch(t){return JSON.parse(e)}}function v(t){if(!t||!t.getClientRects().length)return!1;var n=getComputedStyle(t);return"hidden"!==n.visibility&&"none"!==n.display}function g(){var t,e,a=(t=o&&o.matches,e=d&&d.matches,{R:t?12:18,B:t?16:18,G:e?6:8,tile:e?[60,60]:[72,76],pill:[72,28],mini:[44,44]}),s=innerWidth,u=innerHeight,b=0,f=[];r.forEach(function(t){var n;try{n=document.querySelectorAll(t)}catch(t){return}Array.prototype.forEach.call(n,function(n){if(v(n)){var e=n.getBoundingClientRect();if(!(e.top>=u-1||e.bottom<u-240||e.right<s-a.R-a.tile[0]||e.height>.6*u)){var i=u-e.top+a.G;i>b&&(b=i),f.push(t)}}})});var g=b,x="",w=[],y=null,M=l||!(!p||!p.matches)||!0===navigator.standalone;if(i.forEach(function(t){if(t.install&&M)x+=t.sel+"{display:none!important}";else{var n;try{n=document.querySelector(t.sel)}catch(t){return}if(v(n)){var e=a[t.kind]||a.tile,i="bottom:calc("+a.B+"px + env(safe-area-inset-bottom,0px) + "+Math.round(g)+"px)!important;";x+=t.sel+"{position:fixed!important;right:"+a.R+"px!important;left:auto!important;top:auto!important;"+i+"width:"+e[0]+"px!important;height:"+e[1]+"px!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;margin:0!important;box-sizing:border-box!important;z-index:1200!important;"+("tile"===t.kind?"padding:4px 3px!important;border-radius:16px!important;justify-content:center!important;align-items:center!important;gap:2px!important;line-height:1.15!important;text-align:center!important;":"")+("pill"===t.kind?"padding:0 4px!important;border-radius:999px!important;justify-content:center!important;gap:3px!important;font-size:11.5px!important;line-height:1!important;":"")+("mini"===t.kind?"padding:0!important;border-radius:50%!important;":"")+"}","pill"===t.kind&&".mm-proj-btn"===t.sel&&(y=g),w.push({sel:t.sel,kind:t.kind,bottom:a.B+Math.round(g)}),g+=e[1]+a.G}}}),null!==y){var E=a.B+Math.round(y)+a.pill[1]+6;x+=".mm-proj-menu{right:"+a.R+"px!important;left:auto!important;top:auto!important;bottom:calc("+E+"px + env(safe-area-inset-bottom,0px))!important;max-height:calc(100vh - "+(E+8)+"px)!important;overflow:auto!important}"}(x="@media screen{"+x+"}")!==c&&(m.textContent=x,c=x),h={ver:n,geo:a,lift:Math.round(b),liftBy:f,installed:M,slots:w}}function x(){b||(b=(window.requestAnimationFrame||setTimeout)(function(){b=0,g()}))}}();</script>
+
 </body></html>
