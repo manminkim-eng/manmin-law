@@ -1,0 +1,23 @@
+Copyright (c) 2026 Kim Manmin (Architect, MANMIN). All rights reserved.
+저작권자: 김만민 건축사 (MANMIN) — 모든 권리 보유
+
+[허용 / Permitted]
+- 공개된 웹 주소(https://manminkim-eng.github.io/manmin-law/)에 접속해 화면에서 사용하는 것
+- 브라우저의 「앱 설치」(PWA)로 설치해 사용하는 것
+- 도구가 만든 계산서 · 검토서 출력물을 자신의 업무에 쓰는 것
+- Using this tool through its published web address, installing it as a web app (PWA),
+  and using the reports it generates for your own work.
+
+[금지 / Not permitted without prior written permission]
+- 이 저장소의 소스 코드 · 계산 로직 · 법규 데이터 · 화면 디자인 · 매뉴얼의 복제, 수정, 재배포, 다른 사이트 게시
+- 유료 판매 · 서비스 탑재 등 상업적 재사용
+- AI 학습 · 데이터셋 구축을 위한 수집
+- Copying, modifying, redistributing or republishing the source code, calculation logic,
+  regulatory data, design or manuals; commercial reuse; collection for AI training or datasets.
+
+[면책 / Disclaimer]
+- 계산 · 검토 결과는 설계자의 판단을 돕는 참고 자료이며, 최종 책임은 사용자에게 있습니다.
+  법령은 법제처 국가법령정보센터 원문으로 확인하십시오.
+- Results are provided "as is" for reference; the user is responsible for final decisions.
+
+문의 / Contact: 저장소 소유자(manminkim-eng)에게 GitHub로 문의
